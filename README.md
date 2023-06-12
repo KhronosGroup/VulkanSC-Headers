@@ -1,88 +1,19 @@
-# Vulkan-Headers
+# VulkanSC-Headers
 
-Vulkan header files and API registry
+Vulkan SC header files and API registry
 
-The default branch of this repository is `main`, containing files for the Vulkan API.
+> **IMPORTANT NOTE:** This repository is to be used with the [Vulkan SC](https://www.khronos.org/vulkansc/) API and should not be confused with the similar repository that exists for the Vulkan API (see https://github.com/KhronosGroup/Vulkan-Headers).
 
-The `sc_main` branch contains files for the Vulkan SC API.
-The API XML and some of the scripts in this branch differ slightly from the
-equivalent files in the `main` branch for Vulkan, and there are additional
-generated `.json` files in the `json/` directory.
+## Contributing
 
+See the [CONTRIBUTING.md](CONTRIBUTING.md)
 
-## Repository Content
+## Building
 
-The contents of this repository are largely obtained from other repositories
-and are collected, coordinated, and curated here.
-
-If proposing changes to any file originating from a different repository,
-please propose such changes in that repository, rather than Vulkan-Headers.
-Files in this repository originate from:
-
-
-### Specification repository
-
-For the `main` branch, these files are derived from https://github.com/KhronosGroup/Vulkan-Docs
-
-For the `sc_main` branch, these files are derived from https://github.com/KhronosGroup/VulkanSC-Docs
-
-* registry/cgenerator.py
-* registry/conventions.py
-* registry/generator.py
-* registry/genvk.py
-* registry/reg.py
-* registry/spec_tools/util.py
-* registry/validusage.json
-* registry/vk.xml
-* registry/vkconventions.py
-* All files under include/vulkan/ which are *not* listed explicitly as originating from another repository.
-* For the `sc_main` branch, all `.json` files under `json/`
-
-
-### This repository (https://github.com/KhronosGroup/Vulkan-Headers)
-
-* .cmake-format.py
-* BUILD.gn
-* BUILD.md
-* CMakeLists.txt
-* CODE_OF_CONDUCT.md
-* LICENSE.txt
-* README.md
-* cmake/Copyright_cmake.txt
-* cmake/cmake_uninstall.cmake.in
-* Non-API headers (report issues to the [Vulkan-Loader/issues](https://github.com/KhronosGroup/Vulkan-Loader/issues) tracker)
-  * include/vulkan/vk_icd.h
-  * include/vulkan/vk_layer.h
-  * include/vulkan/vk_sdk_platform.h
-
-
-### Vulkan C++ Binding Repository (https://github.com/KhronosGroup/Vulkan-Hpp)
-
-As of the Vulkan-Docs 1.2.182 spec update, the Vulkan-Hpp headers have been
-split into multiple files. All of those files are now included in this
-repository.
-
-**Note**: the `sc_main_ branch does not currently contain C++ headers, which
-are not currently generated for Vulkan SC.
-
-* include/vulkan/vulkan.hpp
-* include/vulkan/vulkan_enums.hpp
-* include/vulkan/vulkan_funcs.hpp
-* include/vulkan/vulkan_handles.hpp
-* include/vulkan/vulkan_raii.hpp
-* include/vulkan/vulkan_structs.hpp
-
+See [BUILD.md](BUILD.md)
 
 ## Version Tagging Scheme
 
-Updates to `main` branch corresponding to a new Vulkan specification release
-are tagged with the format: `v<`_`version`_`>` (e.g., `v1.3.202`).
-
-Updates to `sc_main` branch corresponding to a new Vulkan SC specification
-release are tagged with the format: `vksc<`_`version`_`>` (e.g., `vksc1.0.9`).
-
-**Note**: Marked version releases have undergone thorough testing but do not
-imply the same quality level as SDK tags. SDK tags follow the
-`sdk-<`_`version`_`>.<`_`patch`_`>` format (e.g., `sdk-1.1.92.0`).
-
-This scheme was adopted following the 1.1.96 Vulkan specification release.
+Updates to the `VulkanSC-Headers` repository which correspond to a new Vulkan
+SC specification release are tagged using the following format:
+`vksc<`_`version`_`>` (e.g., `vksc1.0.12`).
