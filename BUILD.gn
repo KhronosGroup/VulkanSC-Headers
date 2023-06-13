@@ -1,5 +1,5 @@
-# Copyright (C) 2018-2019 The ANGLE Project Authors.
-# Copyright (C) 2019 LunarG, Inc.
+# Copyright (C) 2018-2023 The ANGLE Project Authors.
+# Copyright (C) 2019-2023 LunarG, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -27,6 +27,9 @@ config("vulkan_headers_config") {
   }
   if (defined(vulkan_use_wayland) && vulkan_use_wayland) {
     defines += [ "VK_USE_PLATFORM_WAYLAND_KHR" ]
+    if (defined(vulkan_wayland_include_dirs)) {
+      include_dirs += vulkan_wayland_include_dirs
+    }
   }
   if (is_android) {
     defines += [ "VK_USE_PLATFORM_ANDROID_KHR" ]
@@ -40,6 +43,11 @@ config("vulkan_headers_config") {
   if (defined(is_ggp) && is_ggp) {
     defines += [ "VK_USE_PLATFORM_GGP" ]
   }
+  if (is_clang) {
+    cflags = [
+      "-Wno-redundant-parens",
+    ]
+  }
 }
 
 # Vulkan headers only, no compiled sources.
@@ -48,7 +56,6 @@ source_set("vulkan_headers") {
     "include/vulkan/vk_icd.h",
     "include/vulkan/vk_layer.h",
     "include/vulkan/vk_platform.h",
-    "include/vulkan/vk_sdk_platform.h",
     "include/vulkan/vulkan.h",
     "include/vulkan/vulkan.hpp",
     "include/vulkan/vulkan_core.h",
