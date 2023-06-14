@@ -80,9 +80,6 @@ if (PROJECT_IS_TOP_LEVEL)
     include(cmake/GenVulkanSCCombined.cmake)
 
     set(VLK_REGISTRY_DIR "${CMAKE_INSTALL_DATADIR}/vulkan")
-    if(VULKANSC)
-        set(VLK_REGISTRY_DIR "${CMAKE_INSTALL_DATADIR}/vulkansc")
-    endif()
 
     # Install header files
     if(NOT VULKANSC)
