@@ -31,6 +31,8 @@ from generator import write
 from spirvcapgenerator import SpirvCapabilityOutputGenerator
 from hostsyncgenerator import HostSynchronizationOutputGenerator
 from formatsgenerator import FormatsOutputGenerator
+from syncgenerator import SyncOutputGenerator
+from jsgenerator import JSOutputGenerator
 from pygenerator import PyOutputGenerator
 from rubygenerator import RubyOutputGenerator
 from reflib import logDiag, logWarn, logErr, setLogFile
@@ -190,8 +192,26 @@ def makeGenOpts(args):
             expandEnumerants  = False)
         ]
 
-    # Python and Ruby representations of API information, used by scripts
-    # that do not need to load the full XML.
+    # JavaScript, Python, and Ruby representations of API information, used
+    # by scripts that do not need to load the full XML.
+    genOpts['apimap.cjs'] = [
+          JSOutputGenerator,
+          DocGeneratorOptions(
+            conventions       = conventions,
+            filename          = 'apimap.cjs',
+            directory         = directory,
+            genpath           = None,
+            apiname           = defaultAPIName,
+            profile           = None,
+            versions          = featuresPat,
+            emitversions      = featuresPat,
+            defaultExtensions = None,
+            addExtensions     = addExtensionsPat,
+            removeExtensions  = removeExtensionsPat,
+            emitExtensions    = emitExtensionsPat,
+            reparentEnums     = False)
+        ]
+
     genOpts['apimap.py'] = [
           PyOutputGenerator,
           DocGeneratorOptions(
@@ -352,6 +372,25 @@ def makeGenOpts(args):
             reparentEnums     = False)
         ]
 
+    # Used to generate various synchronization chapter tables
+    genOpts['syncinc'] = [
+          SyncOutputGenerator,
+          DocGeneratorOptions(
+            conventions       = conventions,
+            filename          = 'timeMarker',
+            directory         = directory,
+            genpath           = None,
+            apiname           = defaultAPIName,
+            profile           = None,
+            versions          = featuresPat,
+            emitversions      = featuresPat,
+            defaultExtensions = None,
+            addExtensions     = addExtensionsPat,
+            removeExtensions  = removeExtensionsPat,
+            emitExtensions    = emitExtensionsPat,
+            reparentEnums     = False)
+        ]
+
     # Platform extensions, in their own header files
     # Each element of the platforms[] array defines information for
     # generating a single platform:
@@ -377,10 +416,12 @@ def makeGenOpts(args):
         'VK_KHR_video_encode_queue',
         'VK_EXT_video_encode_h264',
         'VK_EXT_video_encode_h265',
+        'VK_NV_displacement_micromap',
     ]
 
     betaSuppressExtensions = [
-        'VK_KHR_video_queue'
+        'VK_KHR_video_queue',
+        'VK_EXT_opacity_micromap',
     ]
 
     platforms = [
@@ -414,7 +455,8 @@ def makeGenOpts(args):
         [ 'vulkan_xlib_xrandr.h', [ 'VK_EXT_acquire_xlib_display' ], commonSuppressExtensions ],
         [ 'vulkan_metal.h',       [ 'VK_EXT_metal_surface',
                                     'VK_EXT_metal_objects'        ], commonSuppressExtensions ],
-        [ 'vulkan_screen.h',      [ 'VK_QNX_screen_surface'       ], commonSuppressExtensions ],
+        [ 'vulkan_screen.h',      [ 'VK_QNX_screen_surface',
+                                    'VK_QNX_external_memory_screen_buffer' ], commonSuppressExtensions ],
         [ 'vulkan_sci.h',         [ 'VK_NV_external_sci_sync',
                                     'VK_NV_external_sci_sync2',
                                     'VK_NV_external_memory_sci_buf'], commonSuppressExtensions ],
@@ -500,14 +542,6 @@ def makeGenOpts(args):
             misracstyle       = misracstyle,
             misracppstyle     = misracppstyle)
         ]
-
-    # Temporary, to compare interfaces with vulkan_sc_core.h
-    noExtensions = makeREstring(['None'])
-    newOpts = copy.deepcopy(genOpts['vulkan_core.h'])
-    newOpts[1].filename = 'vk11.h'
-    newOpts[1].defaultExtensions = None
-    newOpts[1].emitExtensions = emitExtensionsPat
-    genOpts['vk11.h'] = newOpts
 
     # Vulkan versions to include for SC header - SC *removes* features from 1.0/1.1/1.2
     scVersions = makeREstring(['VK_VERSION_1_0', 'VK_VERSION_1_1', 'VK_VERSION_1_2', 'VKSC_VERSION_1_0'])

@@ -23,7 +23,7 @@ def mostOfficial(api, newapi):
 
 class ScriptOutputGenerator(OutputGenerator):
     """ScriptOutputGenerator - subclass of OutputGenerator.
-    Base class to Generate script (Python/Ruby/etc.) data structures
+    Base class to Generate script (Python/Ruby/JS/etc.) data structures
     describing API names and relationships.
     Similar to DocOutputGenerator, but writes a single file."""
 
@@ -311,7 +311,7 @@ class ScriptOutputGenerator(OutputGenerator):
         self.enums[groupName] = sorted(enumerants)
 
     def genEnum(self, enuminfo, name, alias):
-        """Generate enumerant (compile-time constants).
+        """Generate enumerant (compile time constant).
 
         - Add the constant name to the 'consts' dictionary, with the
           value being None to indicate that the constant is not
