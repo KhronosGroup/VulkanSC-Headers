@@ -181,16 +181,12 @@ class VulkanConventions(ConventionsBase):
            instead. N.b. this may need to change on a per-refpage basis if
            there are multiple documents involved.
         """
-        return 'https://registry.khronos.org/vulkansc/specs/1.0-extensions/html/vkspec.html'
+        return 'https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html'
 
     @property
     def xml_api_name(self):
         """Return the name used in the default API XML registry for the default API"""
-        # Allow the API to be overridden by environment variable - default to 'vulkansc' if not set
-        VulkanAPI = os.getenv('VULKAN_API')
-        if VulkanAPI:
-            return VulkanAPI
-        return 'vulkansc'
+        return 'vulkan'
 
     @property
     def registry_path(self):
@@ -282,3 +278,21 @@ class VulkanConventions(ConventionsBase):
         """Return any extra text (following the title) for generated
            reference pages."""
         return 'include::{generated}/specattribs.adoc[]'
+
+
+class VulkanSCConventions(VulkanConventions):
+
+    def specURL(self, spectype='api'):
+        """Return public registry URL which ref pages should link to for the
+           current all-extensions HTML specification, so xrefs in the
+           asciidoc source that are not to ref pages can link into it
+           instead. N.b. this may need to change on a per-refpage basis if
+           there are multiple documents involved.
+        """
+        return 'https://registry.khronos.org/vulkansc/specs/1.0-extensions/html/vkspec.html'
+
+    @property
+    def xml_api_name(self):
+        """Return the name used in the default API XML registry for the default API"""
+        return 'vulkansc'
+
