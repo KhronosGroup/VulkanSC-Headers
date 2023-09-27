@@ -179,7 +179,7 @@ branch of the member gitlab server.
         <type api="vulkan" category="define" requires="VK_HEADER_VERSION">// Complete version of this file
 #define <name>VK_HEADER_VERSION_COMPLETE</name> <type>VK_MAKE_API_VERSION</type>(0, 1, 3, VK_HEADER_VERSION)</type>
         <type api="vulkansc" category="define">// Version of this file
-#define <name>VK_HEADER_VERSION</name> 12</type>
+#define <name>VK_HEADER_VERSION</name> 13</type>
         <type api="vulkansc" category="define" requires="VKSC_API_VARIANT">// Complete version of this file
 #define <name>VK_HEADER_VERSION_COMPLETE</name> <type>VK_MAKE_API_VERSION</type>(VKSC_API_VARIANT, 1, 0, VK_HEADER_VERSION)</type>
 

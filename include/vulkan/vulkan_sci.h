@@ -2,7 +2,7 @@
 #define VULKAN_SCI_H_ 1
 
 /*
-** Copyright 2015-2021 The Khronos Group Inc.
+** Copyright 2015-2023 The Khronos Group Inc.
 **
 ** SPDX-License-Identifier: Apache-2.0
 */
@@ -19,6 +19,7 @@ extern "C" {
 
 
 
+// VK_NV_external_sci_sync is a preprocessor guard. Do not pass it to API calls.
 #define VK_NV_external_sci_sync 1
 #define VK_NV_EXTERNAL_SCI_SYNC_SPEC_VERSION 2
 #define VK_NV_EXTERNAL_SCI_SYNC_EXTENSION_NAME "VK_NV_external_sci_sync"
@@ -136,6 +137,7 @@ VKAPI_ATTR VkResult VKAPI_CALL vkImportSemaphoreSciSyncObjNV(
 #endif
 
 
+// VK_NV_external_memory_sci_buf is a preprocessor guard. Do not pass it to API calls.
 #define VK_NV_external_memory_sci_buf 1
 #define VK_NV_EXTERNAL_MEMORY_SCI_BUF_SPEC_VERSION 2
 #define VK_NV_EXTERNAL_MEMORY_SCI_BUF_EXTENSION_NAME "VK_NV_external_memory_sci_buf"
@@ -196,6 +198,7 @@ VKAPI_ATTR VkResult VKAPI_CALL vkGetPhysicalDeviceSciBufAttributesNV(
 #endif
 
 
+// VK_NV_external_sci_sync2 is a preprocessor guard. Do not pass it to API calls.
 #define VK_NV_external_sci_sync2 1
 VK_DEFINE_NON_DISPATCHABLE_HANDLE(VkSemaphoreSciSyncPoolNV)
 #define VK_NV_EXTERNAL_SCI_SYNC_2_SPEC_VERSION 1

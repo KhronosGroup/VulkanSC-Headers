@@ -1,9 +1,9 @@
 {
   "version info": {
     "schema version": 2,
-    "api version": "1.0.12",
-    "comment": "from git branch: sc_main commit: 8ad99a189bf87c792d0f038fc350875031f8d961",
-    "date": "2023-07-15 10:01:57Z"
+    "api version": "1.0.13",
+    "comment": "from git branch: github-sc_main commit: bcdbe8c0db1c83811568d38d5d89637521fa3319",
+    "date": "2023-09-27 01:53:04Z"
   },
   "validation": {
     "vkGetInstanceProcAddr": {
