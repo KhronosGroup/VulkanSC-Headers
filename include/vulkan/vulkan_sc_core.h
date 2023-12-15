@@ -27,7 +27,7 @@ extern "C" {
 
 
 #ifndef VK_USE_64_BIT_PTR_DEFINES
-    #if defined(__LP64__) || defined(_WIN64) || (defined(__x86_64__) && !defined(__ILP32__) ) || defined(_M_X64) || defined(__ia64) || defined (_M_IA64) || defined(__aarch64__) || defined(__powerpc64__)
+    #if defined(__LP64__) || defined(_WIN64) || (defined(__x86_64__) && !defined(__ILP32__) ) || defined(_M_X64) || defined(__ia64) || defined (_M_IA64) || defined(__aarch64__) || defined(__powerpc64__) || (defined(__riscv) && __riscv_xlen == 64)
         #define VK_USE_64_BIT_PTR_DEFINES 1
     #else
         #define VK_USE_64_BIT_PTR_DEFINES 0
@@ -66,7 +66,7 @@ extern "C" {
 #define VK_API_VERSION_1_0 VK_MAKE_API_VERSION(0, 1, 0, 0)// Patch version should always be set to 0
 
 // Version of this file
-#define VK_HEADER_VERSION 13
+#define VK_HEADER_VERSION 14
 
 // Vulkan SC variant number
 #define VKSC_API_VARIANT 1
@@ -366,7 +366,7 @@ typedef enum VkStructureType {
     VK_STRUCTURE_TYPE_DISPLAY_MODE_CREATE_INFO_KHR = 1000002000,
     VK_STRUCTURE_TYPE_DISPLAY_SURFACE_CREATE_INFO_KHR = 1000002001,
     VK_STRUCTURE_TYPE_DISPLAY_PRESENT_INFO_KHR = 1000003000,
-    VK_STRUCTURE_TYPE_PRIVATE_VENDOR_INFO_RESERVED_OFFSET_0_NV = 1000051000,
+    VK_STRUCTURE_TYPE_PRIVATE_VENDOR_INFO_PLACEHOLDER_OFFSET_0_NV = 1000051000,
     VK_STRUCTURE_TYPE_IMAGE_VIEW_ASTC_DECODE_MODE_EXT = 1000067000,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ASTC_DECODE_FEATURES_EXT = 1000067001,
     VK_STRUCTURE_TYPE_IMPORT_MEMORY_FD_INFO_KHR = 1000074000,
@@ -4311,6 +4311,7 @@ typedef enum VkDriverId {
     VK_DRIVER_ID_MESA_DOZEN = 23,
     VK_DRIVER_ID_MESA_NVK = 24,
     VK_DRIVER_ID_IMAGINATION_OPEN_SOURCE_MESA = 25,
+    VK_DRIVER_ID_MESA_AGXV = 26,
     VK_DRIVER_ID_MAX_ENUM = 0x7FFFFFFF
 } VkDriverId;
 
@@ -7623,7 +7624,7 @@ typedef struct VkPhysicalDeviceMemoryBudgetPropertiesEXT {
 
 // VK_EXT_validation_features is a preprocessor guard. Do not pass it to API calls.
 #define VK_EXT_validation_features 1
-#define VK_EXT_VALIDATION_FEATURES_SPEC_VERSION 5
+#define VK_EXT_VALIDATION_FEATURES_SPEC_VERSION 6
 #define VK_EXT_VALIDATION_FEATURES_EXTENSION_NAME "VK_EXT_validation_features"
 
 typedef enum VkValidationFeatureEnableEXT {
