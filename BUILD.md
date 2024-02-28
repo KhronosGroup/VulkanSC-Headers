@@ -1,3 +1,9 @@
+<!--
+Copyright 2018-2024 The Khronos Group Inc.
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 # Vulkan SC Build Instructions
 
 Build the Vulkan SC headers from this repository as follows:
@@ -53,7 +59,5 @@ find_package(VulkanHeaders REQUIRED CONFIG)
 
 target_link_libraries(foobar PRIVATE Vulkan::Headers)
 
-message(STATUS "Vulkan Headers Registry: ${VULKAN_HEADERS_REGISTRY_DIRECTORY}")
-
-message(STATUS "Vulkan Headers Version: ${VulkanHeaders_VERSION}")
+message(STATUS "Vulkan SC Headers Version: ${VulkanHeaders_VERSION}")
 ```
