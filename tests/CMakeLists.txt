@@ -1,46 +1,35 @@
 # ~~~
-# Copyright (c) 2022-2023 LunarG, Inc.
+# Copyright 2022-2023 The Khronos Group Inc.
+# Copyright 2022-2023 Valve Corporation
+# Copyright 2022-2023 LunarG, Inc.
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# SPDX-License-Identifier: Apache-2.0
 # ~~~
 
-# Test the non-API headers provided by this repo
-# NOTE: For us testing just means that these header files compile
-# with reasonable warnings.
+# Test add_subdirectory suppport
+add_test(NAME integration.add_subdirectory
+    COMMAND ${CMAKE_CTEST_COMMAND}
+        --build-and-test ${CMAKE_CURRENT_LIST_DIR}/integration
+                         ${CMAKE_CURRENT_BINARY_DIR}/add_subdirectory
+        --build-generator ${CMAKE_GENERATOR}
+        --build-options -DFIND_PACKAGE_TESTING=OFF
+        -DVULKANSC=${VULKANSC}
+)
 
-message(STATUS "${PROJECT_NAME} = ${PROJECT_VERSION}")
+set(test_install_dir "${CMAKE_CURRENT_BINARY_DIR}/install")
+add_test(NAME integration.install
+    COMMAND ${CMAKE_COMMAND} --install ${VULKAN_HEADERS_BINARY_DIR} --prefix ${test_install_dir} --config $<CONFIG>
+)
 
-set(CMAKE_C_STANDARD 99)
-set(CMAKE_C_STANDARD_REQUIRED ON)
-set(CMAKE_C_EXTENSIONS OFF)
+# Test find_package suppport
+add_test(NAME integration.find_package
+    COMMAND ${CMAKE_CTEST_COMMAND}
+        --build-and-test ${CMAKE_CURRENT_LIST_DIR}/integration
+                         ${CMAKE_CURRENT_BINARY_DIR}/find_package
+        --build-generator ${CMAKE_GENERATOR}
+        --build-options -DFIND_PACKAGE_TESTING=ON -DCMAKE_PREFIX_PATH=${test_install_dir}
+        -DVULKANSC=${VULKANSC}
+)
 
-if(${CMAKE_C_COMPILER_ID} MATCHES "(GNU|Clang)")
-    add_compile_options(
-        -Wpedantic
-        -Wall
-        -Wextra
-        -Werror
-    )
-endif()
-
-# vk_icd.h
-add_executable(vk_icd vk_icd.c)
-target_link_libraries(vk_icd PRIVATE Vulkan::Headers)
-
-# vk_layer.h
-add_library(vk_layer MODULE vk_layer.c)
-target_link_libraries(vk_layer PRIVATE Vulkan::Headers)
-
-if (NOT TARGET Vulkan-Headers)
-    message(FATAL_ERROR "Backcompat for Vulkan-Headers target broken!")
-endif()
+# Installing comes before testing
+set_tests_properties(integration.find_package PROPERTIES DEPENDS integration.install)

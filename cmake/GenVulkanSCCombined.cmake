@@ -1,3 +1,9 @@
+# ~~~
+# Copyright 2023-2024 The Khronos Group Inc.
+# Copyright 2023-2024 RasterGrid Kft.
+#
+# SPDX-License-Identifier: Apache-2.0
+# ~~~
 if(GEN_VULKANSC_COMBINED)
     find_package(PythonInterp 3 QUIET)
     if (PYTHONINTERP_FOUND)
@@ -47,7 +53,9 @@ if(GEN_VULKANSC_COMBINED)
             ${CMAKE_CURRENT_BINARY_DIR}/include/vk_video/vulkan_video_codec_h264std_encode.h
             ${CMAKE_CURRENT_BINARY_DIR}/include/vk_video/vulkan_video_codec_h265std.h
             ${CMAKE_CURRENT_BINARY_DIR}/include/vk_video/vulkan_video_codec_h265std_decode.h
-            ${CMAKE_CURRENT_BINARY_DIR}/include/vk_video/vulkan_video_codec_h265std_encode.h)
+            ${CMAKE_CURRENT_BINARY_DIR}/include/vk_video/vulkan_video_codec_h265std_encode.h
+            ${CMAKE_CURRENT_BINARY_DIR}/include/vk_video/vulkan_video_codec_av1std.h
+            ${CMAKE_CURRENT_BINARY_DIR}/include/vk_video/vulkan_video_codec_av1std_decode.h)
 
         foreach(COMBINED_VK_VIDEO_HEADER ${COMBINED_VK_VIDEO_HEADERS})
             get_filename_component(COMBINED_VK_VIDEO_HEADER_FILENAME ${COMBINED_VK_VIDEO_HEADER} NAME)
