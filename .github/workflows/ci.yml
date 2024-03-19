@@ -48,7 +48,7 @@ jobs:
       - uses: lukka/get-cmake@latest
         with:
           cmakeVersion: ${{ matrix.cmake-version }} 
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.8'
       - uses: ilammy/msvc-dev-cmd@v1
