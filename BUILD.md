@@ -9,13 +9,13 @@ SPDX-License-Identifier: Apache-2.0
 Build the Vulkan SC headers from this repository as follows:
 
 ```bash
-cmake -DVULKANSC=ON -S . -B build/
+cmake -S . -B build/
 cmake --install build --prefix build/install
 ```
 
 Build the combined Vulkan SC headers used by ecosystem components as follows:
 ```bash
-cmake -DVULKANSC=ON -DGEN_VULKANSC_COMBINED -S . -B build/
+cmake -DGEN_VULKANSC_COMBINED -S . -B build/
 cmake --build build
 cmake --install build --prefix build/install
 ```
@@ -31,7 +31,7 @@ git clone https://github.com/KhronosGroup/VulkanSC-Headers.git
 cd VulkanSC-Headers/
 
 # Configure the project
-cmake -S . -B build/ -DVULKANSC=ON
+cmake -S . -B build/
 
 # Because Vulkan-Headers is header only we don't need to build anything.
 # Users can install it where they need to.
