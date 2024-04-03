@@ -31,7 +31,7 @@ jobs:
         with:
           cmakeVersion: ${{ matrix.cmake-version }} 
       - uses: ilammy/msvc-dev-cmd@v1
-      - run: cmake -S . -B build -D BUILD_TESTS=ON -G Ninja -DVULKANSC=ON
+      - run: cmake -S . -B build -D BUILD_TESTS=ON -G Ninja
       - run: cmake --build build
       - run: cmake --install build --prefix ${GITHUB_WORKSPACE}/build/install
       - run: ctest --output-on-failure
@@ -52,7 +52,7 @@ jobs:
         with:
           python-version: '3.8'
       - uses: ilammy/msvc-dev-cmd@v1
-      - run: cmake -S . -B build -D BUILD_TESTS=ON -G Ninja -DVULKANSC=ON -DGEN_VULKANSC_COMBINED=ON
+      - run: cmake -S . -B build -D BUILD_TESTS=ON -G Ninja -DGEN_VULKANSC_COMBINED=ON
       - run: cmake --build build
       - run: cmake --install build --prefix ${GITHUB_WORKSPACE}/build/install
       - run: ctest --output-on-failure

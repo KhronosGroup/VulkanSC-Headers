@@ -9,7 +9,7 @@
 cmake_minimum_required(VERSION 3.15...3.25)
 
 # Add support for VULKANSC mode from the command line
-set(VULKANSC OFF CACHE BOOL "User defined variable for VULKANSC mode to be passed in through cmake command line e.g. -DVULKANSC=ON")
+set(VULKANSC ON CACHE BOOL "User defined variable for VULKANSC mode to be passed in through cmake command line e.g. -DVULKANSC=ON")
 
 # Generate combined Vulkan + Vulkan SC headers
 set(GEN_VULKANSC_COMBINED OFF CACHE BOOL "Generate combined headers")
