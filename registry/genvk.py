@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 #
-# Copyright 2013-2023 The Khronos Group Inc.
+# Copyright 2013-2024 The Khronos Group Inc.
 #
 # SPDX-License-Identifier: Apache-2.0
 
@@ -416,7 +416,6 @@ def makeGenOpts(args):
     ]
 
     betaSuppressExtensions = [
-        'VK_KHR_video_queue',
         'VK_EXT_opacity_micromap',
         'VK_KHR_pipeline_library',
     ]
