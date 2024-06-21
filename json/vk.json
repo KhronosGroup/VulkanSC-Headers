@@ -65,6 +65,7 @@
     "VkQueueFlagBits": {"$ref": "#/definitions/enum"},
     "VkDeviceQueueCreateFlagBits": {"$ref": "#/definitions/enum"},
     "VkPipelineStageFlagBits": {"$ref": "#/definitions/enum"},
+    "VkMemoryMapFlagBits": {"$ref": "#/definitions/enum"},
     "VkFenceCreateFlagBits": {"$ref": "#/definitions/enum"},
     "VkEventCreateFlagBits": {"$ref": "#/definitions/enum"},
     "VkQueryPipelineStatisticFlagBits": {"$ref": "#/definitions/enum"},
@@ -3841,6 +3842,38 @@
         }
     },
 
+    "VkQueueGlobalPriorityKHR": {"$ref": "#/definitions/enum"},
+    "VkDeviceQueueGlobalPriorityCreateInfoKHR": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "globalPriority": {"$ref": "#/definitions/VkQueueGlobalPriorityKHR"}
+        }
+    },
+
+    "VkPhysicalDeviceGlobalPriorityQueryFeaturesKHR": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "globalPriorityQuery": {"$ref": "#/definitions/VkBool32"}
+        }
+    },
+
+    "VkQueueFamilyGlobalPriorityPropertiesKHR": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "priorityCount": {"$ref": "#/definitions/uint32_t"},
+            "priorities":  {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkQueueGlobalPriorityKHR"}}
+        }
+    },
+
     "VkPhysicalDeviceShaderTerminateInvocationFeatures": {
         "type": "object",
         "additionalProperties": false,
@@ -4245,6 +4278,108 @@
             "dstImageLayout": {"$ref": "#/definitions/VkImageLayout"},
             "regionCount": {"$ref": "#/definitions/uint32_t"},
             "pRegions": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkImageResolve2"}}]}
+        }
+    },
+
+    "VkPhysicalDeviceVertexAttributeDivisorPropertiesKHR": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "maxVertexAttribDivisor": {"$ref": "#/definitions/uint32_t"},
+            "supportsNonZeroFirstInstance": {"$ref": "#/definitions/VkBool32"}
+        }
+    },
+
+    "VkVertexInputBindingDivisorDescriptionKHR": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "binding": {"$ref": "#/definitions/uint32_t"},
+            "divisor": {"$ref": "#/definitions/uint32_t"}
+        }
+    },
+
+    "VkPipelineVertexInputDivisorStateCreateInfoKHR": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "vertexBindingDivisorCount": {"$ref": "#/definitions/uint32_t"},
+            "pVertexBindingDivisors": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkVertexInputBindingDivisorDescriptionKHR"}}]}
+        }
+    },
+
+    "VkPhysicalDeviceVertexAttributeDivisorFeaturesKHR": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "vertexAttributeInstanceRateDivisor": {"$ref": "#/definitions/VkBool32"},
+            "vertexAttributeInstanceRateZeroDivisor": {"$ref": "#/definitions/VkBool32"}
+        }
+    },
+
+    "VkPhysicalDeviceIndexTypeUint8FeaturesKHR": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "indexTypeUint8": {"$ref": "#/definitions/VkBool32"}
+        }
+    },
+
+    "VkLineRasterizationModeKHR": {"$ref": "#/definitions/enum"},
+    "VkPhysicalDeviceLineRasterizationFeaturesKHR": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "rectangularLines": {"$ref": "#/definitions/VkBool32"},
+            "bresenhamLines": {"$ref": "#/definitions/VkBool32"},
+            "smoothLines": {"$ref": "#/definitions/VkBool32"},
+            "stippledRectangularLines": {"$ref": "#/definitions/VkBool32"},
+            "stippledBresenhamLines": {"$ref": "#/definitions/VkBool32"},
+            "stippledSmoothLines": {"$ref": "#/definitions/VkBool32"}
+        }
+    },
+
+    "VkPhysicalDeviceLineRasterizationPropertiesKHR": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "lineSubPixelPrecisionBits": {"$ref": "#/definitions/uint32_t"}
+        }
+    },
+
+    "VkPipelineRasterizationLineStateCreateInfoKHR": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "lineRasterizationMode": {"$ref": "#/definitions/VkLineRasterizationModeKHR"},
+            "stippledLineEnable": {"$ref": "#/definitions/VkBool32"},
+            "lineStippleFactor": {"$ref": "#/definitions/uint32_t"},
+            "lineStipplePattern": {"$ref": "#/definitions/uint16_t"}
+        }
+    },
+
+    "VkTimeDomainKHR": {"$ref": "#/definitions/enum"},
+    "VkCalibratedTimestampInfoKHR": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "timeDomain": {"$ref": "#/definitions/VkTimeDomainKHR"}
         }
     },
 
@@ -4762,18 +4897,6 @@
         }
     },
 
-    "VkQueueGlobalPriorityKHR": {"$ref": "#/definitions/enum"},
-    "VkQueueGlobalPriorityEXT": {"$ref": "#/definitions/enum"},
-    "VkDeviceQueueGlobalPriorityCreateInfoKHR": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "globalPriority": {"$ref": "#/definitions/VkQueueGlobalPriorityKHR"}
-        }
-    },
-
     "VkImportMemoryHostPointerInfoEXT": {
         "type": "object",
         "additionalProperties": false,
@@ -4802,58 +4925,6 @@
             "sType": {"$ref": "#/definitions/VkStructureType"},
             "pNext": {"$ref": "#/definitions/void"},
             "minImportedHostPointerAlignment": {"$ref": "#/definitions/VkDeviceSize"}
-        }
-    },
-
-    "VkTimeDomainEXT": {"$ref": "#/definitions/enum"},
-    "VkCalibratedTimestampInfoEXT": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "timeDomain": {"$ref": "#/definitions/VkTimeDomainEXT"}
-        }
-    },
-
-    "VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "maxVertexAttribDivisor": {"$ref": "#/definitions/uint32_t"}
-        }
-    },
-
-    "VkVertexInputBindingDivisorDescriptionEXT": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "binding": {"$ref": "#/definitions/uint32_t"},
-            "divisor": {"$ref": "#/definitions/uint32_t"}
-        }
-    },
-
-    "VkPipelineVertexInputDivisorStateCreateInfoEXT": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "vertexBindingDivisorCount": {"$ref": "#/definitions/uint32_t"},
-            "pVertexBindingDivisors": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkVertexInputBindingDivisorDescriptionEXT"}}]}
-        }
-    },
-
-    "VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "vertexAttributeInstanceRateDivisor": {"$ref": "#/definitions/VkBool32"},
-            "vertexAttributeInstanceRateZeroDivisor": {"$ref": "#/definitions/VkBool32"}
         }
     },
 
@@ -4975,44 +5046,6 @@
     },
 
     "VkLineRasterizationModeEXT": {"$ref": "#/definitions/enum"},
-    "VkPhysicalDeviceLineRasterizationFeaturesEXT": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "rectangularLines": {"$ref": "#/definitions/VkBool32"},
-            "bresenhamLines": {"$ref": "#/definitions/VkBool32"},
-            "smoothLines": {"$ref": "#/definitions/VkBool32"},
-            "stippledRectangularLines": {"$ref": "#/definitions/VkBool32"},
-            "stippledBresenhamLines": {"$ref": "#/definitions/VkBool32"},
-            "stippledSmoothLines": {"$ref": "#/definitions/VkBool32"}
-        }
-    },
-
-    "VkPhysicalDeviceLineRasterizationPropertiesEXT": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "lineSubPixelPrecisionBits": {"$ref": "#/definitions/uint32_t"}
-        }
-    },
-
-    "VkPipelineRasterizationLineStateCreateInfoEXT": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "lineRasterizationMode": {"$ref": "#/definitions/VkLineRasterizationModeEXT"},
-            "stippledLineEnable": {"$ref": "#/definitions/VkBool32"},
-            "lineStippleFactor": {"$ref": "#/definitions/uint32_t"},
-            "lineStipplePattern": {"$ref": "#/definitions/uint16_t"}
-        }
-    },
-
     "VkPhysicalDeviceShaderAtomicFloatFeaturesEXT": {
         "type": "object",
         "additionalProperties": false,
@@ -5031,16 +5064,6 @@
             "shaderImageFloat32AtomicAdd": {"$ref": "#/definitions/VkBool32"},
             "sparseImageFloat32Atomics": {"$ref": "#/definitions/VkBool32"},
             "sparseImageFloat32AtomicAdd": {"$ref": "#/definitions/VkBool32"}
-        }
-    },
-
-    "VkPhysicalDeviceIndexTypeUint8FeaturesEXT": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "indexTypeUint8": {"$ref": "#/definitions/VkBool32"}
         }
     },
 

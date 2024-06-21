@@ -2,7 +2,7 @@
 #define VULKAN_SC_CORE_H_PP 1
 
 /*
-** Copyright 2015-2023 The Khronos Group Inc.
+** Copyright 2015-2024 The Khronos Group Inc.
 **
 ** SPDX-License-Identifier: Apache-2.0
 */
@@ -66,7 +66,7 @@ extern "C" {
 #define VK_API_VERSION_1_0 VK_MAKE_API_VERSION(0, 1, 0, 0)// Patch version should always be set to 0
 
 // Version of this file
-#define VK_HEADER_VERSION 14
+#define VK_HEADER_VERSION 15
 
 // Vulkan SC variant number
 #define VKSC_API_VARIANT 1
@@ -158,7 +158,6 @@ typedef enum VkResult {
     VK_ERROR_INCOMPATIBLE_DISPLAY_KHR = -1000003001,
     VK_ERROR_INVALID_DRM_FORMAT_MODIFIER_PLANE_LAYOUT_EXT = -1000158000,
     VK_ERROR_NOT_PERMITTED_KHR = -1000174001,
-    VK_ERROR_NOT_PERMITTED_EXT = VK_ERROR_NOT_PERMITTED_KHR,
     VK_RESULT_MAX_ENUM = 0x7FFFFFFF
 } VkResult;
 
@@ -431,11 +430,9 @@ typedef enum VkStructureType {
     VK_STRUCTURE_TYPE_MEMORY_HOST_POINTER_PROPERTIES_EXT = 1000178001,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_MEMORY_HOST_PROPERTIES_EXT = 1000178002,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CLOCK_FEATURES_KHR = 1000181000,
-    VK_STRUCTURE_TYPE_CALIBRATED_TIMESTAMP_INFO_EXT = 1000184000,
     VK_STRUCTURE_TYPE_DEVICE_QUEUE_GLOBAL_PRIORITY_CREATE_INFO_KHR = 1000174000,
-    VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_PROPERTIES_EXT = 1000190000,
-    VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_DIVISOR_STATE_CREATE_INFO_EXT = 1000190001,
-    VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_FEATURES_EXT = 1000190002,
+    VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GLOBAL_PRIORITY_QUERY_FEATURES_KHR = 1000388000,
+    VK_STRUCTURE_TYPE_QUEUE_FAMILY_GLOBAL_PRIORITY_PROPERTIES_KHR = 1000388001,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PCI_BUS_INFO_PROPERTIES_EXT = 1000212000,
     VK_STRUCTURE_TYPE_FRAGMENT_SHADING_RATE_ATTACHMENT_INFO_KHR = 1000226000,
     VK_STRUCTURE_TYPE_PIPELINE_FRAGMENT_SHADING_RATE_STATE_CREATE_INFO_KHR = 1000226001,
@@ -448,11 +445,7 @@ typedef enum VkStructureType {
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADER_INTERLOCK_FEATURES_EXT = 1000251000,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_YCBCR_IMAGE_ARRAYS_FEATURES_EXT = 1000252000,
     VK_STRUCTURE_TYPE_HEADLESS_SURFACE_CREATE_INFO_EXT = 1000256000,
-    VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LINE_RASTERIZATION_FEATURES_EXT = 1000259000,
-    VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_LINE_STATE_CREATE_INFO_EXT = 1000259001,
-    VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LINE_RASTERIZATION_PROPERTIES_EXT = 1000259002,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT_FEATURES_EXT = 1000260000,
-    VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INDEX_TYPE_UINT8_FEATURES_EXT = 1000265000,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_FEATURES_EXT = 1000267000,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TEXEL_BUFFER_ALIGNMENT_FEATURES_EXT = 1000281000,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_FEATURES_EXT = 1000286000,
@@ -489,17 +482,28 @@ typedef enum VkStructureType {
     VK_STRUCTURE_TYPE_SEMAPHORE_SCI_SYNC_CREATE_INFO_NV = 1000489001,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_SCI_SYNC_2_FEATURES_NV = 1000489002,
     VK_STRUCTURE_TYPE_DEVICE_SEMAPHORE_SCI_SYNC_POOL_RESERVATION_CREATE_INFO_NV = 1000489003,
+    VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_PROPERTIES_KHR = 1000525000,
+    VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_DIVISOR_STATE_CREATE_INFO_KHR = 1000190001,
+    VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_FEATURES_KHR = 1000190002,
     VK_STRUCTURE_TYPE_SCREEN_BUFFER_PROPERTIES_QNX = 1000529000,
     VK_STRUCTURE_TYPE_SCREEN_BUFFER_FORMAT_PROPERTIES_QNX = 1000529001,
     VK_STRUCTURE_TYPE_IMPORT_SCREEN_BUFFER_INFO_QNX = 1000529002,
     VK_STRUCTURE_TYPE_EXTERNAL_FORMAT_QNX = 1000529003,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_MEMORY_SCREEN_BUFFER_FEATURES_QNX = 1000529004,
+    VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INDEX_TYPE_UINT8_FEATURES_KHR = 1000265000,
+    VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LINE_RASTERIZATION_FEATURES_KHR = 1000259000,
+    VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_LINE_STATE_CREATE_INFO_KHR = 1000259001,
+    VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LINE_RASTERIZATION_PROPERTIES_KHR = 1000259002,
+    VK_STRUCTURE_TYPE_CALIBRATED_TIMESTAMP_INFO_KHR = 1000184000,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TEXTURE_COMPRESSION_ASTC_HDR_FEATURES_EXT = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TEXTURE_COMPRESSION_ASTC_HDR_FEATURES,
-    VK_STRUCTURE_TYPE_DEVICE_QUEUE_GLOBAL_PRIORITY_CREATE_INFO_EXT = VK_STRUCTURE_TYPE_DEVICE_QUEUE_GLOBAL_PRIORITY_CREATE_INFO_KHR,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_TERMINATE_INVOCATION_FEATURES_KHR = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_TERMINATE_INVOCATION_FEATURES,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBGROUP_SIZE_CONTROL_PROPERTIES_EXT = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBGROUP_SIZE_CONTROL_PROPERTIES,
     VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_REQUIRED_SUBGROUP_SIZE_CREATE_INFO_EXT = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_REQUIRED_SUBGROUP_SIZE_CREATE_INFO,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBGROUP_SIZE_CONTROL_FEATURES_EXT = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBGROUP_SIZE_CONTROL_FEATURES,
+    VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LINE_RASTERIZATION_FEATURES_EXT = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LINE_RASTERIZATION_FEATURES_KHR,
+    VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_LINE_STATE_CREATE_INFO_EXT = VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_LINE_STATE_CREATE_INFO_KHR,
+    VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LINE_RASTERIZATION_PROPERTIES_EXT = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LINE_RASTERIZATION_PROPERTIES_KHR,
+    VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INDEX_TYPE_UINT8_FEATURES_EXT = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INDEX_TYPE_UINT8_FEATURES_KHR,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_DEMOTE_TO_HELPER_INVOCATION_FEATURES_EXT = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_DEMOTE_TO_HELPER_INVOCATION_FEATURES,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TEXEL_BUFFER_ALIGNMENT_PROPERTIES_EXT = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TEXEL_BUFFER_ALIGNMENT_PROPERTIES,
     VK_STRUCTURE_TYPE_MEMORY_BARRIER_2_KHR = VK_STRUCTURE_TYPE_MEMORY_BARRIER_2,
@@ -596,6 +600,7 @@ typedef enum VkObjectType {
 } VkObjectType;
 
 typedef enum VkVendorId {
+    VK_VENDOR_ID_KHRONOS = 0x10000,
     VK_VENDOR_ID_VIV = 0x10001,
     VK_VENDOR_ID_VSI = 0x10002,
     VK_VENDOR_ID_KAZAN = 0x10003,
@@ -1062,11 +1067,12 @@ typedef enum VkDynamicState {
     VK_DYNAMIC_STATE_DISCARD_RECTANGLE_MODE_EXT = 1000099002,
     VK_DYNAMIC_STATE_SAMPLE_LOCATIONS_EXT = 1000143000,
     VK_DYNAMIC_STATE_FRAGMENT_SHADING_RATE_KHR = 1000226000,
-    VK_DYNAMIC_STATE_LINE_STIPPLE_EXT = 1000259000,
     VK_DYNAMIC_STATE_VERTEX_INPUT_EXT = 1000352000,
     VK_DYNAMIC_STATE_PATCH_CONTROL_POINTS_EXT = 1000377000,
     VK_DYNAMIC_STATE_LOGIC_OP_EXT = 1000377003,
     VK_DYNAMIC_STATE_COLOR_WRITE_ENABLE_EXT = 1000381000,
+    VK_DYNAMIC_STATE_LINE_STIPPLE_KHR = 1000259000,
+    VK_DYNAMIC_STATE_LINE_STIPPLE_EXT = VK_DYNAMIC_STATE_LINE_STIPPLE_KHR,
     VK_DYNAMIC_STATE_CULL_MODE_EXT = VK_DYNAMIC_STATE_CULL_MODE,
     VK_DYNAMIC_STATE_FRONT_FACE_EXT = VK_DYNAMIC_STATE_FRONT_FACE,
     VK_DYNAMIC_STATE_PRIMITIVE_TOPOLOGY_EXT = VK_DYNAMIC_STATE_PRIMITIVE_TOPOLOGY,
@@ -1228,7 +1234,8 @@ typedef enum VkCommandBufferLevel {
 typedef enum VkIndexType {
     VK_INDEX_TYPE_UINT16 = 0,
     VK_INDEX_TYPE_UINT32 = 1,
-    VK_INDEX_TYPE_UINT8_EXT = 1000265000,
+    VK_INDEX_TYPE_UINT8_KHR = 1000265000,
+    VK_INDEX_TYPE_UINT8_EXT = VK_INDEX_TYPE_UINT8_KHR,
     VK_INDEX_TYPE_MAX_ENUM = 0x7FFFFFFF
 } VkIndexType;
 
@@ -1418,6 +1425,10 @@ static constexpr VkPipelineStageFlagBits VK_PIPELINE_STAGE_FRAGMENT_SHADING_RATE
 static constexpr VkPipelineStageFlagBits VK_PIPELINE_STAGE_NONE_KHR {VK_PIPELINE_STAGE_NONE};
 
 typedef VkFlags VkPipelineStageFlags;
+
+// Flag bits for VkMemoryMapFlagBits
+typedef VkFlags VkMemoryMapFlagBits;
+
 typedef VkFlags VkMemoryMapFlags;
 
 // Flag bits for VkFenceCreateFlagBits
@@ -4312,6 +4323,7 @@ typedef enum VkDriverId {
     VK_DRIVER_ID_MESA_NVK = 24,
     VK_DRIVER_ID_IMAGINATION_OPEN_SOURCE_MESA = 25,
     VK_DRIVER_ID_MESA_AGXV = 26,
+    VK_DRIVER_ID_RESERVED_27 = 27,
     VK_DRIVER_ID_MAX_ENUM = 0x7FFFFFFF
 } VkDriverId;
 
@@ -6043,6 +6055,44 @@ typedef struct VkPhysicalDeviceShaderClockFeaturesKHR {
 
 
 
+// VK_KHR_global_priority is a preprocessor guard. Do not pass it to API calls.
+#define VK_KHR_global_priority 1
+static constexpr uint32_t VK_MAX_GLOBAL_PRIORITY_SIZE_KHR   {static_cast<uint32_t>(16U)};
+#define VK_KHR_GLOBAL_PRIORITY_SPEC_VERSION 1
+#define VK_KHR_GLOBAL_PRIORITY_EXTENSION_NAME "VK_KHR_global_priority"
+
+typedef enum VkQueueGlobalPriorityKHR {
+    VK_QUEUE_GLOBAL_PRIORITY_LOW_KHR = 128,
+    VK_QUEUE_GLOBAL_PRIORITY_MEDIUM_KHR = 256,
+    VK_QUEUE_GLOBAL_PRIORITY_HIGH_KHR = 512,
+    VK_QUEUE_GLOBAL_PRIORITY_REALTIME_KHR = 1024,
+    VK_QUEUE_GLOBAL_PRIORITY_LOW_EXT = VK_QUEUE_GLOBAL_PRIORITY_LOW_KHR,
+    VK_QUEUE_GLOBAL_PRIORITY_MEDIUM_EXT = VK_QUEUE_GLOBAL_PRIORITY_MEDIUM_KHR,
+    VK_QUEUE_GLOBAL_PRIORITY_HIGH_EXT = VK_QUEUE_GLOBAL_PRIORITY_HIGH_KHR,
+    VK_QUEUE_GLOBAL_PRIORITY_REALTIME_EXT = VK_QUEUE_GLOBAL_PRIORITY_REALTIME_KHR,
+    VK_QUEUE_GLOBAL_PRIORITY_MAX_ENUM_KHR = 0x7FFFFFFF
+} VkQueueGlobalPriorityKHR;
+typedef struct VkDeviceQueueGlobalPriorityCreateInfoKHR {
+    VkStructureType             sType;
+    void const*                 pNext;
+    VkQueueGlobalPriorityKHR    globalPriority;
+} VkDeviceQueueGlobalPriorityCreateInfoKHR;
+
+typedef struct VkPhysicalDeviceGlobalPriorityQueryFeaturesKHR {
+    VkStructureType    sType;
+    void*              pNext;
+    VkBool32           globalPriorityQuery;
+} VkPhysicalDeviceGlobalPriorityQueryFeaturesKHR;
+
+typedef struct VkQueueFamilyGlobalPriorityPropertiesKHR {
+    VkStructureType             sType;
+    void*                       pNext;
+    uint32_t                    priorityCount;
+    VkQueueGlobalPriorityKHR    priorities[VK_MAX_GLOBAL_PRIORITY_SIZE_KHR];
+} VkQueueFamilyGlobalPriorityPropertiesKHR;
+
+
+
 // VK_KHR_swapchain_mutable_format is a preprocessor guard. Do not pass it to API calls.
 #define VK_KHR_swapchain_mutable_format 1
 #define VK_KHR_SWAPCHAIN_MUTABLE_FORMAT_SPEC_VERSION 1
@@ -6673,6 +6723,138 @@ VKAPI_ATTR void VKAPI_CALL vkCmdBlitImage2KHR(
 VKAPI_ATTR void VKAPI_CALL vkCmdResolveImage2KHR(
     VkCommandBuffer                             commandBuffer,
     VkResolveImageInfo2 const*                  pResolveImageInfo);
+#endif
+
+
+// VK_KHR_vertex_attribute_divisor is a preprocessor guard. Do not pass it to API calls.
+#define VK_KHR_vertex_attribute_divisor 1
+#define VK_KHR_VERTEX_ATTRIBUTE_DIVISOR_SPEC_VERSION 1
+#define VK_KHR_VERTEX_ATTRIBUTE_DIVISOR_EXTENSION_NAME "VK_KHR_vertex_attribute_divisor"
+typedef struct VkPhysicalDeviceVertexAttributeDivisorPropertiesKHR {
+    VkStructureType    sType;
+    void*              pNext;
+    uint32_t           maxVertexAttribDivisor;
+    VkBool32           supportsNonZeroFirstInstance;
+} VkPhysicalDeviceVertexAttributeDivisorPropertiesKHR;
+
+typedef struct VkVertexInputBindingDivisorDescriptionKHR {
+    uint32_t    binding;
+    uint32_t    divisor;
+} VkVertexInputBindingDivisorDescriptionKHR;
+
+typedef struct VkPipelineVertexInputDivisorStateCreateInfoKHR {
+    VkStructureType                                     sType;
+    void const*                                         pNext;
+    uint32_t                                            vertexBindingDivisorCount;
+    VkVertexInputBindingDivisorDescriptionKHR const*    pVertexBindingDivisors;
+} VkPipelineVertexInputDivisorStateCreateInfoKHR;
+
+typedef struct VkPhysicalDeviceVertexAttributeDivisorFeaturesKHR {
+    VkStructureType    sType;
+    void*              pNext;
+    VkBool32           vertexAttributeInstanceRateDivisor;
+    VkBool32           vertexAttributeInstanceRateZeroDivisor;
+} VkPhysicalDeviceVertexAttributeDivisorFeaturesKHR;
+
+
+
+// VK_KHR_index_type_uint8 is a preprocessor guard. Do not pass it to API calls.
+#define VK_KHR_index_type_uint8 1
+#define VK_KHR_INDEX_TYPE_UINT8_SPEC_VERSION 1
+#define VK_KHR_INDEX_TYPE_UINT8_EXTENSION_NAME "VK_KHR_index_type_uint8"
+typedef struct VkPhysicalDeviceIndexTypeUint8FeaturesKHR {
+    VkStructureType    sType;
+    void*              pNext;
+    VkBool32           indexTypeUint8;
+} VkPhysicalDeviceIndexTypeUint8FeaturesKHR;
+
+
+
+// VK_KHR_line_rasterization is a preprocessor guard. Do not pass it to API calls.
+#define VK_KHR_line_rasterization 1
+#define VK_KHR_LINE_RASTERIZATION_SPEC_VERSION 1
+#define VK_KHR_LINE_RASTERIZATION_EXTENSION_NAME "VK_KHR_line_rasterization"
+
+typedef enum VkLineRasterizationModeKHR {
+    VK_LINE_RASTERIZATION_MODE_DEFAULT_KHR = 0,
+    VK_LINE_RASTERIZATION_MODE_RECTANGULAR_KHR = 1,
+    VK_LINE_RASTERIZATION_MODE_BRESENHAM_KHR = 2,
+    VK_LINE_RASTERIZATION_MODE_RECTANGULAR_SMOOTH_KHR = 3,
+    VK_LINE_RASTERIZATION_MODE_DEFAULT_EXT = VK_LINE_RASTERIZATION_MODE_DEFAULT_KHR,
+    VK_LINE_RASTERIZATION_MODE_RECTANGULAR_EXT = VK_LINE_RASTERIZATION_MODE_RECTANGULAR_KHR,
+    VK_LINE_RASTERIZATION_MODE_BRESENHAM_EXT = VK_LINE_RASTERIZATION_MODE_BRESENHAM_KHR,
+    VK_LINE_RASTERIZATION_MODE_RECTANGULAR_SMOOTH_EXT = VK_LINE_RASTERIZATION_MODE_RECTANGULAR_SMOOTH_KHR,
+    VK_LINE_RASTERIZATION_MODE_MAX_ENUM_KHR = 0x7FFFFFFF
+} VkLineRasterizationModeKHR;
+typedef struct VkPhysicalDeviceLineRasterizationFeaturesKHR {
+    VkStructureType    sType;
+    void*              pNext;
+    VkBool32           rectangularLines;
+    VkBool32           bresenhamLines;
+    VkBool32           smoothLines;
+    VkBool32           stippledRectangularLines;
+    VkBool32           stippledBresenhamLines;
+    VkBool32           stippledSmoothLines;
+} VkPhysicalDeviceLineRasterizationFeaturesKHR;
+
+typedef struct VkPhysicalDeviceLineRasterizationPropertiesKHR {
+    VkStructureType    sType;
+    void*              pNext;
+    uint32_t           lineSubPixelPrecisionBits;
+} VkPhysicalDeviceLineRasterizationPropertiesKHR;
+
+typedef struct VkPipelineRasterizationLineStateCreateInfoKHR {
+    VkStructureType               sType;
+    void const*                   pNext;
+    VkLineRasterizationModeKHR    lineRasterizationMode;
+    VkBool32                      stippledLineEnable;
+    uint32_t                      lineStippleFactor;
+    uint16_t                      lineStipplePattern;
+} VkPipelineRasterizationLineStateCreateInfoKHR;
+
+typedef void (VKAPI_PTR *PFN_vkCmdSetLineStippleKHR)(VkCommandBuffer commandBuffer, uint32_t lineStippleFactor, uint16_t lineStipplePattern);
+
+#ifndef VK_NO_PROTOTYPES
+VKAPI_ATTR void VKAPI_CALL vkCmdSetLineStippleKHR(
+    VkCommandBuffer                             commandBuffer,
+    uint32_t                                    lineStippleFactor,
+    uint16_t                                    lineStipplePattern);
+#endif
+
+
+// VK_KHR_calibrated_timestamps is a preprocessor guard. Do not pass it to API calls.
+#define VK_KHR_calibrated_timestamps 1
+#define VK_KHR_CALIBRATED_TIMESTAMPS_SPEC_VERSION 1
+#define VK_KHR_CALIBRATED_TIMESTAMPS_EXTENSION_NAME "VK_KHR_calibrated_timestamps"
+
+typedef enum VkTimeDomainKHR {
+    VK_TIME_DOMAIN_DEVICE_KHR = 0,
+    VK_TIME_DOMAIN_CLOCK_MONOTONIC_KHR = 1,
+    VK_TIME_DOMAIN_CLOCK_MONOTONIC_RAW_KHR = 2,
+    VK_TIME_DOMAIN_QUERY_PERFORMANCE_COUNTER_KHR = 3,
+    VK_TIME_DOMAIN_MAX_ENUM_KHR = 0x7FFFFFFF
+} VkTimeDomainKHR;
+typedef struct VkCalibratedTimestampInfoKHR {
+    VkStructureType    sType;
+    void const*        pNext;
+    VkTimeDomainKHR    timeDomain;
+} VkCalibratedTimestampInfoKHR;
+
+typedef VkResult (VKAPI_PTR *PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsKHR)(VkPhysicalDevice physicalDevice, uint32_t* pTimeDomainCount, VkTimeDomainKHR* pTimeDomains);
+typedef VkResult (VKAPI_PTR *PFN_vkGetCalibratedTimestampsKHR)(VkDevice device, uint32_t timestampCount, VkCalibratedTimestampInfoKHR const * pTimestampInfos, uint64_t* pTimestamps, uint64_t* pMaxDeviation);
+
+#ifndef VK_NO_PROTOTYPES
+VKAPI_ATTR VkResult VKAPI_CALL vkGetPhysicalDeviceCalibrateableTimeDomainsKHR(
+    VkPhysicalDevice                            physicalDevice,
+    uint32_t*                                   pTimeDomainCount,
+    VkTimeDomainKHR*                            pTimeDomains);
+
+VKAPI_ATTR VkResult VKAPI_CALL vkGetCalibratedTimestampsKHR(
+    VkDevice                                    device,
+    uint32_t                                    timestampCount,
+    VkCalibratedTimestampInfoKHR const*         pTimestampInfos,
+    uint64_t*                                   pTimestamps,
+    uint64_t*                                   pMaxDeviation);
 #endif
 
 
@@ -7418,34 +7600,6 @@ typedef struct VkFilterCubicImageViewImageFormatPropertiesEXT {
 
 
 
-// VK_EXT_global_priority is a preprocessor guard. Do not pass it to API calls.
-#define VK_EXT_global_priority 1
-#define VK_EXT_GLOBAL_PRIORITY_SPEC_VERSION 2
-#define VK_EXT_GLOBAL_PRIORITY_EXTENSION_NAME "VK_EXT_global_priority"
-
-typedef enum VkQueueGlobalPriorityKHR {
-    VK_QUEUE_GLOBAL_PRIORITY_LOW_KHR = 128,
-    VK_QUEUE_GLOBAL_PRIORITY_MEDIUM_KHR = 256,
-    VK_QUEUE_GLOBAL_PRIORITY_HIGH_KHR = 512,
-    VK_QUEUE_GLOBAL_PRIORITY_REALTIME_KHR = 1024,
-    VK_QUEUE_GLOBAL_PRIORITY_LOW_EXT = VK_QUEUE_GLOBAL_PRIORITY_LOW_KHR,
-    VK_QUEUE_GLOBAL_PRIORITY_MEDIUM_EXT = VK_QUEUE_GLOBAL_PRIORITY_MEDIUM_KHR,
-    VK_QUEUE_GLOBAL_PRIORITY_HIGH_EXT = VK_QUEUE_GLOBAL_PRIORITY_HIGH_KHR,
-    VK_QUEUE_GLOBAL_PRIORITY_REALTIME_EXT = VK_QUEUE_GLOBAL_PRIORITY_REALTIME_KHR,
-    VK_QUEUE_GLOBAL_PRIORITY_MAX_ENUM_KHR = 0x7FFFFFFF
-} VkQueueGlobalPriorityKHR;
-typedef VkQueueGlobalPriorityKHR VkQueueGlobalPriorityEXT;
-
-typedef struct VkDeviceQueueGlobalPriorityCreateInfoKHR {
-    VkStructureType             sType;
-    void const*                 pNext;
-    VkQueueGlobalPriorityKHR    globalPriority;
-} VkDeviceQueueGlobalPriorityCreateInfoKHR;
-
-typedef VkDeviceQueueGlobalPriorityCreateInfoKHR VkDeviceQueueGlobalPriorityCreateInfoEXT;
-
-
-
 // VK_EXT_external_memory_host is a preprocessor guard. Do not pass it to API calls.
 #define VK_EXT_external_memory_host 1
 #define VK_EXT_EXTERNAL_MEMORY_HOST_SPEC_VERSION 1
@@ -7478,73 +7632,6 @@ VKAPI_ATTR VkResult VKAPI_CALL vkGetMemoryHostPointerPropertiesEXT(
     void const*                                 pHostPointer,
     VkMemoryHostPointerPropertiesEXT*           pMemoryHostPointerProperties);
 #endif
-
-
-// VK_EXT_calibrated_timestamps is a preprocessor guard. Do not pass it to API calls.
-#define VK_EXT_calibrated_timestamps 1
-#define VK_EXT_CALIBRATED_TIMESTAMPS_SPEC_VERSION 2
-#define VK_EXT_CALIBRATED_TIMESTAMPS_EXTENSION_NAME "VK_EXT_calibrated_timestamps"
-
-typedef enum VkTimeDomainEXT {
-    VK_TIME_DOMAIN_DEVICE_EXT = 0,
-    VK_TIME_DOMAIN_CLOCK_MONOTONIC_EXT = 1,
-    VK_TIME_DOMAIN_CLOCK_MONOTONIC_RAW_EXT = 2,
-    VK_TIME_DOMAIN_QUERY_PERFORMANCE_COUNTER_EXT = 3,
-    VK_TIME_DOMAIN_MAX_ENUM_EXT = 0x7FFFFFFF
-} VkTimeDomainEXT;
-typedef struct VkCalibratedTimestampInfoEXT {
-    VkStructureType    sType;
-    void const*        pNext;
-    VkTimeDomainEXT    timeDomain;
-} VkCalibratedTimestampInfoEXT;
-
-typedef VkResult (VKAPI_PTR *PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsEXT)(VkPhysicalDevice physicalDevice, uint32_t* pTimeDomainCount, VkTimeDomainEXT* pTimeDomains);
-typedef VkResult (VKAPI_PTR *PFN_vkGetCalibratedTimestampsEXT)(VkDevice device, uint32_t timestampCount, VkCalibratedTimestampInfoEXT const * pTimestampInfos, uint64_t* pTimestamps, uint64_t* pMaxDeviation);
-
-#ifndef VK_NO_PROTOTYPES
-VKAPI_ATTR VkResult VKAPI_CALL vkGetPhysicalDeviceCalibrateableTimeDomainsEXT(
-    VkPhysicalDevice                            physicalDevice,
-    uint32_t*                                   pTimeDomainCount,
-    VkTimeDomainEXT*                            pTimeDomains);
-
-VKAPI_ATTR VkResult VKAPI_CALL vkGetCalibratedTimestampsEXT(
-    VkDevice                                    device,
-    uint32_t                                    timestampCount,
-    VkCalibratedTimestampInfoEXT const*         pTimestampInfos,
-    uint64_t*                                   pTimestamps,
-    uint64_t*                                   pMaxDeviation);
-#endif
-
-
-// VK_EXT_vertex_attribute_divisor is a preprocessor guard. Do not pass it to API calls.
-#define VK_EXT_vertex_attribute_divisor 1
-#define VK_EXT_VERTEX_ATTRIBUTE_DIVISOR_SPEC_VERSION 3
-#define VK_EXT_VERTEX_ATTRIBUTE_DIVISOR_EXTENSION_NAME "VK_EXT_vertex_attribute_divisor"
-typedef struct VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT {
-    VkStructureType    sType;
-    void*              pNext;
-    uint32_t           maxVertexAttribDivisor;
-} VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT;
-
-typedef struct VkVertexInputBindingDivisorDescriptionEXT {
-    uint32_t    binding;
-    uint32_t    divisor;
-} VkVertexInputBindingDivisorDescriptionEXT;
-
-typedef struct VkPipelineVertexInputDivisorStateCreateInfoEXT {
-    VkStructureType                                     sType;
-    void const*                                         pNext;
-    uint32_t                                            vertexBindingDivisorCount;
-    VkVertexInputBindingDivisorDescriptionEXT const*    pVertexBindingDivisors;
-} VkPipelineVertexInputDivisorStateCreateInfoEXT;
-
-typedef struct VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT {
-    VkStructureType    sType;
-    void*              pNext;
-    VkBool32           vertexAttributeInstanceRateDivisor;
-    VkBool32           vertexAttributeInstanceRateZeroDivisor;
-} VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT;
-
 
 
 // VK_EXT_pci_bus_info is a preprocessor guard. Do not pass it to API calls.
@@ -7710,39 +7797,13 @@ VKAPI_ATTR VkResult VKAPI_CALL vkCreateHeadlessSurfaceEXT(
 #define VK_EXT_line_rasterization 1
 #define VK_EXT_LINE_RASTERIZATION_SPEC_VERSION 1
 #define VK_EXT_LINE_RASTERIZATION_EXTENSION_NAME "VK_EXT_line_rasterization"
+typedef VkLineRasterizationModeKHR VkLineRasterizationModeEXT;
 
-typedef enum VkLineRasterizationModeEXT {
-    VK_LINE_RASTERIZATION_MODE_DEFAULT_EXT = 0,
-    VK_LINE_RASTERIZATION_MODE_RECTANGULAR_EXT = 1,
-    VK_LINE_RASTERIZATION_MODE_BRESENHAM_EXT = 2,
-    VK_LINE_RASTERIZATION_MODE_RECTANGULAR_SMOOTH_EXT = 3,
-    VK_LINE_RASTERIZATION_MODE_MAX_ENUM_EXT = 0x7FFFFFFF
-} VkLineRasterizationModeEXT;
-typedef struct VkPhysicalDeviceLineRasterizationFeaturesEXT {
-    VkStructureType    sType;
-    void*              pNext;
-    VkBool32           rectangularLines;
-    VkBool32           bresenhamLines;
-    VkBool32           smoothLines;
-    VkBool32           stippledRectangularLines;
-    VkBool32           stippledBresenhamLines;
-    VkBool32           stippledSmoothLines;
-} VkPhysicalDeviceLineRasterizationFeaturesEXT;
+typedef VkPhysicalDeviceLineRasterizationFeaturesKHR VkPhysicalDeviceLineRasterizationFeaturesEXT;
 
-typedef struct VkPhysicalDeviceLineRasterizationPropertiesEXT {
-    VkStructureType    sType;
-    void*              pNext;
-    uint32_t           lineSubPixelPrecisionBits;
-} VkPhysicalDeviceLineRasterizationPropertiesEXT;
+typedef VkPhysicalDeviceLineRasterizationPropertiesKHR VkPhysicalDeviceLineRasterizationPropertiesEXT;
 
-typedef struct VkPipelineRasterizationLineStateCreateInfoEXT {
-    VkStructureType               sType;
-    void const*                   pNext;
-    VkLineRasterizationModeEXT    lineRasterizationMode;
-    VkBool32                      stippledLineEnable;
-    uint32_t                      lineStippleFactor;
-    uint16_t                      lineStipplePattern;
-} VkPipelineRasterizationLineStateCreateInfoEXT;
+typedef VkPipelineRasterizationLineStateCreateInfoKHR VkPipelineRasterizationLineStateCreateInfoEXT;
 
 typedef void (VKAPI_PTR *PFN_vkCmdSetLineStippleEXT)(VkCommandBuffer commandBuffer, uint32_t lineStippleFactor, uint16_t lineStipplePattern);
 
@@ -7781,11 +7842,7 @@ typedef struct VkPhysicalDeviceShaderAtomicFloatFeaturesEXT {
 #define VK_EXT_index_type_uint8 1
 #define VK_EXT_INDEX_TYPE_UINT8_SPEC_VERSION 1
 #define VK_EXT_INDEX_TYPE_UINT8_EXTENSION_NAME "VK_EXT_index_type_uint8"
-typedef struct VkPhysicalDeviceIndexTypeUint8FeaturesEXT {
-    VkStructureType    sType;
-    void*              pNext;
-    VkBool32           indexTypeUint8;
-} VkPhysicalDeviceIndexTypeUint8FeaturesEXT;
+typedef VkPhysicalDeviceIndexTypeUint8FeaturesKHR VkPhysicalDeviceIndexTypeUint8FeaturesEXT;
 
 
 
