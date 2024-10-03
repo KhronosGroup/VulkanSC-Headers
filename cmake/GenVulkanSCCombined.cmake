@@ -5,8 +5,8 @@
 # SPDX-License-Identifier: Apache-2.0
 # ~~~
 if(GEN_VULKANSC_COMBINED)
-    find_package(PythonInterp 3 QUIET)
-    if (PYTHONINTERP_FOUND)
+    find_package (Python3 COMPONENTS Interpreter)
+    if (TARGET Python3::Interpreter)
         set(genvk_py ${CMAKE_CURRENT_SOURCE_DIR}/registry/genvk.py)
         if (NOT EXISTS ${genvk_py})
             message(FATAL_ERROR "Unable to find genvk.py!")
@@ -39,7 +39,7 @@ if(GEN_VULKANSC_COMBINED)
                     ${CMAKE_CURRENT_SOURCE_DIR}/registry/reg.py
                     ${CMAKE_CURRENT_SOURCE_DIR}/registry/generator.py
                     ${CMAKE_CURRENT_SOURCE_DIR}/registry/vk.xml
-                COMMAND ${PYTHON_EXECUTABLE} ${genvk_py} -registry ${CMAKE_CURRENT_SOURCE_DIR}/registry/vk.xml
+                COMMAND Python3::Interpreter ${genvk_py} -registry ${CMAKE_CURRENT_SOURCE_DIR}/registry/vk.xml
                     -apiname vulkansc -mergeApiNames vulkan -defaultExtensions vulkansc
                     -o ${CMAKE_CURRENT_BINARY_DIR}/include/vulkan
                     ${COMBINED_VULKAN_HEADER_FILENAME}
@@ -62,11 +62,10 @@ if(GEN_VULKANSC_COMBINED)
             add_custom_command(
                 OUTPUT ${COMBINED_VK_VIDEO_HEADER}
                 DEPENDS ${genvk_py}
-                    ${CMAKE_CURRENT_SOURCE_DIR}
                     ${CMAKE_CURRENT_SOURCE_DIR}/registry/reg.py
                     ${CMAKE_CURRENT_SOURCE_DIR}/registry/generator.py
                     ${CMAKE_CURRENT_SOURCE_DIR}/registry/video.xml
-                COMMAND ${PYTHON_EXECUTABLE} ${genvk_py} -registry ${CMAKE_CURRENT_SOURCE_DIR}/registry/video.xml
+                COMMAND Python3::Interpreter ${genvk_py} -registry ${CMAKE_CURRENT_SOURCE_DIR}/registry/video.xml
                     -apiname vulkansc -mergeApiNames vulkan -defaultExtensions vulkansc
                     -o ${CMAKE_CURRENT_BINARY_DIR}/include/vk_video
                     ${COMBINED_VK_VIDEO_HEADER_FILENAME}
