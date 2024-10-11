@@ -5278,6 +5278,30 @@
         }
     },
 
+    "VkLayerSettingTypeEXT": {"$ref": "#/definitions/enum"},
+    "VkLayerSettingEXT": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "pLayerName": {"oneOf": [{"$ref": "#/definitions/void"},{"$ref": "#/definitions/char"}]},
+            "pSettingName": {"oneOf": [{"$ref": "#/definitions/void"},{"$ref": "#/definitions/char"}]},
+            "type": {"$ref": "#/definitions/VkLayerSettingTypeEXT"},
+            "valueCount": {"$ref": "#/definitions/uint32_t"},
+            "pValues": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/uint8_t"}}, {"type": "string"}]}
+        }
+    },
+
+    "VkLayerSettingsCreateInfoEXT": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "settingCount": {"$ref": "#/definitions/uint32_t"},
+            "pSettings": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkLayerSettingEXT"}}]}
+        }
+    },
+
     "VkLastStructure": {
     }
   }

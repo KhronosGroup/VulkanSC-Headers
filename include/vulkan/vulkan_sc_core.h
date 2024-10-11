@@ -66,7 +66,7 @@ extern "C" {
 #define VK_API_VERSION_1_0 VK_MAKE_API_VERSION(0, 1, 0, 0)// Patch version should always be set to 0
 
 // Version of this file
-#define VK_HEADER_VERSION 15
+#define VK_HEADER_VERSION 16
 
 // Vulkan SC variant number
 #define VKSC_API_VARIANT 1
@@ -482,6 +482,7 @@ typedef enum VkStructureType {
     VK_STRUCTURE_TYPE_SEMAPHORE_SCI_SYNC_CREATE_INFO_NV = 1000489001,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_SCI_SYNC_2_FEATURES_NV = 1000489002,
     VK_STRUCTURE_TYPE_DEVICE_SEMAPHORE_SCI_SYNC_POOL_RESERVATION_CREATE_INFO_NV = 1000489003,
+    VK_STRUCTURE_TYPE_LAYER_SETTINGS_CREATE_INFO_EXT = 1000496000,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_PROPERTIES_KHR = 1000525000,
     VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_DIVISOR_STATE_CREATE_INFO_KHR = 1000190001,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_FEATURES_KHR = 1000190002,
@@ -2067,7 +2068,9 @@ typedef struct VkDeviceCreateInfo {
     VkDeviceCreateFlags                flags;
     uint32_t                           queueCreateInfoCount;
     const VkDeviceQueueCreateInfo*     pQueueCreateInfos;
+    // enabledLayerCount is deprecated and should not be used
     uint32_t                           enabledLayerCount;
+    // ppEnabledLayerNames is deprecated and should not be used
     const char* const*                 ppEnabledLayerNames;
     uint32_t                           enabledExtensionCount;
     const char* const*                 ppEnabledExtensionNames;
@@ -4322,7 +4325,7 @@ typedef enum VkDriverId {
     VK_DRIVER_ID_MESA_DOZEN = 23,
     VK_DRIVER_ID_MESA_NVK = 24,
     VK_DRIVER_ID_IMAGINATION_OPEN_SOURCE_MESA = 25,
-    VK_DRIVER_ID_MESA_AGXV = 26,
+    VK_DRIVER_ID_MESA_HONEYKRISP = 26,
     VK_DRIVER_ID_RESERVED_27 = 27,
     VK_DRIVER_ID_MAX_ENUM = 0x7FFFFFFF
 } VkDriverId;
@@ -5248,6 +5251,7 @@ typedef enum VkColorSpaceKHR {
     VK_COLOR_SPACE_BT709_NONLINEAR_EXT = 1000104006,
     VK_COLOR_SPACE_BT2020_LINEAR_EXT = 1000104007,
     VK_COLOR_SPACE_HDR10_ST2084_EXT = 1000104008,
+  // VK_COLOR_SPACE_DOLBYVISION_EXT is deprecated, but no reason was given in the API XML
     VK_COLOR_SPACE_DOLBYVISION_EXT = 1000104009,
     VK_COLOR_SPACE_HDR10_HLG_EXT = 1000104010,
     VK_COLOR_SPACE_ADOBERGB_LINEAR_EXT = 1000104011,
@@ -5816,8 +5820,11 @@ typedef enum VkPerformanceCounterScopeKHR {
     VK_PERFORMANCE_COUNTER_SCOPE_COMMAND_BUFFER_KHR = 0,
     VK_PERFORMANCE_COUNTER_SCOPE_RENDER_PASS_KHR = 1,
     VK_PERFORMANCE_COUNTER_SCOPE_COMMAND_KHR = 2,
+  // VK_QUERY_SCOPE_COMMAND_BUFFER_KHR is a deprecated alias
     VK_QUERY_SCOPE_COMMAND_BUFFER_KHR = VK_PERFORMANCE_COUNTER_SCOPE_COMMAND_BUFFER_KHR,
+  // VK_QUERY_SCOPE_RENDER_PASS_KHR is a deprecated alias
     VK_QUERY_SCOPE_RENDER_PASS_KHR = VK_PERFORMANCE_COUNTER_SCOPE_RENDER_PASS_KHR,
+  // VK_QUERY_SCOPE_COMMAND_KHR is a deprecated alias
     VK_QUERY_SCOPE_COMMAND_KHR = VK_PERFORMANCE_COUNTER_SCOPE_COMMAND_KHR,
     VK_PERFORMANCE_COUNTER_SCOPE_MAX_ENUM_KHR = 0x7FFFFFFF
 } VkPerformanceCounterScopeKHR;
@@ -5835,7 +5842,9 @@ typedef enum VkPerformanceCounterStorageKHR {
 // Flag bits for VkPerformanceCounterDescriptionFlagBitsKHR
 typedef VkFlags VkPerformanceCounterDescriptionFlagBitsKHR;
 #define VK_PERFORMANCE_COUNTER_DESCRIPTION_PERFORMANCE_IMPACTING_BIT_KHR 0x00000001U
+// VK_PERFORMANCE_COUNTER_DESCRIPTION_PERFORMANCE_IMPACTING_KHR is a deprecated alias
 #define VK_PERFORMANCE_COUNTER_DESCRIPTION_CONCURRENTLY_IMPACTED_BIT_KHR 0x00000002U
+// VK_PERFORMANCE_COUNTER_DESCRIPTION_CONCURRENTLY_IMPACTED_KHR is a deprecated alias
 #define VK_PERFORMANCE_COUNTER_DESCRIPTION_PERFORMANCE_IMPACTING_KHR VK_PERFORMANCE_COUNTER_DESCRIPTION_PERFORMANCE_IMPACTING_BIT_KHR
 #define VK_PERFORMANCE_COUNTER_DESCRIPTION_CONCURRENTLY_IMPACTED_KHR VK_PERFORMANCE_COUNTER_DESCRIPTION_CONCURRENTLY_IMPACTED_BIT_KHR
 
@@ -6923,6 +6932,7 @@ VKAPI_ATTR VkResult VKAPI_CALL vkReleaseDisplayEXT(
 // Flag bits for VkSurfaceCounterFlagBitsEXT
 typedef VkFlags VkSurfaceCounterFlagBitsEXT;
 #define VK_SURFACE_COUNTER_VBLANK_BIT_EXT 0x00000001U
+// VK_SURFACE_COUNTER_VBLANK_EXT is a deprecated alias
 #define VK_SURFACE_COUNTER_VBLANK_EXT VK_SURFACE_COUNTER_VBLANK_BIT_EXT
 
 typedef VkFlags VkSurfaceCounterFlagsEXT;
@@ -7134,13 +7144,13 @@ typedef struct VkPipelineRasterizationDepthClipStateCreateInfoEXT {
 
 // VK_EXT_swapchain_colorspace is a preprocessor guard. Do not pass it to API calls.
 #define VK_EXT_swapchain_colorspace 1
-#define VK_EXT_SWAPCHAIN_COLOR_SPACE_SPEC_VERSION 4
+#define VK_EXT_SWAPCHAIN_COLOR_SPACE_SPEC_VERSION 5
 #define VK_EXT_SWAPCHAIN_COLOR_SPACE_EXTENSION_NAME "VK_EXT_swapchain_colorspace"
 
 
 // VK_EXT_hdr_metadata is a preprocessor guard. Do not pass it to API calls.
 #define VK_EXT_hdr_metadata 1
-#define VK_EXT_HDR_METADATA_SPEC_VERSION  2
+#define VK_EXT_HDR_METADATA_SPEC_VERSION  3
 #define VK_EXT_HDR_METADATA_EXTENSION_NAME "VK_EXT_hdr_metadata"
 typedef struct VkXYColorEXT {
     float    x;
@@ -8174,6 +8184,39 @@ typedef struct VkApplicationParametersEXT {
     uint32_t           key;
     uint64_t           value;
 } VkApplicationParametersEXT;
+
+
+
+// VK_EXT_layer_settings is a preprocessor guard. Do not pass it to API calls.
+#define VK_EXT_layer_settings 1
+#define VK_EXT_LAYER_SETTINGS_SPEC_VERSION 2
+#define VK_EXT_LAYER_SETTINGS_EXTENSION_NAME "VK_EXT_layer_settings"
+
+typedef enum VkLayerSettingTypeEXT {
+    VK_LAYER_SETTING_TYPE_BOOL32_EXT = 0,
+    VK_LAYER_SETTING_TYPE_INT32_EXT = 1,
+    VK_LAYER_SETTING_TYPE_INT64_EXT = 2,
+    VK_LAYER_SETTING_TYPE_UINT32_EXT = 3,
+    VK_LAYER_SETTING_TYPE_UINT64_EXT = 4,
+    VK_LAYER_SETTING_TYPE_FLOAT32_EXT = 5,
+    VK_LAYER_SETTING_TYPE_FLOAT64_EXT = 6,
+    VK_LAYER_SETTING_TYPE_STRING_EXT = 7,
+    VK_LAYER_SETTING_TYPE_MAX_ENUM_EXT = 0x7FFFFFFF
+} VkLayerSettingTypeEXT;
+typedef struct VkLayerSettingEXT {
+    const char*              pLayerName;
+    const char*              pSettingName;
+    VkLayerSettingTypeEXT    type;
+    uint32_t                 valueCount;
+    const void*              pValues;
+} VkLayerSettingEXT;
+
+typedef struct VkLayerSettingsCreateInfoEXT {
+    VkStructureType             sType;
+    const void*                 pNext;
+    uint32_t                    settingCount;
+    const VkLayerSettingEXT*    pSettings;
+} VkLayerSettingsCreateInfoEXT;
 
 
 #ifdef __cplusplus
