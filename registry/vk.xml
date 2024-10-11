@@ -179,7 +179,7 @@ branch of the member gitlab server.
         <type api="vulkan" category="define" requires="VK_HEADER_VERSION">// Complete version of this file
 #define <name>VK_HEADER_VERSION_COMPLETE</name> <type>VK_MAKE_API_VERSION</type>(0, 1, 3, VK_HEADER_VERSION)</type>
         <type api="vulkansc" category="define">// Version of this file
-#define <name>VK_HEADER_VERSION</name> 15</type>
+#define <name>VK_HEADER_VERSION</name> 16</type>
         <type api="vulkansc" category="define" requires="VKSC_API_VARIANT">// Complete version of this file
 #define <name>VK_HEADER_VERSION_COMPLETE</name> <type>VK_MAKE_API_VERSION</type>(VKSC_API_VARIANT, 1, 0, VK_HEADER_VERSION)</type>
 
@@ -24114,7 +24114,7 @@ typedef void* <name>MTLSharedEvent_id</name>;
                 <feature name="legacyVertexAttributes" struct="VkPhysicalDeviceLegacyVertexAttributesFeaturesEXT"/>
             </require>
         </extension>
-        <extension name="VK_EXT_layer_settings" number="497" author="EXT" contact="Christophe Riccio @christophe" type="instance" supported="vulkan" ratified="vulkan">
+        <extension name="VK_EXT_layer_settings" number="497" author="EXT" contact="Christophe Riccio @christophe" type="instance" supported="vulkan,vulkansc" ratified="vulkan">
             <require>
                 <enum value="2"                                             name="VK_EXT_LAYER_SETTINGS_SPEC_VERSION"/>
                 <enum value="&quot;VK_EXT_layer_settings&quot;"              name="VK_EXT_LAYER_SETTINGS_EXTENSION_NAME"/>
