@@ -4105,27 +4105,6 @@
         }
     },
 
-    "VkQueueFamilyCheckpointProperties2NV": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "checkpointExecutionStageMask": {"$ref": "#/definitions/VkPipelineStageFlags2"}
-        }
-    },
-
-    "VkCheckpointData2NV": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "stage": {"$ref": "#/definitions/VkPipelineStageFlags2"},
-            "pCheckpointMarker": {"oneOf": [{"$ref": "#/definitions/void"},{"$ref": "#/definitions/void"}]}
-        }
-    },
-
     "VkBufferCopy2": {
         "type": "object",
         "additionalProperties": false,
