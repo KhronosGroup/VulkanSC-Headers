@@ -66,7 +66,7 @@ extern "C" {
 #define VK_API_VERSION_1_0 VK_MAKE_API_VERSION(0, 1, 0, 0)// Patch version should always be set to 0
 
 // Version of this file
-#define VK_HEADER_VERSION 16
+#define VK_HEADER_VERSION 17
 
 // Vulkan SC variant number
 #define VKSC_API_VARIANT 1
@@ -439,6 +439,7 @@ typedef enum VkStructureType {
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_PROPERTIES_KHR = 1000226002,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_FEATURES_KHR = 1000226003,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_KHR = 1000226004,
+    VK_STRUCTURE_TYPE_RENDERING_FRAGMENT_SHADING_RATE_ATTACHMENT_INFO_KHR = 1000044006,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_IMAGE_ATOMIC_INT64_FEATURES_EXT = 1000234000,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_BUDGET_PROPERTIES_EXT = 1000237000,
     VK_STRUCTURE_TYPE_VALIDATION_FEATURES_EXT = 1000247000,
@@ -454,8 +455,6 @@ typedef enum VkStructureType {
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUSTOM_BORDER_COLOR_PROPERTIES_EXT = 1000287001,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUSTOM_BORDER_COLOR_FEATURES_EXT = 1000287002,
     VK_STRUCTURE_TYPE_REFRESH_OBJECT_LIST_KHR = 1000308000,
-    VK_STRUCTURE_TYPE_QUEUE_FAMILY_CHECKPOINT_PROPERTIES_2_NV = 1000314008,
-    VK_STRUCTURE_TYPE_CHECKPOINT_DATA_2_NV = 1000314009,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_YCBCR_2_PLANE_444_FORMATS_FEATURES_EXT = 1000330000,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_4444_FORMATS_FEATURES_EXT = 1000340000,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_INPUT_DYNAMIC_STATE_FEATURES_EXT = 1000352000,
@@ -4326,7 +4325,7 @@ typedef enum VkDriverId {
     VK_DRIVER_ID_MESA_NVK = 24,
     VK_DRIVER_ID_IMAGINATION_OPEN_SOURCE_MESA = 25,
     VK_DRIVER_ID_MESA_HONEYKRISP = 26,
-    VK_DRIVER_ID_RESERVED_27 = 27,
+    VK_DRIVER_ID_VULKAN_SC_EMULATION_ON_VULKAN = 27,
     VK_DRIVER_ID_MAX_ENUM = 0x7FFFFFFF
 } VkDriverId;
 
@@ -6495,27 +6494,12 @@ typedef struct VkPhysicalDeviceSynchronization2Features {
 
 typedef VkPhysicalDeviceSynchronization2Features VkPhysicalDeviceSynchronization2FeaturesKHR;
 
-typedef struct VkQueueFamilyCheckpointProperties2NV {
-    VkStructureType          sType;
-    void*                    pNext;
-    VkPipelineStageFlags2    checkpointExecutionStageMask;
-} VkQueueFamilyCheckpointProperties2NV;
-
-typedef struct VkCheckpointData2NV {
-    VkStructureType          sType;
-    void*                    pNext;
-    VkPipelineStageFlags2    stage;
-    void*                    pCheckpointMarker;
-} VkCheckpointData2NV;
-
 typedef void (VKAPI_PTR *PFN_vkCmdSetEvent2KHR)(VkCommandBuffer                   commandBuffer, VkEvent                                             event, const VkDependencyInfo*                             pDependencyInfo);
 typedef void (VKAPI_PTR *PFN_vkCmdResetEvent2KHR)(VkCommandBuffer                   commandBuffer, VkEvent                                             event, VkPipelineStageFlags2               stageMask);
 typedef void (VKAPI_PTR *PFN_vkCmdWaitEvents2KHR)(VkCommandBuffer                   commandBuffer, uint32_t                                            eventCount, const VkEvent*                     pEvents, const VkDependencyInfo*            pDependencyInfos);
 typedef void (VKAPI_PTR *PFN_vkCmdPipelineBarrier2KHR)(VkCommandBuffer                   commandBuffer, const VkDependencyInfo*                             pDependencyInfo);
 typedef void (VKAPI_PTR *PFN_vkCmdWriteTimestamp2KHR)(VkCommandBuffer                   commandBuffer, VkPipelineStageFlags2               stage, VkQueryPool                                         queryPool, uint32_t                                            query);
 typedef VkResult (VKAPI_PTR *PFN_vkQueueSubmit2KHR)(VkQueue                           queue, uint32_t                            submitCount, const VkSubmitInfo2*              pSubmits, VkFence           fence);
-typedef void (VKAPI_PTR *PFN_vkCmdWriteBufferMarker2AMD)(VkCommandBuffer                   commandBuffer, VkPipelineStageFlags2               stage, VkBuffer                                            dstBuffer, VkDeviceSize                                        dstOffset, uint32_t                                            marker);
-typedef void (VKAPI_PTR *PFN_vkGetQueueCheckpointData2NV)(VkQueue queue, uint32_t* pCheckpointDataCount, VkCheckpointData2NV* pCheckpointData);
 
 #ifndef VK_NO_PROTOTYPES
 VKAPI_ATTR void VKAPI_CALL vkCmdSetEvent2KHR(
@@ -6549,18 +6533,6 @@ VKAPI_ATTR VkResult VKAPI_CALL vkQueueSubmit2KHR(
     uint32_t                                    submitCount,
     const VkSubmitInfo2*                        pSubmits,
     VkFence                                     fence);
-
-VKAPI_ATTR void VKAPI_CALL vkCmdWriteBufferMarker2AMD(
-    VkCommandBuffer                             commandBuffer,
-    VkPipelineStageFlags2                       stage,
-    VkBuffer                                    dstBuffer,
-    VkDeviceSize                                dstOffset,
-    uint32_t                                    marker);
-
-VKAPI_ATTR void VKAPI_CALL vkGetQueueCheckpointData2NV(
-    VkQueue                                     queue,
-    uint32_t*                                   pCheckpointDataCount,
-    VkCheckpointData2NV*                        pCheckpointData);
 #endif
 
 
