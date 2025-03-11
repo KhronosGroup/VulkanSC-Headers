@@ -6,7 +6,7 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 # ~~~
-cmake_minimum_required(VERSION 3.15...3.25)
+cmake_minimum_required(VERSION 3.15...3.31.6)
 
 # Add support for VULKANSC mode from the command line
 set(VULKANSC ON CACHE BOOL "User defined variable for VULKANSC mode to be passed in through cmake command line e.g. -DVULKANSC=ON")
@@ -65,13 +65,15 @@ if (CMAKE_VERSION VERSION_LESS "3.21")
     string(COMPARE EQUAL ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_SOURCE_DIR} PROJECT_IS_TOP_LEVEL)
 endif()
 
-if (PROJECT_IS_TOP_LEVEL)
-    option(BUILD_TESTS "Build the tests")
-    if (BUILD_TESTS)
-        enable_testing()
-        add_subdirectory(tests)
-    endif()
+option(VULKAN_HEADERS_ENABLE_TESTS "Test Vulkan-Headers" ${PROJECT_IS_TOP_LEVEL})
+option(VULKAN_HEADERS_ENABLE_INSTALL "Install Vulkan-Headers" ${PROJECT_IS_TOP_LEVEL})
 
+if (VULKAN_HEADERS_ENABLE_TESTS)
+    enable_testing() # This is only effective in the top level CMakeLists.txt file.
+    add_subdirectory(tests)
+endif()
+
+if (VULKAN_HEADERS_ENABLE_INSTALL)
     include(GNUInstallDirs)
     include(CMakePackageConfigHelpers)
     include(cmake/GenVulkanSCCombined.cmake)
@@ -86,8 +88,8 @@ if (PROJECT_IS_TOP_LEVEL)
     install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/registry" DESTINATION "${CMAKE_INSTALL_DATADIR}/vulkan" USE_SOURCE_PERMISSIONS)
 
     set_target_properties(Vulkan-Headers PROPERTIES EXPORT_NAME "Headers")
-
     install(TARGETS Vulkan-Headers EXPORT VulkanHeadersConfig INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+
     install(EXPORT VulkanHeadersConfig NAMESPACE "Vulkan::" DESTINATION "share/cmake/VulkanHeaders")
 
     set(version_config "${CMAKE_CURRENT_BINARY_DIR}/generated/VulkanHeadersConfigVersion.cmake")
