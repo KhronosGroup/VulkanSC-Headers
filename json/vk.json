@@ -3842,18 +3842,19 @@
         }
     },
 
+    "VkQueueGlobalPriority": {"$ref": "#/definitions/enum"},
     "VkQueueGlobalPriorityKHR": {"$ref": "#/definitions/enum"},
-    "VkDeviceQueueGlobalPriorityCreateInfoKHR": {
+    "VkDeviceQueueGlobalPriorityCreateInfo": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
             "sType": {"$ref": "#/definitions/VkStructureType"},
             "pNext": {"$ref": "#/definitions/void"},
-            "globalPriority": {"$ref": "#/definitions/VkQueueGlobalPriorityKHR"}
+            "globalPriority": {"$ref": "#/definitions/VkQueueGlobalPriority"}
         }
     },
 
-    "VkPhysicalDeviceGlobalPriorityQueryFeaturesKHR": {
+    "VkPhysicalDeviceGlobalPriorityQueryFeatures": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -3863,14 +3864,14 @@
         }
     },
 
-    "VkQueueFamilyGlobalPriorityPropertiesKHR": {
+    "VkQueueFamilyGlobalPriorityProperties": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
             "sType": {"$ref": "#/definitions/VkStructureType"},
             "pNext": {"$ref": "#/definitions/void"},
             "priorityCount": {"$ref": "#/definitions/uint32_t"},
-            "priorities":  {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkQueueGlobalPriorityKHR"}}
+            "priorities":  {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkQueueGlobalPriority"}}
         }
     },
 
@@ -4260,7 +4261,7 @@
         }
     },
 
-    "VkPhysicalDeviceVertexAttributeDivisorPropertiesKHR": {
+    "VkPhysicalDeviceVertexAttributeDivisorProperties": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -4271,7 +4272,7 @@
         }
     },
 
-    "VkVertexInputBindingDivisorDescriptionKHR": {
+    "VkVertexInputBindingDivisorDescription": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -4280,18 +4281,18 @@
         }
     },
 
-    "VkPipelineVertexInputDivisorStateCreateInfoKHR": {
+    "VkPipelineVertexInputDivisorStateCreateInfo": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
             "sType": {"$ref": "#/definitions/VkStructureType"},
             "pNext": {"$ref": "#/definitions/void"},
             "vertexBindingDivisorCount": {"$ref": "#/definitions/uint32_t"},
-            "pVertexBindingDivisors": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkVertexInputBindingDivisorDescriptionKHR"}}]}
+            "pVertexBindingDivisors": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkVertexInputBindingDivisorDescription"}}]}
         }
     },
 
-    "VkPhysicalDeviceVertexAttributeDivisorFeaturesKHR": {
+    "VkPhysicalDeviceVertexAttributeDivisorFeatures": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -4302,7 +4303,7 @@
         }
     },
 
-    "VkPhysicalDeviceIndexTypeUint8FeaturesKHR": {
+    "VkPhysicalDeviceIndexTypeUint8Features": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -4312,8 +4313,9 @@
         }
     },
 
+    "VkLineRasterizationMode": {"$ref": "#/definitions/enum"},
     "VkLineRasterizationModeKHR": {"$ref": "#/definitions/enum"},
-    "VkPhysicalDeviceLineRasterizationFeaturesKHR": {
+    "VkPhysicalDeviceLineRasterizationFeatures": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -4328,7 +4330,7 @@
         }
     },
 
-    "VkPhysicalDeviceLineRasterizationPropertiesKHR": {
+    "VkPhysicalDeviceLineRasterizationProperties": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -4338,13 +4340,13 @@
         }
     },
 
-    "VkPipelineRasterizationLineStateCreateInfoKHR": {
+    "VkPipelineRasterizationLineStateCreateInfo": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
             "sType": {"$ref": "#/definitions/VkStructureType"},
             "pNext": {"$ref": "#/definitions/void"},
-            "lineRasterizationMode": {"$ref": "#/definitions/VkLineRasterizationModeKHR"},
+            "lineRasterizationMode": {"$ref": "#/definitions/VkLineRasterizationMode"},
             "stippledLineEnable": {"$ref": "#/definitions/VkBool32"},
             "lineStippleFactor": {"$ref": "#/definitions/uint32_t"},
             "lineStipplePattern": {"$ref": "#/definitions/uint16_t"}
