@@ -1,4 +1,4 @@
-Copyright 2015-2023 The Khronos Group Inc.
+Copyright 2015-2025 The Khronos Group Inc.
 
 Files in this repository fall under one of these licenses:
 
