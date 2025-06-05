@@ -545,9 +545,11 @@ class OutputGenerator:
                 # still add this enum to the list.
                 (name2, numVal2, strVal2) = valueMap[numVal]
 
-                msg = 'Two enums found with the same value: {} = {} = {}'.format(
-                    name, name2.get('name'), strVal)
-                self.logMsg('error', msg)
+                # Combined headers may have enums with the same value
+                if self.genOpts.mergeApiNames is None:
+                    msg = 'Two enums found with the same value: {} = {} = {}'.format(
+                        name, name2.get('name'), strVal)
+                    self.logMsg('error', msg)
 
             # Track this enum to detect followon duplicates
             nameMap[name] = [elem, numVal, strVal]
