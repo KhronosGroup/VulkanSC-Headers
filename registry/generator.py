@@ -514,6 +514,10 @@ class OutputGenerator:
 
         stripped = []
         for elem in enums:
+            if not self.isEnumRequired(elem):
+                # Ignore enums that are not even part of the target API
+                continue
+
             name = elem.get('name')
             (numVal, strVal) = self.enumToValue(elem, True)
 

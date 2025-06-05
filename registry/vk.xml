@@ -23036,8 +23036,10 @@ typedef void* <name>MTLSharedEvent_id</name>;
             <require>
                 <enum value="1"                                                 name="VK_EXT_ROBUSTNESS_2_SPEC_VERSION"/>
                 <enum value="&quot;VK_EXT_robustness2&quot;"                    name="VK_EXT_ROBUSTNESS_2_EXTENSION_NAME"/>
-                <enum extends="VkStructureType" name="VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_FEATURES_EXT" alias="VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_FEATURES_KHR"/>
-                <enum extends="VkStructureType" name="VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_PROPERTIES_EXT" alias="VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_PROPERTIES_KHR"/>
+                <enum api="vulkan" extends="VkStructureType" name="VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_FEATURES_EXT" alias="VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_FEATURES_KHR"/>
+                <enum api="vulkan" extends="VkStructureType" name="VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_PROPERTIES_EXT" alias="VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_PROPERTIES_KHR"/>
+                <enum api="vulkansc" offset="0" extends="VkStructureType" name="VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_FEATURES_EXT"/>
+                <enum api="vulkansc" offset="1" extends="VkStructureType" name="VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_PROPERTIES_EXT"/>
                 <type name="VkPhysicalDeviceRobustness2FeaturesEXT"/>
                 <type name="VkPhysicalDeviceRobustness2PropertiesEXT"/>
                 <feature name="robustBufferAccess2,robustImageAccess2,nullDescriptor" struct="VkPhysicalDeviceRobustness2FeaturesEXT"/>
