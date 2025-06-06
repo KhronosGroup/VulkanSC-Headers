@@ -15,7 +15,7 @@ cmake --install build --prefix build/install
 
 Build the combined Vulkan SC headers used by ecosystem components as follows:
 ```bash
-cmake -DGEN_VULKANSC_COMBINED -S . -B build/
+cmake -DGEN_VULKANSC_COMBINED=ON -S . -B build/
 cmake --build build
 cmake --install build --prefix build/install
 ```
