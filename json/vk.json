@@ -69,6 +69,7 @@
     "VkFenceCreateFlagBits": {"$ref": "#/definitions/enum"},
     "VkEventCreateFlagBits": {"$ref": "#/definitions/enum"},
     "VkQueryPipelineStatisticFlagBits": {"$ref": "#/definitions/enum"},
+    "VkQueryPoolCreateFlagBits": {"$ref": "#/definitions/enum"},
     "VkQueryType": {"$ref": "#/definitions/enum"},
     "VkQueryResultFlagBits": {"$ref": "#/definitions/enum"},
     "VkBufferCreateFlagBits": {"$ref": "#/definitions/enum"},
@@ -5091,7 +5092,7 @@
         }
     },
 
-    "VkPhysicalDeviceRobustness2FeaturesEXT": {
+    "VkPhysicalDeviceRobustness2FeaturesKHR": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -5103,7 +5104,7 @@
         }
     },
 
-    "VkPhysicalDeviceRobustness2PropertiesEXT": {
+    "VkPhysicalDeviceRobustness2PropertiesKHR": {
         "type": "object",
         "additionalProperties": false,
         "properties": {

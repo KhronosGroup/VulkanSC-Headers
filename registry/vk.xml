@@ -185,7 +185,7 @@ branch of the member gitlab server.
         <type api="vulkan" category="define" requires="VK_HEADER_VERSION">// Complete version of this file
 #define <name>VK_HEADER_VERSION_COMPLETE</name> <type>VK_MAKE_API_VERSION</type>(0, 1, 4, VK_HEADER_VERSION)</type>
         <type api="vulkansc" category="define">// Version of this file
-#define <name>VK_HEADER_VERSION</name> 18</type>
+#define <name>VK_HEADER_VERSION</name> 19</type>
         <type api="vulkansc" category="define" requires="VKSC_API_VARIANT">// Complete version of this file
 #define <name>VK_HEADER_VERSION_COMPLETE</name> <type>VK_MAKE_API_VERSION</type>(VKSC_API_VARIANT, 1, 0, VK_HEADER_VERSION)</type>
 
@@ -4610,7 +4610,7 @@ typedef void* <name>MTLSharedEvent_id</name>;
             <member values="VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_PROPERTIES"><type>VkStructureType</type> <name>sType</name></member>
             <member optional="true"><type>void</type>*                  <name>pNext</name></member>
             <member limittype="max"><type>uint32_t</type>               <name>maxVertexAttribDivisor</name><comment>max value of vertex attribute divisor</comment></member>
-            <member limittype="max"><type>VkBool32</type>               <name>supportsNonZeroFirstInstance</name></member>
+            <member limittype="exact"><type>VkBool32</type>             <name>supportsNonZeroFirstInstance</name></member>
         </type>
         <type category="struct" name="VkPhysicalDeviceVertexAttributeDivisorPropertiesKHR" alias="VkPhysicalDeviceVertexAttributeDivisorProperties"/>
         <type category="struct" name="VkPhysicalDevicePCIBusInfoPropertiesEXT" structextends="VkPhysicalDeviceProperties2" returnedonly="true">
@@ -6106,7 +6106,7 @@ typedef void* <name>MTLSharedEvent_id</name>;
             <member optional="true"><type>void</type>*                                                      <name>pNext</name></member>
             <member limittype="bits"><type>uint32_t</type>                                                  <name>lineSubPixelPrecisionBits</name></member>
             <member limittype="max"><type>uint32_t</type>                                                   <name>maxVertexAttribDivisor</name><comment>max value of vertex attribute divisor</comment></member>
-            <member limittype="max"><type>VkBool32</type>                                                   <name>supportsNonZeroFirstInstance</name></member>
+            <member limittype="exact"><type>VkBool32</type>                                                 <name>supportsNonZeroFirstInstance</name></member>
             <member limittype="max"><type>uint32_t</type>                                                   <name>maxPushDescriptors</name></member>
             <member limittype="max"><type>VkBool32</type>                                                   <name>dynamicRenderingLocalReadDepthStencilAttachments</name></member>
             <member limittype="max"><type>VkBool32</type>                                                   <name>dynamicRenderingLocalReadMultisampledAttachments</name></member>
