@@ -43,7 +43,7 @@ update-headers:
 	    exit 1 ; \
 	fi
 	cp -r $(SPEC)/gen/include/* include/
-	cp $(SPEC)/gen/out/json/*.json json/
+	cp $(SPEC)/gen/out/json/*.* json/
 
 # Top-level scripts / XML / json to install in registry directory
 SCRIPTS = \
