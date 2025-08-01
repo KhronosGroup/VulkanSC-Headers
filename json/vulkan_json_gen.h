@@ -1,6 +1,6 @@
 
 /*
-** Copyright (c) 2020 The Khronos Group Inc.
+** Copyright 2020-2025 The Khronos Group Inc.
 **
 ** SPDX-License-Identifier: Apache-2.0
 */
@@ -72,6 +72,9 @@ void print_VkCommandBufferResetFlags(const VkCommandBufferResetFlags* obj, const
 void print_VkCommandBufferUsageFlags(const VkCommandBufferUsageFlags* obj, const char* str, int commaNeeded);
 void print_VkQueryPipelineStatisticFlags(const VkQueryPipelineStatisticFlags* obj, const char* str, int commaNeeded);
 void print_VkMemoryMapFlags(const VkMemoryMapFlags* obj, const char* str, int commaNeeded);
+#ifdef VK_VERSION_1_4
+void print_VkMemoryUnmapFlags(const VkMemoryUnmapFlags* obj, const char* str, int commaNeeded);
+#endif
 void print_VkImageAspectFlags(const VkImageAspectFlags* obj, const char* str, int commaNeeded);
 void print_VkSubpassDescriptionFlags(const VkSubpassDescriptionFlags* obj, const char* str, int commaNeeded);
 void print_VkPipelineStageFlags(const VkPipelineStageFlags* obj, const char* str, int commaNeeded);
@@ -85,6 +88,10 @@ void print_VkDependencyFlags(const VkDependencyFlags* obj, const char* str, int 
 #ifdef VK_VERSION_1_1
 void print_VkSubgroupFeatureFlags(const VkSubgroupFeatureFlags* obj, const char* str, int commaNeeded);
 #endif
+#ifdef VK_VERSION_1_3
+void print_VkPrivateDataSlotCreateFlags(const VkPrivateDataSlotCreateFlags* obj, const char* str, int commaNeeded);
+void print_VkPipelineCreationFeedbackFlags(const VkPipelineCreationFeedbackFlags* obj, const char* str, int commaNeeded);
+#endif
 #ifdef VK_KHR_performance_query
 void print_VkPerformanceCounterDescriptionFlagsKHR(const VkPerformanceCounterDescriptionFlagsKHR* obj, const char* str, int commaNeeded);
 void print_VkAcquireProfilingLockFlagsKHR(const VkAcquireProfilingLockFlagsKHR* obj, const char* str, int commaNeeded);
@@ -95,9 +102,25 @@ void print_VkSemaphoreWaitFlags(const VkSemaphoreWaitFlags* obj, const char* str
 #ifdef VK_KHR_object_refresh
 void print_VkRefreshObjectFlagsKHR(const VkRefreshObjectFlagsKHR* obj, const char* str, int commaNeeded);
 #endif
+#ifdef VK_VERSION_1_3
+void print_VkAccessFlags2(const VkAccessFlags2* obj, const char* str, int commaNeeded);
+#endif
 #ifdef VK_KHR_synchronization2
 void print_VkAccessFlags2KHR(const VkAccessFlags2KHR* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkPipelineStageFlags2(const VkPipelineStageFlags2* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_KHR_synchronization2
 void print_VkPipelineStageFlags2KHR(const VkPipelineStageFlags2KHR* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkFormatFeatureFlags2(const VkFormatFeatureFlags2* obj, const char* str, int commaNeeded);
+void print_VkRenderingFlags(const VkRenderingFlags* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_4
+void print_VkPipelineCreateFlags2(const VkPipelineCreateFlags2* obj, const char* str, int commaNeeded);
+void print_VkBufferUsageFlags2(const VkBufferUsageFlags2* obj, const char* str, int commaNeeded);
 #endif
 #ifdef VK_KHR_surface
 void print_VkCompositeAlphaFlagsKHR(const VkCompositeAlphaFlagsKHR* obj, const char* str, int commaNeeded);
@@ -155,8 +178,15 @@ void print_VkResolveModeFlags(const VkResolveModeFlags* obj, const char* str, in
 #ifdef VK_EXT_depth_clip_enable
 void print_VkPipelineRasterizationDepthClipStateCreateFlagsEXT(const VkPipelineRasterizationDepthClipStateCreateFlagsEXT* obj, const char* str, int commaNeeded);
 #endif
+#ifdef VK_VERSION_1_3
+void print_VkToolPurposeFlags(const VkToolPurposeFlags* obj, const char* str, int commaNeeded);
+void print_VkSubmitFlags(const VkSubmitFlags* obj, const char* str, int commaNeeded);
+#endif
 #ifdef VK_KHR_synchronization2
 void print_VkSubmitFlagsKHR(const VkSubmitFlagsKHR* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_4
+void print_VkHostImageCopyFlags(const VkHostImageCopyFlags* obj, const char* str, int commaNeeded);
 #endif
 void print_VkInstance(const VkInstance* obj, const char* str, int commaNeeded);
 void print_VkPhysicalDevice(const VkPhysicalDevice* obj, const char* str, int commaNeeded);
@@ -186,6 +216,9 @@ void print_VkPipelineCache(const VkPipelineCache* obj, const char* str, int comm
 #ifdef VK_VERSION_1_1
 void print_VkSamplerYcbcrConversion(const VkSamplerYcbcrConversion* obj, const char* str, int commaNeeded);
 #endif
+#ifdef VK_VERSION_1_3
+void print_VkPrivateDataSlot(const VkPrivateDataSlot* obj, const char* str, int commaNeeded);
+#endif
 #ifdef VK_KHR_display
 void print_VkDisplayKHR(const VkDisplayKHR* obj, const char* str, int commaNeeded);
 void print_VkDisplayModeKHR(const VkDisplayModeKHR* obj, const char* str, int commaNeeded);
@@ -199,12 +232,16 @@ void print_VkSwapchainKHR(const VkSwapchainKHR* obj, const char* str, int commaN
 #ifdef VK_EXT_debug_utils
 void print_VkDebugUtilsMessengerEXT(const VkDebugUtilsMessengerEXT* obj, const char* str, int commaNeeded);
 #endif
+#ifdef VK_NV_external_sci_sync2
+void print_VkSemaphoreSciSyncPoolNV(const VkSemaphoreSciSyncPoolNV* obj, const char* str, int commaNeeded);
+#endif
 void print_VkAttachmentLoadOp(const VkAttachmentLoadOp* obj, const char* str, int commaNeeded);
 void print_VkAttachmentStoreOp(const VkAttachmentStoreOp* obj, const char* str, int commaNeeded);
 void print_VkBlendFactor(const VkBlendFactor* obj, const char* str, int commaNeeded);
 void print_VkBlendOp(const VkBlendOp* obj, const char* str, int commaNeeded);
 void print_VkBorderColor(const VkBorderColor* obj, const char* str, int commaNeeded);
 void print_VkFramebufferCreateFlagBits(const VkFramebufferCreateFlagBits* obj, const char* str, int commaNeeded);
+void print_VkQueryPoolCreateFlagBits(const VkQueryPoolCreateFlagBits* obj, const char* str, int commaNeeded);
 void print_VkRenderPassCreateFlagBits(const VkRenderPassCreateFlagBits* obj, const char* str, int commaNeeded);
 void print_VkSamplerCreateFlagBits(const VkSamplerCreateFlagBits* obj, const char* str, int commaNeeded);
 void print_VkPipelineCacheHeaderVersion(const VkPipelineCacheHeaderVersion* obj, const char* str, int commaNeeded);
@@ -213,6 +250,7 @@ void print_VkPipelineCacheCreateFlagBits(const VkPipelineCacheCreateFlagBits* ob
 #endif
 void print_VkPipelineShaderStageCreateFlagBits(const VkPipelineShaderStageCreateFlagBits* obj, const char* str, int commaNeeded);
 void print_VkDescriptorSetLayoutCreateFlagBits(const VkDescriptorSetLayoutCreateFlagBits* obj, const char* str, int commaNeeded);
+void print_VkInstanceCreateFlagBits(const VkInstanceCreateFlagBits* obj, const char* str, int commaNeeded);
 #ifdef VK_VERSION_1_1
 void print_VkDeviceQueueCreateFlagBits(const VkDeviceQueueCreateFlagBits* obj, const char* str, int commaNeeded);
 #endif
@@ -234,6 +272,7 @@ void print_VkPolygonMode(const VkPolygonMode* obj, const char* str, int commaNee
 void print_VkFormat(const VkFormat* obj, const char* str, int commaNeeded);
 void print_VkFormatFeatureFlagBits(const VkFormatFeatureFlagBits* obj, const char* str, int commaNeeded);
 void print_VkFrontFace(const VkFrontFace* obj, const char* str, int commaNeeded);
+void print_VkMemoryMapFlagBits(const VkMemoryMapFlagBits* obj, const char* str, int commaNeeded);
 void print_VkImageAspectFlagBits(const VkImageAspectFlagBits* obj, const char* str, int commaNeeded);
 void print_VkImageCreateFlagBits(const VkImageCreateFlagBits* obj, const char* str, int commaNeeded);
 void print_VkImageLayout(const VkImageLayout* obj, const char* str, int commaNeeded);
@@ -283,11 +322,14 @@ void print_VkSubpassDescriptionFlagBits(const VkSubpassDescriptionFlagBits* obj,
 #ifdef VK_VERSION_1_1
 void print_VkPointClippingBehavior(const VkPointClippingBehavior* obj, const char* str, int commaNeeded);
 #endif
-#ifdef VK_EXT_global_priority
-void print_VkQueueGlobalPriorityEXT(const VkQueueGlobalPriorityEXT* obj, const char* str, int commaNeeded);
+#ifdef VK_VERSION_1_4
+void print_VkQueueGlobalPriority(const VkQueueGlobalPriority* obj, const char* str, int commaNeeded);
 #endif
-#ifdef VK_EXT_calibrated_timestamps
-void print_VkTimeDomainEXT(const VkTimeDomainEXT* obj, const char* str, int commaNeeded);
+#ifdef VK_KHR_global_priority
+void print_VkQueueGlobalPriorityKHR(const VkQueueGlobalPriorityKHR* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_KHR_calibrated_timestamps
+void print_VkTimeDomainKHR(const VkTimeDomainKHR* obj, const char* str, int commaNeeded);
 #endif
 #ifdef VK_EXT_conservative_rasterization
 void print_VkConservativeRasterizationModeEXT(const VkConservativeRasterizationModeEXT* obj, const char* str, int commaNeeded);
@@ -296,6 +338,9 @@ void print_VkConservativeRasterizationModeEXT(const VkConservativeRasterizationM
 void print_VkResolveModeFlagBits(const VkResolveModeFlagBits* obj, const char* str, int commaNeeded);
 void print_VkDescriptorBindingFlagBits(const VkDescriptorBindingFlagBits* obj, const char* str, int commaNeeded);
 void print_VkSemaphoreType(const VkSemaphoreType* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkPipelineCreationFeedbackFlagBits(const VkPipelineCreationFeedbackFlagBits* obj, const char* str, int commaNeeded);
 #endif
 #ifdef VK_KHR_performance_query
 void print_VkPerformanceCounterScopeKHR(const VkPerformanceCounterScopeKHR* obj, const char* str, int commaNeeded);
@@ -306,6 +351,12 @@ void print_VkAcquireProfilingLockFlagBitsKHR(const VkAcquireProfilingLockFlagBit
 #endif
 #ifdef VK_VERSION_1_2
 void print_VkSemaphoreWaitFlagBits(const VkSemaphoreWaitFlagBits* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_4
+void print_VkLineRasterizationMode(const VkLineRasterizationMode* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_KHR_line_rasterization
+void print_VkLineRasterizationModeKHR(const VkLineRasterizationModeKHR* obj, const char* str, int commaNeeded);
 #endif
 #ifdef VK_EXT_line_rasterization
 void print_VkLineRasterizationModeEXT(const VkLineRasterizationModeEXT* obj, const char* str, int commaNeeded);
@@ -319,12 +370,38 @@ void print_VkFaultType(const VkFaultType* obj, const char* str, int commaNeeded)
 void print_VkFaultQueryBehavior(const VkFaultQueryBehavior* obj, const char* str, int commaNeeded);
 void print_VkPipelineMatchControl(const VkPipelineMatchControl* obj, const char* str, int commaNeeded);
 #endif
+#ifdef VK_NV_external_sci_sync2
+void print_VkSciSyncClientTypeNV(const VkSciSyncClientTypeNV* obj, const char* str, int commaNeeded);
+void print_VkSciSyncPrimitiveTypeNV(const VkSciSyncPrimitiveTypeNV* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkToolPurposeFlagBits(const VkToolPurposeFlagBits* obj, const char* str, int commaNeeded);
+void print_VkAccessFlagBits2(const VkAccessFlagBits2* obj, const char* str, int commaNeeded);
+#endif
 #ifdef VK_KHR_synchronization2
 void print_VkAccessFlagBits2KHR(const VkAccessFlagBits2KHR* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkPipelineStageFlagBits2(const VkPipelineStageFlagBits2* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_KHR_synchronization2
 void print_VkPipelineStageFlagBits2KHR(const VkPipelineStageFlagBits2KHR* obj, const char* str, int commaNeeded);
 #endif
 #ifdef VKSC_VERSION_1_0
 void print_VkPipelineCacheValidationVersion(const VkPipelineCacheValidationVersion* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_4
+void print_VkHostImageCopyFlagBits(const VkHostImageCopyFlagBits* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkFormatFeatureFlagBits2(const VkFormatFeatureFlagBits2* obj, const char* str, int commaNeeded);
+void print_VkRenderingFlagBits(const VkRenderingFlagBits* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_4
+void print_VkPipelineRobustnessBufferBehavior(const VkPipelineRobustnessBufferBehavior* obj, const char* str, int commaNeeded);
+void print_VkPipelineRobustnessImageBehavior(const VkPipelineRobustnessImageBehavior* obj, const char* str, int commaNeeded);
+void print_VkPipelineCreateFlagBits2(const VkPipelineCreateFlagBits2* obj, const char* str, int commaNeeded);
+void print_VkBufferUsageFlagBits2(const VkBufferUsageFlagBits2* obj, const char* str, int commaNeeded);
 #endif
 #ifdef VK_KHR_surface
 void print_VkColorSpaceKHR(const VkColorSpaceKHR* obj, const char* str, int commaNeeded);
@@ -390,8 +467,17 @@ void print_VkShaderFloatControlsIndependence(const VkShaderFloatControlsIndepend
 #ifdef VK_KHR_fragment_shading_rate
 void print_VkFragmentShadingRateCombinerOpKHR(const VkFragmentShadingRateCombinerOpKHR* obj, const char* str, int commaNeeded);
 #endif
+#ifdef VK_VERSION_1_3
+void print_VkSubmitFlagBits(const VkSubmitFlagBits* obj, const char* str, int commaNeeded);
+#endif
 #ifdef VK_KHR_synchronization2
 void print_VkSubmitFlagBitsKHR(const VkSubmitFlagBitsKHR* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_EXT_layer_settings
+void print_VkLayerSettingTypeEXT(const VkLayerSettingTypeEXT* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_4
+void print_VkMemoryUnmapFlagBits(const VkMemoryUnmapFlagBits* obj, const char* str, int commaNeeded);
 #endif
 void print_VkVendorId(const VkVendorId* obj, const char* str, int commaNeeded);
 #ifdef VK_VERSION_1_2
@@ -428,6 +514,9 @@ void print_VkDescriptorBufferInfo(const VkDescriptorBufferInfo* obj, const char*
 void print_VkDescriptorImageInfo(const VkDescriptorImageInfo* obj, const char* str, int commaNeeded);
 void print_VkWriteDescriptorSet(const VkWriteDescriptorSet* obj, const char* str, int commaNeeded);
 void print_VkCopyDescriptorSet(const VkCopyDescriptorSet* obj, const char* str, int commaNeeded);
+#ifdef VK_VERSION_1_4
+void print_VkBufferUsageFlags2CreateInfo(const VkBufferUsageFlags2CreateInfo* obj, const char* str, int commaNeeded);
+#endif
 void print_VkBufferCreateInfo(const VkBufferCreateInfo* obj, const char* str, int commaNeeded);
 void print_VkBufferViewCreateInfo(const VkBufferViewCreateInfo* obj, const char* str, int commaNeeded);
 void print_VkImageSubresource(const VkImageSubresource* obj, const char* str, int commaNeeded);
@@ -453,6 +542,9 @@ void print_VkSpecializationMapEntry(const VkSpecializationMapEntry* obj, const c
 void print_VkSpecializationInfo(const VkSpecializationInfo* obj, const char* str, int commaNeeded);
 void print_VkPipelineShaderStageCreateInfo(const VkPipelineShaderStageCreateInfo* obj, const char* str, int commaNeeded);
 void print_VkComputePipelineCreateInfo(const VkComputePipelineCreateInfo* obj, const char* str, int commaNeeded);
+#ifdef VK_VERSION_1_4
+void print_VkPipelineCreateFlags2CreateInfo(const VkPipelineCreateFlags2CreateInfo* obj, const char* str, int commaNeeded);
+#endif
 void print_VkVertexInputBindingDescription(const VkVertexInputBindingDescription* obj, const char* str, int commaNeeded);
 void print_VkVertexInputAttributeDescription(const VkVertexInputAttributeDescription* obj, const char* str, int commaNeeded);
 void print_VkPipelineVertexInputStateCreateInfo(const VkPipelineVertexInputStateCreateInfo* obj, const char* str, int commaNeeded);
@@ -524,8 +616,25 @@ void print_VkPresentInfoKHR(const VkPresentInfoKHR* obj, const char* str, int co
 #ifdef VK_EXT_validation_features
 void print_VkValidationFeaturesEXT(const VkValidationFeaturesEXT* obj, const char* str, int commaNeeded);
 #endif
+#ifdef VK_EXT_layer_settings
+void print_VkLayerSettingsCreateInfoEXT(const VkLayerSettingsCreateInfoEXT* obj, const char* str, int commaNeeded);
+void print_VkLayerSettingEXT(const VkLayerSettingEXT* obj, const char* str, int commaNeeded);
+#endif
 #ifdef VK_EXT_application_parameters
 void print_VkApplicationParametersEXT(const VkApplicationParametersEXT* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_NV_external_memory_sci_buf
+void print_VkExportMemorySciBufInfoNV(const VkExportMemorySciBufInfoNV* obj, const char* str, int commaNeeded);
+void print_VkImportMemorySciBufInfoNV(const VkImportMemorySciBufInfoNV* obj, const char* str, int commaNeeded);
+void print_VkMemoryGetSciBufInfoNV(const VkMemoryGetSciBufInfoNV* obj, const char* str, int commaNeeded);
+void print_VkMemorySciBufPropertiesNV(const VkMemorySciBufPropertiesNV* obj, const char* str, int commaNeeded);
+void print_VkPhysicalDeviceExternalMemorySciBufFeaturesNV(const VkPhysicalDeviceExternalMemorySciBufFeaturesNV* obj, const char* str, int commaNeeded);
+void print_VkPhysicalDeviceExternalSciBufFeaturesNV(const VkPhysicalDeviceExternalSciBufFeaturesNV* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkDevicePrivateDataCreateInfo(const VkDevicePrivateDataCreateInfo* obj, const char* str, int commaNeeded);
+void print_VkPrivateDataSlotCreateInfo(const VkPrivateDataSlotCreateInfo* obj, const char* str, int commaNeeded);
+void print_VkPhysicalDevicePrivateDataFeatures(const VkPhysicalDevicePrivateDataFeatures* obj, const char* str, int commaNeeded);
 #endif
 #ifdef VK_VERSION_1_1
 void print_VkPhysicalDeviceFeatures2(const VkPhysicalDeviceFeatures2* obj, const char* str, int commaNeeded);
@@ -535,6 +644,9 @@ void print_VkImageFormatProperties2(const VkImageFormatProperties2* obj, const c
 void print_VkPhysicalDeviceImageFormatInfo2(const VkPhysicalDeviceImageFormatInfo2* obj, const char* str, int commaNeeded);
 void print_VkQueueFamilyProperties2(const VkQueueFamilyProperties2* obj, const char* str, int commaNeeded);
 void print_VkPhysicalDeviceMemoryProperties2(const VkPhysicalDeviceMemoryProperties2* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_4
+void print_VkPhysicalDevicePushDescriptorProperties(const VkPhysicalDevicePushDescriptorProperties* obj, const char* str, int commaNeeded);
 #endif
 #ifdef VK_VERSION_1_2
 void print_VkConformanceVersion(const VkConformanceVersion* obj, const char* str, int commaNeeded);
@@ -580,6 +692,28 @@ void print_VkExportFenceCreateInfo(const VkExportFenceCreateInfo* obj, const cha
 #ifdef VK_KHR_external_fence_fd
 void print_VkImportFenceFdInfoKHR(const VkImportFenceFdInfoKHR* obj, const char* str, int commaNeeded);
 void print_VkFenceGetFdInfoKHR(const VkFenceGetFdInfoKHR* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_NV_external_sci_sync2
+void print_VkExportFenceSciSyncInfoNV(const VkExportFenceSciSyncInfoNV* obj, const char* str, int commaNeeded);
+void print_VkImportFenceSciSyncInfoNV(const VkImportFenceSciSyncInfoNV* obj, const char* str, int commaNeeded);
+void print_VkFenceGetSciSyncInfoNV(const VkFenceGetSciSyncInfoNV* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_NV_external_sci_sync
+void print_VkExportSemaphoreSciSyncInfoNV(const VkExportSemaphoreSciSyncInfoNV* obj, const char* str, int commaNeeded);
+void print_VkImportSemaphoreSciSyncInfoNV(const VkImportSemaphoreSciSyncInfoNV* obj, const char* str, int commaNeeded);
+void print_VkSemaphoreGetSciSyncInfoNV(const VkSemaphoreGetSciSyncInfoNV* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_NV_external_sci_sync2
+void print_VkSciSyncAttributesInfoNV(const VkSciSyncAttributesInfoNV* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_NV_external_sci_sync
+void print_VkPhysicalDeviceExternalSciSyncFeaturesNV(const VkPhysicalDeviceExternalSciSyncFeaturesNV* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_NV_external_sci_sync2
+void print_VkPhysicalDeviceExternalSciSync2FeaturesNV(const VkPhysicalDeviceExternalSciSync2FeaturesNV* obj, const char* str, int commaNeeded);
+void print_VkSemaphoreSciSyncPoolCreateInfoNV(const VkSemaphoreSciSyncPoolCreateInfoNV* obj, const char* str, int commaNeeded);
+void print_VkSemaphoreSciSyncCreateInfoNV(const VkSemaphoreSciSyncCreateInfoNV* obj, const char* str, int commaNeeded);
+void print_VkDeviceSemaphoreSciSyncPoolReservationCreateInfoNV(const VkDeviceSemaphoreSciSyncPoolReservationCreateInfoNV* obj, const char* str, int commaNeeded);
 #endif
 #ifdef VK_VERSION_1_1
 void print_VkPhysicalDeviceMultiviewFeatures(const VkPhysicalDeviceMultiviewFeatures* obj, const char* str, int commaNeeded);
@@ -655,7 +789,17 @@ void print_VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures(const VkPhysicalD
 #endif
 #ifdef VK_VERSION_1_1
 void print_VkBufferMemoryRequirementsInfo2(const VkBufferMemoryRequirementsInfo2* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkDeviceBufferMemoryRequirements(const VkDeviceBufferMemoryRequirements* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_1
 void print_VkImageMemoryRequirementsInfo2(const VkImageMemoryRequirementsInfo2* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkDeviceImageMemoryRequirements(const VkDeviceImageMemoryRequirements* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_1
 void print_VkMemoryRequirements2(const VkMemoryRequirements2* obj, const char* str, int commaNeeded);
 void print_VkPhysicalDevicePointClippingProperties(const VkPhysicalDevicePointClippingProperties* obj, const char* str, int commaNeeded);
 void print_VkMemoryDedicatedRequirements(const VkMemoryDedicatedRequirements* obj, const char* str, int commaNeeded);
@@ -694,11 +838,30 @@ void print_VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT(const VkPhysicalDev
 void print_VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT(const VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT* obj, const char* str, int commaNeeded);
 void print_VkPipelineColorBlendAdvancedStateCreateInfoEXT(const VkPipelineColorBlendAdvancedStateCreateInfoEXT* obj, const char* str, int commaNeeded);
 #endif
+#ifdef VK_VERSION_1_3
+void print_VkPhysicalDeviceInlineUniformBlockFeatures(const VkPhysicalDeviceInlineUniformBlockFeatures* obj, const char* str, int commaNeeded);
+void print_VkPhysicalDeviceInlineUniformBlockProperties(const VkPhysicalDeviceInlineUniformBlockProperties* obj, const char* str, int commaNeeded);
+void print_VkWriteDescriptorSetInlineUniformBlock(const VkWriteDescriptorSetInlineUniformBlock* obj, const char* str, int commaNeeded);
+void print_VkDescriptorPoolInlineUniformBlockCreateInfo(const VkDescriptorPoolInlineUniformBlockCreateInfo* obj, const char* str, int commaNeeded);
+#endif
 #ifdef VK_VERSION_1_2
 void print_VkImageFormatListCreateInfo(const VkImageFormatListCreateInfo* obj, const char* str, int commaNeeded);
 #endif
 #ifdef VK_VERSION_1_1
 void print_VkPhysicalDeviceMaintenance3Properties(const VkPhysicalDeviceMaintenance3Properties* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkPhysicalDeviceMaintenance4Features(const VkPhysicalDeviceMaintenance4Features* obj, const char* str, int commaNeeded);
+void print_VkPhysicalDeviceMaintenance4Properties(const VkPhysicalDeviceMaintenance4Properties* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_4
+void print_VkPhysicalDeviceMaintenance5Features(const VkPhysicalDeviceMaintenance5Features* obj, const char* str, int commaNeeded);
+void print_VkPhysicalDeviceMaintenance5Properties(const VkPhysicalDeviceMaintenance5Properties* obj, const char* str, int commaNeeded);
+void print_VkPhysicalDeviceMaintenance6Features(const VkPhysicalDeviceMaintenance6Features* obj, const char* str, int commaNeeded);
+void print_VkPhysicalDeviceMaintenance6Properties(const VkPhysicalDeviceMaintenance6Properties* obj, const char* str, int commaNeeded);
+void print_VkRenderingAreaInfo(const VkRenderingAreaInfo* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_1
 void print_VkDescriptorSetLayoutSupport(const VkDescriptorSetLayoutSupport* obj, const char* str, int commaNeeded);
 void print_VkPhysicalDeviceShaderDrawParametersFeatures(const VkPhysicalDeviceShaderDrawParametersFeatures* obj, const char* str, int commaNeeded);
 void print_VkPhysicalDeviceShaderDrawParameterFeatures(const VkPhysicalDeviceShaderDrawParameterFeatures* obj, const char* str, int commaNeeded);
@@ -708,8 +871,23 @@ void print_VkPhysicalDeviceShaderFloat16Int8Features(const VkPhysicalDeviceShade
 void print_VkPhysicalDeviceFloatControlsProperties(const VkPhysicalDeviceFloatControlsProperties* obj, const char* str, int commaNeeded);
 void print_VkPhysicalDeviceHostQueryResetFeatures(const VkPhysicalDeviceHostQueryResetFeatures* obj, const char* str, int commaNeeded);
 #endif
-#ifdef VK_EXT_global_priority
-void print_VkDeviceQueueGlobalPriorityCreateInfoEXT(const VkDeviceQueueGlobalPriorityCreateInfoEXT* obj, const char* str, int commaNeeded);
+#ifdef VK_VERSION_1_4
+void print_VkDeviceQueueGlobalPriorityCreateInfo(const VkDeviceQueueGlobalPriorityCreateInfo* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_KHR_global_priority
+void print_VkDeviceQueueGlobalPriorityCreateInfoKHR(const VkDeviceQueueGlobalPriorityCreateInfoKHR* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_4
+void print_VkPhysicalDeviceGlobalPriorityQueryFeatures(const VkPhysicalDeviceGlobalPriorityQueryFeatures* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_KHR_global_priority
+void print_VkPhysicalDeviceGlobalPriorityQueryFeaturesKHR(const VkPhysicalDeviceGlobalPriorityQueryFeaturesKHR* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_4
+void print_VkQueueFamilyGlobalPriorityProperties(const VkQueueFamilyGlobalPriorityProperties* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_KHR_global_priority
+void print_VkQueueFamilyGlobalPriorityPropertiesKHR(const VkQueueFamilyGlobalPriorityPropertiesKHR* obj, const char* str, int commaNeeded);
 #endif
 #ifdef VK_EXT_debug_utils
 void print_VkDebugUtilsObjectNameInfoEXT(const VkDebugUtilsObjectNameInfoEXT* obj, const char* str, int commaNeeded);
@@ -726,8 +904,8 @@ void print_VkPhysicalDeviceExternalMemoryHostPropertiesEXT(const VkPhysicalDevic
 #ifdef VK_EXT_conservative_rasterization
 void print_VkPhysicalDeviceConservativeRasterizationPropertiesEXT(const VkPhysicalDeviceConservativeRasterizationPropertiesEXT* obj, const char* str, int commaNeeded);
 #endif
-#ifdef VK_EXT_calibrated_timestamps
-void print_VkCalibratedTimestampInfoEXT(const VkCalibratedTimestampInfoEXT* obj, const char* str, int commaNeeded);
+#ifdef VK_KHR_calibrated_timestamps
+void print_VkCalibratedTimestampInfoKHR(const VkCalibratedTimestampInfoKHR* obj, const char* str, int commaNeeded);
 #endif
 #ifdef VK_EXT_conservative_rasterization
 void print_VkPipelineRasterizationConservativeStateCreateInfoEXT(const VkPipelineRasterizationConservativeStateCreateInfoEXT* obj, const char* str, int commaNeeded);
@@ -752,10 +930,23 @@ void print_VkTimelineSemaphoreSubmitInfo(const VkTimelineSemaphoreSubmitInfo* ob
 void print_VkSemaphoreWaitInfo(const VkSemaphoreWaitInfo* obj, const char* str, int commaNeeded);
 void print_VkSemaphoreSignalInfo(const VkSemaphoreSignalInfo* obj, const char* str, int commaNeeded);
 #endif
-#ifdef VK_EXT_vertex_attribute_divisor
-void print_VkVertexInputBindingDivisorDescriptionEXT(const VkVertexInputBindingDivisorDescriptionEXT* obj, const char* str, int commaNeeded);
-void print_VkPipelineVertexInputDivisorStateCreateInfoEXT(const VkPipelineVertexInputDivisorStateCreateInfoEXT* obj, const char* str, int commaNeeded);
-void print_VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT(const VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT* obj, const char* str, int commaNeeded);
+#ifdef VK_VERSION_1_4
+void print_VkVertexInputBindingDivisorDescription(const VkVertexInputBindingDivisorDescription* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_KHR_vertex_attribute_divisor
+void print_VkVertexInputBindingDivisorDescriptionKHR(const VkVertexInputBindingDivisorDescriptionKHR* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_4
+void print_VkPipelineVertexInputDivisorStateCreateInfo(const VkPipelineVertexInputDivisorStateCreateInfo* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_KHR_vertex_attribute_divisor
+void print_VkPipelineVertexInputDivisorStateCreateInfoKHR(const VkPipelineVertexInputDivisorStateCreateInfoKHR* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_4
+void print_VkPhysicalDeviceVertexAttributeDivisorProperties(const VkPhysicalDeviceVertexAttributeDivisorProperties* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_KHR_vertex_attribute_divisor
+void print_VkPhysicalDeviceVertexAttributeDivisorPropertiesKHR(const VkPhysicalDeviceVertexAttributeDivisorPropertiesKHR* obj, const char* str, int commaNeeded);
 #endif
 #ifdef VK_EXT_pci_bus_info
 void print_VkPhysicalDevicePCIBusInfoPropertiesEXT(const VkPhysicalDevicePCIBusInfoPropertiesEXT* obj, const char* str, int commaNeeded);
@@ -768,8 +959,11 @@ void print_VkPhysicalDeviceShaderAtomicInt64Features(const VkPhysicalDeviceShade
 #ifdef VK_EXT_shader_atomic_float
 void print_VkPhysicalDeviceShaderAtomicFloatFeaturesEXT(const VkPhysicalDeviceShaderAtomicFloatFeaturesEXT* obj, const char* str, int commaNeeded);
 #endif
-#ifdef VK_EXT_vertex_attribute_divisor
-void print_VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT(const VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT* obj, const char* str, int commaNeeded);
+#ifdef VK_VERSION_1_4
+void print_VkPhysicalDeviceVertexAttributeDivisorFeatures(const VkPhysicalDeviceVertexAttributeDivisorFeatures* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_KHR_vertex_attribute_divisor
+void print_VkPhysicalDeviceVertexAttributeDivisorFeaturesKHR(const VkPhysicalDeviceVertexAttributeDivisorFeaturesKHR* obj, const char* str, int commaNeeded);
 #endif
 #ifdef VK_VERSION_1_2
 void print_VkPhysicalDeviceDepthStencilResolveProperties(const VkPhysicalDeviceDepthStencilResolveProperties* obj, const char* str, int commaNeeded);
@@ -814,11 +1008,18 @@ void print_VkFramebufferAttachmentsCreateInfo(const VkFramebufferAttachmentsCrea
 void print_VkFramebufferAttachmentImageInfo(const VkFramebufferAttachmentImageInfo* obj, const char* str, int commaNeeded);
 void print_VkRenderPassAttachmentBeginInfo(const VkRenderPassAttachmentBeginInfo* obj, const char* str, int commaNeeded);
 #endif
+#ifdef VK_VERSION_1_3
+void print_VkPhysicalDeviceTextureCompressionASTCHDRFeatures(const VkPhysicalDeviceTextureCompressionASTCHDRFeatures* obj, const char* str, int commaNeeded);
+#endif
 #ifdef VK_EXT_texture_compression_astc_hdr
 void print_VkPhysicalDeviceTextureCompressionASTCHDRFeaturesEXT(const VkPhysicalDeviceTextureCompressionASTCHDRFeaturesEXT* obj, const char* str, int commaNeeded);
 #endif
 #ifdef VK_EXT_ycbcr_image_arrays
 void print_VkPhysicalDeviceYcbcrImageArraysFeaturesEXT(const VkPhysicalDeviceYcbcrImageArraysFeaturesEXT* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkPipelineCreationFeedback(const VkPipelineCreationFeedback* obj, const char* str, int commaNeeded);
+void print_VkPipelineCreationFeedbackCreateInfo(const VkPipelineCreationFeedbackCreateInfo* obj, const char* str, int commaNeeded);
 #endif
 #ifdef VK_KHR_performance_query
 void print_VkPhysicalDevicePerformanceQueryFeaturesKHR(const VkPhysicalDevicePerformanceQueryFeaturesKHR* obj, const char* str, int commaNeeded);
@@ -836,6 +1037,12 @@ void print_VkHeadlessSurfaceCreateInfoEXT(const VkHeadlessSurfaceCreateInfoEXT* 
 #ifdef VK_KHR_shader_clock
 void print_VkPhysicalDeviceShaderClockFeaturesKHR(const VkPhysicalDeviceShaderClockFeaturesKHR* obj, const char* str, int commaNeeded);
 #endif
+#ifdef VK_VERSION_1_4
+void print_VkPhysicalDeviceIndexTypeUint8Features(const VkPhysicalDeviceIndexTypeUint8Features* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_KHR_index_type_uint8
+void print_VkPhysicalDeviceIndexTypeUint8FeaturesKHR(const VkPhysicalDeviceIndexTypeUint8FeaturesKHR* obj, const char* str, int commaNeeded);
+#endif
 #ifdef VK_EXT_index_type_uint8
 void print_VkPhysicalDeviceIndexTypeUint8FeaturesEXT(const VkPhysicalDeviceIndexTypeUint8FeaturesEXT* obj, const char* str, int commaNeeded);
 #endif
@@ -847,26 +1054,72 @@ void print_VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures(const VkPhysicalD
 void print_VkAttachmentReferenceStencilLayout(const VkAttachmentReferenceStencilLayout* obj, const char* str, int commaNeeded);
 void print_VkAttachmentDescriptionStencilLayout(const VkAttachmentDescriptionStencilLayout* obj, const char* str, int commaNeeded);
 #endif
+#ifdef VK_VERSION_1_3
+void print_VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures(const VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures* obj, const char* str, int commaNeeded);
+#endif
 #ifdef VK_EXT_shader_demote_to_helper_invocation
 void print_VkPhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT(const VkPhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT* obj, const char* str, int commaNeeded);
 #endif
 #ifdef VK_EXT_texel_buffer_alignment
 void print_VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT(const VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkPhysicalDeviceTexelBufferAlignmentProperties(const VkPhysicalDeviceTexelBufferAlignmentProperties* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_EXT_texel_buffer_alignment
 void print_VkPhysicalDeviceTexelBufferAlignmentPropertiesEXT(const VkPhysicalDeviceTexelBufferAlignmentPropertiesEXT* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkPhysicalDeviceSubgroupSizeControlFeatures(const VkPhysicalDeviceSubgroupSizeControlFeatures* obj, const char* str, int commaNeeded);
 #endif
 #ifdef VK_EXT_subgroup_size_control
 void print_VkPhysicalDeviceSubgroupSizeControlFeaturesEXT(const VkPhysicalDeviceSubgroupSizeControlFeaturesEXT* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkPhysicalDeviceSubgroupSizeControlProperties(const VkPhysicalDeviceSubgroupSizeControlProperties* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_EXT_subgroup_size_control
 void print_VkPhysicalDeviceSubgroupSizeControlPropertiesEXT(const VkPhysicalDeviceSubgroupSizeControlPropertiesEXT* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkPipelineShaderStageRequiredSubgroupSizeCreateInfo(const VkPipelineShaderStageRequiredSubgroupSizeCreateInfo* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_EXT_subgroup_size_control
 void print_VkPipelineShaderStageRequiredSubgroupSizeCreateInfoEXT(const VkPipelineShaderStageRequiredSubgroupSizeCreateInfoEXT* obj, const char* str, int commaNeeded);
 #endif
 #ifdef VK_VERSION_1_2
 void print_VkMemoryOpaqueCaptureAddressAllocateInfo(const VkMemoryOpaqueCaptureAddressAllocateInfo* obj, const char* str, int commaNeeded);
 void print_VkDeviceMemoryOpaqueCaptureAddressInfo(const VkDeviceMemoryOpaqueCaptureAddressInfo* obj, const char* str, int commaNeeded);
 #endif
+#ifdef VK_VERSION_1_4
+void print_VkPhysicalDeviceLineRasterizationFeatures(const VkPhysicalDeviceLineRasterizationFeatures* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_KHR_line_rasterization
+void print_VkPhysicalDeviceLineRasterizationFeaturesKHR(const VkPhysicalDeviceLineRasterizationFeaturesKHR* obj, const char* str, int commaNeeded);
+#endif
 #ifdef VK_EXT_line_rasterization
 void print_VkPhysicalDeviceLineRasterizationFeaturesEXT(const VkPhysicalDeviceLineRasterizationFeaturesEXT* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_4
+void print_VkPhysicalDeviceLineRasterizationProperties(const VkPhysicalDeviceLineRasterizationProperties* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_KHR_line_rasterization
+void print_VkPhysicalDeviceLineRasterizationPropertiesKHR(const VkPhysicalDeviceLineRasterizationPropertiesKHR* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_EXT_line_rasterization
 void print_VkPhysicalDeviceLineRasterizationPropertiesEXT(const VkPhysicalDeviceLineRasterizationPropertiesEXT* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_4
+void print_VkPipelineRasterizationLineStateCreateInfo(const VkPipelineRasterizationLineStateCreateInfo* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_KHR_line_rasterization
+void print_VkPipelineRasterizationLineStateCreateInfoKHR(const VkPipelineRasterizationLineStateCreateInfoKHR* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_EXT_line_rasterization
 void print_VkPipelineRasterizationLineStateCreateInfoEXT(const VkPipelineRasterizationLineStateCreateInfoEXT* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkPhysicalDevicePipelineCreationCacheControlFeatures(const VkPhysicalDevicePipelineCreationCacheControlFeatures* obj, const char* str, int commaNeeded);
 #endif
 #ifdef VK_VERSION_1_2
 void print_VkPhysicalDeviceVulkan11Features(const VkPhysicalDeviceVulkan11Features* obj, const char* str, int commaNeeded);
@@ -874,9 +1127,20 @@ void print_VkPhysicalDeviceVulkan11Properties(const VkPhysicalDeviceVulkan11Prop
 void print_VkPhysicalDeviceVulkan12Features(const VkPhysicalDeviceVulkan12Features* obj, const char* str, int commaNeeded);
 void print_VkPhysicalDeviceVulkan12Properties(const VkPhysicalDeviceVulkan12Properties* obj, const char* str, int commaNeeded);
 #endif
+#ifdef VK_VERSION_1_3
+void print_VkPhysicalDeviceVulkan13Features(const VkPhysicalDeviceVulkan13Features* obj, const char* str, int commaNeeded);
+void print_VkPhysicalDeviceVulkan13Properties(const VkPhysicalDeviceVulkan13Properties* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_4
+void print_VkPhysicalDeviceVulkan14Features(const VkPhysicalDeviceVulkan14Features* obj, const char* str, int commaNeeded);
+void print_VkPhysicalDeviceVulkan14Properties(const VkPhysicalDeviceVulkan14Properties* obj, const char* str, int commaNeeded);
+#endif
 #ifdef VKSC_VERSION_1_0
 void print_VkFaultData(const VkFaultData* obj, const char* str, int commaNeeded);
 void print_VkFaultCallbackInfo(const VkFaultCallbackInfo* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkPhysicalDeviceToolProperties(const VkPhysicalDeviceToolProperties* obj, const char* str, int commaNeeded);
 #endif
 #ifdef VK_EXT_custom_border_color
 void print_VkSamplerCustomBorderColorCreateInfoEXT(const VkSamplerCustomBorderColorCreateInfoEXT* obj, const char* str, int commaNeeded);
@@ -896,9 +1160,15 @@ void print_VkPhysicalDeviceExtendedDynamicState2FeaturesEXT(const VkPhysicalDevi
 #ifdef VKSC_VERSION_1_0
 void print_VkPipelineOfflineCreateInfo(const VkPipelineOfflineCreateInfo* obj, const char* str, int commaNeeded);
 #endif
+#ifdef VK_VERSION_1_3
+void print_VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures(const VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures* obj, const char* str, int commaNeeded);
+#endif
 #ifdef VK_EXT_robustness2
 void print_VkPhysicalDeviceRobustness2FeaturesEXT(const VkPhysicalDeviceRobustness2FeaturesEXT* obj, const char* str, int commaNeeded);
 void print_VkPhysicalDeviceRobustness2PropertiesEXT(const VkPhysicalDeviceRobustness2PropertiesEXT* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkPhysicalDeviceImageRobustnessFeatures(const VkPhysicalDeviceImageRobustnessFeatures* obj, const char* str, int commaNeeded);
 #endif
 #ifdef VK_EXT_image_robustness
 void print_VkPhysicalDeviceImageRobustnessFeaturesEXT(const VkPhysicalDeviceImageRobustnessFeaturesEXT* obj, const char* str, int commaNeeded);
@@ -906,17 +1176,70 @@ void print_VkPhysicalDeviceImageRobustnessFeaturesEXT(const VkPhysicalDeviceImag
 #ifdef VK_EXT_4444_formats
 void print_VkPhysicalDevice4444FormatsFeaturesEXT(const VkPhysicalDevice4444FormatsFeaturesEXT* obj, const char* str, int commaNeeded);
 #endif
+#ifdef VK_VERSION_1_3
+void print_VkBufferCopy2(const VkBufferCopy2* obj, const char* str, int commaNeeded);
+#endif
 #ifdef VK_KHR_copy_commands2
 void print_VkBufferCopy2KHR(const VkBufferCopy2KHR* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkImageCopy2(const VkImageCopy2* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_KHR_copy_commands2
 void print_VkImageCopy2KHR(const VkImageCopy2KHR* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkImageBlit2(const VkImageBlit2* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_KHR_copy_commands2
 void print_VkImageBlit2KHR(const VkImageBlit2KHR* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkBufferImageCopy2(const VkBufferImageCopy2* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_KHR_copy_commands2
 void print_VkBufferImageCopy2KHR(const VkBufferImageCopy2KHR* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkImageResolve2(const VkImageResolve2* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_KHR_copy_commands2
 void print_VkImageResolve2KHR(const VkImageResolve2KHR* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkCopyBufferInfo2(const VkCopyBufferInfo2* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_KHR_copy_commands2
 void print_VkCopyBufferInfo2KHR(const VkCopyBufferInfo2KHR* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkCopyImageInfo2(const VkCopyImageInfo2* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_KHR_copy_commands2
 void print_VkCopyImageInfo2KHR(const VkCopyImageInfo2KHR* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkBlitImageInfo2(const VkBlitImageInfo2* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_KHR_copy_commands2
 void print_VkBlitImageInfo2KHR(const VkBlitImageInfo2KHR* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkCopyBufferToImageInfo2(const VkCopyBufferToImageInfo2* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_KHR_copy_commands2
 void print_VkCopyBufferToImageInfo2KHR(const VkCopyBufferToImageInfo2KHR* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkCopyImageToBufferInfo2(const VkCopyImageToBufferInfo2* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_KHR_copy_commands2
 void print_VkCopyImageToBufferInfo2KHR(const VkCopyImageToBufferInfo2KHR* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkResolveImageInfo2(const VkResolveImageInfo2* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_KHR_copy_commands2
 void print_VkResolveImageInfo2KHR(const VkResolveImageInfo2KHR* obj, const char* str, int commaNeeded);
 #endif
 #ifdef VK_EXT_shader_image_atomic_int64
@@ -928,6 +1251,9 @@ void print_VkPipelineFragmentShadingRateStateCreateInfoKHR(const VkPipelineFragm
 void print_VkPhysicalDeviceFragmentShadingRateFeaturesKHR(const VkPhysicalDeviceFragmentShadingRateFeaturesKHR* obj, const char* str, int commaNeeded);
 void print_VkPhysicalDeviceFragmentShadingRatePropertiesKHR(const VkPhysicalDeviceFragmentShadingRatePropertiesKHR* obj, const char* str, int commaNeeded);
 void print_VkPhysicalDeviceFragmentShadingRateKHR(const VkPhysicalDeviceFragmentShadingRateKHR* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkPhysicalDeviceShaderTerminateInvocationFeatures(const VkPhysicalDeviceShaderTerminateInvocationFeatures* obj, const char* str, int commaNeeded);
 #endif
 #ifdef VK_KHR_shader_terminate_invocation
 void print_VkPhysicalDeviceShaderTerminateInvocationFeaturesKHR(const VkPhysicalDeviceShaderTerminateInvocationFeaturesKHR* obj, const char* str, int commaNeeded);
@@ -941,17 +1267,65 @@ void print_VkVertexInputAttributeDescription2EXT(const VkVertexInputAttributeDes
 void print_VkPhysicalDeviceColorWriteEnableFeaturesEXT(const VkPhysicalDeviceColorWriteEnableFeaturesEXT* obj, const char* str, int commaNeeded);
 void print_VkPipelineColorWriteCreateInfoEXT(const VkPipelineColorWriteCreateInfoEXT* obj, const char* str, int commaNeeded);
 #endif
+#ifdef VK_VERSION_1_3
+void print_VkMemoryBarrier2(const VkMemoryBarrier2* obj, const char* str, int commaNeeded);
+#endif
 #ifdef VK_KHR_synchronization2
 void print_VkMemoryBarrier2KHR(const VkMemoryBarrier2KHR* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkImageMemoryBarrier2(const VkImageMemoryBarrier2* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_KHR_synchronization2
 void print_VkImageMemoryBarrier2KHR(const VkImageMemoryBarrier2KHR* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkBufferMemoryBarrier2(const VkBufferMemoryBarrier2* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_KHR_synchronization2
 void print_VkBufferMemoryBarrier2KHR(const VkBufferMemoryBarrier2KHR* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkDependencyInfo(const VkDependencyInfo* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_KHR_synchronization2
 void print_VkDependencyInfoKHR(const VkDependencyInfoKHR* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkSemaphoreSubmitInfo(const VkSemaphoreSubmitInfo* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_KHR_synchronization2
 void print_VkSemaphoreSubmitInfoKHR(const VkSemaphoreSubmitInfoKHR* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkCommandBufferSubmitInfo(const VkCommandBufferSubmitInfo* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_KHR_synchronization2
 void print_VkCommandBufferSubmitInfoKHR(const VkCommandBufferSubmitInfoKHR* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkSubmitInfo2(const VkSubmitInfo2* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_KHR_synchronization2
 void print_VkSubmitInfo2KHR(const VkSubmitInfo2KHR* obj, const char* str, int commaNeeded);
-void print_VkQueueFamilyCheckpointProperties2NV(const VkQueueFamilyCheckpointProperties2NV* obj, const char* str, int commaNeeded);
-void print_VkCheckpointData2NV(const VkCheckpointData2NV* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkPhysicalDeviceSynchronization2Features(const VkPhysicalDeviceSynchronization2Features* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_KHR_synchronization2
 void print_VkPhysicalDeviceSynchronization2FeaturesKHR(const VkPhysicalDeviceSynchronization2FeaturesKHR* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_4
+void print_VkPhysicalDeviceHostImageCopyFeatures(const VkPhysicalDeviceHostImageCopyFeatures* obj, const char* str, int commaNeeded);
+void print_VkPhysicalDeviceHostImageCopyProperties(const VkPhysicalDeviceHostImageCopyProperties* obj, const char* str, int commaNeeded);
+void print_VkMemoryToImageCopy(const VkMemoryToImageCopy* obj, const char* str, int commaNeeded);
+void print_VkImageToMemoryCopy(const VkImageToMemoryCopy* obj, const char* str, int commaNeeded);
+void print_VkCopyMemoryToImageInfo(const VkCopyMemoryToImageInfo* obj, const char* str, int commaNeeded);
+void print_VkCopyImageToMemoryInfo(const VkCopyImageToMemoryInfo* obj, const char* str, int commaNeeded);
+void print_VkCopyImageToImageInfo(const VkCopyImageToImageInfo* obj, const char* str, int commaNeeded);
+void print_VkHostImageLayoutTransitionInfo(const VkHostImageLayoutTransitionInfo* obj, const char* str, int commaNeeded);
+void print_VkSubresourceHostMemcpySize(const VkSubresourceHostMemcpySize* obj, const char* str, int commaNeeded);
+void print_VkHostImageCopyDevicePerformanceQuery(const VkHostImageCopyDevicePerformanceQuery* obj, const char* str, int commaNeeded);
 #endif
 #ifdef VKSC_VERSION_1_0
 void print_VkPhysicalDeviceVulkanSC10Properties(const VkPhysicalDeviceVulkanSC10Properties* obj, const char* str, int commaNeeded);
@@ -961,12 +1335,56 @@ void print_VkCommandPoolMemoryReservationCreateInfo(const VkCommandPoolMemoryRes
 void print_VkCommandPoolMemoryConsumption(const VkCommandPoolMemoryConsumption* obj, const char* str, int commaNeeded);
 void print_VkPhysicalDeviceVulkanSC10Features(const VkPhysicalDeviceVulkanSC10Features* obj, const char* str, int commaNeeded);
 #endif
+#ifdef VK_VERSION_1_4
+void print_VkPhysicalDevicePipelineProtectedAccessFeatures(const VkPhysicalDevicePipelineProtectedAccessFeatures* obj, const char* str, int commaNeeded);
+#endif
 #ifdef VK_EXT_ycbcr_2plane_444_formats
 void print_VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT(const VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkPhysicalDeviceShaderIntegerDotProductFeatures(const VkPhysicalDeviceShaderIntegerDotProductFeatures* obj, const char* str, int commaNeeded);
+void print_VkPhysicalDeviceShaderIntegerDotProductProperties(const VkPhysicalDeviceShaderIntegerDotProductProperties* obj, const char* str, int commaNeeded);
+void print_VkFormatProperties3(const VkFormatProperties3* obj, const char* str, int commaNeeded);
 #endif
 #ifdef VK_EXT_image_drm_format_modifier
 void print_VkDrmFormatModifierPropertiesList2EXT(const VkDrmFormatModifierPropertiesList2EXT* obj, const char* str, int commaNeeded);
 void print_VkDrmFormatModifierProperties2EXT(const VkDrmFormatModifierProperties2EXT* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_3
+void print_VkPipelineRenderingCreateInfo(const VkPipelineRenderingCreateInfo* obj, const char* str, int commaNeeded);
+void print_VkRenderingInfo(const VkRenderingInfo* obj, const char* str, int commaNeeded);
+void print_VkRenderingAttachmentInfo(const VkRenderingAttachmentInfo* obj, const char* str, int commaNeeded);
+void print_VkPhysicalDeviceDynamicRenderingFeatures(const VkPhysicalDeviceDynamicRenderingFeatures* obj, const char* str, int commaNeeded);
+void print_VkCommandBufferInheritanceRenderingInfo(const VkCommandBufferInheritanceRenderingInfo* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_4
+void print_VkImageSubresource2(const VkImageSubresource2* obj, const char* str, int commaNeeded);
+void print_VkSubresourceLayout2(const VkSubresourceLayout2* obj, const char* str, int commaNeeded);
+void print_VkPhysicalDevicePipelineRobustnessFeatures(const VkPhysicalDevicePipelineRobustnessFeatures* obj, const char* str, int commaNeeded);
+void print_VkPipelineRobustnessCreateInfo(const VkPipelineRobustnessCreateInfo* obj, const char* str, int commaNeeded);
+void print_VkPhysicalDevicePipelineRobustnessProperties(const VkPhysicalDevicePipelineRobustnessProperties* obj, const char* str, int commaNeeded);
+void print_VkDeviceImageSubresourceInfo(const VkDeviceImageSubresourceInfo* obj, const char* str, int commaNeeded);
+void print_VkMemoryMapInfo(const VkMemoryMapInfo* obj, const char* str, int commaNeeded);
+void print_VkMemoryUnmapInfo(const VkMemoryUnmapInfo* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_QNX_external_memory_screen_buffer
+void print_VkImportScreenBufferInfoQNX(const VkImportScreenBufferInfoQNX* obj, const char* str, int commaNeeded);
+void print_VkScreenBufferPropertiesQNX(const VkScreenBufferPropertiesQNX* obj, const char* str, int commaNeeded);
+void print_VkScreenBufferFormatPropertiesQNX(const VkScreenBufferFormatPropertiesQNX* obj, const char* str, int commaNeeded);
+void print_VkExternalFormatQNX(const VkExternalFormatQNX* obj, const char* str, int commaNeeded);
+void print_VkPhysicalDeviceExternalMemoryScreenBufferFeaturesQNX(const VkPhysicalDeviceExternalMemoryScreenBufferFeaturesQNX* obj, const char* str, int commaNeeded);
+#endif
+#ifdef VK_VERSION_1_4
+void print_VkBindMemoryStatus(const VkBindMemoryStatus* obj, const char* str, int commaNeeded);
+void print_VkBindDescriptorSetsInfo(const VkBindDescriptorSetsInfo* obj, const char* str, int commaNeeded);
+void print_VkPushConstantsInfo(const VkPushConstantsInfo* obj, const char* str, int commaNeeded);
+void print_VkPushDescriptorSetInfo(const VkPushDescriptorSetInfo* obj, const char* str, int commaNeeded);
+void print_VkPhysicalDeviceShaderSubgroupRotateFeatures(const VkPhysicalDeviceShaderSubgroupRotateFeatures* obj, const char* str, int commaNeeded);
+void print_VkPhysicalDeviceShaderExpectAssumeFeatures(const VkPhysicalDeviceShaderExpectAssumeFeatures* obj, const char* str, int commaNeeded);
+void print_VkPhysicalDeviceShaderFloatControls2Features(const VkPhysicalDeviceShaderFloatControls2Features* obj, const char* str, int commaNeeded);
+void print_VkPhysicalDeviceDynamicRenderingLocalReadFeatures(const VkPhysicalDeviceDynamicRenderingLocalReadFeatures* obj, const char* str, int commaNeeded);
+void print_VkRenderingAttachmentLocationInfo(const VkRenderingAttachmentLocationInfo* obj, const char* str, int commaNeeded);
+void print_VkRenderingInputAttachmentIndexInfo(const VkRenderingInputAttachmentIndexInfo* obj, const char* str, int commaNeeded);
 #endif
 /*************************************** End prototypes ***********************************/
 
