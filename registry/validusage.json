@@ -1,9 +1,9 @@
 {
   "version info": {
     "schema version": 2,
-    "api version": "1.0.18",
-    "comment": "from git branch: github-sc_main commit: 6efc2dab5771b5f063c5681fe265e8d0ba04d835",
-    "date": "2025-03-28 09:05:11Z"
+    "api version": "1.0.19",
+    "comment": "from git branch: github-sc_main commit: b03b581bab2216941227dd33b9eb8c4bd0e0c0a4",
+    "date": "2025-08-01 00:53:47Z"
   },
   "validation": {
     "vkGetInstanceProcAddr": {
@@ -235,7 +235,7 @@
       "core": [
         {
           "vuid": "VUID-vkDestroyInstance-instance-00629",
-          "text": "All child objects created using <code>instance</code> <strong class=\"purple\">must</strong> have been destroyed prior to destroying <code>instance</code>",
+          "text": "All child objects that were created with <code>instance</code> or with a <a href=\"#VkPhysicalDevice\">VkPhysicalDevice</a> retrieved from it, and that <strong class=\"purple\">can</strong> be destroyed or freed, <strong class=\"purple\">must</strong> have been destroyed or freed prior to destroying <code>instance</code>",
           "page": "chapters/initialization.html"
         },
         {
@@ -306,7 +306,7 @@
         },
         {
           "vuid": "VUID-VkPhysicalDeviceProperties2-pNext-pNext",
-          "text": "Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class=\"purple\">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href=\"#VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT\">VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT</a>, <a href=\"#VkPhysicalDeviceConservativeRasterizationPropertiesEXT\">VkPhysicalDeviceConservativeRasterizationPropertiesEXT</a>, <a href=\"#VkPhysicalDeviceCustomBorderColorPropertiesEXT\">VkPhysicalDeviceCustomBorderColorPropertiesEXT</a>, <a href=\"#VkPhysicalDeviceDepthStencilResolveProperties\">VkPhysicalDeviceDepthStencilResolveProperties</a>, <a href=\"#VkPhysicalDeviceDescriptorIndexingProperties\">VkPhysicalDeviceDescriptorIndexingProperties</a>, <a href=\"#VkPhysicalDeviceDiscardRectanglePropertiesEXT\">VkPhysicalDeviceDiscardRectanglePropertiesEXT</a>, <a href=\"#VkPhysicalDeviceDriverProperties\">VkPhysicalDeviceDriverProperties</a>, <a href=\"#VkPhysicalDeviceExternalMemoryHostPropertiesEXT\">VkPhysicalDeviceExternalMemoryHostPropertiesEXT</a>, <a href=\"#VkPhysicalDeviceFloatControlsProperties\">VkPhysicalDeviceFloatControlsProperties</a>, <a href=\"#VkPhysicalDeviceFragmentShadingRatePropertiesKHR\">VkPhysicalDeviceFragmentShadingRatePropertiesKHR</a>, <a href=\"#VkPhysicalDeviceIDProperties\">VkPhysicalDeviceIDProperties</a>, <a href=\"#VkPhysicalDeviceLineRasterizationProperties\">VkPhysicalDeviceLineRasterizationProperties</a>, <a href=\"#VkPhysicalDeviceMaintenance3Properties\">VkPhysicalDeviceMaintenance3Properties</a>, <a href=\"#VkPhysicalDeviceMultiviewProperties\">VkPhysicalDeviceMultiviewProperties</a>, <a href=\"#VkPhysicalDevicePCIBusInfoPropertiesEXT\">VkPhysicalDevicePCIBusInfoPropertiesEXT</a>, <a href=\"#VkPhysicalDevicePerformanceQueryPropertiesKHR\">VkPhysicalDevicePerformanceQueryPropertiesKHR</a>, <a href=\"#VkPhysicalDevicePointClippingProperties\">VkPhysicalDevicePointClippingProperties</a>, <a href=\"#VkPhysicalDeviceProtectedMemoryProperties\">VkPhysicalDeviceProtectedMemoryProperties</a>, <a href=\"#VkPhysicalDeviceRobustness2PropertiesEXT\">VkPhysicalDeviceRobustness2PropertiesEXT</a>, <a href=\"#VkPhysicalDeviceSampleLocationsPropertiesEXT\">VkPhysicalDeviceSampleLocationsPropertiesEXT</a>, <a href=\"#VkPhysicalDeviceSamplerFilterMinmaxProperties\">VkPhysicalDeviceSamplerFilterMinmaxProperties</a>, <a href=\"#VkPhysicalDeviceSubgroupProperties\">VkPhysicalDeviceSubgroupProperties</a>, <a href=\"#VkPhysicalDeviceSubgroupSizeControlProperties\">VkPhysicalDeviceSubgroupSizeControlProperties</a>, <a href=\"#VkPhysicalDeviceTexelBufferAlignmentProperties\">VkPhysicalDeviceTexelBufferAlignmentProperties</a>, <a href=\"#VkPhysicalDeviceTimelineSemaphoreProperties\">VkPhysicalDeviceTimelineSemaphoreProperties</a>, <a href=\"#VkPhysicalDeviceVertexAttributeDivisorProperties\">VkPhysicalDeviceVertexAttributeDivisorProperties</a>, <a href=\"#VkPhysicalDeviceVulkan11Properties\">VkPhysicalDeviceVulkan11Properties</a>, <a href=\"#VkPhysicalDeviceVulkan12Properties\">VkPhysicalDeviceVulkan12Properties</a>, or <a href=\"#VkPhysicalDeviceVulkanSC10Properties\">VkPhysicalDeviceVulkanSC10Properties</a>",
+          "text": "Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class=\"purple\">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href=\"#VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT\">VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT</a>, <a href=\"#VkPhysicalDeviceConservativeRasterizationPropertiesEXT\">VkPhysicalDeviceConservativeRasterizationPropertiesEXT</a>, <a href=\"#VkPhysicalDeviceCustomBorderColorPropertiesEXT\">VkPhysicalDeviceCustomBorderColorPropertiesEXT</a>, <a href=\"#VkPhysicalDeviceDepthStencilResolveProperties\">VkPhysicalDeviceDepthStencilResolveProperties</a>, <a href=\"#VkPhysicalDeviceDescriptorIndexingProperties\">VkPhysicalDeviceDescriptorIndexingProperties</a>, <a href=\"#VkPhysicalDeviceDiscardRectanglePropertiesEXT\">VkPhysicalDeviceDiscardRectanglePropertiesEXT</a>, <a href=\"#VkPhysicalDeviceDriverProperties\">VkPhysicalDeviceDriverProperties</a>, <a href=\"#VkPhysicalDeviceExternalMemoryHostPropertiesEXT\">VkPhysicalDeviceExternalMemoryHostPropertiesEXT</a>, <a href=\"#VkPhysicalDeviceFloatControlsProperties\">VkPhysicalDeviceFloatControlsProperties</a>, <a href=\"#VkPhysicalDeviceFragmentShadingRatePropertiesKHR\">VkPhysicalDeviceFragmentShadingRatePropertiesKHR</a>, <a href=\"#VkPhysicalDeviceIDProperties\">VkPhysicalDeviceIDProperties</a>, <a href=\"#VkPhysicalDeviceLineRasterizationProperties\">VkPhysicalDeviceLineRasterizationProperties</a>, <a href=\"#VkPhysicalDeviceMaintenance3Properties\">VkPhysicalDeviceMaintenance3Properties</a>, <a href=\"#VkPhysicalDeviceMultiviewProperties\">VkPhysicalDeviceMultiviewProperties</a>, <a href=\"#VkPhysicalDevicePCIBusInfoPropertiesEXT\">VkPhysicalDevicePCIBusInfoPropertiesEXT</a>, <a href=\"#VkPhysicalDevicePerformanceQueryPropertiesKHR\">VkPhysicalDevicePerformanceQueryPropertiesKHR</a>, <a href=\"#VkPhysicalDevicePointClippingProperties\">VkPhysicalDevicePointClippingProperties</a>, <a href=\"#VkPhysicalDeviceProtectedMemoryProperties\">VkPhysicalDeviceProtectedMemoryProperties</a>, <a href=\"#VkPhysicalDeviceRobustness2PropertiesKHR\">VkPhysicalDeviceRobustness2PropertiesKHR</a>, <a href=\"#VkPhysicalDeviceSampleLocationsPropertiesEXT\">VkPhysicalDeviceSampleLocationsPropertiesEXT</a>, <a href=\"#VkPhysicalDeviceSamplerFilterMinmaxProperties\">VkPhysicalDeviceSamplerFilterMinmaxProperties</a>, <a href=\"#VkPhysicalDeviceSubgroupProperties\">VkPhysicalDeviceSubgroupProperties</a>, <a href=\"#VkPhysicalDeviceSubgroupSizeControlProperties\">VkPhysicalDeviceSubgroupSizeControlProperties</a>, <a href=\"#VkPhysicalDeviceTexelBufferAlignmentProperties\">VkPhysicalDeviceTexelBufferAlignmentProperties</a>, <a href=\"#VkPhysicalDeviceTimelineSemaphoreProperties\">VkPhysicalDeviceTimelineSemaphoreProperties</a>, <a href=\"#VkPhysicalDeviceVertexAttributeDivisorProperties\">VkPhysicalDeviceVertexAttributeDivisorProperties</a>, <a href=\"#VkPhysicalDeviceVulkan11Properties\">VkPhysicalDeviceVulkan11Properties</a>, <a href=\"#VkPhysicalDeviceVulkan12Properties\">VkPhysicalDeviceVulkan12Properties</a>, or <a href=\"#VkPhysicalDeviceVulkanSC10Properties\">VkPhysicalDeviceVulkanSC10Properties</a>",
           "page": "chapters/devsandqueues.html"
         },
         {
@@ -525,7 +525,7 @@
       "core": [
         {
           "vuid": "VUID-vkCreateDevice-ppEnabledExtensionNames-01387",
-          "text": "All <a href=\"#extendingvulkan-extensions-extensiondependencies\">required device extensions</a> for each extension in the <a href=\"#VkDeviceCreateInfo\">VkDeviceCreateInfo</a>::<code>ppEnabledExtensionNames</code> list <strong class=\"purple\">must</strong> also be present in that list",
+          "text": "All <a href=\"#extendingvulkan-extensions-extensiondependencies\">required device extensions</a> for each extension in the <a href=\"#VkDeviceCreateInfo\">VkDeviceCreateInfo</a>::<code>ppEnabledExtensionNames</code> list <strong class=\"purple\">must</strong> also be present in that list.",
           "page": "chapters/devsandqueues.html"
         },
         {
@@ -618,13 +618,18 @@
           "page": "chapters/devsandqueues.html"
         },
         {
+          "vuid": "VUID-VkDeviceCreateInfo-None-10778",
+          "text": "<code>queueCreateInfoCount</code> <strong class=\"purple\">must</strong> be greater than <code>0</code>",
+          "page": "chapters/devsandqueues.html"
+        },
+        {
           "vuid": "VUID-VkDeviceCreateInfo-sType-sType",
           "text": "<code>sType</code> <strong class=\"purple\">must</strong> be <code>VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO</code>",
           "page": "chapters/devsandqueues.html"
         },
         {
           "vuid": "VUID-VkDeviceCreateInfo-pNext-pNext",
-          "text": "Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class=\"purple\">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href=\"#VkApplicationParametersEXT\">VkApplicationParametersEXT</a>, <a href=\"#VkDeviceGroupDeviceCreateInfo\">VkDeviceGroupDeviceCreateInfo</a>, <a href=\"#VkDeviceObjectReservationCreateInfo\">VkDeviceObjectReservationCreateInfo</a>, <a href=\"#VkDeviceSemaphoreSciSyncPoolReservationCreateInfoNV\">VkDeviceSemaphoreSciSyncPoolReservationCreateInfoNV</a>, <a href=\"#VkFaultCallbackInfo\">VkFaultCallbackInfo</a>, <a href=\"#VkPerformanceQueryReservationInfoKHR\">VkPerformanceQueryReservationInfoKHR</a>, <a href=\"#VkPhysicalDevice16BitStorageFeatures\">VkPhysicalDevice16BitStorageFeatures</a>, <a href=\"#VkPhysicalDevice4444FormatsFeaturesEXT\">VkPhysicalDevice4444FormatsFeaturesEXT</a>, <a href=\"#VkPhysicalDevice8BitStorageFeatures\">VkPhysicalDevice8BitStorageFeatures</a>, <a href=\"#VkPhysicalDeviceASTCDecodeFeaturesEXT\">VkPhysicalDeviceASTCDecodeFeaturesEXT</a>, <a href=\"#VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT\">VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT</a>, <a href=\"#VkPhysicalDeviceBufferDeviceAddressFeatures\">VkPhysicalDeviceBufferDeviceAddressFeatures</a>, <a href=\"#VkPhysicalDeviceColorWriteEnableFeaturesEXT\">VkPhysicalDeviceColorWriteEnableFeaturesEXT</a>, <a href=\"#VkPhysicalDeviceCustomBorderColorFeaturesEXT\">VkPhysicalDeviceCustomBorderColorFeaturesEXT</a>, <a href=\"#VkPhysicalDeviceDepthClipEnableFeaturesEXT\">VkPhysicalDeviceDepthClipEnableFeaturesEXT</a>, <a href=\"#VkPhysicalDeviceDescriptorIndexingFeatures\">VkPhysicalDeviceDescriptorIndexingFeatures</a>, <a href=\"#VkPhysicalDeviceExtendedDynamicState2FeaturesEXT\">VkPhysicalDeviceExtendedDynamicState2FeaturesEXT</a>, <a href=\"#VkPhysicalDeviceExtendedDynamicStateFeaturesEXT\">VkPhysicalDeviceExtendedDynamicStateFeaturesEXT</a>, <a href=\"#VkPhysicalDeviceExternalMemorySciBufFeaturesNV\">VkPhysicalDeviceExternalMemorySciBufFeaturesNV</a>, <a href=\"#VkPhysicalDeviceExternalMemoryScreenBufferFeaturesQNX\">VkPhysicalDeviceExternalMemoryScreenBufferFeaturesQNX</a>, <a href=\"#VkPhysicalDeviceExternalSciSync2FeaturesNV\">VkPhysicalDeviceExternalSciSync2FeaturesNV</a>, <a href=\"#VkPhysicalDeviceExternalSciSyncFeaturesNV\">VkPhysicalDeviceExternalSciSyncFeaturesNV</a>, <a href=\"#VkPhysicalDeviceFeatures2\">VkPhysicalDeviceFeatures2</a>, <a href=\"#VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT\">VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT</a>, <a href=\"#VkPhysicalDeviceFragmentShadingRateFeaturesKHR\">VkPhysicalDeviceFragmentShadingRateFeaturesKHR</a>, <a href=\"#VkPhysicalDeviceGlobalPriorityQueryFeatures\">VkPhysicalDeviceGlobalPriorityQueryFeatures</a>, <a href=\"#VkPhysicalDeviceHostQueryResetFeatures\">VkPhysicalDeviceHostQueryResetFeatures</a>, <a href=\"#VkPhysicalDeviceImageRobustnessFeatures\">VkPhysicalDeviceImageRobustnessFeatures</a>, <a href=\"#VkPhysicalDeviceImagelessFramebufferFeatures\">VkPhysicalDeviceImagelessFramebufferFeatures</a>, <a href=\"#VkPhysicalDeviceIndexTypeUint8Features\">VkPhysicalDeviceIndexTypeUint8Features</a>, <a href=\"#VkPhysicalDeviceLineRasterizationFeatures\">VkPhysicalDeviceLineRasterizationFeatures</a>, <a href=\"#VkPhysicalDeviceMultiviewFeatures\">VkPhysicalDeviceMultiviewFeatures</a>, <a href=\"#VkPhysicalDevicePerformanceQueryFeaturesKHR\">VkPhysicalDevicePerformanceQueryFeaturesKHR</a>, <a href=\"#VkPhysicalDeviceProtectedMemoryFeatures\">VkPhysicalDeviceProtectedMemoryFeatures</a>, <a href=\"#VkPhysicalDeviceRobustness2FeaturesEXT\">VkPhysicalDeviceRobustness2FeaturesEXT</a>, <a href=\"#VkPhysicalDeviceSamplerYcbcrConversionFeatures\">VkPhysicalDeviceSamplerYcbcrConversionFeatures</a>, <a href=\"#VkPhysicalDeviceScalarBlockLayoutFeatures\">VkPhysicalDeviceScalarBlockLayoutFeatures</a>, <a href=\"#VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures\">VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures</a>, <a href=\"#VkPhysicalDeviceShaderAtomicFloatFeaturesEXT\">VkPhysicalDeviceShaderAtomicFloatFeaturesEXT</a>, <a href=\"#VkPhysicalDeviceShaderAtomicInt64Features\">VkPhysicalDeviceShaderAtomicInt64Features</a>, <a href=\"#VkPhysicalDeviceShaderClockFeaturesKHR\">VkPhysicalDeviceShaderClockFeaturesKHR</a>, <a href=\"#VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures\">VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures</a>, <a href=\"#VkPhysicalDeviceShaderDrawParametersFeatures\">VkPhysicalDeviceShaderDrawParametersFeatures</a>, <a href=\"#VkPhysicalDeviceShaderFloat16Int8Features\">VkPhysicalDeviceShaderFloat16Int8Features</a>, <a href=\"#VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT\">VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT</a>, <a href=\"#VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures\">VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures</a>, <a href=\"#VkPhysicalDeviceShaderTerminateInvocationFeatures\">VkPhysicalDeviceShaderTerminateInvocationFeatures</a>, <a href=\"#VkPhysicalDeviceSubgroupSizeControlFeatures\">VkPhysicalDeviceSubgroupSizeControlFeatures</a>, <a href=\"#VkPhysicalDeviceSynchronization2Features\">VkPhysicalDeviceSynchronization2Features</a>, <a href=\"#VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT\">VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT</a>, <a href=\"#VkPhysicalDeviceTextureCompressionASTCHDRFeatures\">VkPhysicalDeviceTextureCompressionASTCHDRFeatures</a>, <a href=\"#VkPhysicalDeviceTimelineSemaphoreFeatures\">VkPhysicalDeviceTimelineSemaphoreFeatures</a>, <a href=\"#VkPhysicalDeviceUniformBufferStandardLayoutFeatures\">VkPhysicalDeviceUniformBufferStandardLayoutFeatures</a>, <a href=\"#VkPhysicalDeviceVariablePointersFeatures\">VkPhysicalDeviceVariablePointersFeatures</a>, <a href=\"#VkPhysicalDeviceVertexAttributeDivisorFeatures\">VkPhysicalDeviceVertexAttributeDivisorFeatures</a>, <a href=\"#VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT\">VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT</a>, <a href=\"#VkPhysicalDeviceVulkan11Features\">VkPhysicalDeviceVulkan11Features</a>, <a href=\"#VkPhysicalDeviceVulkan12Features\">VkPhysicalDeviceVulkan12Features</a>, <a href=\"#VkPhysicalDeviceVulkanMemoryModelFeatures\">VkPhysicalDeviceVulkanMemoryModelFeatures</a>, <a href=\"#VkPhysicalDeviceVulkanSC10Features\">VkPhysicalDeviceVulkanSC10Features</a>, <a href=\"#VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT\">VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT</a>, or <a href=\"#VkPhysicalDeviceYcbcrImageArraysFeaturesEXT\">VkPhysicalDeviceYcbcrImageArraysFeaturesEXT</a>",
+          "text": "Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class=\"purple\">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href=\"#VkApplicationParametersEXT\">VkApplicationParametersEXT</a>, <a href=\"#VkDeviceGroupDeviceCreateInfo\">VkDeviceGroupDeviceCreateInfo</a>, <a href=\"#VkDeviceObjectReservationCreateInfo\">VkDeviceObjectReservationCreateInfo</a>, <a href=\"#VkDeviceSemaphoreSciSyncPoolReservationCreateInfoNV\">VkDeviceSemaphoreSciSyncPoolReservationCreateInfoNV</a>, <a href=\"#VkFaultCallbackInfo\">VkFaultCallbackInfo</a>, <a href=\"#VkPerformanceQueryReservationInfoKHR\">VkPerformanceQueryReservationInfoKHR</a>, <a href=\"#VkPhysicalDevice16BitStorageFeatures\">VkPhysicalDevice16BitStorageFeatures</a>, <a href=\"#VkPhysicalDevice4444FormatsFeaturesEXT\">VkPhysicalDevice4444FormatsFeaturesEXT</a>, <a href=\"#VkPhysicalDevice8BitStorageFeatures\">VkPhysicalDevice8BitStorageFeatures</a>, <a href=\"#VkPhysicalDeviceASTCDecodeFeaturesEXT\">VkPhysicalDeviceASTCDecodeFeaturesEXT</a>, <a href=\"#VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT\">VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT</a>, <a href=\"#VkPhysicalDeviceBufferDeviceAddressFeatures\">VkPhysicalDeviceBufferDeviceAddressFeatures</a>, <a href=\"#VkPhysicalDeviceColorWriteEnableFeaturesEXT\">VkPhysicalDeviceColorWriteEnableFeaturesEXT</a>, <a href=\"#VkPhysicalDeviceCustomBorderColorFeaturesEXT\">VkPhysicalDeviceCustomBorderColorFeaturesEXT</a>, <a href=\"#VkPhysicalDeviceDepthClipEnableFeaturesEXT\">VkPhysicalDeviceDepthClipEnableFeaturesEXT</a>, <a href=\"#VkPhysicalDeviceDescriptorIndexingFeatures\">VkPhysicalDeviceDescriptorIndexingFeatures</a>, <a href=\"#VkPhysicalDeviceExtendedDynamicState2FeaturesEXT\">VkPhysicalDeviceExtendedDynamicState2FeaturesEXT</a>, <a href=\"#VkPhysicalDeviceExtendedDynamicStateFeaturesEXT\">VkPhysicalDeviceExtendedDynamicStateFeaturesEXT</a>, <a href=\"#VkPhysicalDeviceExternalMemorySciBufFeaturesNV\">VkPhysicalDeviceExternalMemorySciBufFeaturesNV</a>, <a href=\"#VkPhysicalDeviceExternalMemoryScreenBufferFeaturesQNX\">VkPhysicalDeviceExternalMemoryScreenBufferFeaturesQNX</a>, <a href=\"#VkPhysicalDeviceExternalSciSync2FeaturesNV\">VkPhysicalDeviceExternalSciSync2FeaturesNV</a>, <a href=\"#VkPhysicalDeviceExternalSciSyncFeaturesNV\">VkPhysicalDeviceExternalSciSyncFeaturesNV</a>, <a href=\"#VkPhysicalDeviceFeatures2\">VkPhysicalDeviceFeatures2</a>, <a href=\"#VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT\">VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT</a>, <a href=\"#VkPhysicalDeviceFragmentShadingRateFeaturesKHR\">VkPhysicalDeviceFragmentShadingRateFeaturesKHR</a>, <a href=\"#VkPhysicalDeviceGlobalPriorityQueryFeatures\">VkPhysicalDeviceGlobalPriorityQueryFeatures</a>, <a href=\"#VkPhysicalDeviceHostQueryResetFeatures\">VkPhysicalDeviceHostQueryResetFeatures</a>, <a href=\"#VkPhysicalDeviceImageRobustnessFeatures\">VkPhysicalDeviceImageRobustnessFeatures</a>, <a href=\"#VkPhysicalDeviceImagelessFramebufferFeatures\">VkPhysicalDeviceImagelessFramebufferFeatures</a>, <a href=\"#VkPhysicalDeviceIndexTypeUint8Features\">VkPhysicalDeviceIndexTypeUint8Features</a>, <a href=\"#VkPhysicalDeviceLineRasterizationFeatures\">VkPhysicalDeviceLineRasterizationFeatures</a>, <a href=\"#VkPhysicalDeviceMultiviewFeatures\">VkPhysicalDeviceMultiviewFeatures</a>, <a href=\"#VkPhysicalDevicePerformanceQueryFeaturesKHR\">VkPhysicalDevicePerformanceQueryFeaturesKHR</a>, <a href=\"#VkPhysicalDeviceProtectedMemoryFeatures\">VkPhysicalDeviceProtectedMemoryFeatures</a>, <a href=\"#VkPhysicalDeviceRobustness2FeaturesKHR\">VkPhysicalDeviceRobustness2FeaturesKHR</a>, <a href=\"#VkPhysicalDeviceSamplerYcbcrConversionFeatures\">VkPhysicalDeviceSamplerYcbcrConversionFeatures</a>, <a href=\"#VkPhysicalDeviceScalarBlockLayoutFeatures\">VkPhysicalDeviceScalarBlockLayoutFeatures</a>, <a href=\"#VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures\">VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures</a>, <a href=\"#VkPhysicalDeviceShaderAtomicFloatFeaturesEXT\">VkPhysicalDeviceShaderAtomicFloatFeaturesEXT</a>, <a href=\"#VkPhysicalDeviceShaderAtomicInt64Features\">VkPhysicalDeviceShaderAtomicInt64Features</a>, <a href=\"#VkPhysicalDeviceShaderClockFeaturesKHR\">VkPhysicalDeviceShaderClockFeaturesKHR</a>, <a href=\"#VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures\">VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures</a>, <a href=\"#VkPhysicalDeviceShaderDrawParametersFeatures\">VkPhysicalDeviceShaderDrawParametersFeatures</a>, <a href=\"#VkPhysicalDeviceShaderFloat16Int8Features\">VkPhysicalDeviceShaderFloat16Int8Features</a>, <a href=\"#VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT\">VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT</a>, <a href=\"#VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures\">VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures</a>, <a href=\"#VkPhysicalDeviceShaderTerminateInvocationFeatures\">VkPhysicalDeviceShaderTerminateInvocationFeatures</a>, <a href=\"#VkPhysicalDeviceSubgroupSizeControlFeatures\">VkPhysicalDeviceSubgroupSizeControlFeatures</a>, <a href=\"#VkPhysicalDeviceSynchronization2Features\">VkPhysicalDeviceSynchronization2Features</a>, <a href=\"#VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT\">VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT</a>, <a href=\"#VkPhysicalDeviceTextureCompressionASTCHDRFeatures\">VkPhysicalDeviceTextureCompressionASTCHDRFeatures</a>, <a href=\"#VkPhysicalDeviceTimelineSemaphoreFeatures\">VkPhysicalDeviceTimelineSemaphoreFeatures</a>, <a href=\"#VkPhysicalDeviceUniformBufferStandardLayoutFeatures\">VkPhysicalDeviceUniformBufferStandardLayoutFeatures</a>, <a href=\"#VkPhysicalDeviceVariablePointersFeatures\">VkPhysicalDeviceVariablePointersFeatures</a>, <a href=\"#VkPhysicalDeviceVertexAttributeDivisorFeatures\">VkPhysicalDeviceVertexAttributeDivisorFeatures</a>, <a href=\"#VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT\">VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT</a>, <a href=\"#VkPhysicalDeviceVulkan11Features\">VkPhysicalDeviceVulkan11Features</a>, <a href=\"#VkPhysicalDeviceVulkan12Features\">VkPhysicalDeviceVulkan12Features</a>, <a href=\"#VkPhysicalDeviceVulkanMemoryModelFeatures\">VkPhysicalDeviceVulkanMemoryModelFeatures</a>, <a href=\"#VkPhysicalDeviceVulkanSC10Features\">VkPhysicalDeviceVulkanSC10Features</a>, <a href=\"#VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT\">VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT</a>, or <a href=\"#VkPhysicalDeviceYcbcrImageArraysFeaturesEXT\">VkPhysicalDeviceYcbcrImageArraysFeaturesEXT</a>",
           "page": "chapters/devsandqueues.html"
         },
         {
@@ -639,7 +644,7 @@
         },
         {
           "vuid": "VUID-VkDeviceCreateInfo-pQueueCreateInfos-parameter",
-          "text": "<code>pQueueCreateInfos</code> <strong class=\"purple\">must</strong> be a valid pointer to an array of <code>queueCreateInfoCount</code> valid <a href=\"#VkDeviceQueueCreateInfo\">VkDeviceQueueCreateInfo</a> structures",
+          "text": "If <code>queueCreateInfoCount</code> is not <code>0</code>, <code>pQueueCreateInfos</code> <strong class=\"purple\">must</strong> be a valid pointer to an array of <code>queueCreateInfoCount</code> valid <a href=\"#VkDeviceQueueCreateInfo\">VkDeviceQueueCreateInfo</a> structures",
           "page": "chapters/devsandqueues.html"
         },
         {
@@ -655,11 +660,6 @@
         {
           "vuid": "VUID-VkDeviceCreateInfo-pEnabledFeatures-parameter",
           "text": "If <code>pEnabledFeatures</code> is not <code>NULL</code>, <code>pEnabledFeatures</code> <strong class=\"purple\">must</strong> be a valid pointer to a valid <a href=\"#VkPhysicalDeviceFeatures\">VkPhysicalDeviceFeatures</a> structure",
-          "page": "chapters/devsandqueues.html"
-        },
-        {
-          "vuid": "VUID-VkDeviceCreateInfo-queueCreateInfoCount-arraylength",
-          "text": "<code>queueCreateInfoCount</code> <strong class=\"purple\">must</strong> be greater than <code>0</code>",
           "page": "chapters/devsandqueues.html"
         }
       ]
@@ -773,7 +773,7 @@
       "core": [
         {
           "vuid": "VUID-vkDestroyDevice-device-05137",
-          "text": "All child objects created on <code>device</code> , except those with no explicit <a href=\"#fundamentals-objectmodel-no-destroy\">free or destroy command</a>, <strong class=\"purple\">must</strong> have been destroyed prior to destroying <code>device</code>",
+          "text": "All child objects created on <code>device</code> that can be destroyed or freed <strong class=\"purple\">must</strong> have been destroyed or freed prior to destroying <code>device</code>",
           "page": "chapters/devsandqueues.html"
         },
         {
@@ -974,6 +974,11 @@
           "vuid": "VUID-vkCreateCommandPool-pCommandPool-parameter",
           "text": "<code>pCommandPool</code> <strong class=\"purple\">must</strong> be a valid pointer to a <a href=\"#VkCommandPool\">VkCommandPool</a> handle",
           "page": "chapters/cmdbuffers.html"
+        },
+        {
+          "vuid": "VUID-vkCreateCommandPool-device-queuecount",
+          "text": "The device <strong class=\"purple\">must</strong> have been created with at least <code>1</code> queue",
+          "page": "chapters/cmdbuffers.html"
         }
       ]
     },
@@ -1132,6 +1137,11 @@
         {
           "vuid": "VUID-vkAllocateCommandBuffers-pCommandBuffers-parameter",
           "text": "<code>pCommandBuffers</code> <strong class=\"purple\">must</strong> be a valid pointer to an array of <code>pAllocateInfo-&gt;commandBufferCount</code> <a href=\"#VkCommandBuffer\">VkCommandBuffer</a> handles",
+          "page": "chapters/cmdbuffers.html"
+        },
+        {
+          "vuid": "VUID-vkAllocateCommandBuffers-device-queuecount",
+          "text": "The device <strong class=\"purple\">must</strong> have been created with at least <code>1</code> queue",
           "page": "chapters/cmdbuffers.html"
         },
         {
@@ -2227,6 +2237,11 @@
           "vuid": "VUID-vkCreateFence-pFence-parameter",
           "text": "<code>pFence</code> <strong class=\"purple\">must</strong> be a valid pointer to a <a href=\"#VkFence\">VkFence</a> handle",
           "page": "chapters/synchronization.html"
+        },
+        {
+          "vuid": "VUID-vkCreateFence-device-queuecount",
+          "text": "The device <strong class=\"purple\">must</strong> have been created with at least <code>1</code> queue",
+          "page": "chapters/synchronization.html"
         }
       ]
     },
@@ -2863,6 +2878,11 @@
           "vuid": "VUID-vkCreateSemaphore-pSemaphore-parameter",
           "text": "<code>pSemaphore</code> <strong class=\"purple\">must</strong> be a valid pointer to a <a href=\"#VkSemaphore\">VkSemaphore</a> handle",
           "page": "chapters/synchronization.html"
+        },
+        {
+          "vuid": "VUID-vkCreateSemaphore-device-queuecount",
+          "text": "The device <strong class=\"purple\">must</strong> have been created with at least <code>1</code> queue",
+          "page": "chapters/synchronization.html"
         }
       ]
     },
@@ -2938,7 +2958,7 @@
         },
         {
           "vuid": "VUID-VkExportSemaphoreCreateInfo-pNext-05120",
-          "text": "If the <code>pNext</code> chain includes a <code>VkExportSemaphoreSciSyncInfoNV</code> structure, the <a href=\"#features-sciSyncSemapore\"><a href=\"#VkPhysicalDeviceExternalSciSyncFeaturesNV\">VkPhysicalDeviceExternalSciSyncFeaturesNV</a>::<code>sciSyncSemapore</code></a> and <a href=\"#features-sciSyncExport\"><a href=\"#VkPhysicalDeviceExternalSciSyncFeaturesNV\">VkPhysicalDeviceExternalSciSyncFeaturesNV</a>::<code>sciSyncExport</code></a> features <strong class=\"purple\">must</strong> be enabled",
+          "text": "If the <code>pNext</code> chain includes a <code>VkExportSemaphoreSciSyncInfoNV</code> structure, the <a href=\"#features-sciSyncSemaphore\"><a href=\"#VkPhysicalDeviceExternalSciSyncFeaturesNV\">VkPhysicalDeviceExternalSciSyncFeaturesNV</a>::<code>sciSyncSemaphore</code></a> and <a href=\"#features-sciSyncExport\"><a href=\"#VkPhysicalDeviceExternalSciSyncFeaturesNV\">VkPhysicalDeviceExternalSciSyncFeaturesNV</a>::<code>sciSyncExport</code></a> features <strong class=\"purple\">must</strong> be enabled",
           "page": "chapters/synchronization.html"
         },
         {
@@ -3191,6 +3211,11 @@
         {
           "vuid": "VUID-vkCreateSemaphoreSciSyncPoolNV-pSemaphorePool-parameter",
           "text": "<code>pSemaphorePool</code> <strong class=\"purple\">must</strong> be a valid pointer to a <a href=\"#VkSemaphoreSciSyncPoolNV\">VkSemaphoreSciSyncPoolNV</a> handle",
+          "page": "chapters/synchronization.html"
+        },
+        {
+          "vuid": "VUID-vkCreateSemaphoreSciSyncPoolNV-device-queuecount",
+          "text": "The device <strong class=\"purple\">must</strong> have been created with at least <code>1</code> queue",
           "page": "chapters/synchronization.html"
         }
       ]
@@ -3530,6 +3555,11 @@
         {
           "vuid": "VUID-vkCreateEvent-pEvent-parameter",
           "text": "<code>pEvent</code> <strong class=\"purple\">must</strong> be a valid pointer to a <a href=\"#VkEvent\">VkEvent</a> handle",
+          "page": "chapters/synchronization.html"
+        },
+        {
+          "vuid": "VUID-vkCreateEvent-device-queuecount",
+          "text": "The device <strong class=\"purple\">must</strong> have been created with at least <code>1</code> queue",
           "page": "chapters/synchronization.html"
         }
       ]
@@ -4037,7 +4067,7 @@
           "page": "chapters/synchronization.html"
         },
         {
-          "vuid": "VUID-vkCmdWaitEvents2-pEvents-03838",
+          "vuid": "VUID-vkCmdWaitEvents2-pEvents-10788",
           "text": "For any element <span class=\"eq\">i</span> of <code>pEvents</code>, if that event is signaled by <a href=\"#vkCmdSetEvent2KHR\">vkCmdSetEvent2KHR</a>, that command&#8217;s <code>dependencyInfo</code> parameter <strong class=\"purple\">must</strong> be exactly equal to the <span class=\"eq\">i</span>th element of <code>pDependencyInfos</code>",
           "page": "chapters/synchronization.html"
         },
@@ -4068,7 +4098,7 @@
         },
         {
           "vuid": "VUID-vkCmdWaitEvents2-dependencyFlags-10394",
-          "text": "The <code>dependencyFlags</code> member of any element of <code>pDependencyInfo</code> <strong class=\"purple\">must</strong> be <code>0</code>",
+          "text": "The <code>dependencyFlags</code> member of any element of <code>pDependencyInfo</code> <strong class=\"purple\">must</strong> not include any of the following bits:<div class=\"ulist\">\n<ul>\n<li>\n<p><code>VK_DEPENDENCY_BY_REGION_BIT</code></p>\n</li>\n<li>\n<p><code>VK_DEPENDENCY_DEVICE_GROUP_BIT</code></p>\n</li>\n<li>\n<p><code>VK_DEPENDENCY_VIEW_LOCAL_BIT</code></p>\n</li>\n</ul>\n</div>",
           "page": "chapters/synchronization.html"
         },
         {
@@ -4506,6 +4536,11 @@
         {
           "vuid": "VUID-vkCmdPipelineBarrier-None-07893",
           "text": "If <code>vkCmdPipelineBarrier</code> is called inside a render pass instance, and there is more than one view in the current subpass, dependency flags <strong class=\"purple\">must</strong> include <code>VK_DEPENDENCY_VIEW_LOCAL_BIT</code>",
+          "page": "chapters/synchronization.html"
+        },
+        {
+          "vuid": "VUID-vkCmdPipelineBarrier-oldLayout-10758",
+          "text": "If called within a render pass instance using a <a href=\"#VkRenderPass\">VkRenderPass</a> object, the <code>oldLayout</code> member of any image memory barrier included in this command <strong class=\"purple\">must</strong> be equal to the layout that the corresponding attachment uses during the subpass",
           "page": "chapters/synchronization.html"
         },
         {
@@ -5619,6 +5654,16 @@
           "page": "chapters/synchronization.html"
         },
         {
+          "vuid": "VUID-VkImageMemoryBarrier2-image-10749",
+          "text": "If <code>image</code> has a depth-only format then the <code>aspectMask</code> member of <code>subresourceRange</code> <strong class=\"purple\">must</strong> be <code>VK_IMAGE_ASPECT_DEPTH_BIT</code>",
+          "page": "chapters/synchronization.html"
+        },
+        {
+          "vuid": "VUID-VkImageMemoryBarrier2-image-10750",
+          "text": "If <code>image</code> has a stencil-only format then the <code>aspectMask</code> member of <code>subresourceRange</code> <strong class=\"purple\">must</strong> be <code>VK_IMAGE_ASPECT_STENCIL_BIT</code>",
+          "page": "chapters/synchronization.html"
+        },
+        {
           "vuid": "VUID-VkImageMemoryBarrier2-aspectMask-08702",
           "text": "If the <code>aspectMask</code> member of <code>subresourceRange</code> includes <code>VK_IMAGE_ASPECT_DEPTH_BIT</code>, <code>oldLayout</code> and <code>newLayout</code> <strong class=\"purple\">must</strong> not be one of <code>VK_IMAGE_LAYOUT_STENCIL_ATTACHMENT_OPTIMAL</code> or <code>VK_IMAGE_LAYOUT_STENCIL_READ_ONLY_OPTIMAL</code>",
           "page": "chapters/synchronization.html"
@@ -5865,6 +5910,16 @@
         {
           "vuid": "VUID-VkImageMemoryBarrier-image-03319",
           "text": "If <code>image</code> has a depth/stencil format with both depth and stencil and the <a href=\"#features-separateDepthStencilLayouts\"><code>separateDepthStencilLayouts</code></a> feature is enabled, then the <code>aspectMask</code> member of <code>subresourceRange</code> <strong class=\"purple\">must</strong> include either or both <code>VK_IMAGE_ASPECT_DEPTH_BIT</code> and <code>VK_IMAGE_ASPECT_STENCIL_BIT</code>",
+          "page": "chapters/synchronization.html"
+        },
+        {
+          "vuid": "VUID-VkImageMemoryBarrier-image-10749",
+          "text": "If <code>image</code> has a depth-only format then the <code>aspectMask</code> member of <code>subresourceRange</code> <strong class=\"purple\">must</strong> be <code>VK_IMAGE_ASPECT_DEPTH_BIT</code>",
+          "page": "chapters/synchronization.html"
+        },
+        {
+          "vuid": "VUID-VkImageMemoryBarrier-image-10750",
+          "text": "If <code>image</code> has a stencil-only format then the <code>aspectMask</code> member of <code>subresourceRange</code> <strong class=\"purple\">must</strong> be <code>VK_IMAGE_ASPECT_STENCIL_BIT</code>",
           "page": "chapters/synchronization.html"
         },
         {
@@ -6133,12 +6188,12 @@
         },
         {
           "vuid": "VUID-VkRenderPassCreateInfo-pDependencies-00837",
-          "text": "For any element of <code>pDependencies</code>, if the <code>srcSubpass</code> is not <code>VK_SUBPASS_EXTERNAL</code>, all stage flags included in the <code>srcStageMask</code> member of that dependency <strong class=\"purple\">must</strong> be a pipeline stage supported by the <a href=\"#synchronization-pipeline-stages-types\">pipeline</a> identified by the <code>pipelineBindPoint</code> member of the source subpass",
+          "text": "For any element of <code>pDependencies</code>, if the <code>srcSubpass</code> is not <code>VK_SUBPASS_EXTERNAL</code>, all stage flags included in the <code>srcStageMask</code> member of that dependency <strong class=\"purple\">must</strong> be <code>VK_PIPELINE_STAGE_ALL_COMMANDS_BIT</code> or a pipeline stage supported by the <a href=\"#synchronization-pipeline-stages-types\">pipeline</a> identified by the <code>pipelineBindPoint</code> member of the source subpass",
           "page": "chapters/renderpass.html"
         },
         {
           "vuid": "VUID-VkRenderPassCreateInfo-pDependencies-00838",
-          "text": "For any element of <code>pDependencies</code>, if the <code>dstSubpass</code> is not <code>VK_SUBPASS_EXTERNAL</code>, all stage flags included in the <code>dstStageMask</code> member of that dependency <strong class=\"purple\">must</strong> be a pipeline stage supported by the <a href=\"#synchronization-pipeline-stages-types\">pipeline</a> identified by the <code>pipelineBindPoint</code> member of the destination subpass",
+          "text": "For any element of <code>pDependencies</code>, if the <code>dstSubpass</code> is not <code>VK_SUBPASS_EXTERNAL</code>, all stage flags included in the <code>dstStageMask</code> member of that dependency <strong class=\"purple\">must</strong> be <code>VK_PIPELINE_STAGE_ALL_COMMANDS_BIT</code> or a pipeline stage supported by the <a href=\"#synchronization-pipeline-stages-types\">pipeline</a> identified by the <code>pipelineBindPoint</code> member of the destination subpass",
           "page": "chapters/renderpass.html"
         },
         {
@@ -6874,12 +6929,12 @@
         },
         {
           "vuid": "VUID-VkRenderPassCreateInfo2-pDependencies-03054",
-          "text": "For any element of <code>pDependencies</code>, if the <code>srcSubpass</code> is not <code>VK_SUBPASS_EXTERNAL</code>, all stage flags included in the <code>srcStageMask</code> member of that dependency <strong class=\"purple\">must</strong> be a pipeline stage supported by the <a href=\"#synchronization-pipeline-stages-types\">pipeline</a> identified by the <code>pipelineBindPoint</code> member of the source subpass",
+          "text": "For any element of <code>pDependencies</code>, if the <code>srcSubpass</code> is not <code>VK_SUBPASS_EXTERNAL</code>, all stage flags included in the <code>srcStageMask</code> member of that dependency <strong class=\"purple\">must</strong> be <code>VK_PIPELINE_STAGE_ALL_COMMANDS_BIT</code> or a pipeline stage supported by the <a href=\"#synchronization-pipeline-stages-types\">pipeline</a> identified by the <code>pipelineBindPoint</code> member of the source subpass",
           "page": "chapters/renderpass.html"
         },
         {
           "vuid": "VUID-VkRenderPassCreateInfo2-pDependencies-03055",
-          "text": "For any element of <code>pDependencies</code>, if the <code>dstSubpass</code> is not <code>VK_SUBPASS_EXTERNAL</code>, all stage flags included in the <code>dstStageMask</code> member of that dependency <strong class=\"purple\">must</strong> be a pipeline stage supported by the <a href=\"#synchronization-pipeline-stages-types\">pipeline</a> identified by the <code>pipelineBindPoint</code> member of the destination subpass",
+          "text": "For any element of <code>pDependencies</code>, if the <code>dstSubpass</code> is not <code>VK_SUBPASS_EXTERNAL</code>, all stage flags included in the <code>dstStageMask</code> member of that dependency <strong class=\"purple\">must</strong> be <code>VK_PIPELINE_STAGE_ALL_COMMANDS_BIT</code> or a pipeline stage supported by the <a href=\"#synchronization-pipeline-stages-types\">pipeline</a> identified by the <code>pipelineBindPoint</code> member of the destination subpass",
           "page": "chapters/renderpass.html"
         },
         {
@@ -7860,6 +7915,11 @@
         {
           "vuid": "VUID-vkCreateFramebuffer-pFramebuffer-parameter",
           "text": "<code>pFramebuffer</code> <strong class=\"purple\">must</strong> be a valid pointer to a <a href=\"#VkFramebuffer\">VkFramebuffer</a> handle",
+          "page": "chapters/renderpass.html"
+        },
+        {
+          "vuid": "VUID-vkCreateFramebuffer-device-queuecount",
+          "text": "The device <strong class=\"purple\">must</strong> have been created with at least <code>1</code> queue",
           "page": "chapters/renderpass.html"
         }
       ]
@@ -9592,12 +9652,12 @@
         },
         {
           "vuid": "VUID-VkGraphicsPipelineCreateInfo-pDynamicStates-07610",
-          "text": "If the pipeline requires <a href=\"#pipelines-graphics-subsets-fragment-shader\">fragment shader state</a> or <a href=\"#pipelines-graphics-subsets-fragment-output\">fragment output interface state</a>, and <code>rasterizationSamples</code> and <code>sampleLocationsInfo</code> are not dynamic, and <a href=\"#VkPipelineSampleLocationsStateCreateInfoEXT\">VkPipelineSampleLocationsStateCreateInfoEXT</a>::<code>sampleLocationsEnable</code> included in the <code>pNext</code> chain of <code>pMultisampleState</code> is <code>VK_TRUE</code>, <code>sampleLocationsInfo.sampleLocationGridSize.width</code> <strong class=\"purple\">must</strong> evenly divide <a href=\"#VkMultisamplePropertiesEXT\">VkMultisamplePropertiesEXT</a>::<code>sampleLocationGridSize.width</code> as returned by <a href=\"#vkGetPhysicalDeviceMultisamplePropertiesEXT\">vkGetPhysicalDeviceMultisamplePropertiesEXT</a> with a <code>samples</code> parameter equaling <code>rasterizationSamples</code>",
+          "text": "If the pipeline requires <a href=\"#pipelines-graphics-subsets-fragment-shader\">fragment shader state</a> or <a href=\"#pipelines-graphics-subsets-fragment-output\">fragment output interface state</a>, and <code>rasterizationSamples</code> and <code>sampleLocationsInfo</code> are not dynamic, and <a href=\"#VkPipelineSampleLocationsStateCreateInfoEXT\">VkPipelineSampleLocationsStateCreateInfoEXT</a>::<code>sampleLocationsEnable</code> included in the <code>pNext</code> chain of <code>pMultisampleState</code> is <code>VK_TRUE</code>, <code>sampleLocationsInfo.sampleLocationGridSize.width</code> <strong class=\"purple\">must</strong> evenly divide <a href=\"#VkMultisamplePropertiesEXT\">VkMultisamplePropertiesEXT</a>::<code>maxSampleLocationGridSize.width</code> as returned by <a href=\"#vkGetPhysicalDeviceMultisamplePropertiesEXT\">vkGetPhysicalDeviceMultisamplePropertiesEXT</a> with a <code>samples</code> parameter equaling <code>rasterizationSamples</code>",
           "page": "chapters/pipelines.html"
         },
         {
           "vuid": "VUID-VkGraphicsPipelineCreateInfo-pDynamicStates-07611",
-          "text": "If the pipeline requires <a href=\"#pipelines-graphics-subsets-fragment-shader\">fragment shader state</a> or <a href=\"#pipelines-graphics-subsets-fragment-output\">fragment output interface state</a>, and <code>rasterizationSamples</code> and <code>sampleLocationsInfo</code> are not dynamic, and <a href=\"#VkPipelineSampleLocationsStateCreateInfoEXT\">VkPipelineSampleLocationsStateCreateInfoEXT</a>::<code>sampleLocationsEnable</code> the included in the <code>pNext</code> chain of <code>pMultisampleState</code> is <code>VK_TRUE</code> or <code>VK_DYNAMIC_STATE_SAMPLE_LOCATIONS_ENABLE_EXT</code> is used, <code>sampleLocationsInfo.sampleLocationGridSize.height</code> <strong class=\"purple\">must</strong> evenly divide <a href=\"#VkMultisamplePropertiesEXT\">VkMultisamplePropertiesEXT</a>::<code>sampleLocationGridSize.height</code> as returned by <a href=\"#vkGetPhysicalDeviceMultisamplePropertiesEXT\">vkGetPhysicalDeviceMultisamplePropertiesEXT</a> with a <code>samples</code> parameter equaling <code>rasterizationSamples</code>",
+          "text": "If the pipeline requires <a href=\"#pipelines-graphics-subsets-fragment-shader\">fragment shader state</a> or <a href=\"#pipelines-graphics-subsets-fragment-output\">fragment output interface state</a>, and <code>rasterizationSamples</code> and <code>sampleLocationsInfo</code> are not dynamic, and <a href=\"#VkPipelineSampleLocationsStateCreateInfoEXT\">VkPipelineSampleLocationsStateCreateInfoEXT</a>::<code>sampleLocationsEnable</code> the included in the <code>pNext</code> chain of <code>pMultisampleState</code> is <code>VK_TRUE</code> or <code>VK_DYNAMIC_STATE_SAMPLE_LOCATIONS_ENABLE_EXT</code> is used, <code>sampleLocationsInfo.sampleLocationGridSize.height</code> <strong class=\"purple\">must</strong> evenly divide <a href=\"#VkMultisamplePropertiesEXT\">VkMultisamplePropertiesEXT</a>::<code>maxSampleLocationGridSize.height</code> as returned by <a href=\"#vkGetPhysicalDeviceMultisamplePropertiesEXT\">vkGetPhysicalDeviceMultisamplePropertiesEXT</a> with a <code>samples</code> parameter equaling <code>rasterizationSamples</code>",
           "page": "chapters/pipelines.html"
         },
         {
@@ -9637,7 +9697,7 @@
         },
         {
           "vuid": "VUID-VkGraphicsPipelineCreateInfo-flags-00764",
-          "text": "<code>flags</code> <strong class=\"purple\">must</strong> not contain the <code>VK_PIPELINE_CREATE_DISPATCH_BASE</code> flag",
+          "text": "<code>flags</code> <strong class=\"purple\">must</strong> not contain the <code>VK_PIPELINE_CREATE_DISPATCH_BASE_BIT</code> flag",
           "page": "chapters/pipelines.html"
         },
         {
@@ -10441,6 +10501,11 @@
           "vuid": "VUID-vkAllocateMemory-pMemory-parameter",
           "text": "<code>pMemory</code> <strong class=\"purple\">must</strong> be a valid pointer to a <a href=\"#VkDeviceMemory\">VkDeviceMemory</a> handle",
           "page": "chapters/memory.html"
+        },
+        {
+          "vuid": "VUID-vkAllocateMemory-device-queuecount",
+          "text": "The device <strong class=\"purple\">must</strong> have been created with at least <code>1</code> queue",
+          "page": "chapters/memory.html"
         }
       ]
     },
@@ -10635,8 +10700,8 @@
     "VkExportMemoryAllocateInfo": {
       "core": [
         {
-          "vuid": "VUID-VkExportMemoryAllocateInfo-handleTypes-00656",
-          "text": "The bits in <code>handleTypes</code> <strong class=\"purple\">must</strong> be supported and compatible, as reported by <a href=\"#VkExternalImageFormatProperties\">VkExternalImageFormatProperties</a> or <a href=\"#VkExternalBufferProperties\">VkExternalBufferProperties</a>",
+          "vuid": "VUID-VkExportMemoryAllocateInfo-handleTypes-09860",
+          "text": "The bits in <code>handleTypes</code> <strong class=\"purple\">must</strong> be supported and compatible, as reported by <a href=\"#VkExternalImageFormatProperties\">VkExternalImageFormatProperties</a>, or <a href=\"#VkExternalBufferProperties\">VkExternalBufferProperties</a>",
           "page": "chapters/memory.html"
         },
         {
@@ -10654,7 +10719,7 @@
     "VkImportMemoryFdInfoKHR": {
       "core": [
         {
-          "vuid": "VUID-VkImportMemoryFdInfoKHR-handleType-00667",
+          "vuid": "VUID-VkImportMemoryFdInfoKHR-handleType-09862",
           "text": "If <code>handleType</code> is not <code>0</code>, it <strong class=\"purple\">must</strong> be supported for import, as reported by <a href=\"#VkExternalImageFormatProperties\">VkExternalImageFormatProperties</a> or <a href=\"#VkExternalBufferProperties\">VkExternalBufferProperties</a>",
           "page": "chapters/memory.html"
         },
@@ -11367,7 +11432,12 @@
       "core": [
         {
           "vuid": "VUID-vkGetDeviceMemoryOpaqueCaptureAddress-None-03334",
-          "text": "The <a href=\"#features-bufferDeviceAddress\"><code>bufferDeviceAddress</code></a> feature <strong class=\"purple\">must</strong> be enabled",
+          "text": "The <a href=\"#features-bufferDeviceAddress\"><code>bufferDeviceAddress</code></a> and <a href=\"#features-bufferDeviceAddressCaptureReplay\"><code>bufferDeviceAddressCaptureReplay</code></a> features <strong class=\"purple\">must</strong> be enabled",
+          "page": "chapters/memory.html"
+        },
+        {
+          "vuid": "VUID-vkGetDeviceMemoryOpaqueCaptureAddress-pInfo-10727",
+          "text": "<code>pInfo</code>::<code>memory</code> <strong class=\"purple\">must</strong> have been allocated using the <code>VK_MEMORY_ALLOCATE_DEVICE_ADDRESS_CAPTURE_REPLAY_BIT</code> flag",
           "page": "chapters/memory.html"
         },
         {
@@ -11441,6 +11511,11 @@
         {
           "vuid": "VUID-vkCreateBuffer-pBuffer-parameter",
           "text": "<code>pBuffer</code> <strong class=\"purple\">must</strong> be a valid pointer to a <a href=\"#VkBuffer\">VkBuffer</a> handle",
+          "page": "chapters/resources.html"
+        },
+        {
+          "vuid": "VUID-vkCreateBuffer-device-queuecount",
+          "text": "The device <strong class=\"purple\">must</strong> have been created with at least <code>1</code> queue",
           "page": "chapters/resources.html"
         }
       ]
@@ -11627,6 +11702,11 @@
           "vuid": "VUID-vkCreateBufferView-pView-parameter",
           "text": "<code>pView</code> <strong class=\"purple\">must</strong> be a valid pointer to a <a href=\"#VkBufferView\">VkBufferView</a> handle",
           "page": "chapters/resources.html"
+        },
+        {
+          "vuid": "VUID-vkCreateBufferView-device-queuecount",
+          "text": "The device <strong class=\"purple\">must</strong> have been created with at least <code>1</code> queue",
+          "page": "chapters/resources.html"
         }
       ]
     },
@@ -11783,6 +11863,11 @@
         {
           "vuid": "VUID-vkCreateImage-pImage-parameter",
           "text": "<code>pImage</code> <strong class=\"purple\">must</strong> be a valid pointer to a <a href=\"#VkImage\">VkImage</a> handle",
+          "page": "chapters/resources.html"
+        },
+        {
+          "vuid": "VUID-vkCreateImage-device-queuecount",
+          "text": "The device <strong class=\"purple\">must</strong> have been created with at least <code>1</code> queue",
           "page": "chapters/resources.html"
         }
       ]
@@ -12550,6 +12635,11 @@
           "vuid": "VUID-vkCreateImageView-pView-parameter",
           "text": "<code>pView</code> <strong class=\"purple\">must</strong> be a valid pointer to a <a href=\"#VkImageView\">VkImageView</a> handle",
           "page": "chapters/resources.html"
+        },
+        {
+          "vuid": "VUID-vkCreateImageView-device-queuecount",
+          "text": "The device <strong class=\"purple\">must</strong> have been created with at least <code>1</code> queue",
+          "page": "chapters/resources.html"
         }
       ]
     },
@@ -13261,13 +13351,13 @@
           "page": "chapters/resources.html"
         },
         {
-          "vuid": "VUID-vkBindBufferMemory-memoryOffset-01036",
+          "vuid": "VUID-vkBindBufferMemory-None-10739",
           "text": "<code>memoryOffset</code> <strong class=\"purple\">must</strong> be an integer multiple of the <code>alignment</code> member of the <code>VkMemoryRequirements</code> structure returned from a call to <code>vkGetBufferMemoryRequirements</code> with <code>buffer</code>",
           "page": "chapters/resources.html"
         },
         {
-          "vuid": "VUID-vkBindBufferMemory-size-01037",
-          "text": "The <code>size</code> member of the <code>VkMemoryRequirements</code> structure returned from a call to <code>vkGetBufferMemoryRequirements</code> with <code>buffer</code> <strong class=\"purple\">must</strong> be less than or equal to the size of <code>memory</code> minus <code>memoryOffset</code>",
+          "vuid": "VUID-vkBindBufferMemory-None-10741",
+          "text": "<code>size</code> member of the <code>VkMemoryRequirements</code> structure returned from a call to <code>vkGetBufferMemoryRequirements</code> with <code>buffer</code> <strong class=\"purple\">must</strong> be less than or equal to the size of <code>memory</code> minus <code>memoryOffset</code>",
           "page": "chapters/resources.html"
         },
         {
@@ -13379,13 +13469,13 @@
           "page": "chapters/resources.html"
         },
         {
-          "vuid": "VUID-VkBindBufferMemoryInfo-memoryOffset-01036",
+          "vuid": "VUID-VkBindBufferMemoryInfo-None-10739",
           "text": "<code>memoryOffset</code> <strong class=\"purple\">must</strong> be an integer multiple of the <code>alignment</code> member of the <code>VkMemoryRequirements</code> structure returned from a call to <code>vkGetBufferMemoryRequirements</code> with <code>buffer</code>",
           "page": "chapters/resources.html"
         },
         {
-          "vuid": "VUID-VkBindBufferMemoryInfo-size-01037",
-          "text": "The <code>size</code> member of the <code>VkMemoryRequirements</code> structure returned from a call to <code>vkGetBufferMemoryRequirements</code> with <code>buffer</code> <strong class=\"purple\">must</strong> be less than or equal to the size of <code>memory</code> minus <code>memoryOffset</code>",
+          "vuid": "VUID-VkBindBufferMemoryInfo-None-10741",
+          "text": "<code>size</code> member of the <code>VkMemoryRequirements</code> structure returned from a call to <code>vkGetBufferMemoryRequirements</code> with <code>buffer</code> <strong class=\"purple\">must</strong> be less than or equal to the size of <code>memory</code> minus <code>memoryOffset</code>",
           "page": "chapters/resources.html"
         },
         {
@@ -13547,13 +13637,13 @@
           "page": "chapters/resources.html"
         },
         {
-          "vuid": "VUID-vkBindImageMemory-memoryOffset-01048",
+          "vuid": "VUID-vkBindImageMemory-None-10735",
           "text": "<code>memoryOffset</code> <strong class=\"purple\">must</strong> be an integer multiple of the <code>alignment</code> member of the <code>VkMemoryRequirements</code> structure returned from a call to <a href=\"#vkGetImageMemoryRequirements\">vkGetImageMemoryRequirements</a> with <code>image</code>",
           "page": "chapters/resources.html"
         },
         {
-          "vuid": "VUID-vkBindImageMemory-size-01049",
-          "text": "The difference of the size of <code>memory</code> and <code>memoryOffset</code> <strong class=\"purple\">must</strong> be greater than or equal to the <code>size</code> member of the <a href=\"#VkMemoryRequirements\">VkMemoryRequirements</a> structure returned from a call to <a href=\"#vkGetImageMemoryRequirements\">vkGetImageMemoryRequirements</a> with the same <code>image</code>",
+          "vuid": "VUID-vkBindImageMemory-None-10737",
+          "text": "<code>size</code> member of the <code>VkMemoryRequirements</code> structure returned from a call to <code>vkGetImageMemoryRequirements</code> with <code>image</code> <strong class=\"purple\">must</strong> be less than or equal to the size of <code>memory</code> minus <code>memoryOffset</code>",
           "page": "chapters/resources.html"
         },
         {
@@ -13859,6 +13949,11 @@
           "vuid": "VUID-vkCreateSampler-pSampler-parameter",
           "text": "<code>pSampler</code> <strong class=\"purple\">must</strong> be a valid pointer to a <a href=\"#VkSampler\">VkSampler</a> handle",
           "page": "chapters/samplers.html"
+        },
+        {
+          "vuid": "VUID-vkCreateSampler-device-queuecount",
+          "text": "The device <strong class=\"purple\">must</strong> have been created with at least <code>1</code> queue",
+          "page": "chapters/samplers.html"
         }
       ]
     },
@@ -14118,6 +14213,11 @@
         {
           "vuid": "VUID-vkCreateSamplerYcbcrConversion-pYcbcrConversion-parameter",
           "text": "<code>pYcbcrConversion</code> <strong class=\"purple\">must</strong> be a valid pointer to a <a href=\"#VkSamplerYcbcrConversion\">VkSamplerYcbcrConversion</a> handle",
+          "page": "chapters/samplers.html"
+        },
+        {
+          "vuid": "VUID-vkCreateSamplerYcbcrConversion-device-queuecount",
+          "text": "The device <strong class=\"purple\">must</strong> have been created with at least <code>1</code> queue",
           "page": "chapters/samplers.html"
         }
       ]
@@ -14639,32 +14739,32 @@
         },
         {
           "vuid": "VUID-VkPipelineLayoutCreateInfo-descriptorType-03022",
-          "text": "The total number of descriptors with a <code>descriptorType</code> of <code>VK_DESCRIPTOR_TYPE_SAMPLER</code> and <code>VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER</code> accessible to any given shader stage across all elements of <code>pSetLayouts</code> <strong class=\"purple\">must</strong> be less than or equal to <code>VkPhysicalDeviceDescriptorIndexingProperties</code>::<code>maxPerStageDescriptorUpdateAfterBindSamplers</code>",
+          "text": "If the <a href=\"#features-descriptorBindingSampledImageUpdateAfterBind\"><code>descriptorBindingSampledImageUpdateAfterBind</code></a> feature is supported on the device, the total number of descriptors with a <code>descriptorType</code> of <code>VK_DESCRIPTOR_TYPE_SAMPLER</code> and <code>VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER</code> accessible to any given shader stage across all elements of <code>pSetLayouts</code> <strong class=\"purple\">must</strong> be less than or equal to <code>VkPhysicalDeviceDescriptorIndexingProperties</code>::<code>maxPerStageDescriptorUpdateAfterBindSamplers</code>",
           "page": "chapters/descriptorsets.html"
         },
         {
           "vuid": "VUID-VkPipelineLayoutCreateInfo-descriptorType-03023",
-          "text": "The total number of descriptors with a <code>descriptorType</code> of <code>VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER</code> and <code>VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC</code> accessible to any given shader stage across all elements of <code>pSetLayouts</code> <strong class=\"purple\">must</strong> be less than or equal to <code>VkPhysicalDeviceDescriptorIndexingProperties</code>::<code>maxPerStageDescriptorUpdateAfterBindUniformBuffers</code>",
+          "text": "If the <a href=\"#features-descriptorBindingUniformBufferUpdateAfterBind\"><code>descriptorBindingUniformBufferUpdateAfterBind</code></a> feature is supported on the device, the total number of descriptors with a <code>descriptorType</code> of <code>VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER</code> and <code>VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC</code> accessible to any given shader stage across all elements of <code>pSetLayouts</code> <strong class=\"purple\">must</strong> be less than or equal to <code>VkPhysicalDeviceDescriptorIndexingProperties</code>::<code>maxPerStageDescriptorUpdateAfterBindUniformBuffers</code>",
           "page": "chapters/descriptorsets.html"
         },
         {
           "vuid": "VUID-VkPipelineLayoutCreateInfo-descriptorType-03024",
-          "text": "The total number of descriptors with a <code>descriptorType</code> of <code>VK_DESCRIPTOR_TYPE_STORAGE_BUFFER</code> and <code>VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC</code> accessible to any given shader stage across all elements of <code>pSetLayouts</code> <strong class=\"purple\">must</strong> be less than or equal to <code>VkPhysicalDeviceDescriptorIndexingProperties</code>::<code>maxPerStageDescriptorUpdateAfterBindStorageBuffers</code>",
+          "text": "If the <a href=\"#features-descriptorBindingStorageBufferUpdateAfterBind\"><code>descriptorBindingStorageBufferUpdateAfterBind</code></a> feature is supported on the device, the total number of descriptors with a <code>descriptorType</code> of <code>VK_DESCRIPTOR_TYPE_STORAGE_BUFFER</code> and <code>VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC</code> accessible to any given shader stage across all elements of <code>pSetLayouts</code> <strong class=\"purple\">must</strong> be less than or equal to <code>VkPhysicalDeviceDescriptorIndexingProperties</code>::<code>maxPerStageDescriptorUpdateAfterBindStorageBuffers</code>",
           "page": "chapters/descriptorsets.html"
         },
         {
           "vuid": "VUID-VkPipelineLayoutCreateInfo-descriptorType-03025",
-          "text": "The total number of descriptors with a <code>descriptorType</code> of <code>VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER</code>, <code>VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE</code>, and <code>VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER</code> accessible to any given shader stage across all elements of <code>pSetLayouts</code> <strong class=\"purple\">must</strong> be less than or equal to <code>VkPhysicalDeviceDescriptorIndexingProperties</code>::<code>maxPerStageDescriptorUpdateAfterBindSampledImages</code>",
+          "text": "If the <a href=\"#features-descriptorBindingSampledImageUpdateAfterBind\"><code>descriptorBindingSampledImageUpdateAfterBind</code></a> feature is supported on the device, the total number of descriptors with a <code>descriptorType</code> of <code>VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER</code>, <code>VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE</code>, and <code>VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER</code> accessible to any given shader stage across all elements of <code>pSetLayouts</code> <strong class=\"purple\">must</strong> be less than or equal to <code>VkPhysicalDeviceDescriptorIndexingProperties</code>::<code>maxPerStageDescriptorUpdateAfterBindSampledImages</code>",
           "page": "chapters/descriptorsets.html"
         },
         {
           "vuid": "VUID-VkPipelineLayoutCreateInfo-descriptorType-03026",
-          "text": "The total number of descriptors with a <code>descriptorType</code> of <code>VK_DESCRIPTOR_TYPE_STORAGE_IMAGE</code>, and <code>VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER</code> accessible to any given shader stage across all elements of <code>pSetLayouts</code> <strong class=\"purple\">must</strong> be less than or equal to <code>VkPhysicalDeviceDescriptorIndexingProperties</code>::<code>maxPerStageDescriptorUpdateAfterBindStorageImages</code>",
+          "text": "If the <a href=\"#features-descriptorBindingStorageImageUpdateAfterBind\"><code>descriptorBindingStorageImageUpdateAfterBind</code></a> feature is supported on the device, the total number of descriptors with a <code>descriptorType</code> of <code>VK_DESCRIPTOR_TYPE_STORAGE_IMAGE</code>, and <code>VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER</code> accessible to any given shader stage across all elements of <code>pSetLayouts</code> <strong class=\"purple\">must</strong> be less than or equal to <code>VkPhysicalDeviceDescriptorIndexingProperties</code>::<code>maxPerStageDescriptorUpdateAfterBindStorageImages</code>",
           "page": "chapters/descriptorsets.html"
         },
         {
           "vuid": "VUID-VkPipelineLayoutCreateInfo-descriptorType-03027",
-          "text": "The total number of descriptors with a <code>descriptorType</code> of <code>VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT</code> accessible to any given shader stage across all elements of <code>pSetLayouts</code> <strong class=\"purple\">must</strong> be less than or equal to <code>VkPhysicalDeviceDescriptorIndexingProperties</code>::<code>maxPerStageDescriptorUpdateAfterBindInputAttachments</code>",
+          "text": "If any element of <code>pSetLayouts</code> is created with the <code>VK_DESCRIPTOR_SET_LAYOUT_CREATE_UPDATE_AFTER_BIND_POOL_BIT</code> bit set, the total number of descriptors with a <code>descriptorType</code> of <code>VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT</code> accessible to any given shader stage across all elements of <code>pSetLayouts</code> <strong class=\"purple\">must</strong> be less than or equal to <code>VkPhysicalDeviceDescriptorIndexingProperties</code>::<code>maxPerStageDescriptorUpdateAfterBindInputAttachments</code>",
           "page": "chapters/descriptorsets.html"
         },
         {
@@ -14709,42 +14809,42 @@
         },
         {
           "vuid": "VUID-VkPipelineLayoutCreateInfo-pSetLayouts-03036",
-          "text": "The total number of descriptors of the type <code>VK_DESCRIPTOR_TYPE_SAMPLER</code> and <code>VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER</code> accessible across all shader stages and across all elements of <code>pSetLayouts</code> <strong class=\"purple\">must</strong> be less than or equal to <code>VkPhysicalDeviceDescriptorIndexingProperties</code>::<code>maxDescriptorSetUpdateAfterBindSamplers</code>",
+          "text": "If the <a href=\"#features-descriptorBindingSampledImageUpdateAfterBind\"><code>descriptorBindingSampledImageUpdateAfterBind</code></a> feature is supported on the device, the total number of descriptors of the type <code>VK_DESCRIPTOR_TYPE_SAMPLER</code> and <code>VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER</code> accessible across all shader stages and across all elements of <code>pSetLayouts</code> <strong class=\"purple\">must</strong> be less than or equal to <code>VkPhysicalDeviceDescriptorIndexingProperties</code>::<code>maxDescriptorSetUpdateAfterBindSamplers</code>",
           "page": "chapters/descriptorsets.html"
         },
         {
           "vuid": "VUID-VkPipelineLayoutCreateInfo-pSetLayouts-03037",
-          "text": "The total number of descriptors of the type <code>VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER</code> accessible across all shader stages and across all elements of <code>pSetLayouts</code> <strong class=\"purple\">must</strong> be less than or equal to <code>VkPhysicalDeviceDescriptorIndexingProperties</code>::<code>maxDescriptorSetUpdateAfterBindUniformBuffers</code>",
+          "text": "If the <a href=\"#features-descriptorBindingUniformBufferUpdateAfterBind\"><code>descriptorBindingUniformBufferUpdateAfterBind</code></a> feature is supported on the device, the total number of descriptors of the type <code>VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER</code> accessible across all shader stages and across all elements of <code>pSetLayouts</code> <strong class=\"purple\">must</strong> be less than or equal to <code>VkPhysicalDeviceDescriptorIndexingProperties</code>::<code>maxDescriptorSetUpdateAfterBindUniformBuffers</code>",
           "page": "chapters/descriptorsets.html"
         },
         {
           "vuid": "VUID-VkPipelineLayoutCreateInfo-pSetLayouts-03038",
-          "text": "The     total number of descriptors of the type     <code>VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC</code> accessible across all     shader stages and across all elements of <code>pSetLayouts</code> <strong class=\"purple\">must</strong> be less     than or equal to     <code>VkPhysicalDeviceLimits</code>::<code>maxDescriptorSetUpdateAfterBindUniformBuffersDynamic</code>",
+          "text": "If the <a href=\"#features-descriptorBindingUniformBufferUpdateAfterBind\"><code>descriptorBindingUniformBufferUpdateAfterBind</code></a> feature is supported on the device, the total number of descriptors of the type <code>VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC</code> accessible across all shader stages and across all elements of <code>pSetLayouts</code> <strong class=\"purple\">must</strong> be less than or equal to <code>VkPhysicalDeviceLimits</code>::<code>maxDescriptorSetUpdateAfterBindUniformBuffersDynamic</code>",
           "page": "chapters/descriptorsets.html"
         },
         {
           "vuid": "VUID-VkPipelineLayoutCreateInfo-pSetLayouts-03039",
-          "text": "The total number of descriptors of the type <code>VK_DESCRIPTOR_TYPE_STORAGE_BUFFER</code> accessible across all shader stages and across all elements of <code>pSetLayouts</code> <strong class=\"purple\">must</strong> be less than or equal to <code>VkPhysicalDeviceDescriptorIndexingProperties</code>::<code>maxDescriptorSetUpdateAfterBindStorageBuffers</code>",
+          "text": "If the <a href=\"#features-descriptorBindingStorageBufferUpdateAfterBind\"><code>descriptorBindingStorageBufferUpdateAfterBind</code></a> feature is supported on the device, the total number of descriptors of the type <code>VK_DESCRIPTOR_TYPE_STORAGE_BUFFER</code> accessible across all shader stages and across all elements of <code>pSetLayouts</code> <strong class=\"purple\">must</strong> be less than or equal to <code>VkPhysicalDeviceDescriptorIndexingProperties</code>::<code>maxDescriptorSetUpdateAfterBindStorageBuffers</code>",
           "page": "chapters/descriptorsets.html"
         },
         {
           "vuid": "VUID-VkPipelineLayoutCreateInfo-pSetLayouts-03040",
-          "text": "The     total number of descriptors of the type     <code>VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC</code> accessible across all     shader stages and across all elements of <code>pSetLayouts</code> <strong class=\"purple\">must</strong> be less     than or equal to     <code>VkPhysicalDeviceLimits</code>::<code>maxDescriptorSetUpdateAfterBindStorageBuffersDynamic</code>",
+          "text": "If the <a href=\"#features-descriptorBindingStorageBufferUpdateAfterBind\"><code>descriptorBindingStorageBufferUpdateAfterBind</code></a> feature is supported on the device, the total number of descriptors of the type <code>VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC</code> accessible across all shader stages and across all elements of <code>pSetLayouts</code> <strong class=\"purple\">must</strong> be less than or equal to <code>VkPhysicalDeviceLimits</code>::<code>maxDescriptorSetUpdateAfterBindStorageBuffersDynamic</code>",
           "page": "chapters/descriptorsets.html"
         },
         {
           "vuid": "VUID-VkPipelineLayoutCreateInfo-pSetLayouts-03041",
-          "text": "The total number of descriptors of the type <code>VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER</code>, <code>VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE</code>, and <code>VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER</code> accessible across all shader stages and across all elements of <code>pSetLayouts</code> <strong class=\"purple\">must</strong> be less than or equal to <code>VkPhysicalDeviceDescriptorIndexingProperties</code>::<code>maxDescriptorSetUpdateAfterBindSampledImages</code>",
+          "text": "If the <a href=\"#features-descriptorBindingSampledImageUpdateAfterBind\"><code>descriptorBindingSampledImageUpdateAfterBind</code></a> feature is supported on the device, the total number of descriptors of the type <code>VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER</code>, <code>VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE</code>, and <code>VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER</code> accessible across all shader stages and across all elements of <code>pSetLayouts</code> <strong class=\"purple\">must</strong> be less than or equal to <code>VkPhysicalDeviceDescriptorIndexingProperties</code>::<code>maxDescriptorSetUpdateAfterBindSampledImages</code>",
           "page": "chapters/descriptorsets.html"
         },
         {
           "vuid": "VUID-VkPipelineLayoutCreateInfo-pSetLayouts-03042",
-          "text": "The total number of descriptors of the type <code>VK_DESCRIPTOR_TYPE_STORAGE_IMAGE</code>, and <code>VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER</code> accessible across all shader stages and across all elements of <code>pSetLayouts</code> <strong class=\"purple\">must</strong> be less than or equal to <code>VkPhysicalDeviceDescriptorIndexingProperties</code>::<code>maxDescriptorSetUpdateAfterBindStorageImages</code>",
+          "text": "If the <a href=\"#features-descriptorBindingStorageImageUpdateAfterBind\"><code>descriptorBindingStorageImageUpdateAfterBind</code></a> feature is supported on the device, the total number of descriptors of the type <code>VK_DESCRIPTOR_TYPE_STORAGE_IMAGE</code>, and <code>VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER</code> accessible across all shader stages and across all elements of <code>pSetLayouts</code> <strong class=\"purple\">must</strong> be less than or equal to <code>VkPhysicalDeviceDescriptorIndexingProperties</code>::<code>maxDescriptorSetUpdateAfterBindStorageImages</code>",
           "page": "chapters/descriptorsets.html"
         },
         {
           "vuid": "VUID-VkPipelineLayoutCreateInfo-pSetLayouts-03043",
-          "text": "The total number of descriptors of the type <code>VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT</code> accessible across all shader stages and across all elements of <code>pSetLayouts</code> <strong class=\"purple\">must</strong> be less than or equal to <code>VkPhysicalDeviceDescriptorIndexingProperties</code>::<code>maxDescriptorSetUpdateAfterBindInputAttachments</code>",
+          "text": "If any element of <code>pSetLayouts</code> is created with the <code>VK_DESCRIPTOR_SET_LAYOUT_CREATE_UPDATE_AFTER_BIND_POOL_BIT</code> bit set, the total number of descriptors of the type <code>VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT</code> accessible across all shader stages and across all elements of <code>pSetLayouts</code> <strong class=\"purple\">must</strong> be less than or equal to <code>VkPhysicalDeviceDescriptorIndexingProperties</code>::<code>maxDescriptorSetUpdateAfterBindInputAttachments</code>",
           "page": "chapters/descriptorsets.html"
         },
         {
@@ -14873,6 +14973,11 @@
           "vuid": "VUID-vkCreateDescriptorPool-pDescriptorPool-parameter",
           "text": "<code>pDescriptorPool</code> <strong class=\"purple\">must</strong> be a valid pointer to a <a href=\"#VkDescriptorPool\">VkDescriptorPool</a> handle",
           "page": "chapters/descriptorsets.html"
+        },
+        {
+          "vuid": "VUID-vkCreateDescriptorPool-device-queuecount",
+          "text": "The device <strong class=\"purple\">must</strong> have been created with at least <code>1</code> queue",
+          "page": "chapters/descriptorsets.html"
         }
       ]
     },
@@ -14939,6 +15044,11 @@
         {
           "vuid": "VUID-vkAllocateDescriptorSets-pDescriptorSets-parameter",
           "text": "<code>pDescriptorSets</code> <strong class=\"purple\">must</strong> be a valid pointer to an array of <code>pAllocateInfo-&gt;descriptorSetCount</code> <a href=\"#VkDescriptorSet\">VkDescriptorSet</a> handles",
+          "page": "chapters/descriptorsets.html"
+        },
+        {
+          "vuid": "VUID-vkAllocateDescriptorSets-device-queuecount",
+          "text": "The device <strong class=\"purple\">must</strong> have been created with at least <code>1</code> queue",
           "page": "chapters/descriptorsets.html"
         },
         {
@@ -15162,12 +15272,22 @@
         },
         {
           "vuid": "VUID-VkWriteDescriptorSet-descriptorCount-00317",
-          "text": "All consecutive bindings updated via a single <code>VkWriteDescriptorSet</code> structure, except those with a <code>descriptorCount</code> of zero, <strong class=\"purple\">must</strong> have identical <code>descriptorType</code> and <code>stageFlags</code>",
+          "text": "All consecutive bindings updated via a single <code>VkWriteDescriptorSet</code> structure, except those with a <code>descriptorCount</code> of zero, <strong class=\"purple\">must</strong> have identical <code>descriptorType</code>",
+          "page": "chapters/descriptorsets.html"
+        },
+        {
+          "vuid": "VUID-VkWriteDescriptorSet-descriptorCount-10776",
+          "text": "All consecutive bindings updated via a single <code>VkWriteDescriptorSet</code> structure, except those with a <code>descriptorCount</code> of zero, <strong class=\"purple\">must</strong> have identical <code>stageFlags</code>",
           "page": "chapters/descriptorsets.html"
         },
         {
           "vuid": "VUID-VkWriteDescriptorSet-descriptorCount-00318",
           "text": "All consecutive bindings updated via a single <code>VkWriteDescriptorSet</code> structure, except those with a <code>descriptorCount</code> of zero, <strong class=\"purple\">must</strong> all either use immutable samplers or <strong class=\"purple\">must</strong> all not use immutable samplers",
+          "page": "chapters/descriptorsets.html"
+        },
+        {
+          "vuid": "VUID-VkWriteDescriptorSet-descriptorCount-10777",
+          "text": "All consecutive bindings updated via a single <code>VkWriteDescriptorSet</code> structure, except those with a <code>descriptorCount</code> of zero, <strong class=\"purple\">must</strong> have identical <a href=\"#VkDescriptorBindingFlagBits\">VkDescriptorBindingFlagBits</a>",
           "page": "chapters/descriptorsets.html"
         },
         {
@@ -15681,7 +15801,7 @@
       "core": [
         {
           "vuid": "VUID-vkGetBufferDeviceAddress-bufferDeviceAddress-03324",
-          "text": "The <a href=\"#features-bufferDeviceAddress\"><code>bufferDeviceAddress</code></a> feature <strong class=\"purple\">must</strong> be enabled",
+          "text": "The <a href=\"#features-bufferDeviceAddress\"><code>bufferDeviceAddress</code></a> feature <strong class=\"purple\">must</strong> be enabled, and at least one of the following conditions <strong class=\"purple\">must</strong> be met<div class=\"ulist\">\n<ul>\n<li>\n<p><code>buffer</code> is bound completely and contiguously to a single\n<code>VkDeviceMemory</code> object</p>\n</li>\n</ul>\n</div>",
           "page": "chapters/descriptorsets.html"
         },
         {
@@ -15703,11 +15823,6 @@
     },
     "VkBufferDeviceAddressInfo": {
       "core": [
-        {
-          "vuid": "VUID-VkBufferDeviceAddressInfo-buffer-02600",
-          "text": "If <code>buffer</code> is non-sparse and was not created with the <code>VK_BUFFER_CREATE_DEVICE_ADDRESS_CAPTURE_REPLAY_BIT</code> flag, then it <strong class=\"purple\">must</strong> be bound completely and contiguously to a single <code>VkDeviceMemory</code> object",
-          "page": "chapters/descriptorsets.html"
-        },
         {
           "vuid": "VUID-VkBufferDeviceAddressInfo-buffer-02601",
           "text": "<code>buffer</code> <strong class=\"purple\">must</strong> have been created with <code>VK_BUFFER_USAGE_SHADER_DEVICE_ADDRESS_BIT</code>",
@@ -15734,7 +15849,12 @@
       "core": [
         {
           "vuid": "VUID-vkGetBufferOpaqueCaptureAddress-None-03326",
-          "text": "The <a href=\"#features-bufferDeviceAddress\"><code>bufferDeviceAddress</code></a> feature <strong class=\"purple\">must</strong> be enabled",
+          "text": "The <a href=\"#features-bufferDeviceAddress\"><code>bufferDeviceAddress</code></a> and <a href=\"#features-bufferDeviceAddressCaptureReplay\"><code>bufferDeviceAddressCaptureReplay</code></a> features <strong class=\"purple\">must</strong> be enabled",
+          "page": "chapters/descriptorsets.html"
+        },
+        {
+          "vuid": "VUID-vkGetBufferOpaqueCaptureAddress-pInfo-10725",
+          "text": "<code>pInfo</code>::<code>buffer</code> <strong class=\"purple\">must</strong> have been created with the <code>VK_BUFFER_CREATE_DEVICE_ADDRESS_CAPTURE_REPLAY_BIT</code> flag",
           "page": "chapters/descriptorsets.html"
         },
         {
@@ -16088,7 +16208,7 @@
         },
         {
           "vuid": "VUID-Layer-Layer-04276",
-          "text": "The variable decorated with <code>Layer</code> <strong class=\"purple\">must</strong> be declared as a scalar 32-bit integer value for all supported execution models except <code>MeshEXT</code>.",
+          "text": "The variable decorated with <code>Layer</code> <strong class=\"purple\">must</strong> be declared as a scalar 32-bit integer value for all supported execution models except <code>MeshEXT</code>",
           "page": "chapters/interfaces.html"
         },
         {
@@ -16098,7 +16218,7 @@
         },
         {
           "vuid": "VUID-Layer-Layer-10592",
-          "text": "<code>Layer</code> within the <code>MeshEXT</code> <code>Execution</code> <code>Model</code> <strong class=\"purple\">must</strong> decorate a scalar 32-bit integer member of a structure decorated as <code>Block</code>, or decorate a variable of type <code>OpTypeArray</code> of scalar 32-bit integer values.",
+          "text": "<code>Layer</code> within the <code>MeshEXT</code> <code>Execution</code> <code>Model</code> <strong class=\"purple\">must</strong> decorate a scalar 32-bit integer member of a structure decorated as <code>Block</code>, or decorate a variable of type <code>OpTypeArray</code> of scalar 32-bit integer values",
           "page": "chapters/interfaces.html"
         },
         {
@@ -16324,7 +16444,7 @@
         },
         {
           "vuid": "VUID-PrimitiveId-PrimitiveId-10595",
-          "text": "<code>PrimitiveId</code> within the <code>MeshEXT</code> <code>Execution</code> <code>Model</code> <strong class=\"purple\">must</strong> decorate a scalar 32-bit integer member of a structure decorated as <code>Block</code>, or decorate a variable of type <code>OpTypeArray</code> of 32-bit integer values.",
+          "text": "<code>PrimitiveId</code> within the <code>MeshEXT</code> <code>Execution</code> <code>Model</code> <strong class=\"purple\">must</strong> decorate a scalar 32-bit integer member of a structure decorated as <code>Block</code>, or decorate a variable of type <code>OpTypeArray</code> of 32-bit integer values",
           "page": "chapters/interfaces.html"
         },
         {
@@ -16378,7 +16498,7 @@
         },
         {
           "vuid": "VUID-PrimitiveShadingRateKHR-PrimitiveShadingRateKHR-10598",
-          "text": "<code>PrimitiveShadingRateKHR</code> within the <code>MeshEXT</code> <code>Execution</code> <code>Model</code> <strong class=\"purple\">must</strong> decorate a scalar 32-bit integer member of a structure decorated as <code>Block</code>, or decorate a variable of type <code>OpTypeArray</code> of 32-bit integer values.",
+          "text": "<code>PrimitiveShadingRateKHR</code> within the <code>MeshEXT</code> <code>Execution</code> <code>Model</code> <strong class=\"purple\">must</strong> decorate a scalar 32-bit integer member of a structure decorated as <code>Block</code>, or decorate a variable of type <code>OpTypeArray</code> of 32-bit integer values",
           "page": "chapters/interfaces.html"
         },
         {
@@ -16725,7 +16845,7 @@
         },
         {
           "vuid": "VUID-ViewportIndex-ViewportIndex-10601",
-          "text": "<code>ViewportIndex</code> within the <code>MeshEXT</code> <code>Execution</code> <code>Model</code> <strong class=\"purple\">must</strong> decorate a scalar boolean member of a structure decorated as <code>Block</code>, or decorate a variable of type <code>OpTypeArray</code> of boolean values.",
+          "text": "<code>ViewportIndex</code> within the <code>MeshEXT</code> <code>Execution</code> <code>Model</code> <strong class=\"purple\">must</strong> decorate a scalar boolean member of a structure decorated as <code>Block</code>, or decorate a variable of type <code>OpTypeArray</code> of boolean values",
           "page": "chapters/interfaces.html"
         },
         {
@@ -16808,6 +16928,11 @@
         {
           "vuid": "VUID-vkCreateQueryPool-pQueryPool-parameter",
           "text": "<code>pQueryPool</code> <strong class=\"purple\">must</strong> be a valid pointer to a <a href=\"#VkQueryPool\">VkQueryPool</a> handle",
+          "page": "chapters/queries.html"
+        },
+        {
+          "vuid": "VUID-vkCreateQueryPool-device-queuecount",
+          "text": "The device <strong class=\"purple\">must</strong> have been created with at least <code>1</code> queue",
           "page": "chapters/queries.html"
         }
       ]
@@ -18570,7 +18695,7 @@
         },
         {
           "vuid": "VUID-vkCmdCopyImage-None-01549",
-          "text": "In a copy to or from a plane of a <a href=\"#formats-multiplanar\">multi-planar image</a>, the <a href=\"#VkFormat\">VkFormat</a> of the  image and plane <strong class=\"purple\">must</strong> be compatible according to  <a href=\"#formats-compatible-planes\">the description of compatible planes</a> for  the plane being copied",
+          "text": "In a copy to or from a plane of a <a href=\"#formats-multiplanar\">multi-planar image</a>, the <a href=\"#VkFormat\">VkFormat</a> of the image and plane <strong class=\"purple\">must</strong> be compatible according to <a href=\"#formats-compatible-planes\">the description of compatible planes</a> for the plane being copied",
           "page": "chapters/copies.html"
         },
         {
@@ -18705,22 +18830,22 @@
         },
         {
           "vuid": "VUID-vkCmdCopyImage-dstOffset-00150",
-          "text": "For each element of <code>pRegions</code>, <code>dstOffset.x</code> and <span class=\"eq\">(<code>extent.width</code> +  <code>dstOffset.x</code>)</span> <strong class=\"purple\">must</strong> both be greater than or equal to <code>0</code> and less than or equal to the width of the specified <code>dstSubresource</code> of <code>dstImage</code>",
+          "text": "For each element of <code>pRegions</code>, <code>dstOffset.x</code> and <span class=\"eq\">(<code>extent.width</code> +  <code>dstOffset.x</code>)</span>, where <code>extent</code> is <a href=\"#formats-size-compatibility\">adjusted for size-compatibility</a>, <strong class=\"purple\">must</strong> both be greater than or equal to <code>0</code> and less than or equal to the width of the specified <code>dstSubresource</code> of <code>dstImage</code>",
           "page": "chapters/copies.html"
         },
         {
           "vuid": "VUID-vkCmdCopyImage-dstOffset-00151",
-          "text": "For each element of <code>pRegions</code>, <code>dstOffset.y</code> and <span class=\"eq\">(<code>extent.height</code> +  <code>dstOffset.y</code>)</span> <strong class=\"purple\">must</strong> both be greater than or equal to <code>0</code> and less than or equal to the height of the specified <code>dstSubresource</code> of <code>dstImage</code>",
+          "text": "For each element of <code>pRegions</code>, <code>dstOffset.y</code> and <span class=\"eq\">(<code>extent.height</code> +  <code>dstOffset.y</code>)</span>, where <code>extent</code> is <a href=\"#formats-size-compatibility\">adjusted for size-compatibility</a>, <strong class=\"purple\">must</strong> both be greater than or equal to <code>0</code> and less than or equal to the height of the specified <code>dstSubresource</code> of <code>dstImage</code>",
           "page": "chapters/copies.html"
         },
         {
           "vuid": "VUID-vkCmdCopyImage-dstImage-00152",
-          "text": "If <code>dstImage</code> is of type <code>VK_IMAGE_TYPE_1D</code>, then for each element of <code>pRegions</code>, <code>dstOffset.y</code> <strong class=\"purple\">must</strong> be <code>0</code> and <code>extent.height</code> <strong class=\"purple\">must</strong> be <code>1</code>",
+          "text": "If <code>dstImage</code> is of type <code>VK_IMAGE_TYPE_1D</code>, then for each element of <code>pRegions</code>, <code>dstOffset.y</code> <strong class=\"purple\">must</strong> be <code>0</code> and <code>extent.height</code> <strong class=\"purple\">must</strong> be <code>1</code>, where <code>extent</code> is <a href=\"#formats-size-compatibility\">adjusted for size-compatibility</a>",
           "page": "chapters/copies.html"
         },
         {
           "vuid": "VUID-vkCmdCopyImage-dstOffset-00153",
-          "text": "If <code>dstImage</code> is of type <code>VK_IMAGE_TYPE_3D</code>, then for each element of <code>pRegions</code>, <code>dstOffset.z</code> and <span class=\"eq\">(<code>extent.depth</code> +  <code>dstOffset.z</code>)</span> <strong class=\"purple\">must</strong> both be greater than or equal to <code>0</code> and less than or equal to the depth of the specified <code>dstSubresource</code> of <code>dstImage</code>",
+          "text": "If <code>dstImage</code> is of type <code>VK_IMAGE_TYPE_3D</code>, then for each element of <code>pRegions</code>, <code>dstOffset.z</code> and <span class=\"eq\">(<code>extent.depth</code> +  <code>dstOffset.z</code>)</span>, where <code>extent</code> is <a href=\"#formats-size-compatibility\">adjusted for size-compatibility</a>, <strong class=\"purple\">must</strong> both be greater than or equal to <code>0</code> and less than or equal to the depth of the specified <code>dstSubresource</code> of <code>dstImage</code>",
           "page": "chapters/copies.html"
         },
         {
@@ -18766,21 +18891,6 @@
         {
           "vuid": "VUID-vkCmdCopyImage-srcImage-01730",
           "text": "For each element of <code>pRegions</code>, if the sum of <code>srcOffset.z</code> and <code>extent.depth</code> does not equal the depth of the subresource specified by <code>srcSubresource</code>, <code>extent.depth</code> <strong class=\"purple\">must</strong> be a multiple of the <a href=\"#formats-compatibility-classes\">texel block extent depth</a> of the <a href=\"#VkFormat\">VkFormat</a> of <code>srcImage</code>",
-          "page": "chapters/copies.html"
-        },
-        {
-          "vuid": "VUID-vkCmdCopyImage-dstImage-01732",
-          "text": "For each element of <code>pRegions</code>, if the sum of <code>dstOffset.x</code> and <code>extent.width</code> does not equal the width of the subresource specified by <code>dstSubresource</code>, <code>extent.width</code> <strong class=\"purple\">must</strong> be a multiple of the <a href=\"#formats-compatibility-classes\">texel block extent width</a> of the <a href=\"#VkFormat\">VkFormat</a> of <code>dstImage</code>",
-          "page": "chapters/copies.html"
-        },
-        {
-          "vuid": "VUID-vkCmdCopyImage-dstImage-01733",
-          "text": "For each element of <code>pRegions</code>, if the sum of <code>dstOffset.y</code> and <code>extent.height</code> does not equal the height of the subresource specified by <code>dstSubresource</code>, <code>extent.height</code> <strong class=\"purple\">must</strong> be a multiple of the <a href=\"#formats-compatibility-classes\">texel block extent height</a> of the <a href=\"#VkFormat\">VkFormat</a> of <code>dstImage</code>",
-          "page": "chapters/copies.html"
-        },
-        {
-          "vuid": "VUID-vkCmdCopyImage-dstImage-01734",
-          "text": "For each element of <code>pRegions</code>, if the sum of <code>dstOffset.z</code> and <code>extent.depth</code> does not equal the depth of the subresource specified by <code>dstSubresource</code>, <code>extent.depth</code> <strong class=\"purple\">must</strong> be a multiple of the <a href=\"#formats-compatibility-classes\">texel block extent depth</a> of the <a href=\"#VkFormat\">VkFormat</a> of <code>dstImage</code>",
           "page": "chapters/copies.html"
         },
         {
@@ -19051,7 +19161,7 @@
         },
         {
           "vuid": "VUID-VkCopyImageInfo2-None-01549",
-          "text": "In a copy to or from a plane of a <a href=\"#formats-multiplanar\">multi-planar image</a>, the <a href=\"#VkFormat\">VkFormat</a> of the  image and plane <strong class=\"purple\">must</strong> be compatible according to  <a href=\"#formats-compatible-planes\">the description of compatible planes</a> for  the plane being copied",
+          "text": "In a copy to or from a plane of a <a href=\"#formats-multiplanar\">multi-planar image</a>, the <a href=\"#VkFormat\">VkFormat</a> of the image and plane <strong class=\"purple\">must</strong> be compatible according to <a href=\"#formats-compatible-planes\">the description of compatible planes</a> for the plane being copied",
           "page": "chapters/copies.html"
         },
         {
@@ -19186,22 +19296,22 @@
         },
         {
           "vuid": "VUID-VkCopyImageInfo2-dstOffset-00150",
-          "text": "For each element of <code>pRegions</code>, <code>dstOffset.x</code> and <span class=\"eq\">(<code>extent.width</code> +  <code>dstOffset.x</code>)</span> <strong class=\"purple\">must</strong> both be greater than or equal to <code>0</code> and less than or equal to the width of the specified <code>dstSubresource</code> of <code>dstImage</code>",
+          "text": "For each element of <code>pRegions</code>, <code>dstOffset.x</code> and <span class=\"eq\">(<code>extent.width</code> +  <code>dstOffset.x</code>)</span>, where <code>extent</code> is <a href=\"#formats-size-compatibility\">adjusted for size-compatibility</a>, <strong class=\"purple\">must</strong> both be greater than or equal to <code>0</code> and less than or equal to the width of the specified <code>dstSubresource</code> of <code>dstImage</code>",
           "page": "chapters/copies.html"
         },
         {
           "vuid": "VUID-VkCopyImageInfo2-dstOffset-00151",
-          "text": "For each element of <code>pRegions</code>, <code>dstOffset.y</code> and <span class=\"eq\">(<code>extent.height</code> +  <code>dstOffset.y</code>)</span> <strong class=\"purple\">must</strong> both be greater than or equal to <code>0</code> and less than or equal to the height of the specified <code>dstSubresource</code> of <code>dstImage</code>",
+          "text": "For each element of <code>pRegions</code>, <code>dstOffset.y</code> and <span class=\"eq\">(<code>extent.height</code> +  <code>dstOffset.y</code>)</span>, where <code>extent</code> is <a href=\"#formats-size-compatibility\">adjusted for size-compatibility</a>, <strong class=\"purple\">must</strong> both be greater than or equal to <code>0</code> and less than or equal to the height of the specified <code>dstSubresource</code> of <code>dstImage</code>",
           "page": "chapters/copies.html"
         },
         {
           "vuid": "VUID-VkCopyImageInfo2-dstImage-00152",
-          "text": "If <code>dstImage</code> is of type <code>VK_IMAGE_TYPE_1D</code>, then for each element of <code>pRegions</code>, <code>dstOffset.y</code> <strong class=\"purple\">must</strong> be <code>0</code> and <code>extent.height</code> <strong class=\"purple\">must</strong> be <code>1</code>",
+          "text": "If <code>dstImage</code> is of type <code>VK_IMAGE_TYPE_1D</code>, then for each element of <code>pRegions</code>, <code>dstOffset.y</code> <strong class=\"purple\">must</strong> be <code>0</code> and <code>extent.height</code> <strong class=\"purple\">must</strong> be <code>1</code>, where <code>extent</code> is <a href=\"#formats-size-compatibility\">adjusted for size-compatibility</a>",
           "page": "chapters/copies.html"
         },
         {
           "vuid": "VUID-VkCopyImageInfo2-dstOffset-00153",
-          "text": "If <code>dstImage</code> is of type <code>VK_IMAGE_TYPE_3D</code>, then for each element of <code>pRegions</code>, <code>dstOffset.z</code> and <span class=\"eq\">(<code>extent.depth</code> +  <code>dstOffset.z</code>)</span> <strong class=\"purple\">must</strong> both be greater than or equal to <code>0</code> and less than or equal to the depth of the specified <code>dstSubresource</code> of <code>dstImage</code>",
+          "text": "If <code>dstImage</code> is of type <code>VK_IMAGE_TYPE_3D</code>, then for each element of <code>pRegions</code>, <code>dstOffset.z</code> and <span class=\"eq\">(<code>extent.depth</code> +  <code>dstOffset.z</code>)</span>, where <code>extent</code> is <a href=\"#formats-size-compatibility\">adjusted for size-compatibility</a>, <strong class=\"purple\">must</strong> both be greater than or equal to <code>0</code> and less than or equal to the depth of the specified <code>dstSubresource</code> of <code>dstImage</code>",
           "page": "chapters/copies.html"
         },
         {
@@ -19247,21 +19357,6 @@
         {
           "vuid": "VUID-VkCopyImageInfo2-srcImage-01730",
           "text": "For each element of <code>pRegions</code>, if the sum of <code>srcOffset.z</code> and <code>extent.depth</code> does not equal the depth of the subresource specified by <code>srcSubresource</code>, <code>extent.depth</code> <strong class=\"purple\">must</strong> be a multiple of the <a href=\"#formats-compatibility-classes\">texel block extent depth</a> of the <a href=\"#VkFormat\">VkFormat</a> of <code>srcImage</code>",
-          "page": "chapters/copies.html"
-        },
-        {
-          "vuid": "VUID-VkCopyImageInfo2-dstImage-01732",
-          "text": "For each element of <code>pRegions</code>, if the sum of <code>dstOffset.x</code> and <code>extent.width</code> does not equal the width of the subresource specified by <code>dstSubresource</code>, <code>extent.width</code> <strong class=\"purple\">must</strong> be a multiple of the <a href=\"#formats-compatibility-classes\">texel block extent width</a> of the <a href=\"#VkFormat\">VkFormat</a> of <code>dstImage</code>",
-          "page": "chapters/copies.html"
-        },
-        {
-          "vuid": "VUID-VkCopyImageInfo2-dstImage-01733",
-          "text": "For each element of <code>pRegions</code>, if the sum of <code>dstOffset.y</code> and <code>extent.height</code> does not equal the height of the subresource specified by <code>dstSubresource</code>, <code>extent.height</code> <strong class=\"purple\">must</strong> be a multiple of the <a href=\"#formats-compatibility-classes\">texel block extent height</a> of the <a href=\"#VkFormat\">VkFormat</a> of <code>dstImage</code>",
-          "page": "chapters/copies.html"
-        },
-        {
-          "vuid": "VUID-VkCopyImageInfo2-dstImage-01734",
-          "text": "For each element of <code>pRegions</code>, if the sum of <code>dstOffset.z</code> and <code>extent.depth</code> does not equal the depth of the subresource specified by <code>dstSubresource</code>, <code>extent.depth</code> <strong class=\"purple\">must</strong> be a multiple of the <a href=\"#formats-compatibility-classes\">texel block extent depth</a> of the <a href=\"#VkFormat\">VkFormat</a> of <code>dstImage</code>",
           "page": "chapters/copies.html"
         },
         {
@@ -19415,11 +19510,6 @@
         {
           "vuid": "VUID-vkCmdCopyBufferToImage-imageSubresource-07968",
           "text": "<span class=\"eq\"><code>imageSubresource.baseArrayLayer</code> +  <code>imageSubresource.layerCount</code></span> of each element of <code>pRegions</code> <strong class=\"purple\">must</strong> be less than or equal to the <code>arrayLayers</code> specified in <a href=\"#VkImageCreateInfo\">VkImageCreateInfo</a> when <code>dstImage</code> was created",
-          "page": "chapters/copies.html"
-        },
-        {
-          "vuid": "VUID-vkCmdCopyBufferToImage-imageSubresource-07970",
-          "text": "The image region specified by each element of <code>pRegions</code> <strong class=\"purple\">must</strong> be contained within the specified <code>imageSubresource</code> of <code>dstImage</code>",
           "page": "chapters/copies.html"
         },
         {
@@ -19669,11 +19759,6 @@
         {
           "vuid": "VUID-vkCmdCopyImageToBuffer-imageSubresource-07968",
           "text": "<span class=\"eq\"><code>imageSubresource.baseArrayLayer</code> +  <code>imageSubresource.layerCount</code></span> of each element of <code>pRegions</code> <strong class=\"purple\">must</strong> be less than or equal to the <code>arrayLayers</code> specified in <a href=\"#VkImageCreateInfo\">VkImageCreateInfo</a> when <code>srcImage</code> was created",
-          "page": "chapters/copies.html"
-        },
-        {
-          "vuid": "VUID-vkCmdCopyImageToBuffer-imageSubresource-07970",
-          "text": "The image region specified by each element of <code>pRegions</code> <strong class=\"purple\">must</strong> be contained within the specified <code>imageSubresource</code> of <code>srcImage</code>",
           "page": "chapters/copies.html"
         },
         {
@@ -20550,16 +20635,6 @@
           "page": "chapters/copies.html"
         },
         {
-          "vuid": "VUID-vkCmdBlitImage-pRegions-00215",
-          "text": "The source region specified by each element of <code>pRegions</code> <strong class=\"purple\">must</strong> be a region that is contained within <code>srcImage</code>",
-          "page": "chapters/copies.html"
-        },
-        {
-          "vuid": "VUID-vkCmdBlitImage-pRegions-00216",
-          "text": "The destination region specified by each element of <code>pRegions</code> <strong class=\"purple\">must</strong> be a region that is contained within <code>dstImage</code>",
-          "page": "chapters/copies.html"
-        },
-        {
           "vuid": "VUID-vkCmdBlitImage-pRegions-00217",
           "text": "The union of all destination regions, specified by the elements of <code>pRegions</code>, <strong class=\"purple\">must</strong> not overlap in memory with any texel that <strong class=\"purple\">may</strong> be sampled during the blit operation",
           "page": "chapters/copies.html"
@@ -20891,16 +20966,6 @@
     },
     "VkBlitImageInfo2": {
       "core": [
-        {
-          "vuid": "VUID-VkBlitImageInfo2-pRegions-00215",
-          "text": "The source region specified by each element of <code>pRegions</code> <strong class=\"purple\">must</strong> be a region that is contained within <code>srcImage</code>",
-          "page": "chapters/copies.html"
-        },
-        {
-          "vuid": "VUID-VkBlitImageInfo2-pRegions-00216",
-          "text": "The destination region specified by each element of <code>pRegions</code> <strong class=\"purple\">must</strong> be a region that is contained within <code>dstImage</code>",
-          "page": "chapters/copies.html"
-        },
         {
           "vuid": "VUID-VkBlitImageInfo2-pRegions-00217",
           "text": "The union of all destination regions, specified by the elements of <code>pRegions</code>, <strong class=\"purple\">must</strong> not overlap in memory with any texel that <strong class=\"purple\">may</strong> be sampled during the blit operation",
@@ -22083,23 +22148,13 @@
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDraw-None-06550",
-          "text": "If <a href=\"#shaders-binding\">a bound shader</a> accesses a <a href=\"#VkSampler\">VkSampler</a> or <a href=\"#VkImageView\">VkImageView</a> object that enables <a href=\"#samplers-YCbCr-conversion\">sampler Y′C<sub>B</sub>C<sub>R</sub> conversion</a>, that object <strong class=\"purple\">must</strong> only be used with <code>OpImageSample*</code> or <code>OpImageSparseSample*</code> instructions",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDraw-ConstOffset-06551",
-          "text": "If <a href=\"#shaders-binding\">a bound shader</a> accesses a <a href=\"#VkSampler\">VkSampler</a> or <a href=\"#VkImageView\">VkImageView</a> object that enables <a href=\"#samplers-YCbCr-conversion\">sampler Y′C<sub>B</sub>C<sub>R</sub> conversion</a>, that object <strong class=\"purple\">must</strong> not use the <code>ConstOffset</code> and <code>Offset</code> operands",
-          "page": "chapters/drawing.html"
-        },
-        {
           "vuid": "VUID-vkCmdDraw-viewType-07752",
           "text": "If a <a href=\"#VkImageView\">VkImageView</a> is accessed as a result of this command, then the image view&#8217;s <code>viewType</code> <strong class=\"purple\">must</strong> match the <code>Dim</code> operand of the <code>OpTypeImage</code> as described in <a href=\"#spirvenv-image-dimensions\">Compatibility Between SPIR-V Image Dimensions and Vulkan ImageView Types</a>",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDraw-format-07753",
-          "text": "If a <a href=\"#VkImageView\">VkImageView</a> is accessed as a result of this command, then the <a href=\"#formats-numericformat\">numeric type</a> of the image view&#8217;s <code>format</code> and the <code>Sampled</code> <code>Type</code> operand of the <code>OpTypeImage</code> <strong class=\"purple\">must</strong> match",
+          "text": "If a <a href=\"#VkImageView\">VkImageView</a> or <a href=\"#VkBufferView\">VkBufferView</a> is accessed as a result of this command, then the <a href=\"#formats-numericformat\">numeric type</a> of the view&#8217;s <code>format</code> and the <code>Sampled</code> <code>Type</code> operand of the <code>OpTypeImage</code> <strong class=\"purple\">must</strong> match",
           "page": "chapters/drawing.html"
         },
         {
@@ -22183,17 +22238,17 @@
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDraw-None-09000",
+          "vuid": "VUID-vkCmdDraw-None-10795",
           "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass,<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDraw-None-09001",
+          "vuid": "VUID-vkCmdDraw-None-10796",
           "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass,<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDraw-None-09002",
+          "vuid": "VUID-vkCmdDraw-None-10797",
           "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass,<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
           "page": "chapters/drawing.html"
         },
@@ -22289,7 +22344,7 @@
         },
         {
           "vuid": "VUID-vkCmdDraw-None-07844",
-          "text": "If a graphics pipeline is bound which was created with the <code>VK_DYNAMIC_STATE_DEPTH_WRITE_ENABLE</code> dynamic state enabled, and the <a href=\"#dynamic-state-current-value\">current value</a> of <code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, then <a href=\"#vkCmdSetDepthWriteEnableEXT\">vkCmdSetDepthWriteEnableEXT</a> <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this drawing command",
+          "text": "If a graphics pipeline is bound which was created with the <code>VK_DYNAMIC_STATE_DEPTH_WRITE_ENABLE</code> dynamic state enabled, and the <a href=\"#dynamic-state-current-value\">current value</a> of <code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, and the <a href=\"#dynamic-state-current-value\">current value</a> of <code>depthTestEnable</code> is <code>VK_TRUE</code>, then <a href=\"#vkCmdSetDepthWriteEnableEXT\">vkCmdSetDepthWriteEnableEXT</a> <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this drawing command",
           "page": "chapters/drawing.html"
         },
         {
@@ -22353,8 +22408,8 @@
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDraw-multisampledRenderToSingleSampled-07284",
-          "text": "If rasterization is not disabled in the bound graphics pipeline,<div class=\"paragraph\">\n<p>then <code>rasterizationSamples</code> for the bound graphics pipeline <strong class=\"purple\">must</strong> be the\nsame as the current subpass color and/or depth/stencil attachments</p>\n</div>",
+          "vuid": "VUID-vkCmdDraw-None-08644",
+          "text": "If a graphics pipeline is bound, the <a href=\"#dynamic-state-current-value\">current value</a> of <code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>,<div class=\"paragraph\">\n<p>then the <a href=\"#dynamic-state-current-value\">current value</a> of\n<code>rasterizationSamples</code> <strong class=\"purple\">must</strong> be the same as the current color and/or\ndepth/stencil attachments</p>\n</div>",
           "page": "chapters/drawing.html"
         },
         {
@@ -22405,6 +22460,21 @@
         {
           "vuid": "VUID-vkCmdDraw-dynamicPrimitiveTopologyUnrestricted-07500",
           "text": "If the bound graphics pipeline state was created with the <code>VK_DYNAMIC_STATE_PRIMITIVE_TOPOLOGY</code> dynamic state enabled then the <code>primitiveTopology</code> parameter of <code>vkCmdSetPrimitiveTopologyEXT</code> <strong class=\"purple\">must</strong> be of the same <a href=\"#drawing-primitive-topology-class\">topology class</a> as the pipeline <a href=\"#VkPipelineInputAssemblyStateCreateInfo\">VkPipelineInputAssemblyStateCreateInfo</a>::<code>topology</code> state",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDraw-primitiveTopology-10286",
+          "text": "If a <code>VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT</code> stage is bound, then the <a href=\"#dynamic-state-current-value\">current value</a> of <code>primitiveTopology</code> <strong class=\"purple\">must</strong> be <code>VK_PRIMITIVE_TOPOLOGY_PATCH_LIST</code> prior to this drawing command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDraw-primitiveTopology-10747",
+          "text": "If <a href=\"#vkCmdSetPrimitiveTopologyEXT\">vkCmdSetPrimitiveTopologyEXT</a> set <code>primitiveTopology</code> to <code>VK_PRIMITIVE_TOPOLOGY_PATCH_LIST</code> prior to this drawing command, then a <code>VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT</code> stage <strong class=\"purple\">must</strong> be bound",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDraw-primitiveTopology-10748",
+          "text": "If <a href=\"#vkCmdSetPrimitiveTopologyEXT\">vkCmdSetPrimitiveTopologyEXT</a> set <code>primitiveTopology</code> to <code>VK_PRIMITIVE_TOPOLOGY_POINT_LIST</code> prior to this drawing command, both a <code>VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT</code> and <code>VK_SHADER_STAGE_GEOMETRY_BIT</code> stage are not bound, then the <code>Vertex</code> <code>Execution</code> <code>Model</code> <strong class=\"purple\">must</strong> have a <code>PointSize</code> decorated variable that is statically written to",
           "page": "chapters/drawing.html"
         },
         {
@@ -22612,23 +22682,13 @@
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawIndexed-None-06550",
-          "text": "If <a href=\"#shaders-binding\">a bound shader</a> accesses a <a href=\"#VkSampler\">VkSampler</a> or <a href=\"#VkImageView\">VkImageView</a> object that enables <a href=\"#samplers-YCbCr-conversion\">sampler Y′C<sub>B</sub>C<sub>R</sub> conversion</a>, that object <strong class=\"purple\">must</strong> only be used with <code>OpImageSample*</code> or <code>OpImageSparseSample*</code> instructions",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawIndexed-ConstOffset-06551",
-          "text": "If <a href=\"#shaders-binding\">a bound shader</a> accesses a <a href=\"#VkSampler\">VkSampler</a> or <a href=\"#VkImageView\">VkImageView</a> object that enables <a href=\"#samplers-YCbCr-conversion\">sampler Y′C<sub>B</sub>C<sub>R</sub> conversion</a>, that object <strong class=\"purple\">must</strong> not use the <code>ConstOffset</code> and <code>Offset</code> operands",
-          "page": "chapters/drawing.html"
-        },
-        {
           "vuid": "VUID-vkCmdDrawIndexed-viewType-07752",
           "text": "If a <a href=\"#VkImageView\">VkImageView</a> is accessed as a result of this command, then the image view&#8217;s <code>viewType</code> <strong class=\"purple\">must</strong> match the <code>Dim</code> operand of the <code>OpTypeImage</code> as described in <a href=\"#spirvenv-image-dimensions\">Compatibility Between SPIR-V Image Dimensions and Vulkan ImageView Types</a>",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawIndexed-format-07753",
-          "text": "If a <a href=\"#VkImageView\">VkImageView</a> is accessed as a result of this command, then the <a href=\"#formats-numericformat\">numeric type</a> of the image view&#8217;s <code>format</code> and the <code>Sampled</code> <code>Type</code> operand of the <code>OpTypeImage</code> <strong class=\"purple\">must</strong> match",
+          "text": "If a <a href=\"#VkImageView\">VkImageView</a> or <a href=\"#VkBufferView\">VkBufferView</a> is accessed as a result of this command, then the <a href=\"#formats-numericformat\">numeric type</a> of the view&#8217;s <code>format</code> and the <code>Sampled</code> <code>Type</code> operand of the <code>OpTypeImage</code> <strong class=\"purple\">must</strong> match",
           "page": "chapters/drawing.html"
         },
         {
@@ -22712,17 +22772,17 @@
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawIndexed-None-09000",
+          "vuid": "VUID-vkCmdDrawIndexed-None-10795",
           "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass,<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawIndexed-None-09001",
+          "vuid": "VUID-vkCmdDrawIndexed-None-10796",
           "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass,<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawIndexed-None-09002",
+          "vuid": "VUID-vkCmdDrawIndexed-None-10797",
           "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass,<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
           "page": "chapters/drawing.html"
         },
@@ -22818,7 +22878,7 @@
         },
         {
           "vuid": "VUID-vkCmdDrawIndexed-None-07844",
-          "text": "If a graphics pipeline is bound which was created with the <code>VK_DYNAMIC_STATE_DEPTH_WRITE_ENABLE</code> dynamic state enabled, and the <a href=\"#dynamic-state-current-value\">current value</a> of <code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, then <a href=\"#vkCmdSetDepthWriteEnableEXT\">vkCmdSetDepthWriteEnableEXT</a> <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this drawing command",
+          "text": "If a graphics pipeline is bound which was created with the <code>VK_DYNAMIC_STATE_DEPTH_WRITE_ENABLE</code> dynamic state enabled, and the <a href=\"#dynamic-state-current-value\">current value</a> of <code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, and the <a href=\"#dynamic-state-current-value\">current value</a> of <code>depthTestEnable</code> is <code>VK_TRUE</code>, then <a href=\"#vkCmdSetDepthWriteEnableEXT\">vkCmdSetDepthWriteEnableEXT</a> <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this drawing command",
           "page": "chapters/drawing.html"
         },
         {
@@ -22882,8 +22942,8 @@
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawIndexed-multisampledRenderToSingleSampled-07284",
-          "text": "If rasterization is not disabled in the bound graphics pipeline,<div class=\"paragraph\">\n<p>then <code>rasterizationSamples</code> for the bound graphics pipeline <strong class=\"purple\">must</strong> be the\nsame as the current subpass color and/or depth/stencil attachments</p>\n</div>",
+          "vuid": "VUID-vkCmdDrawIndexed-None-08644",
+          "text": "If a graphics pipeline is bound, the <a href=\"#dynamic-state-current-value\">current value</a> of <code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>,<div class=\"paragraph\">\n<p>then the <a href=\"#dynamic-state-current-value\">current value</a> of\n<code>rasterizationSamples</code> <strong class=\"purple\">must</strong> be the same as the current color and/or\ndepth/stencil attachments</p>\n</div>",
           "page": "chapters/drawing.html"
         },
         {
@@ -22934,6 +22994,21 @@
         {
           "vuid": "VUID-vkCmdDrawIndexed-dynamicPrimitiveTopologyUnrestricted-07500",
           "text": "If the bound graphics pipeline state was created with the <code>VK_DYNAMIC_STATE_PRIMITIVE_TOPOLOGY</code> dynamic state enabled then the <code>primitiveTopology</code> parameter of <code>vkCmdSetPrimitiveTopologyEXT</code> <strong class=\"purple\">must</strong> be of the same <a href=\"#drawing-primitive-topology-class\">topology class</a> as the pipeline <a href=\"#VkPipelineInputAssemblyStateCreateInfo\">VkPipelineInputAssemblyStateCreateInfo</a>::<code>topology</code> state",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawIndexed-primitiveTopology-10286",
+          "text": "If a <code>VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT</code> stage is bound, then the <a href=\"#dynamic-state-current-value\">current value</a> of <code>primitiveTopology</code> <strong class=\"purple\">must</strong> be <code>VK_PRIMITIVE_TOPOLOGY_PATCH_LIST</code> prior to this drawing command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawIndexed-primitiveTopology-10747",
+          "text": "If <a href=\"#vkCmdSetPrimitiveTopologyEXT\">vkCmdSetPrimitiveTopologyEXT</a> set <code>primitiveTopology</code> to <code>VK_PRIMITIVE_TOPOLOGY_PATCH_LIST</code> prior to this drawing command, then a <code>VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT</code> stage <strong class=\"purple\">must</strong> be bound",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawIndexed-primitiveTopology-10748",
+          "text": "If <a href=\"#vkCmdSetPrimitiveTopologyEXT\">vkCmdSetPrimitiveTopologyEXT</a> set <code>primitiveTopology</code> to <code>VK_PRIMITIVE_TOPOLOGY_POINT_LIST</code> prior to this drawing command, both a <code>VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT</code> and <code>VK_SHADER_STAGE_GEOMETRY_BIT</code> stage are not bound, then the <code>Vertex</code> <code>Execution</code> <code>Model</code> <strong class=\"purple\">must</strong> have a <code>PointSize</code> decorated variable that is statically written to",
           "page": "chapters/drawing.html"
         },
         {
@@ -23151,23 +23226,13 @@
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawIndirect-None-06550",
-          "text": "If <a href=\"#shaders-binding\">a bound shader</a> accesses a <a href=\"#VkSampler\">VkSampler</a> or <a href=\"#VkImageView\">VkImageView</a> object that enables <a href=\"#samplers-YCbCr-conversion\">sampler Y′C<sub>B</sub>C<sub>R</sub> conversion</a>, that object <strong class=\"purple\">must</strong> only be used with <code>OpImageSample*</code> or <code>OpImageSparseSample*</code> instructions",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawIndirect-ConstOffset-06551",
-          "text": "If <a href=\"#shaders-binding\">a bound shader</a> accesses a <a href=\"#VkSampler\">VkSampler</a> or <a href=\"#VkImageView\">VkImageView</a> object that enables <a href=\"#samplers-YCbCr-conversion\">sampler Y′C<sub>B</sub>C<sub>R</sub> conversion</a>, that object <strong class=\"purple\">must</strong> not use the <code>ConstOffset</code> and <code>Offset</code> operands",
-          "page": "chapters/drawing.html"
-        },
-        {
           "vuid": "VUID-vkCmdDrawIndirect-viewType-07752",
           "text": "If a <a href=\"#VkImageView\">VkImageView</a> is accessed as a result of this command, then the image view&#8217;s <code>viewType</code> <strong class=\"purple\">must</strong> match the <code>Dim</code> operand of the <code>OpTypeImage</code> as described in <a href=\"#spirvenv-image-dimensions\">Compatibility Between SPIR-V Image Dimensions and Vulkan ImageView Types</a>",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawIndirect-format-07753",
-          "text": "If a <a href=\"#VkImageView\">VkImageView</a> is accessed as a result of this command, then the <a href=\"#formats-numericformat\">numeric type</a> of the image view&#8217;s <code>format</code> and the <code>Sampled</code> <code>Type</code> operand of the <code>OpTypeImage</code> <strong class=\"purple\">must</strong> match",
+          "text": "If a <a href=\"#VkImageView\">VkImageView</a> or <a href=\"#VkBufferView\">VkBufferView</a> is accessed as a result of this command, then the <a href=\"#formats-numericformat\">numeric type</a> of the view&#8217;s <code>format</code> and the <code>Sampled</code> <code>Type</code> operand of the <code>OpTypeImage</code> <strong class=\"purple\">must</strong> match",
           "page": "chapters/drawing.html"
         },
         {
@@ -23251,17 +23316,17 @@
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawIndirect-None-09000",
+          "vuid": "VUID-vkCmdDrawIndirect-None-10795",
           "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass,<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawIndirect-None-09001",
+          "vuid": "VUID-vkCmdDrawIndirect-None-10796",
           "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass,<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawIndirect-None-09002",
+          "vuid": "VUID-vkCmdDrawIndirect-None-10797",
           "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass,<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
           "page": "chapters/drawing.html"
         },
@@ -23357,7 +23422,7 @@
         },
         {
           "vuid": "VUID-vkCmdDrawIndirect-None-07844",
-          "text": "If a graphics pipeline is bound which was created with the <code>VK_DYNAMIC_STATE_DEPTH_WRITE_ENABLE</code> dynamic state enabled, and the <a href=\"#dynamic-state-current-value\">current value</a> of <code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, then <a href=\"#vkCmdSetDepthWriteEnableEXT\">vkCmdSetDepthWriteEnableEXT</a> <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this drawing command",
+          "text": "If a graphics pipeline is bound which was created with the <code>VK_DYNAMIC_STATE_DEPTH_WRITE_ENABLE</code> dynamic state enabled, and the <a href=\"#dynamic-state-current-value\">current value</a> of <code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, and the <a href=\"#dynamic-state-current-value\">current value</a> of <code>depthTestEnable</code> is <code>VK_TRUE</code>, then <a href=\"#vkCmdSetDepthWriteEnableEXT\">vkCmdSetDepthWriteEnableEXT</a> <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this drawing command",
           "page": "chapters/drawing.html"
         },
         {
@@ -23421,8 +23486,8 @@
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawIndirect-multisampledRenderToSingleSampled-07284",
-          "text": "If rasterization is not disabled in the bound graphics pipeline,<div class=\"paragraph\">\n<p>then <code>rasterizationSamples</code> for the bound graphics pipeline <strong class=\"purple\">must</strong> be the\nsame as the current subpass color and/or depth/stencil attachments</p>\n</div>",
+          "vuid": "VUID-vkCmdDrawIndirect-None-08644",
+          "text": "If a graphics pipeline is bound, the <a href=\"#dynamic-state-current-value\">current value</a> of <code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>,<div class=\"paragraph\">\n<p>then the <a href=\"#dynamic-state-current-value\">current value</a> of\n<code>rasterizationSamples</code> <strong class=\"purple\">must</strong> be the same as the current color and/or\ndepth/stencil attachments</p>\n</div>",
           "page": "chapters/drawing.html"
         },
         {
@@ -23463,6 +23528,21 @@
         {
           "vuid": "VUID-vkCmdDrawIndirect-dynamicPrimitiveTopologyUnrestricted-07500",
           "text": "If the bound graphics pipeline state was created with the <code>VK_DYNAMIC_STATE_PRIMITIVE_TOPOLOGY</code> dynamic state enabled then the <code>primitiveTopology</code> parameter of <code>vkCmdSetPrimitiveTopologyEXT</code> <strong class=\"purple\">must</strong> be of the same <a href=\"#drawing-primitive-topology-class\">topology class</a> as the pipeline <a href=\"#VkPipelineInputAssemblyStateCreateInfo\">VkPipelineInputAssemblyStateCreateInfo</a>::<code>topology</code> state",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawIndirect-primitiveTopology-10286",
+          "text": "If a <code>VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT</code> stage is bound, then the <a href=\"#dynamic-state-current-value\">current value</a> of <code>primitiveTopology</code> <strong class=\"purple\">must</strong> be <code>VK_PRIMITIVE_TOPOLOGY_PATCH_LIST</code> prior to this drawing command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawIndirect-primitiveTopology-10747",
+          "text": "If <a href=\"#vkCmdSetPrimitiveTopologyEXT\">vkCmdSetPrimitiveTopologyEXT</a> set <code>primitiveTopology</code> to <code>VK_PRIMITIVE_TOPOLOGY_PATCH_LIST</code> prior to this drawing command, then a <code>VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT</code> stage <strong class=\"purple\">must</strong> be bound",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawIndirect-primitiveTopology-10748",
+          "text": "If <a href=\"#vkCmdSetPrimitiveTopologyEXT\">vkCmdSetPrimitiveTopologyEXT</a> set <code>primitiveTopology</code> to <code>VK_PRIMITIVE_TOPOLOGY_POINT_LIST</code> prior to this drawing command, both a <code>VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT</code> and <code>VK_SHADER_STAGE_GEOMETRY_BIT</code> stage are not bound, then the <code>Vertex</code> <code>Execution</code> <code>Model</code> <strong class=\"purple\">must</strong> have a <code>PointSize</code> decorated variable that is statically written to",
           "page": "chapters/drawing.html"
         },
         {
@@ -23734,23 +23814,13 @@
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawIndirectCount-None-06550",
-          "text": "If <a href=\"#shaders-binding\">a bound shader</a> accesses a <a href=\"#VkSampler\">VkSampler</a> or <a href=\"#VkImageView\">VkImageView</a> object that enables <a href=\"#samplers-YCbCr-conversion\">sampler Y′C<sub>B</sub>C<sub>R</sub> conversion</a>, that object <strong class=\"purple\">must</strong> only be used with <code>OpImageSample*</code> or <code>OpImageSparseSample*</code> instructions",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawIndirectCount-ConstOffset-06551",
-          "text": "If <a href=\"#shaders-binding\">a bound shader</a> accesses a <a href=\"#VkSampler\">VkSampler</a> or <a href=\"#VkImageView\">VkImageView</a> object that enables <a href=\"#samplers-YCbCr-conversion\">sampler Y′C<sub>B</sub>C<sub>R</sub> conversion</a>, that object <strong class=\"purple\">must</strong> not use the <code>ConstOffset</code> and <code>Offset</code> operands",
-          "page": "chapters/drawing.html"
-        },
-        {
           "vuid": "VUID-vkCmdDrawIndirectCount-viewType-07752",
           "text": "If a <a href=\"#VkImageView\">VkImageView</a> is accessed as a result of this command, then the image view&#8217;s <code>viewType</code> <strong class=\"purple\">must</strong> match the <code>Dim</code> operand of the <code>OpTypeImage</code> as described in <a href=\"#spirvenv-image-dimensions\">Compatibility Between SPIR-V Image Dimensions and Vulkan ImageView Types</a>",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawIndirectCount-format-07753",
-          "text": "If a <a href=\"#VkImageView\">VkImageView</a> is accessed as a result of this command, then the <a href=\"#formats-numericformat\">numeric type</a> of the image view&#8217;s <code>format</code> and the <code>Sampled</code> <code>Type</code> operand of the <code>OpTypeImage</code> <strong class=\"purple\">must</strong> match",
+          "text": "If a <a href=\"#VkImageView\">VkImageView</a> or <a href=\"#VkBufferView\">VkBufferView</a> is accessed as a result of this command, then the <a href=\"#formats-numericformat\">numeric type</a> of the view&#8217;s <code>format</code> and the <code>Sampled</code> <code>Type</code> operand of the <code>OpTypeImage</code> <strong class=\"purple\">must</strong> match",
           "page": "chapters/drawing.html"
         },
         {
@@ -23834,17 +23904,17 @@
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawIndirectCount-None-09000",
+          "vuid": "VUID-vkCmdDrawIndirectCount-None-10795",
           "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass,<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawIndirectCount-None-09001",
+          "vuid": "VUID-vkCmdDrawIndirectCount-None-10796",
           "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass,<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawIndirectCount-None-09002",
+          "vuid": "VUID-vkCmdDrawIndirectCount-None-10797",
           "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass,<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
           "page": "chapters/drawing.html"
         },
@@ -23940,7 +24010,7 @@
         },
         {
           "vuid": "VUID-vkCmdDrawIndirectCount-None-07844",
-          "text": "If a graphics pipeline is bound which was created with the <code>VK_DYNAMIC_STATE_DEPTH_WRITE_ENABLE</code> dynamic state enabled, and the <a href=\"#dynamic-state-current-value\">current value</a> of <code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, then <a href=\"#vkCmdSetDepthWriteEnableEXT\">vkCmdSetDepthWriteEnableEXT</a> <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this drawing command",
+          "text": "If a graphics pipeline is bound which was created with the <code>VK_DYNAMIC_STATE_DEPTH_WRITE_ENABLE</code> dynamic state enabled, and the <a href=\"#dynamic-state-current-value\">current value</a> of <code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, and the <a href=\"#dynamic-state-current-value\">current value</a> of <code>depthTestEnable</code> is <code>VK_TRUE</code>, then <a href=\"#vkCmdSetDepthWriteEnableEXT\">vkCmdSetDepthWriteEnableEXT</a> <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this drawing command",
           "page": "chapters/drawing.html"
         },
         {
@@ -24004,8 +24074,8 @@
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawIndirectCount-multisampledRenderToSingleSampled-07284",
-          "text": "If rasterization is not disabled in the bound graphics pipeline,<div class=\"paragraph\">\n<p>then <code>rasterizationSamples</code> for the bound graphics pipeline <strong class=\"purple\">must</strong> be the\nsame as the current subpass color and/or depth/stencil attachments</p>\n</div>",
+          "vuid": "VUID-vkCmdDrawIndirectCount-None-08644",
+          "text": "If a graphics pipeline is bound, the <a href=\"#dynamic-state-current-value\">current value</a> of <code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>,<div class=\"paragraph\">\n<p>then the <a href=\"#dynamic-state-current-value\">current value</a> of\n<code>rasterizationSamples</code> <strong class=\"purple\">must</strong> be the same as the current color and/or\ndepth/stencil attachments</p>\n</div>",
           "page": "chapters/drawing.html"
         },
         {
@@ -24046,6 +24116,21 @@
         {
           "vuid": "VUID-vkCmdDrawIndirectCount-dynamicPrimitiveTopologyUnrestricted-07500",
           "text": "If the bound graphics pipeline state was created with the <code>VK_DYNAMIC_STATE_PRIMITIVE_TOPOLOGY</code> dynamic state enabled then the <code>primitiveTopology</code> parameter of <code>vkCmdSetPrimitiveTopologyEXT</code> <strong class=\"purple\">must</strong> be of the same <a href=\"#drawing-primitive-topology-class\">topology class</a> as the pipeline <a href=\"#VkPipelineInputAssemblyStateCreateInfo\">VkPipelineInputAssemblyStateCreateInfo</a>::<code>topology</code> state",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawIndirectCount-primitiveTopology-10286",
+          "text": "If a <code>VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT</code> stage is bound, then the <a href=\"#dynamic-state-current-value\">current value</a> of <code>primitiveTopology</code> <strong class=\"purple\">must</strong> be <code>VK_PRIMITIVE_TOPOLOGY_PATCH_LIST</code> prior to this drawing command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawIndirectCount-primitiveTopology-10747",
+          "text": "If <a href=\"#vkCmdSetPrimitiveTopologyEXT\">vkCmdSetPrimitiveTopologyEXT</a> set <code>primitiveTopology</code> to <code>VK_PRIMITIVE_TOPOLOGY_PATCH_LIST</code> prior to this drawing command, then a <code>VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT</code> stage <strong class=\"purple\">must</strong> be bound",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawIndirectCount-primitiveTopology-10748",
+          "text": "If <a href=\"#vkCmdSetPrimitiveTopologyEXT\">vkCmdSetPrimitiveTopologyEXT</a> set <code>primitiveTopology</code> to <code>VK_PRIMITIVE_TOPOLOGY_POINT_LIST</code> prior to this drawing command, both a <code>VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT</code> and <code>VK_SHADER_STAGE_GEOMETRY_BIT</code> stage are not bound, then the <code>Vertex</code> <code>Execution</code> <code>Model</code> <strong class=\"purple\">must</strong> have a <code>PointSize</code> decorated variable that is statically written to",
           "page": "chapters/drawing.html"
         },
         {
@@ -24318,23 +24403,13 @@
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawIndexedIndirect-None-06550",
-          "text": "If <a href=\"#shaders-binding\">a bound shader</a> accesses a <a href=\"#VkSampler\">VkSampler</a> or <a href=\"#VkImageView\">VkImageView</a> object that enables <a href=\"#samplers-YCbCr-conversion\">sampler Y′C<sub>B</sub>C<sub>R</sub> conversion</a>, that object <strong class=\"purple\">must</strong> only be used with <code>OpImageSample*</code> or <code>OpImageSparseSample*</code> instructions",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawIndexedIndirect-ConstOffset-06551",
-          "text": "If <a href=\"#shaders-binding\">a bound shader</a> accesses a <a href=\"#VkSampler\">VkSampler</a> or <a href=\"#VkImageView\">VkImageView</a> object that enables <a href=\"#samplers-YCbCr-conversion\">sampler Y′C<sub>B</sub>C<sub>R</sub> conversion</a>, that object <strong class=\"purple\">must</strong> not use the <code>ConstOffset</code> and <code>Offset</code> operands",
-          "page": "chapters/drawing.html"
-        },
-        {
           "vuid": "VUID-vkCmdDrawIndexedIndirect-viewType-07752",
           "text": "If a <a href=\"#VkImageView\">VkImageView</a> is accessed as a result of this command, then the image view&#8217;s <code>viewType</code> <strong class=\"purple\">must</strong> match the <code>Dim</code> operand of the <code>OpTypeImage</code> as described in <a href=\"#spirvenv-image-dimensions\">Compatibility Between SPIR-V Image Dimensions and Vulkan ImageView Types</a>",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawIndexedIndirect-format-07753",
-          "text": "If a <a href=\"#VkImageView\">VkImageView</a> is accessed as a result of this command, then the <a href=\"#formats-numericformat\">numeric type</a> of the image view&#8217;s <code>format</code> and the <code>Sampled</code> <code>Type</code> operand of the <code>OpTypeImage</code> <strong class=\"purple\">must</strong> match",
+          "text": "If a <a href=\"#VkImageView\">VkImageView</a> or <a href=\"#VkBufferView\">VkBufferView</a> is accessed as a result of this command, then the <a href=\"#formats-numericformat\">numeric type</a> of the view&#8217;s <code>format</code> and the <code>Sampled</code> <code>Type</code> operand of the <code>OpTypeImage</code> <strong class=\"purple\">must</strong> match",
           "page": "chapters/drawing.html"
         },
         {
@@ -24418,17 +24493,17 @@
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawIndexedIndirect-None-09000",
+          "vuid": "VUID-vkCmdDrawIndexedIndirect-None-10795",
           "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass,<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawIndexedIndirect-None-09001",
+          "vuid": "VUID-vkCmdDrawIndexedIndirect-None-10796",
           "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass,<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawIndexedIndirect-None-09002",
+          "vuid": "VUID-vkCmdDrawIndexedIndirect-None-10797",
           "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass,<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
           "page": "chapters/drawing.html"
         },
@@ -24524,7 +24599,7 @@
         },
         {
           "vuid": "VUID-vkCmdDrawIndexedIndirect-None-07844",
-          "text": "If a graphics pipeline is bound which was created with the <code>VK_DYNAMIC_STATE_DEPTH_WRITE_ENABLE</code> dynamic state enabled, and the <a href=\"#dynamic-state-current-value\">current value</a> of <code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, then <a href=\"#vkCmdSetDepthWriteEnableEXT\">vkCmdSetDepthWriteEnableEXT</a> <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this drawing command",
+          "text": "If a graphics pipeline is bound which was created with the <code>VK_DYNAMIC_STATE_DEPTH_WRITE_ENABLE</code> dynamic state enabled, and the <a href=\"#dynamic-state-current-value\">current value</a> of <code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, and the <a href=\"#dynamic-state-current-value\">current value</a> of <code>depthTestEnable</code> is <code>VK_TRUE</code>, then <a href=\"#vkCmdSetDepthWriteEnableEXT\">vkCmdSetDepthWriteEnableEXT</a> <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this drawing command",
           "page": "chapters/drawing.html"
         },
         {
@@ -24588,8 +24663,8 @@
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawIndexedIndirect-multisampledRenderToSingleSampled-07284",
-          "text": "If rasterization is not disabled in the bound graphics pipeline,<div class=\"paragraph\">\n<p>then <code>rasterizationSamples</code> for the bound graphics pipeline <strong class=\"purple\">must</strong> be the\nsame as the current subpass color and/or depth/stencil attachments</p>\n</div>",
+          "vuid": "VUID-vkCmdDrawIndexedIndirect-None-08644",
+          "text": "If a graphics pipeline is bound, the <a href=\"#dynamic-state-current-value\">current value</a> of <code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>,<div class=\"paragraph\">\n<p>then the <a href=\"#dynamic-state-current-value\">current value</a> of\n<code>rasterizationSamples</code> <strong class=\"purple\">must</strong> be the same as the current color and/or\ndepth/stencil attachments</p>\n</div>",
           "page": "chapters/drawing.html"
         },
         {
@@ -24630,6 +24705,21 @@
         {
           "vuid": "VUID-vkCmdDrawIndexedIndirect-dynamicPrimitiveTopologyUnrestricted-07500",
           "text": "If the bound graphics pipeline state was created with the <code>VK_DYNAMIC_STATE_PRIMITIVE_TOPOLOGY</code> dynamic state enabled then the <code>primitiveTopology</code> parameter of <code>vkCmdSetPrimitiveTopologyEXT</code> <strong class=\"purple\">must</strong> be of the same <a href=\"#drawing-primitive-topology-class\">topology class</a> as the pipeline <a href=\"#VkPipelineInputAssemblyStateCreateInfo\">VkPipelineInputAssemblyStateCreateInfo</a>::<code>topology</code> state",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawIndexedIndirect-primitiveTopology-10286",
+          "text": "If a <code>VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT</code> stage is bound, then the <a href=\"#dynamic-state-current-value\">current value</a> of <code>primitiveTopology</code> <strong class=\"purple\">must</strong> be <code>VK_PRIMITIVE_TOPOLOGY_PATCH_LIST</code> prior to this drawing command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawIndexedIndirect-primitiveTopology-10747",
+          "text": "If <a href=\"#vkCmdSetPrimitiveTopologyEXT\">vkCmdSetPrimitiveTopologyEXT</a> set <code>primitiveTopology</code> to <code>VK_PRIMITIVE_TOPOLOGY_PATCH_LIST</code> prior to this drawing command, then a <code>VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT</code> stage <strong class=\"purple\">must</strong> be bound",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawIndexedIndirect-primitiveTopology-10748",
+          "text": "If <a href=\"#vkCmdSetPrimitiveTopologyEXT\">vkCmdSetPrimitiveTopologyEXT</a> set <code>primitiveTopology</code> to <code>VK_PRIMITIVE_TOPOLOGY_POINT_LIST</code> prior to this drawing command, both a <code>VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT</code> and <code>VK_SHADER_STAGE_GEOMETRY_BIT</code> stage are not bound, then the <code>Vertex</code> <code>Execution</code> <code>Model</code> <strong class=\"purple\">must</strong> have a <code>PointSize</code> decorated variable that is statically written to",
           "page": "chapters/drawing.html"
         },
         {
@@ -24911,23 +25001,13 @@
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawIndexedIndirectCount-None-06550",
-          "text": "If <a href=\"#shaders-binding\">a bound shader</a> accesses a <a href=\"#VkSampler\">VkSampler</a> or <a href=\"#VkImageView\">VkImageView</a> object that enables <a href=\"#samplers-YCbCr-conversion\">sampler Y′C<sub>B</sub>C<sub>R</sub> conversion</a>, that object <strong class=\"purple\">must</strong> only be used with <code>OpImageSample*</code> or <code>OpImageSparseSample*</code> instructions",
-          "page": "chapters/drawing.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDrawIndexedIndirectCount-ConstOffset-06551",
-          "text": "If <a href=\"#shaders-binding\">a bound shader</a> accesses a <a href=\"#VkSampler\">VkSampler</a> or <a href=\"#VkImageView\">VkImageView</a> object that enables <a href=\"#samplers-YCbCr-conversion\">sampler Y′C<sub>B</sub>C<sub>R</sub> conversion</a>, that object <strong class=\"purple\">must</strong> not use the <code>ConstOffset</code> and <code>Offset</code> operands",
-          "page": "chapters/drawing.html"
-        },
-        {
           "vuid": "VUID-vkCmdDrawIndexedIndirectCount-viewType-07752",
           "text": "If a <a href=\"#VkImageView\">VkImageView</a> is accessed as a result of this command, then the image view&#8217;s <code>viewType</code> <strong class=\"purple\">must</strong> match the <code>Dim</code> operand of the <code>OpTypeImage</code> as described in <a href=\"#spirvenv-image-dimensions\">Compatibility Between SPIR-V Image Dimensions and Vulkan ImageView Types</a>",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawIndexedIndirectCount-format-07753",
-          "text": "If a <a href=\"#VkImageView\">VkImageView</a> is accessed as a result of this command, then the <a href=\"#formats-numericformat\">numeric type</a> of the image view&#8217;s <code>format</code> and the <code>Sampled</code> <code>Type</code> operand of the <code>OpTypeImage</code> <strong class=\"purple\">must</strong> match",
+          "text": "If a <a href=\"#VkImageView\">VkImageView</a> or <a href=\"#VkBufferView\">VkBufferView</a> is accessed as a result of this command, then the <a href=\"#formats-numericformat\">numeric type</a> of the view&#8217;s <code>format</code> and the <code>Sampled</code> <code>Type</code> operand of the <code>OpTypeImage</code> <strong class=\"purple\">must</strong> match",
           "page": "chapters/drawing.html"
         },
         {
@@ -25011,17 +25091,17 @@
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawIndexedIndirectCount-None-09000",
+          "vuid": "VUID-vkCmdDrawIndexedIndirectCount-None-10795",
           "text": "If a color attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass,<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawIndexedIndirectCount-None-09001",
+          "vuid": "VUID-vkCmdDrawIndexedIndirectCount-None-10796",
           "text": "If a depth attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass,<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawIndexedIndirectCount-None-09002",
+          "vuid": "VUID-vkCmdDrawIndexedIndirectCount-None-10797",
           "text": "If a stencil attachment is written by any prior command in this subpass or by the load, store, or resolve operations for this subpass,<div class=\"paragraph\">\n<p>it <strong class=\"purple\">must</strong> not be accessed in any way other than as an attachment by this\ncommand</p>\n</div>",
           "page": "chapters/drawing.html"
         },
@@ -25117,7 +25197,7 @@
         },
         {
           "vuid": "VUID-vkCmdDrawIndexedIndirectCount-None-07844",
-          "text": "If a graphics pipeline is bound which was created with the <code>VK_DYNAMIC_STATE_DEPTH_WRITE_ENABLE</code> dynamic state enabled, and the <a href=\"#dynamic-state-current-value\">current value</a> of <code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, then <a href=\"#vkCmdSetDepthWriteEnableEXT\">vkCmdSetDepthWriteEnableEXT</a> <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this drawing command",
+          "text": "If a graphics pipeline is bound which was created with the <code>VK_DYNAMIC_STATE_DEPTH_WRITE_ENABLE</code> dynamic state enabled, and the <a href=\"#dynamic-state-current-value\">current value</a> of <code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>, and the <a href=\"#dynamic-state-current-value\">current value</a> of <code>depthTestEnable</code> is <code>VK_TRUE</code>, then <a href=\"#vkCmdSetDepthWriteEnableEXT\">vkCmdSetDepthWriteEnableEXT</a> <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this drawing command",
           "page": "chapters/drawing.html"
         },
         {
@@ -25181,8 +25261,8 @@
           "page": "chapters/drawing.html"
         },
         {
-          "vuid": "VUID-vkCmdDrawIndexedIndirectCount-multisampledRenderToSingleSampled-07284",
-          "text": "If rasterization is not disabled in the bound graphics pipeline,<div class=\"paragraph\">\n<p>then <code>rasterizationSamples</code> for the bound graphics pipeline <strong class=\"purple\">must</strong> be the\nsame as the current subpass color and/or depth/stencil attachments</p>\n</div>",
+          "vuid": "VUID-vkCmdDrawIndexedIndirectCount-None-08644",
+          "text": "If a graphics pipeline is bound, the <a href=\"#dynamic-state-current-value\">current value</a> of <code>rasterizerDiscardEnable</code> is <code>VK_FALSE</code>,<div class=\"paragraph\">\n<p>then the <a href=\"#dynamic-state-current-value\">current value</a> of\n<code>rasterizationSamples</code> <strong class=\"purple\">must</strong> be the same as the current color and/or\ndepth/stencil attachments</p>\n</div>",
           "page": "chapters/drawing.html"
         },
         {
@@ -25223,6 +25303,21 @@
         {
           "vuid": "VUID-vkCmdDrawIndexedIndirectCount-dynamicPrimitiveTopologyUnrestricted-07500",
           "text": "If the bound graphics pipeline state was created with the <code>VK_DYNAMIC_STATE_PRIMITIVE_TOPOLOGY</code> dynamic state enabled then the <code>primitiveTopology</code> parameter of <code>vkCmdSetPrimitiveTopologyEXT</code> <strong class=\"purple\">must</strong> be of the same <a href=\"#drawing-primitive-topology-class\">topology class</a> as the pipeline <a href=\"#VkPipelineInputAssemblyStateCreateInfo\">VkPipelineInputAssemblyStateCreateInfo</a>::<code>topology</code> state",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawIndexedIndirectCount-primitiveTopology-10286",
+          "text": "If a <code>VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT</code> stage is bound, then the <a href=\"#dynamic-state-current-value\">current value</a> of <code>primitiveTopology</code> <strong class=\"purple\">must</strong> be <code>VK_PRIMITIVE_TOPOLOGY_PATCH_LIST</code> prior to this drawing command",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawIndexedIndirectCount-primitiveTopology-10747",
+          "text": "If <a href=\"#vkCmdSetPrimitiveTopologyEXT\">vkCmdSetPrimitiveTopologyEXT</a> set <code>primitiveTopology</code> to <code>VK_PRIMITIVE_TOPOLOGY_PATCH_LIST</code> prior to this drawing command, then a <code>VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT</code> stage <strong class=\"purple\">must</strong> be bound",
+          "page": "chapters/drawing.html"
+        },
+        {
+          "vuid": "VUID-vkCmdDrawIndexedIndirectCount-primitiveTopology-10748",
+          "text": "If <a href=\"#vkCmdSetPrimitiveTopologyEXT\">vkCmdSetPrimitiveTopologyEXT</a> set <code>primitiveTopology</code> to <code>VK_PRIMITIVE_TOPOLOGY_POINT_LIST</code> prior to this drawing command, both a <code>VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT</code> and <code>VK_SHADER_STAGE_GEOMETRY_BIT</code> stage are not bound, then the <code>Vertex</code> <code>Execution</code> <code>Model</code> <strong class=\"purple\">must</strong> have a <code>PointSize</code> decorated variable that is statically written to",
           "page": "chapters/drawing.html"
         },
         {
@@ -27670,23 +27765,13 @@
           "page": "chapters/dispatch.html"
         },
         {
-          "vuid": "VUID-vkCmdDispatch-None-06550",
-          "text": "If <a href=\"#shaders-binding\">a bound shader</a> accesses a <a href=\"#VkSampler\">VkSampler</a> or <a href=\"#VkImageView\">VkImageView</a> object that enables <a href=\"#samplers-YCbCr-conversion\">sampler Y′C<sub>B</sub>C<sub>R</sub> conversion</a>, that object <strong class=\"purple\">must</strong> only be used with <code>OpImageSample*</code> or <code>OpImageSparseSample*</code> instructions",
-          "page": "chapters/dispatch.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDispatch-ConstOffset-06551",
-          "text": "If <a href=\"#shaders-binding\">a bound shader</a> accesses a <a href=\"#VkSampler\">VkSampler</a> or <a href=\"#VkImageView\">VkImageView</a> object that enables <a href=\"#samplers-YCbCr-conversion\">sampler Y′C<sub>B</sub>C<sub>R</sub> conversion</a>, that object <strong class=\"purple\">must</strong> not use the <code>ConstOffset</code> and <code>Offset</code> operands",
-          "page": "chapters/dispatch.html"
-        },
-        {
           "vuid": "VUID-vkCmdDispatch-viewType-07752",
           "text": "If a <a href=\"#VkImageView\">VkImageView</a> is accessed as a result of this command, then the image view&#8217;s <code>viewType</code> <strong class=\"purple\">must</strong> match the <code>Dim</code> operand of the <code>OpTypeImage</code> as described in <a href=\"#spirvenv-image-dimensions\">Compatibility Between SPIR-V Image Dimensions and Vulkan ImageView Types</a>",
           "page": "chapters/dispatch.html"
         },
         {
           "vuid": "VUID-vkCmdDispatch-format-07753",
-          "text": "If a <a href=\"#VkImageView\">VkImageView</a> is accessed as a result of this command, then the <a href=\"#formats-numericformat\">numeric type</a> of the image view&#8217;s <code>format</code> and the <code>Sampled</code> <code>Type</code> operand of the <code>OpTypeImage</code> <strong class=\"purple\">must</strong> match",
+          "text": "If a <a href=\"#VkImageView\">VkImageView</a> or <a href=\"#VkBufferView\">VkBufferView</a> is accessed as a result of this command, then the <a href=\"#formats-numericformat\">numeric type</a> of the view&#8217;s <code>format</code> and the <code>Sampled</code> <code>Type</code> operand of the <code>OpTypeImage</code> <strong class=\"purple\">must</strong> match",
           "page": "chapters/dispatch.html"
         },
         {
@@ -27740,6 +27825,11 @@
           "page": "chapters/dispatch.html"
         },
         {
+          "vuid": "VUID-vkCmdDispatch-None-10672",
+          "text": "this command <strong class=\"purple\">must</strong> be called outside of a render pass instance",
+          "page": "chapters/dispatch.html"
+        },
+        {
           "vuid": "VUID-vkCmdDispatch-commandBuffer-02712",
           "text": "If <code>commandBuffer</code> is a protected command buffer and <a href=\"#limits-protectedNoFault\"><code>protectedNoFault</code></a> is not supported, any resource written to by the <code>VkPipeline</code> object bound to the pipeline bind point used by this command <strong class=\"purple\">must</strong> not be an unprotected resource",
           "page": "chapters/dispatch.html"
@@ -27777,11 +27867,6 @@
         {
           "vuid": "VUID-vkCmdDispatch-commandBuffer-cmdpool",
           "text": "The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class=\"purple\">must</strong> support compute operations",
-          "page": "chapters/dispatch.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDispatch-renderpass",
-          "text": "This command <strong class=\"purple\">must</strong> only be called outside of a render pass instance",
           "page": "chapters/dispatch.html"
         }
       ]
@@ -27909,23 +27994,13 @@
           "page": "chapters/dispatch.html"
         },
         {
-          "vuid": "VUID-vkCmdDispatchIndirect-None-06550",
-          "text": "If <a href=\"#shaders-binding\">a bound shader</a> accesses a <a href=\"#VkSampler\">VkSampler</a> or <a href=\"#VkImageView\">VkImageView</a> object that enables <a href=\"#samplers-YCbCr-conversion\">sampler Y′C<sub>B</sub>C<sub>R</sub> conversion</a>, that object <strong class=\"purple\">must</strong> only be used with <code>OpImageSample*</code> or <code>OpImageSparseSample*</code> instructions",
-          "page": "chapters/dispatch.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDispatchIndirect-ConstOffset-06551",
-          "text": "If <a href=\"#shaders-binding\">a bound shader</a> accesses a <a href=\"#VkSampler\">VkSampler</a> or <a href=\"#VkImageView\">VkImageView</a> object that enables <a href=\"#samplers-YCbCr-conversion\">sampler Y′C<sub>B</sub>C<sub>R</sub> conversion</a>, that object <strong class=\"purple\">must</strong> not use the <code>ConstOffset</code> and <code>Offset</code> operands",
-          "page": "chapters/dispatch.html"
-        },
-        {
           "vuid": "VUID-vkCmdDispatchIndirect-viewType-07752",
           "text": "If a <a href=\"#VkImageView\">VkImageView</a> is accessed as a result of this command, then the image view&#8217;s <code>viewType</code> <strong class=\"purple\">must</strong> match the <code>Dim</code> operand of the <code>OpTypeImage</code> as described in <a href=\"#spirvenv-image-dimensions\">Compatibility Between SPIR-V Image Dimensions and Vulkan ImageView Types</a>",
           "page": "chapters/dispatch.html"
         },
         {
           "vuid": "VUID-vkCmdDispatchIndirect-format-07753",
-          "text": "If a <a href=\"#VkImageView\">VkImageView</a> is accessed as a result of this command, then the <a href=\"#formats-numericformat\">numeric type</a> of the image view&#8217;s <code>format</code> and the <code>Sampled</code> <code>Type</code> operand of the <code>OpTypeImage</code> <strong class=\"purple\">must</strong> match",
+          "text": "If a <a href=\"#VkImageView\">VkImageView</a> or <a href=\"#VkBufferView\">VkBufferView</a> is accessed as a result of this command, then the <a href=\"#formats-numericformat\">numeric type</a> of the view&#8217;s <code>format</code> and the <code>Sampled</code> <code>Type</code> operand of the <code>OpTypeImage</code> <strong class=\"purple\">must</strong> match",
           "page": "chapters/dispatch.html"
         },
         {
@@ -27979,6 +28054,11 @@
           "page": "chapters/dispatch.html"
         },
         {
+          "vuid": "VUID-vkCmdDispatchIndirect-None-10672",
+          "text": "this command <strong class=\"purple\">must</strong> be called outside of a render pass instance",
+          "page": "chapters/dispatch.html"
+        },
+        {
           "vuid": "VUID-vkCmdDispatchIndirect-buffer-02708",
           "text": "If <code>buffer</code> is non-sparse then it <strong class=\"purple\">must</strong> be bound completely and contiguously to a single <code>VkDeviceMemory</code> object",
           "page": "chapters/dispatch.html"
@@ -28021,11 +28101,6 @@
         {
           "vuid": "VUID-vkCmdDispatchIndirect-commandBuffer-cmdpool",
           "text": "The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class=\"purple\">must</strong> support compute operations",
-          "page": "chapters/dispatch.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDispatchIndirect-renderpass",
-          "text": "This command <strong class=\"purple\">must</strong> only be called outside of a render pass instance",
           "page": "chapters/dispatch.html"
         },
         {
@@ -28177,23 +28252,13 @@
           "page": "chapters/dispatch.html"
         },
         {
-          "vuid": "VUID-vkCmdDispatchBase-None-06550",
-          "text": "If <a href=\"#shaders-binding\">a bound shader</a> accesses a <a href=\"#VkSampler\">VkSampler</a> or <a href=\"#VkImageView\">VkImageView</a> object that enables <a href=\"#samplers-YCbCr-conversion\">sampler Y′C<sub>B</sub>C<sub>R</sub> conversion</a>, that object <strong class=\"purple\">must</strong> only be used with <code>OpImageSample*</code> or <code>OpImageSparseSample*</code> instructions",
-          "page": "chapters/dispatch.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDispatchBase-ConstOffset-06551",
-          "text": "If <a href=\"#shaders-binding\">a bound shader</a> accesses a <a href=\"#VkSampler\">VkSampler</a> or <a href=\"#VkImageView\">VkImageView</a> object that enables <a href=\"#samplers-YCbCr-conversion\">sampler Y′C<sub>B</sub>C<sub>R</sub> conversion</a>, that object <strong class=\"purple\">must</strong> not use the <code>ConstOffset</code> and <code>Offset</code> operands",
-          "page": "chapters/dispatch.html"
-        },
-        {
           "vuid": "VUID-vkCmdDispatchBase-viewType-07752",
           "text": "If a <a href=\"#VkImageView\">VkImageView</a> is accessed as a result of this command, then the image view&#8217;s <code>viewType</code> <strong class=\"purple\">must</strong> match the <code>Dim</code> operand of the <code>OpTypeImage</code> as described in <a href=\"#spirvenv-image-dimensions\">Compatibility Between SPIR-V Image Dimensions and Vulkan ImageView Types</a>",
           "page": "chapters/dispatch.html"
         },
         {
           "vuid": "VUID-vkCmdDispatchBase-format-07753",
-          "text": "If a <a href=\"#VkImageView\">VkImageView</a> is accessed as a result of this command, then the <a href=\"#formats-numericformat\">numeric type</a> of the image view&#8217;s <code>format</code> and the <code>Sampled</code> <code>Type</code> operand of the <code>OpTypeImage</code> <strong class=\"purple\">must</strong> match",
+          "text": "If a <a href=\"#VkImageView\">VkImageView</a> or <a href=\"#VkBufferView\">VkBufferView</a> is accessed as a result of this command, then the <a href=\"#formats-numericformat\">numeric type</a> of the view&#8217;s <code>format</code> and the <code>Sampled</code> <code>Type</code> operand of the <code>OpTypeImage</code> <strong class=\"purple\">must</strong> match",
           "page": "chapters/dispatch.html"
         },
         {
@@ -28247,6 +28312,11 @@
           "page": "chapters/dispatch.html"
         },
         {
+          "vuid": "VUID-vkCmdDispatchBase-None-10672",
+          "text": "this command <strong class=\"purple\">must</strong> be called outside of a render pass instance",
+          "page": "chapters/dispatch.html"
+        },
+        {
           "vuid": "VUID-vkCmdDispatchBase-commandBuffer-02712",
           "text": "If <code>commandBuffer</code> is a protected command buffer and <a href=\"#limits-protectedNoFault\"><code>protectedNoFault</code></a> is not supported, any resource written to by the <code>VkPipeline</code> object bound to the pipeline bind point used by this command <strong class=\"purple\">must</strong> not be an unprotected resource",
           "page": "chapters/dispatch.html"
@@ -28288,7 +28358,7 @@
         },
         {
           "vuid": "VUID-vkCmdDispatchBase-baseGroupX-00427",
-          "text": "If any of <code>baseGroupX</code>, <code>baseGroupY</code>, or <code>baseGroupZ</code> are not zero, then the bound compute pipeline <strong class=\"purple\">must</strong> have been created with the <code>VK_PIPELINE_CREATE_DISPATCH_BASE</code> flag",
+          "text": "If any of <code>baseGroupX</code>, <code>baseGroupY</code>, or <code>baseGroupZ</code> are not zero, then the bound compute pipeline <strong class=\"purple\">must</strong> have been created with the <code>VK_PIPELINE_CREATE_DISPATCH_BASE_BIT</code> flag",
           "page": "chapters/dispatch.html"
         },
         {
@@ -28304,11 +28374,6 @@
         {
           "vuid": "VUID-vkCmdDispatchBase-commandBuffer-cmdpool",
           "text": "The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class=\"purple\">must</strong> support compute operations",
-          "page": "chapters/dispatch.html"
-        },
-        {
-          "vuid": "VUID-vkCmdDispatchBase-renderpass",
-          "text": "This command <strong class=\"purple\">must</strong> only be called outside of a render pass instance",
           "page": "chapters/dispatch.html"
         }
       ]
@@ -29360,6 +29425,11 @@
           "vuid": "VUID-vkCreateSwapchainKHR-pSwapchain-parameter",
           "text": "<code>pSwapchain</code> <strong class=\"purple\">must</strong> be a valid pointer to a <a href=\"#VkSwapchainKHR\">VkSwapchainKHR</a> handle",
           "page": "chapters/VK_KHR_surface/wsi.html"
+        },
+        {
+          "vuid": "VUID-vkCreateSwapchainKHR-device-queuecount",
+          "text": "The device <strong class=\"purple\">must</strong> have been created with at least <code>1</code> queue",
+          "page": "chapters/VK_KHR_surface/wsi.html"
         }
       ]
     },
@@ -29644,6 +29714,11 @@
         {
           "vuid": "VUID-vkCreateSharedSwapchainsKHR-pSwapchains-parameter",
           "text": "<code>pSwapchains</code> <strong class=\"purple\">must</strong> be a valid pointer to an array of <code>swapchainCount</code> <a href=\"#VkSwapchainKHR\">VkSwapchainKHR</a> handles",
+          "page": "chapters/VK_KHR_surface/wsi.html"
+        },
+        {
+          "vuid": "VUID-vkCreateSharedSwapchainsKHR-device-queuecount",
+          "text": "The device <strong class=\"purple\">must</strong> have been created with at least <code>1</code> queue",
           "page": "chapters/VK_KHR_surface/wsi.html"
         },
         {
@@ -30650,16 +30725,16 @@
         }
       ]
     },
-    "VkPhysicalDeviceRobustness2FeaturesEXT": {
+    "VkPhysicalDeviceRobustness2FeaturesKHR": {
       "core": [
         {
-          "vuid": "VUID-VkPhysicalDeviceRobustness2FeaturesEXT-robustBufferAccess2-04000",
+          "vuid": "VUID-VkPhysicalDeviceRobustness2FeaturesKHR-robustBufferAccess2-04000",
           "text": "If <code>robustBufferAccess2</code> is enabled then <a href=\"#features-robustBufferAccess\"><code>robustBufferAccess</code></a> <strong class=\"purple\">must</strong> also be enabled",
           "page": "chapters/features.html"
         },
         {
-          "vuid": "VUID-VkPhysicalDeviceRobustness2FeaturesEXT-sType-sType",
-          "text": "<code>sType</code> <strong class=\"purple\">must</strong> be <code>VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_FEATURES_EXT</code>",
+          "vuid": "VUID-VkPhysicalDeviceRobustness2FeaturesKHR-sType-sType",
+          "text": "<code>sType</code> <strong class=\"purple\">must</strong> be <code>VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_FEATURES_KHR</code>",
           "page": "chapters/features.html"
         }
       ]
@@ -30943,11 +31018,11 @@
         }
       ]
     },
-    "VkPhysicalDeviceRobustness2PropertiesEXT": {
+    "VkPhysicalDeviceRobustness2PropertiesKHR": {
       "core": [
         {
-          "vuid": "VUID-VkPhysicalDeviceRobustness2PropertiesEXT-sType-sType",
-          "text": "<code>sType</code> <strong class=\"purple\">must</strong> be <code>VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_PROPERTIES_EXT</code>",
+          "vuid": "VUID-VkPhysicalDeviceRobustness2PropertiesKHR-sType-sType",
+          "text": "<code>sType</code> <strong class=\"purple\">must</strong> be <code>VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_PROPERTIES_KHR</code>",
           "page": "chapters/limits.html"
         }
       ]
@@ -32177,7 +32252,7 @@
         },
         {
           "vuid": "VUID-StandaloneSpirv-UniformConstant-04655",
-          "text": "Any variable in the <code>UniformConstant</code> <code>Storage</code> <code>Class</code> <strong class=\"purple\">must</strong> be typed as either <code>OpTypeImage</code>, <code>OpTypeSampler</code>, <code>OpTypeSampledImage</code>, <code>OpTypeAccelerationStructureKHR</code>, or an array of one of these types",
+          "text": "Any variable in the <code>UniformConstant</code> <code>Storage</code> <code>Class</code> <strong class=\"purple\">must</strong> be typed as either <code>OpTypeImage</code>, <code>OpTypeSampler</code>, <code>OpTypeSampledImage</code>, <code>OpTypeAccelerationStructureKHR</code>, <code>OpTypeTensorARM</code> or an array of one of these types",
           "page": "appendices/spirvenv.html"
         },
         {
@@ -32237,7 +32312,7 @@
         },
         {
           "vuid": "VUID-StandaloneSpirv-OpTypeImage-06924",
-          "text": "Objects of types <code>OpTypeImage</code>, <code>OpTypeSampler</code>, <code>OpTypeSampledImage</code>, <code>OpTypeAccelerationStructureKHR</code>, and arrays of these types <strong class=\"purple\">must</strong> not be stored to or modified",
+          "text": "Objects of types <code>OpTypeImage</code>, <code>OpTypeSampler</code>, <code>OpTypeSampledImage</code>, <code>OpTypeAccelerationStructureKHR</code>, <code>OpTypeTensorARM</code>, and arrays of these types <strong class=\"purple\">must</strong> not be stored to or modified",
           "page": "appendices/spirvenv.html"
         },
         {
@@ -32376,6 +32451,11 @@
           "page": "appendices/spirvenv.html"
         },
         {
+          "vuid": "VUID-StandaloneSpirv-None-10684",
+          "text": "All variables <strong class=\"purple\">must</strong> have valid explicit layout decorations <a href=\"#interfaces-explicit-layout-decorations\">as described in Shader Interfaces</a>",
+          "page": "appendices/spirvenv.html"
+        },
+        {
           "vuid": "VUID-StandaloneSpirv-GLSLShared-04669",
           "text": "The <code>GLSLShared</code> and <code>GLSLPacked</code> decorations <strong class=\"purple\">must</strong> not be used",
           "page": "appendices/spirvenv.html"
@@ -32456,8 +32536,8 @@
           "page": "appendices/spirvenv.html"
         },
         {
-          "vuid": "VUID-StandaloneSpirv-LocalSize-06426",
-          "text": "For each compute shader entry point, either a <code>LocalSize</code> or <code>LocalSizeId</code> <code>Execution</code> <code>Mode</code>, or an object decorated with the <code>WorkgroupSize</code> decoration <strong class=\"purple\">must</strong> be specified",
+          "vuid": "VUID-StandaloneSpirv-None-10685",
+          "text": "For each compute shader entry point, either a <code>TileShadingRateQCOM</code>, <code>LocalSize</code>, or <code>LocalSizeId</code> <code>Execution</code> <code>Mode</code>, or an object decorated with the <code>WorkgroupSize</code> decoration <strong class=\"purple\">must</strong> be specified",
           "page": "appendices/spirvenv.html"
         },
         {
@@ -32656,11 +32736,6 @@
           "page": "appendices/spirvenv.html"
         },
         {
-          "vuid": "VUID-StandaloneSpirv-Base-04781",
-          "text": "The <code>Base</code> operand of any <code>OpBitCount</code>, <code>OpBitReverse</code>, <code>OpBitFieldInsert</code>, <code>OpBitFieldSExtract</code>, or <code>OpBitFieldUExtract</code> instruction <strong class=\"purple\">must</strong> be a 32-bit integer scalar or a vector of 32-bit integers",
-          "page": "appendices/spirvenv.html"
-        },
-        {
           "vuid": "VUID-StandaloneSpirv-PushConstant-06675",
           "text": "Any variable in the <code>PushConstant</code> or <code>StorageBuffer</code> storage class <strong class=\"purple\">must</strong> be decorated as <code>Block</code>",
           "page": "appendices/spirvenv.html"
@@ -32756,6 +32831,11 @@
           "page": "appendices/spirvenv.html"
         },
         {
+          "vuid": "VUID-StandaloneSpirv-OpTypeFloat-10370",
+          "text": "Variables with a type of <code>OpTypeFloat</code> and an encoding of <code>BFloat16KHR</code> <strong class=\"purple\">must</strong> not be declared with a <code>Storage</code> <code>Class</code> of <code>Input</code> or <code>Output</code>",
+          "page": "appendices/spirvenv.html"
+        },
+        {
           "vuid": "VUID-StandaloneSpirv-UniformBufferArrayDynamicIndexing-10127",
           "text": "If the <code>UniformBufferArrayDynamicIndexing</code> capability is not declared, and an instruction accesses memory through a uniform buffer, the uniform buffer through which that memory is accessed <strong class=\"purple\">must</strong> be determined by <a href=\"#glossary-constant-integral-expression\">constant integral expressions</a>",
           "page": "appendices/spirvenv.html"
@@ -32788,6 +32868,81 @@
         {
           "vuid": "VUID-StandaloneSpirv-StorageTexelBufferArrayDynamicIndexing-10133",
           "text": "If the <code>StorageTexelBufferArrayDynamicIndexing</code> capability is not declared, and an instruction accesses memory through a storage texel buffer, the storage texel buffer through which that memory is accessed <strong class=\"purple\">must</strong> be determined by <a href=\"#glossary-constant-integral-expression\">constant integral expressions</a>",
+          "page": "appendices/spirvenv.html"
+        },
+        {
+          "vuid": "VUID-StandaloneSpirv-TileShadingQCOM-10686",
+          "text": "<code>TileShadingQCOM</code> capability <strong class=\"purple\">must</strong> not be enabled in any stage other than compute or fragment",
+          "page": "appendices/spirvenv.html"
+        },
+        {
+          "vuid": "VUID-StandaloneSpirv-Execution-10687",
+          "text": "<code>Execution</code> <code>Mode</code> <code>NonCoherentTileAttachmentReadQCOM</code> <strong class=\"purple\">must</strong> not be used in any stage other than fragment",
+          "page": "appendices/spirvenv.html"
+        },
+        {
+          "vuid": "VUID-StandaloneSpirv-Execution-10688",
+          "text": "<code>Execution</code> <code>Mode</code> <code>TileShadingRateQCOM</code> <strong class=\"purple\">must</strong> not be used in any stage other than compute",
+          "page": "appendices/spirvenv.html"
+        },
+        {
+          "vuid": "VUID-StandaloneSpirv-TileAttachmentQCOM-10689",
+          "text": "If the <code>TileAttachmentQCOM</code> <code>Storage</code> <code>Class</code> is used, the <code>TileShadingQCOM</code> capability <strong class=\"purple\">must</strong> be enabled",
+          "page": "appendices/spirvenv.html"
+        },
+        {
+          "vuid": "VUID-StandaloneSpirv-NonCoherentTileAttachmentReadQCOM-10690",
+          "text": "If the <code>NonCoherentTileAttachmentReadQCOM</code> <code>Execution</code> <code>Mode</code> is used, the <code>TileShadingQCOM</code> capability <strong class=\"purple\">must</strong> be enabled",
+          "page": "appendices/spirvenv.html"
+        },
+        {
+          "vuid": "VUID-StandaloneSpirv-TileShadingRateQCOM-10691",
+          "text": "If the <code>TileShadingRateQCOM</code> <code>Execution</code> <code>Mode</code> is used, the <code>TileShadingQCOM</code> capability <strong class=\"purple\">must</strong> be enabled",
+          "page": "appendices/spirvenv.html"
+        },
+        {
+          "vuid": "VUID-StandaloneSpirv-TileShadingRateQCOM-10692",
+          "text": "If the <code>TileShadingRateQCOM</code> <code>Execution</code> <code>Mode</code> is used, <code>LocalSize</code> and <code>LocalSizeId</code> <code>Execution</code> <code>Mode</code> <strong class=\"purple\">must</strong> not be specified",
+          "page": "appendices/spirvenv.html"
+        },
+        {
+          "vuid": "VUID-StandaloneSpirv-OpTypeImage-10693",
+          "text": "<code>OpTypeImage</code> variables in the <code>TileAttachmentQCOM</code> <code>Storage</code> <code>Class</code> <strong class=\"purple\">must</strong> have <code>Dim</code> equal to <code>2D</code>",
+          "page": "appendices/spirvenv.html"
+        },
+        {
+          "vuid": "VUID-StandaloneSpirv-OpTypeImage-10694",
+          "text": "<code>OpTypeImage</code> variables in the <code>TileAttachmentQCOM</code> <code>Storage</code> <code>Class</code> <strong class=\"purple\">must</strong> <code>Sampled</code> equal to <code>1</code> or <code>2</code>",
+          "page": "appendices/spirvenv.html"
+        },
+        {
+          "vuid": "VUID-StandaloneSpirv-TileAttachmentQCOM-10695",
+          "text": "Any variable in the <code>TileAttachmentQCOM</code> <code>Storage</code> <code>Class</code> <strong class=\"purple\">must</strong> be decorated with <code>DescriptorSet</code> and <code>Binding</code>",
+          "page": "appendices/spirvenv.html"
+        },
+        {
+          "vuid": "VUID-StandaloneSpirv-TileAttachmentQCOM-10696",
+          "text": "Any variable in the <code>TileAttachmentQCOM</code> <code>Storage</code> <code>Class</code> <strong class=\"purple\">must</strong> not be decorated with <code>Component</code> decoration",
+          "page": "appendices/spirvenv.html"
+        },
+        {
+          "vuid": "VUID-StandaloneSpirv-TileAttachmentQCOM-10697",
+          "text": "An OpTypeImage variables in the <code>TileAttachmentQCOM</code> <code>Storage</code> <code>Class</code> <strong class=\"purple\">must</strong> not be consumed by an <code>OpImageQuery*</code> instruction",
+          "page": "appendices/spirvenv.html"
+        },
+        {
+          "vuid": "VUID-StandaloneSpirv-OpTypeFloat-10823",
+          "text": "Variables with a type of <code>OpTypeFloat</code> and an encoding of <code>Float8E4M3EXT</code> or <code>Float8E5M2EXT</code> <strong class=\"purple\">must</strong> not be declared with a <code>Storage</code> <code>Class</code> of <code>Input</code> or <code>Output</code>",
+          "page": "appendices/spirvenv.html"
+        },
+        {
+          "vuid": "VUID-StandaloneSpirv-OpGraphInputARM-09931",
+          "text": "The <code>InputIndex</code> and <code>ElementIndex</code> operands to <code>OpGraphInputARM</code> <strong class=\"purple\">must</strong> be the &lt;id&gt; of a constant instruction",
+          "page": "appendices/spirvenv.html"
+        },
+        {
+          "vuid": "VUID-StandaloneSpirv-OpGraphSetOutputARM-09932",
+          "text": "The <code>OutputIndex</code> and <code>ElementIndex</code> operands to <code>OpGraphSetOutputARM</code> <strong class=\"purple\">must</strong> be the &lt;id&gt; of a constant instruction",
           "page": "appendices/spirvenv.html"
         }
       ]
@@ -32881,47 +33036,47 @@
         },
         {
           "vuid": "VUID-RuntimeSpirv-subgroupSize-10141",
-          "text": "If <a href=\"#limits-subgroupSize\"><code>subgroupSize</code></a> is 1, the <code>UniformBufferArrayNonUniformIndexing</code> capability is not declared, and an instruction accesses memory through a uniform buffer, the uniform buffer through which that memory is accessed <strong class=\"purple\">must</strong> be dynamically uniform within the invocation group",
+          "text": "If the <a href=\"#interfaces-builtin-variables-sgs\">effective subgroup size</a> is 1, the <code>UniformBufferArrayNonUniformIndexing</code> capability is not declared, and an instruction accesses memory through a uniform buffer, the uniform buffer through which that memory is accessed <strong class=\"purple\">must</strong> be dynamically uniform within the invocation group",
           "page": "appendices/spirvenv.html"
         },
         {
           "vuid": "VUID-RuntimeSpirv-subgroupSize-10142",
-          "text": "If <a href=\"#limits-subgroupSize\"><code>subgroupSize</code></a> is 1, the <code>SampledImageArrayNonUniformIndexing</code> capability is not declared, and an instruction accesses memory through a sampled image or sampler, the sampled image or sampler through which that memory is accessed <strong class=\"purple\">must</strong> be dynamically uniform within the invocation group",
+          "text": "If the <a href=\"#interfaces-builtin-variables-sgs\">effective subgroup size</a> is 1, the <code>SampledImageArrayNonUniformIndexing</code> capability is not declared, and an instruction accesses memory through a sampled image or sampler, the sampled image or sampler through which that memory is accessed <strong class=\"purple\">must</strong> be dynamically uniform within the invocation group",
           "page": "appendices/spirvenv.html"
         },
         {
           "vuid": "VUID-RuntimeSpirv-subgroupSize-10143",
-          "text": "If <a href=\"#limits-subgroupSize\"><code>subgroupSize</code></a> is 1, the <code>StorageBufferArrayNonUniformIndexing</code> capability is not declared, and an instruction accesses memory through a storage buffer, the storage buffer through which that memory is accessed <strong class=\"purple\">must</strong> be dynamically uniform within the invocation group",
+          "text": "If the <a href=\"#interfaces-builtin-variables-sgs\">effective subgroup size</a> is 1, the <code>StorageBufferArrayNonUniformIndexing</code> capability is not declared, and an instruction accesses memory through a storage buffer, the storage buffer through which that memory is accessed <strong class=\"purple\">must</strong> be dynamically uniform within the invocation group",
           "page": "appendices/spirvenv.html"
         },
         {
           "vuid": "VUID-RuntimeSpirv-subgroupSize-10144",
-          "text": "If <a href=\"#limits-subgroupSize\"><code>subgroupSize</code></a> is 1, the <code>StorageImageArrayNonUniformIndexing</code> capability is not declared, and an instruction accesses memory through a storage image, the storage image through which that memory is accessed <strong class=\"purple\">must</strong> be dynamically uniform within the invocation group",
+          "text": "If the <a href=\"#interfaces-builtin-variables-sgs\">effective subgroup size</a> is 1, the <code>StorageImageArrayNonUniformIndexing</code> capability is not declared, and an instruction accesses memory through a storage image, the storage image through which that memory is accessed <strong class=\"purple\">must</strong> be dynamically uniform within the invocation group",
           "page": "appendices/spirvenv.html"
         },
         {
           "vuid": "VUID-RuntimeSpirv-subgroupSize-10145",
-          "text": "If <a href=\"#limits-subgroupSize\"><code>subgroupSize</code></a> is 1, the <code>InputAttachmentArrayNonUniformIndexing</code> capability is not declared, and an instruction accesses memory through an input attachment, the input attachment through which that memory is accessed <strong class=\"purple\">must</strong> be dynamically uniform within the invocation group",
+          "text": "If the <a href=\"#interfaces-builtin-variables-sgs\">effective subgroup size</a> is 1, the <code>InputAttachmentArrayNonUniformIndexing</code> capability is not declared, and an instruction accesses memory through an input attachment, the input attachment through which that memory is accessed <strong class=\"purple\">must</strong> be dynamically uniform within the invocation group",
           "page": "appendices/spirvenv.html"
         },
         {
           "vuid": "VUID-RuntimeSpirv-subgroupSize-10146",
-          "text": "If <a href=\"#limits-subgroupSize\"><code>subgroupSize</code></a> is 1, the <code>UniformTexelBufferArrayNonUniformIndexing</code> capability is not declared, and an instruction accesses memory through a uniform texel buffer, the uniform texel buffer through which that memory is accessed <strong class=\"purple\">must</strong> be dynamically uniform within the invocation group",
+          "text": "If the <a href=\"#interfaces-builtin-variables-sgs\">effective subgroup size</a> is 1, the <code>UniformTexelBufferArrayNonUniformIndexing</code> capability is not declared, and an instruction accesses memory through a uniform texel buffer, the uniform texel buffer through which that memory is accessed <strong class=\"purple\">must</strong> be dynamically uniform within the invocation group",
           "page": "appendices/spirvenv.html"
         },
         {
           "vuid": "VUID-RuntimeSpirv-subgroupSize-10147",
-          "text": "If <a href=\"#limits-subgroupSize\"><code>subgroupSize</code></a> is 1, the <code>StorageTexelBufferArrayNonUniformIndexing</code> capability is not is not declared, and an instruction accesses memory through a storage texel buffer, the storage texel buffer through which that memory is accessed <strong class=\"purple\">must</strong> be dynamically uniform within the invocation group",
+          "text": "If the <a href=\"#interfaces-builtin-variables-sgs\">effective subgroup size</a> is 1, the <code>StorageTexelBufferArrayNonUniformIndexing</code> capability is not is not declared, and an instruction accesses memory through a storage texel buffer, the storage texel buffer through which that memory is accessed <strong class=\"purple\">must</strong> be dynamically uniform within the invocation group",
           "page": "appendices/spirvenv.html"
         },
         {
           "vuid": "VUID-RuntimeSpirv-None-10148",
-          "text": "If an instruction accesses memory through any resource, <a href=\"#limits-subgroupSize\"><code>subgroupSize</code></a> is 1, and the resource through which that memory is accessed is not uniform within the invocation group, then the operand corresponding to that resource (e.g. the pointer or sampled image operand) <strong class=\"purple\">must</strong> be decorated with <code>NonUniform</code>",
+          "text": "If an instruction accesses memory through any resource, the <a href=\"#interfaces-builtin-variables-sgs\">effective subgroup size</a> is 1, and the resource through which that memory is accessed is not uniform within the invocation group, then the operand corresponding to that resource (e.g. the pointer or sampled image operand) <strong class=\"purple\">must</strong> be decorated with <code>NonUniform</code>",
           "page": "appendices/spirvenv.html"
         },
         {
           "vuid": "VUID-RuntimeSpirv-subgroupSize-10149",
-          "text": "If an instruction accesses memory through any resource, <a href=\"#limits-subgroupSize\"><code>subgroupSize</code></a> is greater than 1, and the resource through which that memory is accessed is not uniform within the invocation group, and not uniform within the subgroup, then the operand corresponding to that resource (e.g. the pointer or sampled image operand) <strong class=\"purple\">must</strong> be decorated with <code>NonUniform</code>",
+          "text": "If an instruction accesses memory through any resource, the <a href=\"#interfaces-builtin-variables-sgs\">effective subgroup size</a> is greater than 1, and the resource through which that memory is accessed is not uniform within the invocation group, and not uniform within the subgroup, then the operand corresponding to that resource (e.g. the pointer or sampled image operand) <strong class=\"purple\">must</strong> be decorated with <code>NonUniform</code>",
           "page": "appendices/spirvenv.html"
         },
         {
@@ -33227,6 +33382,31 @@
         {
           "vuid": "VUID-RuntimeSpirv-protectedNoFault-09645",
           "text": "If <a href=\"#limits-protectedNoFault\"><code>protectedNoFault</code></a> is not supported, the <code>Storage</code> <code>Class</code> of the <code>PhysicalStorageBuffer</code> <strong class=\"purple\">must</strong> not be used if the buffer being accessed is <a href=\"#memory-protected-memory\">protected</a>",
+          "page": "appendices/spirvenv.html"
+        },
+        {
+          "vuid": "VUID-RuntimeSpirv-None-10715",
+          "text": "If a <a href=\"#VkSampler\">VkSampler</a> object that enables <a href=\"#samplers-YCbCr-conversion\">sampler Y′C<sub>B</sub>C<sub>R</sub> conversion</a> is accessed in a shader, both the sampler and image accessed <strong class=\"purple\">must</strong> be determined by <a href=\"#glossary-constant-integral-expression\">constant integral expressions</a>",
+          "page": "appendices/spirvenv.html"
+        },
+        {
+          "vuid": "VUID-RuntimeSpirv-None-10716",
+          "text": "If a <a href=\"#VkSampler\">VkSampler</a> object that enables <a href=\"#samplers-YCbCr-conversion\">sampler Y′C<sub>B</sub>C<sub>R</sub> conversion</a> is statically used, it <strong class=\"purple\">must</strong> only be used with <code>OpImageSample*</code> or <code>OpImageSparseSample*</code> instructions",
+          "page": "appendices/spirvenv.html"
+        },
+        {
+          "vuid": "VUID-RuntimeSpirv-OpImage-10717",
+          "text": "An <code>OpImage</code> instruction <strong class=\"purple\">must</strong> not be used on a <a href=\"#VkSampler\">VkSampler</a> object that enables <a href=\"#samplers-YCbCr-conversion\">sampler Y′C<sub>B</sub>C<sub>R</sub> conversion</a>",
+          "page": "appendices/spirvenv.html"
+        },
+        {
+          "vuid": "VUID-RuntimeSpirv-ConstOffset-10718",
+          "text": "If a <a href=\"#VkSampler\">VkSampler</a> object that enables <a href=\"#samplers-YCbCr-conversion\">sampler Y′C<sub>B</sub>C<sub>R</sub> conversion</a> is statically used, it <strong class=\"purple\">must</strong> not use the <code>ConstOffset</code> or <code>Offset</code> operands",
+          "page": "appendices/spirvenv.html"
+        },
+        {
+          "vuid": "VUID-RuntimeSpirv-None-10824",
+          "text": "The <code>Base</code> operand of any <code>OpBitCount</code>, <code>OpBitReverse</code>, <code>OpBitFieldInsert</code>, <code>OpBitFieldSExtract</code>, or <code>OpBitFieldUExtract</code> instruction <strong class=\"purple\">must</strong> be a 32-bit integer scalar or a vector of 32-bit integers",
           "page": "appendices/spirvenv.html"
         }
       ]

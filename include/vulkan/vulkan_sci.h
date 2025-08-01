@@ -103,37 +103,51 @@ typedef VkResult (VKAPI_PTR *PFN_vkGetSemaphoreSciSyncObjNV)(VkDevice device, co
 typedef VkResult (VKAPI_PTR *PFN_vkImportSemaphoreSciSyncObjNV)(VkDevice device, const VkImportSemaphoreSciSyncInfoNV* pImportSemaphoreSciSyncInfo);
 
 #ifndef VK_NO_PROTOTYPES
+#ifndef VK_ONLY_EXPORTED_PROTOTYPES
 VKAPI_ATTR VkResult VKAPI_CALL vkGetFenceSciSyncFenceNV(
     VkDevice                                    device,
     const VkFenceGetSciSyncInfoNV*              pGetSciSyncHandleInfo,
     void*                                       pHandle);
+#endif
 
+#ifndef VK_ONLY_EXPORTED_PROTOTYPES
 VKAPI_ATTR VkResult VKAPI_CALL vkGetFenceSciSyncObjNV(
     VkDevice                                    device,
     const VkFenceGetSciSyncInfoNV*              pGetSciSyncHandleInfo,
     void*                                       pHandle);
+#endif
 
+#ifndef VK_ONLY_EXPORTED_PROTOTYPES
 VKAPI_ATTR VkResult VKAPI_CALL vkImportFenceSciSyncFenceNV(
     VkDevice                                    device,
     const VkImportFenceSciSyncInfoNV*           pImportFenceSciSyncInfo);
+#endif
 
+#ifndef VK_ONLY_EXPORTED_PROTOTYPES
 VKAPI_ATTR VkResult VKAPI_CALL vkImportFenceSciSyncObjNV(
     VkDevice                                    device,
     const VkImportFenceSciSyncInfoNV*           pImportFenceSciSyncInfo);
+#endif
 
+#ifndef VK_ONLY_EXPORTED_PROTOTYPES
 VKAPI_ATTR VkResult VKAPI_CALL vkGetPhysicalDeviceSciSyncAttributesNV(
     VkPhysicalDevice                            physicalDevice,
     const VkSciSyncAttributesInfoNV*            pSciSyncAttributesInfo,
     NvSciSyncAttrList                           pAttributes);
+#endif
 
+#ifndef VK_ONLY_EXPORTED_PROTOTYPES
 VKAPI_ATTR VkResult VKAPI_CALL vkGetSemaphoreSciSyncObjNV(
     VkDevice                                    device,
     const VkSemaphoreGetSciSyncInfoNV*          pGetSciSyncInfo,
     void*                                       pHandle);
+#endif
 
+#ifndef VK_ONLY_EXPORTED_PROTOTYPES
 VKAPI_ATTR VkResult VKAPI_CALL vkImportSemaphoreSciSyncObjNV(
     VkDevice                                    device,
     const VkImportSemaphoreSciSyncInfoNV*       pImportSemaphoreSciSyncInfo);
+#endif
 #endif
 
 
@@ -181,20 +195,26 @@ typedef VkResult (VKAPI_PTR *PFN_vkGetPhysicalDeviceExternalMemorySciBufProperti
 typedef VkResult (VKAPI_PTR *PFN_vkGetPhysicalDeviceSciBufAttributesNV)(VkPhysicalDevice physicalDevice, NvSciBufAttrList pAttributes);
 
 #ifndef VK_NO_PROTOTYPES
+#ifndef VK_ONLY_EXPORTED_PROTOTYPES
 VKAPI_ATTR VkResult VKAPI_CALL vkGetMemorySciBufNV(
     VkDevice                                    device,
     const VkMemoryGetSciBufInfoNV*              pGetSciBufInfo,
     NvSciBufObj*                                pHandle);
+#endif
 
+#ifndef VK_ONLY_EXPORTED_PROTOTYPES
 VKAPI_ATTR VkResult VKAPI_CALL vkGetPhysicalDeviceExternalMemorySciBufPropertiesNV(
     VkPhysicalDevice                            physicalDevice,
     VkExternalMemoryHandleTypeFlagBits          handleType,
     NvSciBufObj                                 handle,
     VkMemorySciBufPropertiesNV*                 pMemorySciBufProperties);
+#endif
 
+#ifndef VK_ONLY_EXPORTED_PROTOTYPES
 VKAPI_ATTR VkResult VKAPI_CALL vkGetPhysicalDeviceSciBufAttributesNV(
     VkPhysicalDevice                            physicalDevice,
     NvSciBufAttrList                            pAttributes);
+#endif
 #endif
 
 
@@ -234,11 +254,13 @@ typedef struct VkDeviceSemaphoreSciSyncPoolReservationCreateInfoNV {
 typedef VkResult (VKAPI_PTR *PFN_vkCreateSemaphoreSciSyncPoolNV)(VkDevice device, const VkSemaphoreSciSyncPoolCreateInfoNV* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkSemaphoreSciSyncPoolNV* pSemaphorePool);
 
 #ifndef VK_NO_PROTOTYPES
+#ifndef VK_ONLY_EXPORTED_PROTOTYPES
 VKAPI_ATTR VkResult VKAPI_CALL vkCreateSemaphoreSciSyncPoolNV(
     VkDevice                                    device,
     const VkSemaphoreSciSyncPoolCreateInfoNV*   pCreateInfo,
     const VkAllocationCallbacks*                pAllocator,
     VkSemaphoreSciSyncPoolNV*                   pSemaphorePool);
+#endif
 #endif
 
 #ifdef __cplusplus
