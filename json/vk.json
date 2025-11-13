@@ -26,24 +26,23 @@
     "VkCommandBuffer": {"$ref": "#/definitions/uint64_t"},
     "VkFence": {"$ref": "#/definitions/uint64_t"},
     "VkDeviceMemory": {"$ref": "#/definitions/uint64_t"},
-    "VkEvent": {"$ref": "#/definitions/uint64_t"},
     "VkQueryPool": {"$ref": "#/definitions/uint64_t"},
-    "VkBufferView": {"$ref": "#/definitions/uint64_t"},
     "VkImageView": {"$ref": "#/definitions/uint64_t"},
+    "VkCommandPool": {"$ref": "#/definitions/uint64_t"},
+    "VkRenderPass": {"$ref": "#/definitions/uint64_t"},
+    "VkFramebuffer": {"$ref": "#/definitions/uint64_t"},
+    "VkEvent": {"$ref": "#/definitions/uint64_t"},
+    "VkBufferView": {"$ref": "#/definitions/uint64_t"},
     "VkShaderModule": {"$ref": "#/definitions/uint64_t"},
     "VkPipelineCache": {"$ref": "#/definitions/uint64_t"},
     "VkPipelineLayout": {"$ref": "#/definitions/uint64_t"},
     "VkPipeline": {"$ref": "#/definitions/uint64_t"},
-    "VkRenderPass": {"$ref": "#/definitions/uint64_t"},
     "VkDescriptorSetLayout": {"$ref": "#/definitions/uint64_t"},
     "VkSampler": {"$ref": "#/definitions/uint64_t"},
     "VkDescriptorSet": {"$ref": "#/definitions/uint64_t"},
     "VkDescriptorPool": {"$ref": "#/definitions/uint64_t"},
-    "VkFramebuffer": {"$ref": "#/definitions/uint64_t"},
-    "VkCommandPool": {"$ref": "#/definitions/uint64_t"},
     "VkResult": {"$ref": "#/definitions/enum"},
     "VkStructureType": {"$ref": "#/definitions/enum"},
-    "VkPipelineCacheHeaderVersion": {"$ref": "#/definitions/enum"},
     "VkAccessFlagBits": {"$ref": "#/definitions/enum"},
     "VkImageLayout": {"$ref": "#/definitions/enum"},
     "VkImageAspectFlagBits": {"$ref": "#/definitions/enum"},
@@ -67,10 +66,9 @@
     "VkPipelineStageFlagBits": {"$ref": "#/definitions/enum"},
     "VkMemoryMapFlagBits": {"$ref": "#/definitions/enum"},
     "VkFenceCreateFlagBits": {"$ref": "#/definitions/enum"},
-    "VkEventCreateFlagBits": {"$ref": "#/definitions/enum"},
-    "VkQueryPipelineStatisticFlagBits": {"$ref": "#/definitions/enum"},
     "VkQueryPoolCreateFlagBits": {"$ref": "#/definitions/enum"},
     "VkQueryType": {"$ref": "#/definitions/enum"},
+    "VkQueryPipelineStatisticFlagBits": {"$ref": "#/definitions/enum"},
     "VkQueryResultFlagBits": {"$ref": "#/definitions/enum"},
     "VkBufferCreateFlagBits": {"$ref": "#/definitions/enum"},
     "VkBufferUsageFlagBits": {"$ref": "#/definitions/enum"},
@@ -78,14 +76,34 @@
     "VkComponentSwizzle": {"$ref": "#/definitions/enum"},
     "VkImageViewCreateFlagBits": {"$ref": "#/definitions/enum"},
     "VkImageViewType": {"$ref": "#/definitions/enum"},
+    "VkDependencyFlagBits": {"$ref": "#/definitions/enum"},
+    "VkCommandPoolCreateFlagBits": {"$ref": "#/definitions/enum"},
+    "VkCommandPoolResetFlagBits": {"$ref": "#/definitions/enum"},
+    "VkCommandBufferLevel": {"$ref": "#/definitions/enum"},
+    "VkCommandBufferUsageFlagBits": {"$ref": "#/definitions/enum"},
+    "VkQueryControlFlagBits": {"$ref": "#/definitions/enum"},
+    "VkCommandBufferResetFlagBits": {"$ref": "#/definitions/enum"},
+    "VkIndexType": {"$ref": "#/definitions/enum"},
+    "VkPipelineCacheHeaderVersion": {"$ref": "#/definitions/enum"},
+    "VkEventCreateFlagBits": {"$ref": "#/definitions/enum"},
     "VkPipelineCacheCreateFlagBits": {"$ref": "#/definitions/enum"},
-    "VkBlendFactor": {"$ref": "#/definitions/enum"},
-    "VkBlendOp": {"$ref": "#/definitions/enum"},
-    "VkColorComponentFlagBits": {"$ref": "#/definitions/enum"},
-    "VkCompareOp": {"$ref": "#/definitions/enum"},
     "VkPipelineCreateFlagBits": {"$ref": "#/definitions/enum"},
     "VkPipelineShaderStageCreateFlagBits": {"$ref": "#/definitions/enum"},
     "VkShaderStageFlagBits": {"$ref": "#/definitions/enum"},
+    "VkPipelineLayoutCreateFlagBits": {"$ref": "#/definitions/enum"},
+    "VkBorderColor": {"$ref": "#/definitions/enum"},
+    "VkFilter": {"$ref": "#/definitions/enum"},
+    "VkSamplerAddressMode": {"$ref": "#/definitions/enum"},
+    "VkSamplerCreateFlagBits": {"$ref": "#/definitions/enum"},
+    "VkSamplerMipmapMode": {"$ref": "#/definitions/enum"},
+    "VkCompareOp": {"$ref": "#/definitions/enum"},
+    "VkDescriptorPoolCreateFlagBits": {"$ref": "#/definitions/enum"},
+    "VkDescriptorType": {"$ref": "#/definitions/enum"},
+    "VkDescriptorSetLayoutCreateFlagBits": {"$ref": "#/definitions/enum"},
+    "VkPipelineBindPoint": {"$ref": "#/definitions/enum"},
+    "VkBlendFactor": {"$ref": "#/definitions/enum"},
+    "VkBlendOp": {"$ref": "#/definitions/enum"},
+    "VkColorComponentFlagBits": {"$ref": "#/definitions/enum"},
     "VkCullModeFlagBits": {"$ref": "#/definitions/enum"},
     "VkDynamicState": {"$ref": "#/definitions/enum"},
     "VkFrontFace": {"$ref": "#/definitions/enum"},
@@ -94,30 +112,12 @@
     "VkPolygonMode": {"$ref": "#/definitions/enum"},
     "VkStencilOp": {"$ref": "#/definitions/enum"},
     "VkLogicOp": {"$ref": "#/definitions/enum"},
-    "VkPipelineLayoutCreateFlagBits": {"$ref": "#/definitions/enum"},
-    "VkBorderColor": {"$ref": "#/definitions/enum"},
-    "VkFilter": {"$ref": "#/definitions/enum"},
-    "VkSamplerAddressMode": {"$ref": "#/definitions/enum"},
-    "VkSamplerCreateFlagBits": {"$ref": "#/definitions/enum"},
-    "VkSamplerMipmapMode": {"$ref": "#/definitions/enum"},
-    "VkDescriptorPoolCreateFlagBits": {"$ref": "#/definitions/enum"},
-    "VkDescriptorType": {"$ref": "#/definitions/enum"},
-    "VkDescriptorSetLayoutCreateFlagBits": {"$ref": "#/definitions/enum"},
     "VkAttachmentDescriptionFlagBits": {"$ref": "#/definitions/enum"},
     "VkAttachmentLoadOp": {"$ref": "#/definitions/enum"},
     "VkAttachmentStoreOp": {"$ref": "#/definitions/enum"},
-    "VkDependencyFlagBits": {"$ref": "#/definitions/enum"},
     "VkFramebufferCreateFlagBits": {"$ref": "#/definitions/enum"},
-    "VkPipelineBindPoint": {"$ref": "#/definitions/enum"},
     "VkRenderPassCreateFlagBits": {"$ref": "#/definitions/enum"},
     "VkSubpassDescriptionFlagBits": {"$ref": "#/definitions/enum"},
-    "VkCommandPoolCreateFlagBits": {"$ref": "#/definitions/enum"},
-    "VkCommandPoolResetFlagBits": {"$ref": "#/definitions/enum"},
-    "VkCommandBufferLevel": {"$ref": "#/definitions/enum"},
-    "VkCommandBufferUsageFlagBits": {"$ref": "#/definitions/enum"},
-    "VkQueryControlFlagBits": {"$ref": "#/definitions/enum"},
-    "VkCommandBufferResetFlagBits": {"$ref": "#/definitions/enum"},
-    "VkIndexType": {"$ref": "#/definitions/enum"},
     "VkStencilFaceFlagBits": {"$ref": "#/definitions/enum"},
     "VkSubpassContents": {"$ref": "#/definitions/enum"},
     "VkBool32": {"oneOf": [{"$ref": "#/definitions/uint32_t"},{"enum": ["VK_TRUE", "VK_FALSE"]}]},
@@ -140,18 +140,30 @@
     "VkMemoryMapFlags": {"$ref": "#/definitions/VkFlags"},
     "VkFenceCreateFlags": {"$ref": "#/definitions/VkFlags"},
     "VkSemaphoreCreateFlags": {"$ref": "#/definitions/VkFlags"},
-    "VkEventCreateFlags": {"$ref": "#/definitions/VkFlags"},
-    "VkQueryPipelineStatisticFlags": {"$ref": "#/definitions/VkFlags"},
     "VkQueryPoolCreateFlags": {"$ref": "#/definitions/VkFlags"},
+    "VkQueryPipelineStatisticFlags": {"$ref": "#/definitions/VkFlags"},
     "VkQueryResultFlags": {"$ref": "#/definitions/VkFlags"},
     "VkBufferCreateFlags": {"$ref": "#/definitions/VkFlags"},
     "VkBufferUsageFlags": {"$ref": "#/definitions/VkFlags"},
-    "VkBufferViewCreateFlags": {"$ref": "#/definitions/VkFlags"},
     "VkImageViewCreateFlags": {"$ref": "#/definitions/VkFlags"},
+    "VkDependencyFlags": {"$ref": "#/definitions/VkFlags"},
+    "VkCommandPoolCreateFlags": {"$ref": "#/definitions/VkFlags"},
+    "VkCommandPoolResetFlags": {"$ref": "#/definitions/VkFlags"},
+    "VkCommandBufferUsageFlags": {"$ref": "#/definitions/VkFlags"},
+    "VkQueryControlFlags": {"$ref": "#/definitions/VkFlags"},
+    "VkCommandBufferResetFlags": {"$ref": "#/definitions/VkFlags"},
+    "VkEventCreateFlags": {"$ref": "#/definitions/VkFlags"},
+    "VkBufferViewCreateFlags": {"$ref": "#/definitions/VkFlags"},
     "VkPipelineCacheCreateFlags": {"$ref": "#/definitions/VkFlags"},
-    "VkColorComponentFlags": {"$ref": "#/definitions/VkFlags"},
     "VkPipelineCreateFlags": {"$ref": "#/definitions/VkFlags"},
     "VkPipelineShaderStageCreateFlags": {"$ref": "#/definitions/VkFlags"},
+    "VkPipelineLayoutCreateFlags": {"$ref": "#/definitions/VkFlags"},
+    "VkShaderStageFlags": {"$ref": "#/definitions/VkFlags"},
+    "VkSamplerCreateFlags": {"$ref": "#/definitions/VkFlags"},
+    "VkDescriptorPoolCreateFlags": {"$ref": "#/definitions/VkFlags"},
+    "VkDescriptorPoolResetFlags": {"$ref": "#/definitions/VkFlags"},
+    "VkDescriptorSetLayoutCreateFlags": {"$ref": "#/definitions/VkFlags"},
+    "VkColorComponentFlags": {"$ref": "#/definitions/VkFlags"},
     "VkCullModeFlags": {"$ref": "#/definitions/VkFlags"},
     "VkPipelineVertexInputStateCreateFlags": {"$ref": "#/definitions/VkFlags"},
     "VkPipelineInputAssemblyStateCreateFlags": {"$ref": "#/definitions/VkFlags"},
@@ -163,22 +175,10 @@
     "VkPipelineDepthStencilStateCreateFlags": {"$ref": "#/definitions/VkFlags"},
     "VkPipelineColorBlendStateCreateFlags": {"$ref": "#/definitions/VkFlags"},
     "VkPipelineDynamicStateCreateFlags": {"$ref": "#/definitions/VkFlags"},
-    "VkPipelineLayoutCreateFlags": {"$ref": "#/definitions/VkFlags"},
-    "VkShaderStageFlags": {"$ref": "#/definitions/VkFlags"},
-    "VkSamplerCreateFlags": {"$ref": "#/definitions/VkFlags"},
-    "VkDescriptorPoolCreateFlags": {"$ref": "#/definitions/VkFlags"},
-    "VkDescriptorPoolResetFlags": {"$ref": "#/definitions/VkFlags"},
-    "VkDescriptorSetLayoutCreateFlags": {"$ref": "#/definitions/VkFlags"},
     "VkAttachmentDescriptionFlags": {"$ref": "#/definitions/VkFlags"},
-    "VkDependencyFlags": {"$ref": "#/definitions/VkFlags"},
     "VkFramebufferCreateFlags": {"$ref": "#/definitions/VkFlags"},
     "VkRenderPassCreateFlags": {"$ref": "#/definitions/VkFlags"},
     "VkSubpassDescriptionFlags": {"$ref": "#/definitions/VkFlags"},
-    "VkCommandPoolCreateFlags": {"$ref": "#/definitions/VkFlags"},
-    "VkCommandPoolResetFlags": {"$ref": "#/definitions/VkFlags"},
-    "VkCommandBufferUsageFlags": {"$ref": "#/definitions/VkFlags"},
-    "VkQueryControlFlags": {"$ref": "#/definitions/VkFlags"},
-    "VkCommandBufferResetFlags": {"$ref": "#/definitions/VkFlags"},
     "VkStencilFaceFlags": {"$ref": "#/definitions/VkFlags"},
     "VkExtent2D": {
         "type": "object",
@@ -261,39 +261,6 @@
         }
     },
 
-    "VkDispatchIndirectCommand": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "x": {"$ref": "#/definitions/uint32_t"},
-            "y": {"$ref": "#/definitions/uint32_t"},
-            "z": {"$ref": "#/definitions/uint32_t"}
-        }
-    },
-
-    "VkDrawIndexedIndirectCommand": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "indexCount": {"$ref": "#/definitions/uint32_t"},
-            "instanceCount": {"$ref": "#/definitions/uint32_t"},
-            "firstIndex": {"$ref": "#/definitions/uint32_t"},
-            "vertexOffset": {"$ref": "#/definitions/int32_t"},
-            "firstInstance": {"$ref": "#/definitions/uint32_t"}
-        }
-    },
-
-    "VkDrawIndirectCommand": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "vertexCount": {"$ref": "#/definitions/uint32_t"},
-            "instanceCount": {"$ref": "#/definitions/uint32_t"},
-            "firstVertex": {"$ref": "#/definitions/uint32_t"},
-            "firstInstance": {"$ref": "#/definitions/uint32_t"}
-        }
-    },
-
     "VkImageSubresourceRange": {
         "type": "object",
         "additionalProperties": false,
@@ -331,18 +298,6 @@
             "pNext": {"$ref": "#/definitions/void"},
             "srcAccessMask": {"$ref": "#/definitions/VkAccessFlags"},
             "dstAccessMask": {"$ref": "#/definitions/VkAccessFlags"}
-        }
-    },
-
-    "VkPipelineCacheHeaderVersionOne": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "headerSize": {"$ref": "#/definitions/uint32_t"},
-            "headerVersion": {"$ref": "#/definitions/VkPipelineCacheHeaderVersion"},
-            "vendorID": {"$ref": "#/definitions/uint32_t"},
-            "deviceID": {"$ref": "#/definitions/uint32_t"},
-            "pipelineCacheUUID":  {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/uint8_t"}}
         }
     },
 
@@ -782,16 +737,6 @@
         }
     },
 
-    "VkEventCreateInfo": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "flags": {"$ref": "#/definitions/VkEventCreateFlags"}
-        }
-    },
-
     "VkQueryPoolCreateInfo": {
         "type": "object",
         "additionalProperties": false,
@@ -817,20 +762,6 @@
             "sharingMode": {"$ref": "#/definitions/VkSharingMode"},
             "queueFamilyIndexCount": {"$ref": "#/definitions/uint32_t"},
             "pQueueFamilyIndices": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/uint32_t"}}]}
-        }
-    },
-
-    "VkBufferViewCreateInfo": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "flags": {"$ref": "#/definitions/VkBufferViewCreateFlags"},
-            "buffer": {"$ref": "#/definitions/VkBuffer"},
-            "format": {"$ref": "#/definitions/VkFormat"},
-            "offset": {"$ref": "#/definitions/VkDeviceSize"},
-            "range": {"$ref": "#/definitions/VkDeviceSize"}
         }
     },
 
@@ -894,6 +825,147 @@
         }
     },
 
+    "VkCommandPoolCreateInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "flags": {"$ref": "#/definitions/VkCommandPoolCreateFlags"},
+            "queueFamilyIndex": {"$ref": "#/definitions/uint32_t"}
+        }
+    },
+
+    "VkCommandBufferAllocateInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "commandPool": {"$ref": "#/definitions/VkCommandPool"},
+            "level": {"$ref": "#/definitions/VkCommandBufferLevel"},
+            "commandBufferCount": {"$ref": "#/definitions/uint32_t"}
+        }
+    },
+
+    "VkCommandBufferInheritanceInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "renderPass": {"$ref": "#/definitions/VkRenderPass"},
+            "subpass": {"$ref": "#/definitions/uint32_t"},
+            "framebuffer": {"$ref": "#/definitions/VkFramebuffer"},
+            "occlusionQueryEnable": {"$ref": "#/definitions/VkBool32"},
+            "queryFlags": {"$ref": "#/definitions/VkQueryControlFlags"},
+            "pipelineStatistics": {"$ref": "#/definitions/VkQueryPipelineStatisticFlags"}
+        }
+    },
+
+    "VkCommandBufferBeginInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "flags": {"$ref": "#/definitions/VkCommandBufferUsageFlags"},
+            "pInheritanceInfo": {"oneOf": [{"$ref": "#/definitions/void"},{"$ref": "#/definitions/VkCommandBufferInheritanceInfo"}]}
+        }
+    },
+
+    "VkBufferCopy": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "srcOffset": {"$ref": "#/definitions/VkDeviceSize"},
+            "dstOffset": {"$ref": "#/definitions/VkDeviceSize"},
+            "size": {"$ref": "#/definitions/VkDeviceSize"}
+        }
+    },
+
+    "VkImageSubresourceLayers": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "aspectMask": {"$ref": "#/definitions/VkImageAspectFlags"},
+            "mipLevel": {"$ref": "#/definitions/uint32_t"},
+            "baseArrayLayer": {"$ref": "#/definitions/uint32_t"},
+            "layerCount": {"$ref": "#/definitions/uint32_t"}
+        }
+    },
+
+    "VkBufferImageCopy": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "bufferOffset": {"$ref": "#/definitions/VkDeviceSize"},
+            "bufferRowLength": {"$ref": "#/definitions/uint32_t"},
+            "bufferImageHeight": {"$ref": "#/definitions/uint32_t"},
+            "imageSubresource": {"$ref": "#/definitions/VkImageSubresourceLayers"},
+            "imageOffset": {"$ref": "#/definitions/VkOffset3D"},
+            "imageExtent": {"$ref": "#/definitions/VkExtent3D"}
+        }
+    },
+
+    "VkImageCopy": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "srcSubresource": {"$ref": "#/definitions/VkImageSubresourceLayers"},
+            "srcOffset": {"$ref": "#/definitions/VkOffset3D"},
+            "dstSubresource": {"$ref": "#/definitions/VkImageSubresourceLayers"},
+            "dstOffset": {"$ref": "#/definitions/VkOffset3D"},
+            "extent": {"$ref": "#/definitions/VkExtent3D"}
+        }
+    },
+
+    "VkDispatchIndirectCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "x": {"$ref": "#/definitions/uint32_t"},
+            "y": {"$ref": "#/definitions/uint32_t"},
+            "z": {"$ref": "#/definitions/uint32_t"}
+        }
+    },
+
+    "VkPipelineCacheHeaderVersionOne": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "headerSize": {"$ref": "#/definitions/uint32_t"},
+            "headerVersion": {"$ref": "#/definitions/VkPipelineCacheHeaderVersion"},
+            "vendorID": {"$ref": "#/definitions/uint32_t"},
+            "deviceID": {"$ref": "#/definitions/uint32_t"},
+            "pipelineCacheUUID":  {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/uint8_t"}}
+        }
+    },
+
+    "VkEventCreateInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "flags": {"$ref": "#/definitions/VkEventCreateFlags"}
+        }
+    },
+
+    "VkBufferViewCreateInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "flags": {"$ref": "#/definitions/VkBufferViewCreateFlags"},
+            "buffer": {"$ref": "#/definitions/VkBuffer"},
+            "format": {"$ref": "#/definitions/VkFormat"},
+            "offset": {"$ref": "#/definitions/VkDeviceSize"},
+            "range": {"$ref": "#/definitions/VkDeviceSize"}
+        }
+    },
+
     "VkPipelineCacheCreateInfo": {
         "type": "object",
         "additionalProperties": false,
@@ -952,6 +1024,199 @@
             "layout": {"$ref": "#/definitions/VkPipelineLayout"},
             "basePipelineHandle": {"$ref": "#/definitions/VkPipeline"},
             "basePipelineIndex": {"$ref": "#/definitions/int32_t"}
+        }
+    },
+
+    "VkPushConstantRange": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "stageFlags": {"$ref": "#/definitions/VkShaderStageFlags"},
+            "offset": {"$ref": "#/definitions/uint32_t"},
+            "size": {"$ref": "#/definitions/uint32_t"}
+        }
+    },
+
+    "VkPipelineLayoutCreateInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "flags": {"$ref": "#/definitions/VkPipelineLayoutCreateFlags"},
+            "setLayoutCount": {"$ref": "#/definitions/uint32_t"},
+            "pSetLayouts": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/char"}}]},
+            "pushConstantRangeCount": {"$ref": "#/definitions/uint32_t"},
+            "pPushConstantRanges": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkPushConstantRange"}}]}
+        }
+    },
+
+    "VkSamplerCreateInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "flags": {"$ref": "#/definitions/VkSamplerCreateFlags"},
+            "magFilter": {"$ref": "#/definitions/VkFilter"},
+            "minFilter": {"$ref": "#/definitions/VkFilter"},
+            "mipmapMode": {"$ref": "#/definitions/VkSamplerMipmapMode"},
+            "addressModeU": {"$ref": "#/definitions/VkSamplerAddressMode"},
+            "addressModeV": {"$ref": "#/definitions/VkSamplerAddressMode"},
+            "addressModeW": {"$ref": "#/definitions/VkSamplerAddressMode"},
+            "mipLodBias": {"$ref": "#/definitions/float"},
+            "anisotropyEnable": {"$ref": "#/definitions/VkBool32"},
+            "maxAnisotropy": {"$ref": "#/definitions/float"},
+            "compareEnable": {"$ref": "#/definitions/VkBool32"},
+            "compareOp": {"$ref": "#/definitions/VkCompareOp"},
+            "minLod": {"$ref": "#/definitions/float"},
+            "maxLod": {"$ref": "#/definitions/float"},
+            "borderColor": {"$ref": "#/definitions/VkBorderColor"},
+            "unnormalizedCoordinates": {"$ref": "#/definitions/VkBool32"}
+        }
+    },
+
+    "VkCopyDescriptorSet": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "srcSet": {"$ref": "#/definitions/VkDescriptorSet"},
+            "srcBinding": {"$ref": "#/definitions/uint32_t"},
+            "srcArrayElement": {"$ref": "#/definitions/uint32_t"},
+            "dstSet": {"$ref": "#/definitions/VkDescriptorSet"},
+            "dstBinding": {"$ref": "#/definitions/uint32_t"},
+            "dstArrayElement": {"$ref": "#/definitions/uint32_t"},
+            "descriptorCount": {"$ref": "#/definitions/uint32_t"}
+        }
+    },
+
+    "VkDescriptorBufferInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "buffer": {"$ref": "#/definitions/VkBuffer"},
+            "offset": {"$ref": "#/definitions/VkDeviceSize"},
+            "range": {"$ref": "#/definitions/VkDeviceSize"}
+        }
+    },
+
+    "VkDescriptorImageInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sampler": {"$ref": "#/definitions/VkSampler"},
+            "imageView": {"$ref": "#/definitions/VkImageView"},
+            "imageLayout": {"$ref": "#/definitions/VkImageLayout"}
+        }
+    },
+
+    "VkDescriptorPoolSize": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "type": {"$ref": "#/definitions/VkDescriptorType"},
+            "descriptorCount": {"$ref": "#/definitions/uint32_t"}
+        }
+    },
+
+    "VkDescriptorPoolCreateInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "flags": {"$ref": "#/definitions/VkDescriptorPoolCreateFlags"},
+            "maxSets": {"$ref": "#/definitions/uint32_t"},
+            "poolSizeCount": {"$ref": "#/definitions/uint32_t"},
+            "pPoolSizes": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkDescriptorPoolSize"}}]}
+        }
+    },
+
+    "VkDescriptorSetAllocateInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "descriptorPool": {"$ref": "#/definitions/VkDescriptorPool"},
+            "descriptorSetCount": {"$ref": "#/definitions/uint32_t"},
+            "pSetLayouts": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkDescriptorSetLayout"}}]}
+        }
+    },
+
+    "VkDescriptorSetLayoutBinding": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "binding": {"$ref": "#/definitions/uint32_t"},
+            "descriptorType": {"$ref": "#/definitions/VkDescriptorType"},
+            "descriptorCount": {"$ref": "#/definitions/uint32_t"},
+            "stageFlags": {"$ref": "#/definitions/VkShaderStageFlags"},
+            "pImmutableSamplers": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/char"}}]}
+        }
+    },
+
+    "VkDescriptorSetLayoutCreateInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "flags": {"$ref": "#/definitions/VkDescriptorSetLayoutCreateFlags"},
+            "bindingCount": {"$ref": "#/definitions/uint32_t"},
+            "pBindings": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkDescriptorSetLayoutBinding"}}]}
+        }
+    },
+
+    "VkWriteDescriptorSet": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "dstSet": {"$ref": "#/definitions/VkDescriptorSet"},
+            "dstBinding": {"$ref": "#/definitions/uint32_t"},
+            "dstArrayElement": {"$ref": "#/definitions/uint32_t"},
+            "descriptorCount": {"$ref": "#/definitions/uint32_t"},
+            "descriptorType": {"$ref": "#/definitions/VkDescriptorType"},
+            "pImageInfo": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkDescriptorImageInfo"}}]},
+            "pBufferInfo": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkDescriptorBufferInfo"}}]},
+            "pTexelBufferView": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkBufferView"}}]}
+        }
+    },
+
+    "VkClearColorValue": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "float32":  {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/float"}},
+            "int32":  {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/int32_t"}},
+            "uint32":  {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/uint32_t"}}
+        }
+    },
+
+    "VkDrawIndexedIndirectCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "indexCount": {"$ref": "#/definitions/uint32_t"},
+            "instanceCount": {"$ref": "#/definitions/uint32_t"},
+            "firstIndex": {"$ref": "#/definitions/uint32_t"},
+            "vertexOffset": {"$ref": "#/definitions/int32_t"},
+            "firstInstance": {"$ref": "#/definitions/uint32_t"}
+        }
+    },
+
+    "VkDrawIndirectCommand": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "vertexCount": {"$ref": "#/definitions/uint32_t"},
+            "instanceCount": {"$ref": "#/definitions/uint32_t"},
+            "firstVertex": {"$ref": "#/definitions/uint32_t"},
+            "firstInstance": {"$ref": "#/definitions/uint32_t"}
         }
     },
 
@@ -1177,166 +1442,6 @@
         }
     },
 
-    "VkPushConstantRange": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "stageFlags": {"$ref": "#/definitions/VkShaderStageFlags"},
-            "offset": {"$ref": "#/definitions/uint32_t"},
-            "size": {"$ref": "#/definitions/uint32_t"}
-        }
-    },
-
-    "VkPipelineLayoutCreateInfo": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "flags": {"$ref": "#/definitions/VkPipelineLayoutCreateFlags"},
-            "setLayoutCount": {"$ref": "#/definitions/uint32_t"},
-            "pSetLayouts": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/char"}}]},
-            "pushConstantRangeCount": {"$ref": "#/definitions/uint32_t"},
-            "pPushConstantRanges": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkPushConstantRange"}}]}
-        }
-    },
-
-    "VkSamplerCreateInfo": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "flags": {"$ref": "#/definitions/VkSamplerCreateFlags"},
-            "magFilter": {"$ref": "#/definitions/VkFilter"},
-            "minFilter": {"$ref": "#/definitions/VkFilter"},
-            "mipmapMode": {"$ref": "#/definitions/VkSamplerMipmapMode"},
-            "addressModeU": {"$ref": "#/definitions/VkSamplerAddressMode"},
-            "addressModeV": {"$ref": "#/definitions/VkSamplerAddressMode"},
-            "addressModeW": {"$ref": "#/definitions/VkSamplerAddressMode"},
-            "mipLodBias": {"$ref": "#/definitions/float"},
-            "anisotropyEnable": {"$ref": "#/definitions/VkBool32"},
-            "maxAnisotropy": {"$ref": "#/definitions/float"},
-            "compareEnable": {"$ref": "#/definitions/VkBool32"},
-            "compareOp": {"$ref": "#/definitions/VkCompareOp"},
-            "minLod": {"$ref": "#/definitions/float"},
-            "maxLod": {"$ref": "#/definitions/float"},
-            "borderColor": {"$ref": "#/definitions/VkBorderColor"},
-            "unnormalizedCoordinates": {"$ref": "#/definitions/VkBool32"}
-        }
-    },
-
-    "VkCopyDescriptorSet": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "srcSet": {"$ref": "#/definitions/VkDescriptorSet"},
-            "srcBinding": {"$ref": "#/definitions/uint32_t"},
-            "srcArrayElement": {"$ref": "#/definitions/uint32_t"},
-            "dstSet": {"$ref": "#/definitions/VkDescriptorSet"},
-            "dstBinding": {"$ref": "#/definitions/uint32_t"},
-            "dstArrayElement": {"$ref": "#/definitions/uint32_t"},
-            "descriptorCount": {"$ref": "#/definitions/uint32_t"}
-        }
-    },
-
-    "VkDescriptorBufferInfo": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "buffer": {"$ref": "#/definitions/VkBuffer"},
-            "offset": {"$ref": "#/definitions/VkDeviceSize"},
-            "range": {"$ref": "#/definitions/VkDeviceSize"}
-        }
-    },
-
-    "VkDescriptorImageInfo": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sampler": {"$ref": "#/definitions/VkSampler"},
-            "imageView": {"$ref": "#/definitions/VkImageView"},
-            "imageLayout": {"$ref": "#/definitions/VkImageLayout"}
-        }
-    },
-
-    "VkDescriptorPoolSize": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "type": {"$ref": "#/definitions/VkDescriptorType"},
-            "descriptorCount": {"$ref": "#/definitions/uint32_t"}
-        }
-    },
-
-    "VkDescriptorPoolCreateInfo": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "flags": {"$ref": "#/definitions/VkDescriptorPoolCreateFlags"},
-            "maxSets": {"$ref": "#/definitions/uint32_t"},
-            "poolSizeCount": {"$ref": "#/definitions/uint32_t"},
-            "pPoolSizes": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkDescriptorPoolSize"}}]}
-        }
-    },
-
-    "VkDescriptorSetAllocateInfo": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "descriptorPool": {"$ref": "#/definitions/VkDescriptorPool"},
-            "descriptorSetCount": {"$ref": "#/definitions/uint32_t"},
-            "pSetLayouts": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkDescriptorSetLayout"}}]}
-        }
-    },
-
-    "VkDescriptorSetLayoutBinding": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "binding": {"$ref": "#/definitions/uint32_t"},
-            "descriptorType": {"$ref": "#/definitions/VkDescriptorType"},
-            "descriptorCount": {"$ref": "#/definitions/uint32_t"},
-            "stageFlags": {"$ref": "#/definitions/VkShaderStageFlags"},
-            "pImmutableSamplers": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/char"}}]}
-        }
-    },
-
-    "VkDescriptorSetLayoutCreateInfo": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "flags": {"$ref": "#/definitions/VkDescriptorSetLayoutCreateFlags"},
-            "bindingCount": {"$ref": "#/definitions/uint32_t"},
-            "pBindings": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkDescriptorSetLayoutBinding"}}]}
-        }
-    },
-
-    "VkWriteDescriptorSet": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "dstSet": {"$ref": "#/definitions/VkDescriptorSet"},
-            "dstBinding": {"$ref": "#/definitions/uint32_t"},
-            "dstArrayElement": {"$ref": "#/definitions/uint32_t"},
-            "descriptorCount": {"$ref": "#/definitions/uint32_t"},
-            "descriptorType": {"$ref": "#/definitions/VkDescriptorType"},
-            "pImageInfo": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkDescriptorImageInfo"}}]},
-            "pBufferInfo": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkDescriptorBufferInfo"}}]},
-            "pTexelBufferView": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkBufferView"}}]}
-        }
-    },
-
     "VkAttachmentDescription": {
         "type": "object",
         "additionalProperties": false,
@@ -1425,99 +1530,6 @@
         }
     },
 
-    "VkCommandPoolCreateInfo": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "flags": {"$ref": "#/definitions/VkCommandPoolCreateFlags"},
-            "queueFamilyIndex": {"$ref": "#/definitions/uint32_t"}
-        }
-    },
-
-    "VkCommandBufferAllocateInfo": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "commandPool": {"$ref": "#/definitions/VkCommandPool"},
-            "level": {"$ref": "#/definitions/VkCommandBufferLevel"},
-            "commandBufferCount": {"$ref": "#/definitions/uint32_t"}
-        }
-    },
-
-    "VkCommandBufferInheritanceInfo": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "renderPass": {"$ref": "#/definitions/VkRenderPass"},
-            "subpass": {"$ref": "#/definitions/uint32_t"},
-            "framebuffer": {"$ref": "#/definitions/VkFramebuffer"},
-            "occlusionQueryEnable": {"$ref": "#/definitions/VkBool32"},
-            "queryFlags": {"$ref": "#/definitions/VkQueryControlFlags"},
-            "pipelineStatistics": {"$ref": "#/definitions/VkQueryPipelineStatisticFlags"}
-        }
-    },
-
-    "VkCommandBufferBeginInfo": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "flags": {"$ref": "#/definitions/VkCommandBufferUsageFlags"},
-            "pInheritanceInfo": {"oneOf": [{"$ref": "#/definitions/void"},{"$ref": "#/definitions/VkCommandBufferInheritanceInfo"}]}
-        }
-    },
-
-    "VkBufferCopy": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "srcOffset": {"$ref": "#/definitions/VkDeviceSize"},
-            "dstOffset": {"$ref": "#/definitions/VkDeviceSize"},
-            "size": {"$ref": "#/definitions/VkDeviceSize"}
-        }
-    },
-
-    "VkImageSubresourceLayers": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "aspectMask": {"$ref": "#/definitions/VkImageAspectFlags"},
-            "mipLevel": {"$ref": "#/definitions/uint32_t"},
-            "baseArrayLayer": {"$ref": "#/definitions/uint32_t"},
-            "layerCount": {"$ref": "#/definitions/uint32_t"}
-        }
-    },
-
-    "VkBufferImageCopy": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "bufferOffset": {"$ref": "#/definitions/VkDeviceSize"},
-            "bufferRowLength": {"$ref": "#/definitions/uint32_t"},
-            "bufferImageHeight": {"$ref": "#/definitions/uint32_t"},
-            "imageSubresource": {"$ref": "#/definitions/VkImageSubresourceLayers"},
-            "imageOffset": {"$ref": "#/definitions/VkOffset3D"},
-            "imageExtent": {"$ref": "#/definitions/VkExtent3D"}
-        }
-    },
-
-    "VkClearColorValue": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "float32":  {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/float"}},
-            "int32":  {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/int32_t"}},
-            "uint32":  {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/uint32_t"}}
-        }
-    },
-
     "VkClearDepthStencilValue": {
         "type": "object",
         "additionalProperties": false,
@@ -1567,18 +1579,6 @@
         }
     },
 
-    "VkImageCopy": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "srcSubresource": {"$ref": "#/definitions/VkImageSubresourceLayers"},
-            "srcOffset": {"$ref": "#/definitions/VkOffset3D"},
-            "dstSubresource": {"$ref": "#/definitions/VkImageSubresourceLayers"},
-            "dstOffset": {"$ref": "#/definitions/VkOffset3D"},
-            "extent": {"$ref": "#/definitions/VkExtent3D"}
-        }
-    },
-
     "VkImageResolve": {
         "type": "object",
         "additionalProperties": false,
@@ -1606,14 +1606,8 @@
     },
 
     "VkSamplerYcbcrConversion": {"$ref": "#/definitions/uint64_t"},
-    "VkSubgroupFeatureFlagBits": {"$ref": "#/definitions/enum"},
     "VkPeerMemoryFeatureFlagBits": {"$ref": "#/definitions/enum"},
     "VkMemoryAllocateFlagBits": {"$ref": "#/definitions/enum"},
-    "VkPointClippingBehavior": {"$ref": "#/definitions/enum"},
-    "VkTessellationDomainOrigin": {"$ref": "#/definitions/enum"},
-    "VkSamplerYcbcrModelConversion": {"$ref": "#/definitions/enum"},
-    "VkSamplerYcbcrRange": {"$ref": "#/definitions/enum"},
-    "VkChromaLocation": {"$ref": "#/definitions/enum"},
     "VkExternalMemoryHandleTypeFlagBits": {"$ref": "#/definitions/enum"},
     "VkExternalMemoryFeatureFlagBits": {"$ref": "#/definitions/enum"},
     "VkExternalFenceHandleTypeFlagBits": {"$ref": "#/definitions/enum"},
@@ -1622,7 +1616,12 @@
     "VkSemaphoreImportFlagBits": {"$ref": "#/definitions/enum"},
     "VkExternalSemaphoreHandleTypeFlagBits": {"$ref": "#/definitions/enum"},
     "VkExternalSemaphoreFeatureFlagBits": {"$ref": "#/definitions/enum"},
-    "VkSubgroupFeatureFlags": {"$ref": "#/definitions/VkFlags"},
+    "VkSubgroupFeatureFlagBits": {"$ref": "#/definitions/enum"},
+    "VkSamplerYcbcrModelConversion": {"$ref": "#/definitions/enum"},
+    "VkSamplerYcbcrRange": {"$ref": "#/definitions/enum"},
+    "VkChromaLocation": {"$ref": "#/definitions/enum"},
+    "VkPointClippingBehavior": {"$ref": "#/definitions/enum"},
+    "VkTessellationDomainOrigin": {"$ref": "#/definitions/enum"},
     "VkPeerMemoryFeatureFlags": {"$ref": "#/definitions/VkFlags"},
     "VkMemoryAllocateFlags": {"$ref": "#/definitions/VkFlags"},
     "VkExternalMemoryHandleTypeFlags": {"$ref": "#/definitions/VkFlags"},
@@ -1633,19 +1632,7 @@
     "VkSemaphoreImportFlags": {"$ref": "#/definitions/VkFlags"},
     "VkExternalSemaphoreHandleTypeFlags": {"$ref": "#/definitions/VkFlags"},
     "VkExternalSemaphoreFeatureFlags": {"$ref": "#/definitions/VkFlags"},
-    "VkPhysicalDeviceSubgroupProperties": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "subgroupSize": {"$ref": "#/definitions/uint32_t"},
-            "supportedStages": {"$ref": "#/definitions/VkShaderStageFlags"},
-            "supportedOperations": {"$ref": "#/definitions/VkSubgroupFeatureFlags"},
-            "quadOperationsInAllStages": {"$ref": "#/definitions/VkBool32"}
-        }
-    },
-
+    "VkSubgroupFeatureFlags": {"$ref": "#/definitions/VkFlags"},
     "VkBindBufferMemoryInfo": {
         "type": "object",
         "additionalProperties": false,
@@ -1667,19 +1654,6 @@
             "image": {"$ref": "#/definitions/VkImage"},
             "memory": {"$ref": "#/definitions/VkDeviceMemory"},
             "memoryOffset": {"$ref": "#/definitions/VkDeviceSize"}
-        }
-    },
-
-    "VkPhysicalDevice16BitStorageFeatures": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "storageBuffer16BitAccess": {"$ref": "#/definitions/VkBool32"},
-            "uniformAndStorageBuffer16BitAccess": {"$ref": "#/definitions/VkBool32"},
-            "storagePushConstant16": {"$ref": "#/definitions/VkBool32"},
-            "storageInputOutput16": {"$ref": "#/definitions/VkBool32"}
         }
     },
 
@@ -1713,18 +1687,6 @@
             "pNext": {"$ref": "#/definitions/void"},
             "flags": {"$ref": "#/definitions/VkMemoryAllocateFlags"},
             "deviceMask": {"$ref": "#/definitions/uint32_t"}
-        }
-    },
-
-    "VkDeviceGroupRenderPassBeginInfo": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "deviceMask": {"$ref": "#/definitions/uint32_t"},
-            "deviceRenderAreaCount": {"$ref": "#/definitions/uint32_t"},
-            "pDeviceRenderAreas": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkRect2D"}}]}
         }
     },
 
@@ -1904,37 +1866,6 @@
         }
     },
 
-    "VkPhysicalDevicePointClippingProperties": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "pointClippingBehavior": {"$ref": "#/definitions/VkPointClippingBehavior"}
-        }
-    },
-
-    "VkInputAttachmentAspectReference": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "subpass": {"$ref": "#/definitions/uint32_t"},
-            "inputAttachmentIndex": {"$ref": "#/definitions/uint32_t"},
-            "aspectMask": {"$ref": "#/definitions/VkImageAspectFlags"}
-        }
-    },
-
-    "VkRenderPassInputAttachmentAspectCreateInfo": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "aspectReferenceCount": {"$ref": "#/definitions/uint32_t"},
-            "pAspectReferences": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkInputAttachmentAspectReference"}}]}
-        }
-    },
-
     "VkImageViewUsageCreateInfo": {
         "type": "object",
         "additionalProperties": false,
@@ -1942,65 +1873,6 @@
             "sType": {"$ref": "#/definitions/VkStructureType"},
             "pNext": {"$ref": "#/definitions/void"},
             "usage": {"$ref": "#/definitions/VkImageUsageFlags"}
-        }
-    },
-
-    "VkPipelineTessellationDomainOriginStateCreateInfo": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "domainOrigin": {"$ref": "#/definitions/VkTessellationDomainOrigin"}
-        }
-    },
-
-    "VkRenderPassMultiviewCreateInfo": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "subpassCount": {"$ref": "#/definitions/uint32_t"},
-            "pViewMasks": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/uint32_t"}}]},
-            "dependencyCount": {"$ref": "#/definitions/uint32_t"},
-            "pViewOffsets": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/int32_t"}}]},
-            "correlationMaskCount": {"$ref": "#/definitions/uint32_t"},
-            "pCorrelationMasks": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/uint32_t"}}]}
-        }
-    },
-
-    "VkPhysicalDeviceMultiviewFeatures": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "multiview": {"$ref": "#/definitions/VkBool32"},
-            "multiviewGeometryShader": {"$ref": "#/definitions/VkBool32"},
-            "multiviewTessellationShader": {"$ref": "#/definitions/VkBool32"}
-        }
-    },
-
-    "VkPhysicalDeviceMultiviewProperties": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "maxMultiviewViewCount": {"$ref": "#/definitions/uint32_t"},
-            "maxMultiviewInstanceIndex": {"$ref": "#/definitions/uint32_t"}
-        }
-    },
-
-    "VkPhysicalDeviceVariablePointersFeatures": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "variablePointersStorageBuffer": {"$ref": "#/definitions/VkBool32"},
-            "variablePointers": {"$ref": "#/definitions/VkBool32"}
         }
     },
 
@@ -2046,33 +1918,6 @@
         }
     },
 
-    "VkSamplerYcbcrConversionCreateInfo": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "format": {"$ref": "#/definitions/VkFormat"},
-            "ycbcrModel": {"$ref": "#/definitions/VkSamplerYcbcrModelConversion"},
-            "ycbcrRange": {"$ref": "#/definitions/VkSamplerYcbcrRange"},
-            "components": {"$ref": "#/definitions/VkComponentMapping"},
-            "xChromaOffset": {"$ref": "#/definitions/VkChromaLocation"},
-            "yChromaOffset": {"$ref": "#/definitions/VkChromaLocation"},
-            "chromaFilter": {"$ref": "#/definitions/VkFilter"},
-            "forceExplicitReconstruction": {"$ref": "#/definitions/VkBool32"}
-        }
-    },
-
-    "VkSamplerYcbcrConversionInfo": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "conversion": {"$ref": "#/definitions/VkSamplerYcbcrConversion"}
-        }
-    },
-
     "VkBindImagePlaneMemoryInfo": {
         "type": "object",
         "additionalProperties": false,
@@ -2090,26 +1935,6 @@
             "sType": {"$ref": "#/definitions/VkStructureType"},
             "pNext": {"$ref": "#/definitions/void"},
             "planeAspect": {"$ref": "#/definitions/VkImageAspectFlagBits"}
-        }
-    },
-
-    "VkPhysicalDeviceSamplerYcbcrConversionFeatures": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "samplerYcbcrConversion": {"$ref": "#/definitions/VkBool32"}
-        }
-    },
-
-    "VkSamplerYcbcrConversionImageFormatProperties": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "combinedImageSamplerDescriptorCount": {"$ref": "#/definitions/uint32_t"}
         }
     },
 
@@ -2273,6 +2098,43 @@
         }
     },
 
+    "VkPhysicalDeviceSubgroupProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "subgroupSize": {"$ref": "#/definitions/uint32_t"},
+            "supportedStages": {"$ref": "#/definitions/VkShaderStageFlags"},
+            "supportedOperations": {"$ref": "#/definitions/VkSubgroupFeatureFlags"},
+            "quadOperationsInAllStages": {"$ref": "#/definitions/VkBool32"}
+        }
+    },
+
+    "VkPhysicalDevice16BitStorageFeatures": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "storageBuffer16BitAccess": {"$ref": "#/definitions/VkBool32"},
+            "uniformAndStorageBuffer16BitAccess": {"$ref": "#/definitions/VkBool32"},
+            "storagePushConstant16": {"$ref": "#/definitions/VkBool32"},
+            "storageInputOutput16": {"$ref": "#/definitions/VkBool32"}
+        }
+    },
+
+    "VkPhysicalDeviceVariablePointersFeatures": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "variablePointersStorageBuffer": {"$ref": "#/definitions/VkBool32"},
+            "variablePointers": {"$ref": "#/definitions/VkBool32"}
+        }
+    },
+
     "VkPhysicalDeviceMaintenance3Properties": {
         "type": "object",
         "additionalProperties": false,
@@ -2294,6 +2156,144 @@
         }
     },
 
+    "VkSamplerYcbcrConversionCreateInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "format": {"$ref": "#/definitions/VkFormat"},
+            "ycbcrModel": {"$ref": "#/definitions/VkSamplerYcbcrModelConversion"},
+            "ycbcrRange": {"$ref": "#/definitions/VkSamplerYcbcrRange"},
+            "components": {"$ref": "#/definitions/VkComponentMapping"},
+            "xChromaOffset": {"$ref": "#/definitions/VkChromaLocation"},
+            "yChromaOffset": {"$ref": "#/definitions/VkChromaLocation"},
+            "chromaFilter": {"$ref": "#/definitions/VkFilter"},
+            "forceExplicitReconstruction": {"$ref": "#/definitions/VkBool32"}
+        }
+    },
+
+    "VkSamplerYcbcrConversionInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "conversion": {"$ref": "#/definitions/VkSamplerYcbcrConversion"}
+        }
+    },
+
+    "VkPhysicalDeviceSamplerYcbcrConversionFeatures": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "samplerYcbcrConversion": {"$ref": "#/definitions/VkBool32"}
+        }
+    },
+
+    "VkSamplerYcbcrConversionImageFormatProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "combinedImageSamplerDescriptorCount": {"$ref": "#/definitions/uint32_t"}
+        }
+    },
+
+    "VkDeviceGroupRenderPassBeginInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "deviceMask": {"$ref": "#/definitions/uint32_t"},
+            "deviceRenderAreaCount": {"$ref": "#/definitions/uint32_t"},
+            "pDeviceRenderAreas": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkRect2D"}}]}
+        }
+    },
+
+    "VkPhysicalDevicePointClippingProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "pointClippingBehavior": {"$ref": "#/definitions/VkPointClippingBehavior"}
+        }
+    },
+
+    "VkInputAttachmentAspectReference": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "subpass": {"$ref": "#/definitions/uint32_t"},
+            "inputAttachmentIndex": {"$ref": "#/definitions/uint32_t"},
+            "aspectMask": {"$ref": "#/definitions/VkImageAspectFlags"}
+        }
+    },
+
+    "VkRenderPassInputAttachmentAspectCreateInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "aspectReferenceCount": {"$ref": "#/definitions/uint32_t"},
+            "pAspectReferences": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkInputAttachmentAspectReference"}}]}
+        }
+    },
+
+    "VkPipelineTessellationDomainOriginStateCreateInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "domainOrigin": {"$ref": "#/definitions/VkTessellationDomainOrigin"}
+        }
+    },
+
+    "VkRenderPassMultiviewCreateInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "subpassCount": {"$ref": "#/definitions/uint32_t"},
+            "pViewMasks": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/uint32_t"}}]},
+            "dependencyCount": {"$ref": "#/definitions/uint32_t"},
+            "pViewOffsets": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/int32_t"}}]},
+            "correlationMaskCount": {"$ref": "#/definitions/uint32_t"},
+            "pCorrelationMasks": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/uint32_t"}}]}
+        }
+    },
+
+    "VkPhysicalDeviceMultiviewFeatures": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "multiview": {"$ref": "#/definitions/VkBool32"},
+            "multiviewGeometryShader": {"$ref": "#/definitions/VkBool32"},
+            "multiviewTessellationShader": {"$ref": "#/definitions/VkBool32"}
+        }
+    },
+
+    "VkPhysicalDeviceMultiviewProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "maxMultiviewViewCount": {"$ref": "#/definitions/uint32_t"},
+            "maxMultiviewInstanceIndex": {"$ref": "#/definitions/uint32_t"}
+        }
+    },
+
     "VkPhysicalDeviceShaderDrawParametersFeatures": {
         "type": "object",
         "additionalProperties": false,
@@ -2307,13 +2307,13 @@
     "VkDriverId": {"$ref": "#/definitions/enum"},
     "VkShaderFloatControlsIndependence": {"$ref": "#/definitions/enum"},
     "VkResolveModeFlagBits": {"$ref": "#/definitions/enum"},
-    "VkDescriptorBindingFlagBits": {"$ref": "#/definitions/enum"},
-    "VkSamplerReductionMode": {"$ref": "#/definitions/enum"},
     "VkSemaphoreType": {"$ref": "#/definitions/enum"},
     "VkSemaphoreWaitFlagBits": {"$ref": "#/definitions/enum"},
+    "VkDescriptorBindingFlagBits": {"$ref": "#/definitions/enum"},
+    "VkSamplerReductionMode": {"$ref": "#/definitions/enum"},
     "VkResolveModeFlags": {"$ref": "#/definitions/VkFlags"},
-    "VkDescriptorBindingFlags": {"$ref": "#/definitions/VkFlags"},
     "VkSemaphoreWaitFlags": {"$ref": "#/definitions/VkFlags"},
+    "VkDescriptorBindingFlags": {"$ref": "#/definitions/VkFlags"},
     "VkPhysicalDeviceVulkan11Features": {
         "type": "object",
         "additionalProperties": false,
@@ -2498,107 +2498,158 @@
         }
     },
 
-    "VkAttachmentDescription2": {
+    "VkPhysicalDeviceDriverProperties": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
             "sType": {"$ref": "#/definitions/VkStructureType"},
             "pNext": {"$ref": "#/definitions/void"},
-            "flags": {"$ref": "#/definitions/VkAttachmentDescriptionFlags"},
-            "format": {"$ref": "#/definitions/VkFormat"},
-            "samples": {"$ref": "#/definitions/VkSampleCountFlagBits"},
-            "loadOp": {"$ref": "#/definitions/VkAttachmentLoadOp"},
-            "storeOp": {"$ref": "#/definitions/VkAttachmentStoreOp"},
-            "stencilLoadOp": {"$ref": "#/definitions/VkAttachmentLoadOp"},
-            "stencilStoreOp": {"$ref": "#/definitions/VkAttachmentStoreOp"},
-            "initialLayout": {"$ref": "#/definitions/VkImageLayout"},
-            "finalLayout": {"$ref": "#/definitions/VkImageLayout"}
+            "driverID": {"$ref": "#/definitions/VkDriverId"},
+            "driverName":  {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/char"}},
+            "driverInfo":  {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/char"}},
+            "conformanceVersion": {"$ref": "#/definitions/VkConformanceVersion"}
         }
     },
 
-    "VkAttachmentReference2": {
+    "VkPhysicalDeviceVulkanMemoryModelFeatures": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
             "sType": {"$ref": "#/definitions/VkStructureType"},
             "pNext": {"$ref": "#/definitions/void"},
-            "attachment": {"$ref": "#/definitions/uint32_t"},
-            "layout": {"$ref": "#/definitions/VkImageLayout"},
-            "aspectMask": {"$ref": "#/definitions/VkImageAspectFlags"}
+            "vulkanMemoryModel": {"$ref": "#/definitions/VkBool32"},
+            "vulkanMemoryModelDeviceScope": {"$ref": "#/definitions/VkBool32"},
+            "vulkanMemoryModelAvailabilityVisibilityChains": {"$ref": "#/definitions/VkBool32"}
         }
     },
 
-    "VkSubpassDescription2": {
+    "VkPhysicalDeviceHostQueryResetFeatures": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
             "sType": {"$ref": "#/definitions/VkStructureType"},
             "pNext": {"$ref": "#/definitions/void"},
-            "flags": {"$ref": "#/definitions/VkSubpassDescriptionFlags"},
-            "pipelineBindPoint": {"$ref": "#/definitions/VkPipelineBindPoint"},
-            "viewMask": {"$ref": "#/definitions/uint32_t"},
-            "inputAttachmentCount": {"$ref": "#/definitions/uint32_t"},
-            "pInputAttachments": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkAttachmentReference2"}}]},
-            "colorAttachmentCount": {"$ref": "#/definitions/uint32_t"},
-            "pColorAttachments": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkAttachmentReference2"}}]},
-            "pResolveAttachments": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkAttachmentReference2"}}]},
-            "pDepthStencilAttachment": {"oneOf": [{"$ref": "#/definitions/void"},{"$ref": "#/definitions/VkAttachmentReference2"}]},
-            "preserveAttachmentCount": {"$ref": "#/definitions/uint32_t"},
-            "pPreserveAttachments": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/uint32_t"}}]}
+            "hostQueryReset": {"$ref": "#/definitions/VkBool32"}
         }
     },
 
-    "VkSubpassDependency2": {
+    "VkPhysicalDeviceTimelineSemaphoreFeatures": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
             "sType": {"$ref": "#/definitions/VkStructureType"},
             "pNext": {"$ref": "#/definitions/void"},
-            "srcSubpass": {"$ref": "#/definitions/uint32_t"},
-            "dstSubpass": {"$ref": "#/definitions/uint32_t"},
-            "srcStageMask": {"$ref": "#/definitions/VkPipelineStageFlags"},
-            "dstStageMask": {"$ref": "#/definitions/VkPipelineStageFlags"},
-            "srcAccessMask": {"$ref": "#/definitions/VkAccessFlags"},
-            "dstAccessMask": {"$ref": "#/definitions/VkAccessFlags"},
-            "dependencyFlags": {"$ref": "#/definitions/VkDependencyFlags"},
-            "viewOffset": {"$ref": "#/definitions/int32_t"}
+            "timelineSemaphore": {"$ref": "#/definitions/VkBool32"}
         }
     },
 
-    "VkRenderPassCreateInfo2": {
+    "VkPhysicalDeviceTimelineSemaphoreProperties": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
             "sType": {"$ref": "#/definitions/VkStructureType"},
             "pNext": {"$ref": "#/definitions/void"},
-            "flags": {"$ref": "#/definitions/VkRenderPassCreateFlags"},
-            "attachmentCount": {"$ref": "#/definitions/uint32_t"},
-            "pAttachments": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkAttachmentDescription2"}}]},
-            "subpassCount": {"$ref": "#/definitions/uint32_t"},
-            "pSubpasses": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkSubpassDescription2"}}]},
-            "dependencyCount": {"$ref": "#/definitions/uint32_t"},
-            "pDependencies": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkSubpassDependency2"}}]},
-            "correlatedViewMaskCount": {"$ref": "#/definitions/uint32_t"},
-            "pCorrelatedViewMasks": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/uint32_t"}}]}
+            "maxTimelineSemaphoreValueDifference": {"$ref": "#/definitions/uint64_t"}
         }
     },
 
-    "VkSubpassBeginInfo": {
+    "VkSemaphoreTypeCreateInfo": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
             "sType": {"$ref": "#/definitions/VkStructureType"},
             "pNext": {"$ref": "#/definitions/void"},
-            "contents": {"$ref": "#/definitions/VkSubpassContents"}
+            "semaphoreType": {"$ref": "#/definitions/VkSemaphoreType"},
+            "initialValue": {"$ref": "#/definitions/uint64_t"}
         }
     },
 
-    "VkSubpassEndInfo": {
+    "VkTimelineSemaphoreSubmitInfo": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
             "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"}
+            "pNext": {"$ref": "#/definitions/void"},
+            "waitSemaphoreValueCount": {"$ref": "#/definitions/uint32_t"},
+            "pWaitSemaphoreValues": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/uint64_t"}}]},
+            "signalSemaphoreValueCount": {"$ref": "#/definitions/uint32_t"},
+            "pSignalSemaphoreValues": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/uint64_t"}}]}
+        }
+    },
+
+    "VkSemaphoreWaitInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "flags": {"$ref": "#/definitions/VkSemaphoreWaitFlags"},
+            "semaphoreCount": {"$ref": "#/definitions/uint32_t"},
+            "pSemaphores": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkSemaphore"}}]},
+            "pValues": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/uint64_t"}}]}
+        }
+    },
+
+    "VkSemaphoreSignalInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "semaphore": {"$ref": "#/definitions/VkSemaphore"},
+            "value": {"$ref": "#/definitions/uint64_t"}
+        }
+    },
+
+    "VkPhysicalDeviceBufferDeviceAddressFeatures": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "bufferDeviceAddress": {"$ref": "#/definitions/VkBool32"},
+            "bufferDeviceAddressCaptureReplay": {"$ref": "#/definitions/VkBool32"},
+            "bufferDeviceAddressMultiDevice": {"$ref": "#/definitions/VkBool32"}
+        }
+    },
+
+    "VkBufferDeviceAddressInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "buffer": {"$ref": "#/definitions/VkBuffer"}
+        }
+    },
+
+    "VkBufferOpaqueCaptureAddressCreateInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "opaqueCaptureAddress": {"$ref": "#/definitions/uint64_t"}
+        }
+    },
+
+    "VkMemoryOpaqueCaptureAddressAllocateInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "opaqueCaptureAddress": {"$ref": "#/definitions/uint64_t"}
+        }
+    },
+
+    "VkDeviceMemoryOpaqueCaptureAddressInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "memory": {"$ref": "#/definitions/VkDeviceMemory"}
         }
     },
 
@@ -2611,19 +2662,6 @@
             "storageBuffer8BitAccess": {"$ref": "#/definitions/VkBool32"},
             "uniformAndStorageBuffer8BitAccess": {"$ref": "#/definitions/VkBool32"},
             "storagePushConstant8": {"$ref": "#/definitions/VkBool32"}
-        }
-    },
-
-    "VkPhysicalDeviceDriverProperties": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "driverID": {"$ref": "#/definitions/VkDriverId"},
-            "driverName":  {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/char"}},
-            "driverInfo":  {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/char"}},
-            "conformanceVersion": {"$ref": "#/definitions/VkConformanceVersion"}
         }
     },
 
@@ -2768,6 +2806,161 @@
         }
     },
 
+    "VkPhysicalDeviceScalarBlockLayoutFeatures": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "scalarBlockLayout": {"$ref": "#/definitions/VkBool32"}
+        }
+    },
+
+    "VkSamplerReductionModeCreateInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "reductionMode": {"$ref": "#/definitions/VkSamplerReductionMode"}
+        }
+    },
+
+    "VkPhysicalDeviceSamplerFilterMinmaxProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "filterMinmaxSingleComponentFormats": {"$ref": "#/definitions/VkBool32"},
+            "filterMinmaxImageComponentMapping": {"$ref": "#/definitions/VkBool32"}
+        }
+    },
+
+    "VkPhysicalDeviceUniformBufferStandardLayoutFeatures": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "uniformBufferStandardLayout": {"$ref": "#/definitions/VkBool32"}
+        }
+    },
+
+    "VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "shaderSubgroupExtendedTypes": {"$ref": "#/definitions/VkBool32"}
+        }
+    },
+
+    "VkAttachmentDescription2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "flags": {"$ref": "#/definitions/VkAttachmentDescriptionFlags"},
+            "format": {"$ref": "#/definitions/VkFormat"},
+            "samples": {"$ref": "#/definitions/VkSampleCountFlagBits"},
+            "loadOp": {"$ref": "#/definitions/VkAttachmentLoadOp"},
+            "storeOp": {"$ref": "#/definitions/VkAttachmentStoreOp"},
+            "stencilLoadOp": {"$ref": "#/definitions/VkAttachmentLoadOp"},
+            "stencilStoreOp": {"$ref": "#/definitions/VkAttachmentStoreOp"},
+            "initialLayout": {"$ref": "#/definitions/VkImageLayout"},
+            "finalLayout": {"$ref": "#/definitions/VkImageLayout"}
+        }
+    },
+
+    "VkAttachmentReference2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "attachment": {"$ref": "#/definitions/uint32_t"},
+            "layout": {"$ref": "#/definitions/VkImageLayout"},
+            "aspectMask": {"$ref": "#/definitions/VkImageAspectFlags"}
+        }
+    },
+
+    "VkSubpassDescription2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "flags": {"$ref": "#/definitions/VkSubpassDescriptionFlags"},
+            "pipelineBindPoint": {"$ref": "#/definitions/VkPipelineBindPoint"},
+            "viewMask": {"$ref": "#/definitions/uint32_t"},
+            "inputAttachmentCount": {"$ref": "#/definitions/uint32_t"},
+            "pInputAttachments": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkAttachmentReference2"}}]},
+            "colorAttachmentCount": {"$ref": "#/definitions/uint32_t"},
+            "pColorAttachments": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkAttachmentReference2"}}]},
+            "pResolveAttachments": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkAttachmentReference2"}}]},
+            "pDepthStencilAttachment": {"oneOf": [{"$ref": "#/definitions/void"},{"$ref": "#/definitions/VkAttachmentReference2"}]},
+            "preserveAttachmentCount": {"$ref": "#/definitions/uint32_t"},
+            "pPreserveAttachments": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/uint32_t"}}]}
+        }
+    },
+
+    "VkSubpassDependency2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "srcSubpass": {"$ref": "#/definitions/uint32_t"},
+            "dstSubpass": {"$ref": "#/definitions/uint32_t"},
+            "srcStageMask": {"$ref": "#/definitions/VkPipelineStageFlags"},
+            "dstStageMask": {"$ref": "#/definitions/VkPipelineStageFlags"},
+            "srcAccessMask": {"$ref": "#/definitions/VkAccessFlags"},
+            "dstAccessMask": {"$ref": "#/definitions/VkAccessFlags"},
+            "dependencyFlags": {"$ref": "#/definitions/VkDependencyFlags"},
+            "viewOffset": {"$ref": "#/definitions/int32_t"}
+        }
+    },
+
+    "VkRenderPassCreateInfo2": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "flags": {"$ref": "#/definitions/VkRenderPassCreateFlags"},
+            "attachmentCount": {"$ref": "#/definitions/uint32_t"},
+            "pAttachments": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkAttachmentDescription2"}}]},
+            "subpassCount": {"$ref": "#/definitions/uint32_t"},
+            "pSubpasses": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkSubpassDescription2"}}]},
+            "dependencyCount": {"$ref": "#/definitions/uint32_t"},
+            "pDependencies": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkSubpassDependency2"}}]},
+            "correlatedViewMaskCount": {"$ref": "#/definitions/uint32_t"},
+            "pCorrelatedViewMasks": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/uint32_t"}}]}
+        }
+    },
+
+    "VkSubpassBeginInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"},
+            "contents": {"$ref": "#/definitions/VkSubpassContents"}
+        }
+    },
+
+    "VkSubpassEndInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "sType": {"$ref": "#/definitions/VkStructureType"},
+            "pNext": {"$ref": "#/definitions/void"}
+        }
+    },
+
     "VkSubpassDescriptionDepthStencilResolve": {
         "type": "object",
         "additionalProperties": false,
@@ -2793,16 +2986,6 @@
         }
     },
 
-    "VkPhysicalDeviceScalarBlockLayoutFeatures": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "scalarBlockLayout": {"$ref": "#/definitions/VkBool32"}
-        }
-    },
-
     "VkImageStencilUsageCreateInfo": {
         "type": "object",
         "additionalProperties": false,
@@ -2810,39 +2993,6 @@
             "sType": {"$ref": "#/definitions/VkStructureType"},
             "pNext": {"$ref": "#/definitions/void"},
             "stencilUsage": {"$ref": "#/definitions/VkImageUsageFlags"}
-        }
-    },
-
-    "VkSamplerReductionModeCreateInfo": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "reductionMode": {"$ref": "#/definitions/VkSamplerReductionMode"}
-        }
-    },
-
-    "VkPhysicalDeviceSamplerFilterMinmaxProperties": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "filterMinmaxSingleComponentFormats": {"$ref": "#/definitions/VkBool32"},
-            "filterMinmaxImageComponentMapping": {"$ref": "#/definitions/VkBool32"}
-        }
-    },
-
-    "VkPhysicalDeviceVulkanMemoryModelFeatures": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "vulkanMemoryModel": {"$ref": "#/definitions/VkBool32"},
-            "vulkanMemoryModelDeviceScope": {"$ref": "#/definitions/VkBool32"},
-            "vulkanMemoryModelAvailabilityVisibilityChains": {"$ref": "#/definitions/VkBool32"}
         }
     },
 
@@ -2894,26 +3044,6 @@
         }
     },
 
-    "VkPhysicalDeviceUniformBufferStandardLayoutFeatures": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "uniformBufferStandardLayout": {"$ref": "#/definitions/VkBool32"}
-        }
-    },
-
-    "VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "shaderSubgroupExtendedTypes": {"$ref": "#/definitions/VkBool32"}
-        }
-    },
-
     "VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures": {
         "type": "object",
         "additionalProperties": false,
@@ -2942,136 +3072,6 @@
             "pNext": {"$ref": "#/definitions/void"},
             "stencilInitialLayout": {"$ref": "#/definitions/VkImageLayout"},
             "stencilFinalLayout": {"$ref": "#/definitions/VkImageLayout"}
-        }
-    },
-
-    "VkPhysicalDeviceHostQueryResetFeatures": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "hostQueryReset": {"$ref": "#/definitions/VkBool32"}
-        }
-    },
-
-    "VkPhysicalDeviceTimelineSemaphoreFeatures": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "timelineSemaphore": {"$ref": "#/definitions/VkBool32"}
-        }
-    },
-
-    "VkPhysicalDeviceTimelineSemaphoreProperties": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "maxTimelineSemaphoreValueDifference": {"$ref": "#/definitions/uint64_t"}
-        }
-    },
-
-    "VkSemaphoreTypeCreateInfo": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "semaphoreType": {"$ref": "#/definitions/VkSemaphoreType"},
-            "initialValue": {"$ref": "#/definitions/uint64_t"}
-        }
-    },
-
-    "VkTimelineSemaphoreSubmitInfo": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "waitSemaphoreValueCount": {"$ref": "#/definitions/uint32_t"},
-            "pWaitSemaphoreValues": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/uint64_t"}}]},
-            "signalSemaphoreValueCount": {"$ref": "#/definitions/uint32_t"},
-            "pSignalSemaphoreValues": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/uint64_t"}}]}
-        }
-    },
-
-    "VkSemaphoreWaitInfo": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "flags": {"$ref": "#/definitions/VkSemaphoreWaitFlags"},
-            "semaphoreCount": {"$ref": "#/definitions/uint32_t"},
-            "pSemaphores": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/VkSemaphore"}}]},
-            "pValues": {"oneOf": [{"$ref": "#/definitions/void"}, {"type": "array", "minItems": 0, "maxItems": 255, "items": {"$ref": "#/definitions/uint64_t"}}]}
-        }
-    },
-
-    "VkSemaphoreSignalInfo": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "semaphore": {"$ref": "#/definitions/VkSemaphore"},
-            "value": {"$ref": "#/definitions/uint64_t"}
-        }
-    },
-
-    "VkPhysicalDeviceBufferDeviceAddressFeatures": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "bufferDeviceAddress": {"$ref": "#/definitions/VkBool32"},
-            "bufferDeviceAddressCaptureReplay": {"$ref": "#/definitions/VkBool32"},
-            "bufferDeviceAddressMultiDevice": {"$ref": "#/definitions/VkBool32"}
-        }
-    },
-
-    "VkBufferDeviceAddressInfo": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "buffer": {"$ref": "#/definitions/VkBuffer"}
-        }
-    },
-
-    "VkBufferOpaqueCaptureAddressCreateInfo": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "opaqueCaptureAddress": {"$ref": "#/definitions/uint64_t"}
-        }
-    },
-
-    "VkMemoryOpaqueCaptureAddressAllocateInfo": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "opaqueCaptureAddress": {"$ref": "#/definitions/uint64_t"}
-        }
-    },
-
-    "VkDeviceMemoryOpaqueCaptureAddressInfo": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-            "sType": {"$ref": "#/definitions/VkStructureType"},
-            "pNext": {"$ref": "#/definitions/void"},
-            "memory": {"$ref": "#/definitions/VkDeviceMemory"}
         }
     },
 
