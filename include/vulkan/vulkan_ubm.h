@@ -1,5 +1,5 @@
-#ifndef VULKAN_XCB_H_
-#define VULKAN_XCB_H_ 1
+#ifndef VULKAN_UBM_H_
+#define VULKAN_UBM_H_ 1
 
 /*
 ** Copyright 2015-2026 The Khronos Group Inc.
