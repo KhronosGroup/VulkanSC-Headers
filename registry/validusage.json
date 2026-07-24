@@ -1,9 +1,9 @@
 {
   "version info": {
     "schema version": 2,
-    "api version": "1.0.21",
-    "comment": "from git branch: github-sc_main commit: bae5ec64c6d0b387de800516cfd3baaf2732f6db",
-    "date": "2026-03-18 00:43:12Z"
+    "api version": "1.0.22",
+    "comment": "from git branch: github-sc_main commit: 6e80f3bc9c7b86dd1425b979614c8dd50e09fa18",
+    "date": "2026-07-24 01:07:27Z"
   },
   "validation": {
     "VkDeviceAddress": {
@@ -634,6 +634,16 @@
         {
           "vuid": "VUID-VkDeviceCreateInfo-None-10778",
           "text": "<code>queueCreateInfoCount</code> <strong class=\"purple\">must</strong> be greater than <code>0</code>",
+          "page": "chapters/devsandqueues.html"
+        },
+        {
+          "vuid": "VUID-VkDeviceCreateInfo-enabledLayerCount-12384",
+          "text": "<code>enabledLayerCount</code> <strong class=\"purple\">must</strong> be 0",
+          "page": "chapters/devsandqueues.html"
+        },
+        {
+          "vuid": "VUID-VkDeviceCreateInfo-ppEnabledLayerNames-12385",
+          "text": "<code>ppEnabledLayerNames</code> <strong class=\"purple\">must</strong> be <code>NULL</code>",
           "page": "chapters/devsandqueues.html"
         },
         {
@@ -5548,12 +5558,12 @@
           "page": "chapters/synchronization.html"
         },
         {
-          "vuid": "VUID-VkImageMemoryBarrier2-srcQueueFamilyIndex-09121",
+          "vuid": "VUID-VkImageMemoryBarrier2-srcQueueFamilyIndex-09099",
           "text": "If the <a href=\"#VK_EXT_queue_family_foreign\">VK_EXT_queue_family_foreign</a> extension is not enabled <code>srcQueueFamilyIndex</code> <strong class=\"purple\">must</strong> not be <a href=\"#VK_QUEUE_FAMILY_FOREIGN_EXT\">VK_QUEUE_FAMILY_FOREIGN_EXT</a>",
           "page": "chapters/synchronization.html"
         },
         {
-          "vuid": "VUID-VkImageMemoryBarrier2-dstQueueFamilyIndex-09122",
+          "vuid": "VUID-VkImageMemoryBarrier2-dstQueueFamilyIndex-09100",
           "text": "If the <a href=\"#VK_EXT_queue_family_foreign\">VK_EXT_queue_family_foreign</a> extension is not enabled <code>dstQueueFamilyIndex</code> <strong class=\"purple\">must</strong> not be <a href=\"#VK_QUEUE_FAMILY_FOREIGN_EXT\">VK_QUEUE_FAMILY_FOREIGN_EXT</a>",
           "page": "chapters/synchronization.html"
         },
@@ -5807,12 +5817,12 @@
           "page": "chapters/synchronization.html"
         },
         {
-          "vuid": "VUID-VkImageMemoryBarrier-srcQueueFamilyIndex-09121",
+          "vuid": "VUID-VkImageMemoryBarrier-srcQueueFamilyIndex-09099",
           "text": "If the <a href=\"#VK_EXT_queue_family_foreign\">VK_EXT_queue_family_foreign</a> extension is not enabled <code>srcQueueFamilyIndex</code> <strong class=\"purple\">must</strong> not be <a href=\"#VK_QUEUE_FAMILY_FOREIGN_EXT\">VK_QUEUE_FAMILY_FOREIGN_EXT</a>",
           "page": "chapters/synchronization.html"
         },
         {
-          "vuid": "VUID-VkImageMemoryBarrier-dstQueueFamilyIndex-09122",
+          "vuid": "VUID-VkImageMemoryBarrier-dstQueueFamilyIndex-09100",
           "text": "If the <a href=\"#VK_EXT_queue_family_foreign\">VK_EXT_queue_family_foreign</a> extension is not enabled <code>dstQueueFamilyIndex</code> <strong class=\"purple\">must</strong> not be <a href=\"#VK_QUEUE_FAMILY_FOREIGN_EXT\">VK_QUEUE_FAMILY_FOREIGN_EXT</a>",
           "page": "chapters/synchronization.html"
         },
@@ -9740,6 +9750,11 @@
           "page": "chapters/pipelines.html"
         },
         {
+          "vuid": "VUID-VkGraphicsPipelineCreateInfo-multisampledRenderToSingleSampled-06853",
+          "text": "If the pipeline requires <a href=\"#pipelines-graphics-subsets-fragment-output\">fragment output interface state</a>, the <code><code>VK_AMD_mixed_attachment_samples</code></code> extension is not enabled, the <code><code>VK_NV_framebuffer_mixed_samples</code></code> extension is not enabled, <code>rasterizationSamples</code> is not dynamic, and <code>subpass</code> uses color and/or depth/stencil attachments, then the <code>rasterizationSamples</code> member of <code>pMultisampleState</code> <strong class=\"purple\">must</strong> be the same as the sample count for those subpass attachments",
+          "page": "chapters/pipelines.html"
+        },
+        {
           "vuid": "VUID-VkGraphicsPipelineCreateInfo-subpass-00758",
           "text": "If the pipeline requires <a href=\"#pipelines-graphics-subsets-fragment-output\">fragment output interface state</a>, <code>rasterizationSamples</code> is not dynamic, and <code>subpass</code> does not use any color and/or depth/stencil attachments, then the <code>rasterizationSamples</code> member of <code>pMultisampleState</code> <strong class=\"purple\">must</strong> follow the rules for a <a href=\"#renderpass-noattachments\">zero-attachment subpass</a>",
           "page": "chapters/pipelines.html"
@@ -10036,7 +10051,7 @@
         },
         {
           "vuid": "VUID-VkGraphicsPipelineCreateInfo-None-09043",
-          "text": "If the format of any color attachment is <a href=\"#VkFormat\">VK_FORMAT_E5B9G9R9_UFLOAT_PACK32</a>, the <code>colorWriteMask</code> member of the corresponding element of <code>pColorBlendState-&gt;pAttachments</code> <strong class=\"purple\">must</strong> either include all of <a href=\"#VkColorComponentFlagBits\">VK_COLOR_COMPONENT_R_BIT</a>, <a href=\"#VkColorComponentFlagBits\">VK_COLOR_COMPONENT_G_BIT</a>, and <a href=\"#VkColorComponentFlagBits\">VK_COLOR_COMPONENT_B_BIT</a>, or none of them",
+          "text": "If the format of any color attachment is <a href=\"#VkFormat\">VK_FORMAT_E5B9G9R9_UFLOAT_PACK32</a>, the <code>colorWriteMask</code> member of the corresponding element of <code>pColorBlendState-&gt;pAttachments</code> <strong class=\"purple\">must</strong> either include all of <a href=\"#VkColorComponentFlagBits\">VK_COLOR_COMPONENT_R_BIT</a>, <a href=\"#VkColorComponentFlagBits\">VK_COLOR_COMPONENT_G_BIT</a>, <a href=\"#VkColorComponentFlagBits\">VK_COLOR_COMPONENT_B_BIT</a>, and <a href=\"#VkColorComponentFlagBits\">VK_COLOR_COMPONENT_A_BIT</a>, or none of them",
           "page": "chapters/pipelines.html"
         },
         {
@@ -10429,11 +10444,6 @@
         {
           "vuid": "VUID-vkCmdBindPipeline-variableSampleLocations-01525",
           "text": "If <a href=\"#VkPhysicalDeviceSampleLocationsPropertiesEXT\">VkPhysicalDeviceSampleLocationsPropertiesEXT</a>::<code>variableSampleLocations</code> is <a href=\"#VK_FALSE\">VK_FALSE</a>, and <code>pipeline</code> is a graphics pipeline created with a <code>renderPass</code> that is not <a href=\"#VK_NULL_HANDLE\">VK_NULL_HANDLE</a> and with a <a href=\"#VkPipelineSampleLocationsStateCreateInfoEXT\">VkPipelineSampleLocationsStateCreateInfoEXT</a> structure having its <code>sampleLocationsEnable</code> member set to <a href=\"#VK_TRUE\">VK_TRUE</a> but without <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_SAMPLE_LOCATIONS_EXT</a> enabled then the current render pass instance <strong class=\"purple\">must</strong> have been begun by specifying a <a href=\"#VkRenderPassSampleLocationsBeginInfoEXT\">VkRenderPassSampleLocationsBeginInfoEXT</a> structure whose <code>pPostSubpassSampleLocations</code> member contains an element with a <code>subpassIndex</code> matching the current subpass index and the <code>sampleLocationsInfo</code> member of that element <strong class=\"purple\">must</strong> match the <code>sampleLocationsInfo</code> specified in <a href=\"#VkPipelineSampleLocationsStateCreateInfoEXT\">VkPipelineSampleLocationsStateCreateInfoEXT</a> when the pipeline was created",
-          "page": "chapters/pipelines.html"
-        },
-        {
-          "vuid": "VUID-vkCmdBindPipeline-commandBuffer-04809",
-          "text": "If <code>commandBuffer</code> is a secondary command buffer with <code>VkCommandBufferInheritanceViewportScissorInfoNV</code>::<code>viewportScissor2D</code> enabled and <code>pipelineBindPoint</code> is <a href=\"#VkPipelineBindPoint\">VK_PIPELINE_BIND_POINT_GRAPHICS</a> and <code>pipeline</code> was created with <a href=\"#VkPipelineDiscardRectangleStateCreateInfoEXT\">VkPipelineDiscardRectangleStateCreateInfoEXT</a> structure and its <code>discardRectangleCount</code> member is not <code>0</code>, or the pipeline was created with <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_DISCARD_RECTANGLE_ENABLE_EXT</a> enabled, then the pipeline <strong class=\"purple\">must</strong> have been created with <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_DISCARD_RECTANGLE_EXT</a> enabled",
           "page": "chapters/pipelines.html"
         },
         {
@@ -11608,7 +11618,7 @@
         },
         {
           "vuid": "VUID-VkBufferCreateInfo-sharingMode-00914",
-          "text": "If <code>sharingMode</code> is <a href=\"#VkSharingMode\">VK_SHARING_MODE_CONCURRENT</a>, <code>queueFamilyIndexCount</code> <strong class=\"purple\">must</strong> be greater than <code>1</code>",
+          "text": "If <code>sharingMode</code> is <a href=\"#VkSharingMode\">VK_SHARING_MODE_CONCURRENT</a>, then <code>queueFamilyIndexCount</code> <strong class=\"purple\">must</strong> be greater than <code>1</code>",
           "page": "chapters/resources.html"
         },
         {
@@ -11653,7 +11663,7 @@
         },
         {
           "vuid": "VUID-VkBufferCreateInfo-flags-09641",
-          "text": "If <code>flags</code> includes <a href=\"#VkBufferCreateFlagBits\">VK_BUFFER_CREATE_PROTECTED_BIT</a>, then the <a href=\"#resources-effective-buffer-usage\">effective usage</a> <strong class=\"purple\">must</strong> not contain bits other than<div class=\"ulist\">\n<ul>\n<li>\n<p><a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_TRANSFER_SRC_BIT</a></p>\n</li>\n<li>\n<p><a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_TRANSFER_DST_BIT</a></p>\n</li>\n<li>\n<p><a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT</a></p>\n</li>\n<li>\n<p><a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT</a></p>\n</li>\n<li>\n<p><a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT</a></p>\n</li>\n<li>\n<p><a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_STORAGE_BUFFER_BIT</a></p>\n</li>\n<li>\n<p><a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_SHADER_DEVICE_ADDRESS_BIT</a></p>\n</li>\n</ul>\n</div>",
+          "text": "If <code>flags</code> includes <a href=\"#VkBufferCreateFlagBits\">VK_BUFFER_CREATE_PROTECTED_BIT</a>, then the <a href=\"#resources-effective-buffer-usage\">effective usage flags</a> <strong class=\"purple\">must</strong> not contain bits other than<div class=\"ulist\">\n<ul>\n<li>\n<p><a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_TRANSFER_SRC_BIT</a></p>\n</li>\n<li>\n<p><a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_TRANSFER_DST_BIT</a></p>\n</li>\n<li>\n<p><a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_UNIFORM_TEXEL_BUFFER_BIT</a></p>\n</li>\n<li>\n<p><a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_STORAGE_TEXEL_BUFFER_BIT</a></p>\n</li>\n<li>\n<p><a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT</a></p>\n</li>\n<li>\n<p><a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_STORAGE_BUFFER_BIT</a></p>\n</li>\n<li>\n<p><a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_SHADER_DEVICE_ADDRESS_BIT</a></p>\n</li>\n</ul>\n</div>",
           "page": "chapters/resources.html"
         },
         {
@@ -12027,7 +12037,7 @@
         },
         {
           "vuid": "VUID-VkImageCreateInfo-sharingMode-00942",
-          "text": "If <code>sharingMode</code> is <a href=\"#VkSharingMode\">VK_SHARING_MODE_CONCURRENT</a>, <code>queueFamilyIndexCount</code> <strong class=\"purple\">must</strong> be greater than <code>1</code>",
+          "text": "If <code>sharingMode</code> is <a href=\"#VkSharingMode\">VK_SHARING_MODE_CONCURRENT</a>, then <code>queueFamilyIndexCount</code> <strong class=\"purple\">must</strong> be greater than <code>1</code>",
           "page": "chapters/resources.html"
         },
         {
@@ -12922,13 +12932,18 @@
           "page": "chapters/resources.html"
         },
         {
-          "vuid": "VUID-VkImageViewCreateInfo-image-01762",
-          "text": "If <code>image</code> was not created with the <a href=\"#VkImageCreateFlagBits\">VK_IMAGE_CREATE_MUTABLE_FORMAT_BIT</a> flag, or if the <code>format</code> of the <code>image</code> is a <a href=\"#formats-multiplanar\">multi-planar format</a> and if <code>subresourceRange.aspectMask</code> is <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a>, <code>format</code> <strong class=\"purple\">must</strong> be identical to the <code>format</code> used to create <code>image</code>",
+          "vuid": "VUID-VkImageViewCreateInfo-image-12397",
+          "text": "If <code>image</code> was not created with the <a href=\"#VkImageCreateFlagBits\">VK_IMAGE_CREATE_MUTABLE_FORMAT_BIT</a> flag <code>format</code> <strong class=\"purple\">must</strong> be identical to the <code>format</code> used to create <code>image</code>",
+          "page": "chapters/resources.html"
+        },
+        {
+          "vuid": "VUID-VkImageViewCreateInfo-format-12398",
+          "text": "If the <code>format</code> of the <code>image</code> is a <a href=\"#formats-multiplanar\">multi-planar format</a> and <code>subresourceRange.aspectMask</code> is <a href=\"#VkImageAspectFlagBits\">VK_IMAGE_ASPECT_COLOR_BIT</a>, <code>format</code> <strong class=\"purple\">must</strong> be identical to the <code>format</code> used to create <code>image</code>",
           "page": "chapters/resources.html"
         },
         {
           "vuid": "VUID-VkImageViewCreateInfo-format-06415",
-          "text": "If the image view <a href=\"#image-views-requiring-sampler-ycbcr-conversion\">requires a sampler Y′C<sub>B</sub>C<sub>R</sub> conversion</a> and <code>usage</code> contains <a href=\"#VkImageUsageFlagBits\">VK_IMAGE_USAGE_SAMPLED_BIT</a>, then the <code>pNext</code> chain <strong class=\"purple\">must</strong> include a <a href=\"#VkSamplerYcbcrConversionInfo\">VkSamplerYcbcrConversionInfo</a> structure with a conversion value other than <a href=\"#VK_NULL_HANDLE\">VK_NULL_HANDLE</a>",
+          "text": "If the image view&#8217;s format <a href=\"#formats-requiring-sampler-ycbcr-conversion\">requires a sampler Y′C<sub>B</sub>C<sub>R</sub> conversion</a> and <code>usage</code> contains <a href=\"#VkImageUsageFlagBits\">VK_IMAGE_USAGE_SAMPLED_BIT</a>, then the <code>pNext</code> chain <strong class=\"purple\">must</strong> include a <a href=\"#VkSamplerYcbcrConversionInfo\">VkSamplerYcbcrConversionInfo</a> structure with a conversion value other than <a href=\"#VK_NULL_HANDLE\">VK_NULL_HANDLE</a>",
           "page": "chapters/resources.html"
         },
         {
@@ -12982,13 +12997,18 @@
           "page": "chapters/resources.html"
         },
         {
+          "vuid": "VUID-VkImageViewCreateInfo-attachmentFragmentShadingRate-12386",
+          "text": "If the <a href=\"#features-attachmentFragmentShadingRate\"><code>attachmentFragmentShadingRate</code></a> feature is not enabled, the <code>usage</code> for the image view <strong class=\"purple\">must</strong> not contain <a href=\"#VkImageUsageFlagBits\">VK_IMAGE_USAGE_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR</a>",
+          "page": "chapters/resources.html"
+        },
+        {
           "vuid": "VUID-VkImageViewCreateInfo-usage-04550",
-          "text": "If the <a href=\"#features-attachmentFragmentShadingRate\"><code>attachmentFragmentShadingRate</code></a> feature is enabled, and the <code>usage</code> for the image view includes <a href=\"#VkImageUsageFlagBits\">VK_IMAGE_USAGE_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR</a>, then the image view&#8217;s <a href=\"#resources-image-view-format-features\">format features</a> <strong class=\"purple\">must</strong> contain <a href=\"#VkFormatFeatureFlagBits\">VK_FORMAT_FEATURE_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR</a>",
+          "text": "If the <code>usage</code> for the image view includes <a href=\"#VkImageUsageFlagBits\">VK_IMAGE_USAGE_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR</a>, then the image view&#8217;s <a href=\"#resources-image-view-format-features\">format features</a> <strong class=\"purple\">must</strong> contain <a href=\"#VkFormatFeatureFlagBits\">VK_FORMAT_FEATURE_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR</a>",
           "page": "chapters/resources.html"
         },
         {
           "vuid": "VUID-VkImageViewCreateInfo-usage-04551",
-          "text": "If the <a href=\"#features-attachmentFragmentShadingRate\"><code>attachmentFragmentShadingRate</code></a> feature is enabled, the <code>usage</code> for the image view includes <a href=\"#VkImageUsageFlagBits\">VK_IMAGE_USAGE_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR</a>, and <a href=\"#limits-layeredShadingRateAttachments\"><code>layeredShadingRateAttachments</code></a> is <a href=\"#VK_FALSE\">VK_FALSE</a>, <code>subresourceRange.layerCount</code> <strong class=\"purple\">must</strong> be <code>1</code>",
+          "text": "If the <code>usage</code> for the image view includes <a href=\"#VkImageUsageFlagBits\">VK_IMAGE_USAGE_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR</a>, and <a href=\"#limits-layeredShadingRateAttachments\"><code>layeredShadingRateAttachments</code></a> is <a href=\"#VK_FALSE\">VK_FALSE</a>, <code>subresourceRange.layerCount</code> <strong class=\"purple\">must</strong> be <code>1</code>",
           "page": "chapters/resources.html"
         },
         {
@@ -14563,6 +14583,16 @@
           "page": "chapters/descriptorsets.html"
         },
         {
+          "vuid": "VUID-vkCreateDescriptorSetLayout-pCreateInfo-05011",
+          "text": "<code>pCreateInfo-&gt;bindingCount</code> <strong class=\"purple\">must</strong> be less than or equal to <a href=\"#limits-maxDescriptorSetLayoutBindings\">maxDescriptorSetLayoutBindings</a>",
+          "page": "chapters/descriptorsets.html"
+        },
+        {
+          "vuid": "VUID-vkCreateDescriptorSetLayout-pCreateInfo-05012",
+          "text": "The <code>binding</code> member of each element of <code>pCreateInfo-&gt;pBindings</code> <strong class=\"purple\">must</strong> be less than the value of <a href=\"#VkDeviceObjectReservationCreateInfo\">VkDeviceObjectReservationCreateInfo</a>::<code>descriptorSetLayoutBindingLimit</code> provided when <code>device</code> was created",
+          "page": "chapters/descriptorsets.html"
+        },
+        {
           "vuid": "VUID-vkCreateDescriptorSetLayout-device-05068",
           "text": "The number of descriptor set layouts currently allocated from <code>device</code> plus 1 <strong class=\"purple\">must</strong> be less than or equal to the total number of descriptor set layouts requested via <a href=\"#VkDeviceObjectReservationCreateInfo\">VkDeviceObjectReservationCreateInfo</a>::<code>descriptorSetLayoutRequestCount</code> specified when <code>device</code> was created",
           "page": "chapters/descriptorsets.html"
@@ -14609,11 +14639,6 @@
         {
           "vuid": "VUID-VkDescriptorSetLayoutCreateInfo-descriptorType-03001",
           "text": "If any binding has the <a href=\"#VkDescriptorBindingFlagBits\">VK_DESCRIPTOR_BINDING_UPDATE_AFTER_BIND_BIT</a> bit set, then all bindings <strong class=\"purple\">must</strong> not have <code>descriptorType</code> of <a href=\"#VkDescriptorType\">VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC</a> or <a href=\"#VkDescriptorType\">VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC</a>",
-          "page": "chapters/descriptorsets.html"
-        },
-        {
-          "vuid": "VUID-VkDescriptorSetLayoutCreateInfo-bindingCount-05011",
-          "text": "<code>bindingCount</code> <strong class=\"purple\">must</strong> be less than or equal to <a href=\"#limits-maxDescriptorSetLayoutBindings\">maxDescriptorSetLayoutBindings</a>",
           "page": "chapters/descriptorsets.html"
         },
         {
@@ -14678,11 +14703,6 @@
         {
           "vuid": "VUID-VkDescriptorSetLayoutBinding-pImmutableSamplers-04009",
           "text": "The sampler objects indicated by <code>pImmutableSamplers</code> <strong class=\"purple\">must</strong> not have a <code>borderColor</code> with one of the values <a href=\"#VkBorderColor\">VK_BORDER_COLOR_FLOAT_CUSTOM_EXT</a> or <a href=\"#VkBorderColor\">VK_BORDER_COLOR_INT_CUSTOM_EXT</a>",
-          "page": "chapters/descriptorsets.html"
-        },
-        {
-          "vuid": "VUID-VkDescriptorSetLayoutBinding-binding-05012",
-          "text": "<code>binding</code> <strong class=\"purple\">must</strong> be less than the value of <a href=\"#VkDeviceObjectReservationCreateInfo\">VkDeviceObjectReservationCreateInfo</a>::<code>descriptorSetLayoutBindingLimit</code> provided when the device was created",
           "page": "chapters/descriptorsets.html"
         },
         {
@@ -15468,7 +15488,7 @@
         },
         {
           "vuid": "VUID-VkWriteDescriptorSet-dstArrayElement-00321",
-          "text": "The sum of <code>dstArrayElement</code> and <code>descriptorCount</code> <strong class=\"purple\">must</strong> be less than or equal to the number of array elements in the descriptor set binding specified by <code>dstBinding</code>, and all applicable <a href=\"#descriptorsets-updates-consecutive\">consecutive bindings</a>",
+          "text": "The sum of <code>dstArrayElement</code> and <code>descriptorCount</code> <strong class=\"purple\">must</strong> be less than or equal to the number of array elements in the descriptor set binding specified by <code>dstBinding</code>, and all applicable <a href=\"#descriptors-sets-updates-consecutive\">consecutive bindings</a>",
           "page": "chapters/descriptorsets.html"
         },
         {
@@ -15583,22 +15603,22 @@
         },
         {
           "vuid": "VUID-VkWriteDescriptorSet-descriptorType-04149",
-          "text": "If <code>descriptorType</code> is <a href=\"#VkDescriptorType\">VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE</a> the <code>imageLayout</code> member of each element of <code>pImageInfo</code> <strong class=\"purple\">must</strong> be a member of the list given in <a href=\"#descriptorsets-sampledimage\">Sampled Image</a>",
+          "text": "If <code>descriptorType</code> is <a href=\"#VkDescriptorType\">VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE</a> the <code>imageLayout</code> member of each element of <code>pImageInfo</code> <strong class=\"purple\">must</strong> be a member of the list given in <a href=\"#descriptors-sampledimage\">Sampled Image</a>",
           "page": "chapters/descriptorsets.html"
         },
         {
           "vuid": "VUID-VkWriteDescriptorSet-descriptorType-04150",
-          "text": "If <code>descriptorType</code> is <a href=\"#VkDescriptorType\">VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER</a> the <code>imageLayout</code> member of each element of <code>pImageInfo</code> <strong class=\"purple\">must</strong> be a member of the list given in <a href=\"#descriptorsets-combinedimagesampler\">Combined Image Sampler</a>",
+          "text": "If <code>descriptorType</code> is <a href=\"#VkDescriptorType\">VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER</a> the <code>imageLayout</code> member of each element of <code>pImageInfo</code> <strong class=\"purple\">must</strong> be a member of the list given in <a href=\"#descriptors-combinedimagesampler\">Combined Image Sampler</a>",
           "page": "chapters/descriptorsets.html"
         },
         {
           "vuid": "VUID-VkWriteDescriptorSet-descriptorType-04151",
-          "text": "If <code>descriptorType</code> is <a href=\"#VkDescriptorType\">VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT</a> the <code>imageLayout</code> member of each element of <code>pImageInfo</code> <strong class=\"purple\">must</strong> be a member of the list given in <a href=\"#descriptorsets-inputattachment\">Input Attachment</a>",
+          "text": "If <code>descriptorType</code> is <a href=\"#VkDescriptorType\">VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT</a> the <code>imageLayout</code> member of each element of <code>pImageInfo</code> <strong class=\"purple\">must</strong> be a member of the list given in <a href=\"#descriptors-inputattachment\">Input Attachment</a>",
           "page": "chapters/descriptorsets.html"
         },
         {
           "vuid": "VUID-VkWriteDescriptorSet-descriptorType-04152",
-          "text": "If <code>descriptorType</code> is <a href=\"#VkDescriptorType\">VK_DESCRIPTOR_TYPE_STORAGE_IMAGE</a> the <code>imageLayout</code> member of each element of <code>pImageInfo</code> <strong class=\"purple\">must</strong> be a member of the list given in <a href=\"#descriptorsets-storageimage\">Storage Image</a>",
+          "text": "If <code>descriptorType</code> is <a href=\"#VkDescriptorType\">VK_DESCRIPTOR_TYPE_STORAGE_IMAGE</a> the <code>imageLayout</code> member of each element of <code>pImageInfo</code> <strong class=\"purple\">must</strong> be a member of the list given in <a href=\"#descriptors-storageimage\">Storage Image</a>",
           "page": "chapters/descriptorsets.html"
         },
         {
@@ -15730,7 +15750,7 @@
         },
         {
           "vuid": "VUID-VkCopyDescriptorSet-srcArrayElement-00346",
-          "text": "The sum of <code>srcArrayElement</code> and <code>descriptorCount</code> <strong class=\"purple\">must</strong> be less than or equal to the number of array elements in the descriptor set binding specified by <code>srcBinding</code>, and all applicable <a href=\"#descriptorsets-updates-consecutive\">consecutive bindings</a>",
+          "text": "The sum of <code>srcArrayElement</code> and <code>descriptorCount</code> <strong class=\"purple\">must</strong> be less than or equal to the number of array elements in the descriptor set binding specified by <code>srcBinding</code>, and all applicable <a href=\"#descriptors-sets-updates-consecutive\">consecutive bindings</a>",
           "page": "chapters/descriptorsets.html"
         },
         {
@@ -15740,7 +15760,7 @@
         },
         {
           "vuid": "VUID-VkCopyDescriptorSet-dstArrayElement-00348",
-          "text": "The sum of <code>dstArrayElement</code> and <code>descriptorCount</code> <strong class=\"purple\">must</strong> be less than or equal to the number of array elements in the descriptor set binding specified by <code>dstBinding</code>, and all applicable <a href=\"#descriptorsets-updates-consecutive\">consecutive bindings</a>",
+          "text": "The sum of <code>dstArrayElement</code> and <code>descriptorCount</code> <strong class=\"purple\">must</strong> be less than or equal to the number of array elements in the descriptor set binding specified by <code>dstBinding</code>, and all applicable <a href=\"#descriptors-sets-updates-consecutive\">consecutive bindings</a>",
           "page": "chapters/descriptorsets.html"
         },
         {
@@ -15750,7 +15770,7 @@
         },
         {
           "vuid": "VUID-VkCopyDescriptorSet-srcSet-00349",
-          "text": "If <code>srcSet</code> is equal to <code>dstSet</code>, then the source and destination ranges of descriptors <strong class=\"purple\">must</strong> not overlap, where the ranges <strong class=\"purple\">may</strong> include array elements from <a href=\"#descriptorsets-updates-consecutive\">consecutive bindings</a>",
+          "text": "If <code>srcSet</code> is equal to <code>dstSet</code>, then the source and destination ranges of descriptors <strong class=\"purple\">must</strong> not overlap, where the ranges <strong class=\"purple\">may</strong> include array elements from <a href=\"#descriptors-sets-updates-consecutive\">consecutive bindings</a>",
           "page": "chapters/descriptorsets.html"
         },
         {
@@ -20825,7 +20845,7 @@
         },
         {
           "vuid": "VUID-vkCmdBlitImage-srcImage-09459",
-          "text": "If <code>srcImage</code> and <code>dstImage</code> are the same, and an elements of <code>pRegions</code> contains the <code>srcSubresource</code> and <code>dstSubresource</code> with matching <code>mipLevel</code> and overlapping array layers, then the <code>srcImageLayout</code> and <code>dstImageLayout</code> <strong class=\"purple\">must</strong> be <a href=\"#VkImageLayout\">VK_IMAGE_LAYOUT_GENERAL</a> or <a href=\"#VkImageLayout\">VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR</a>",
+          "text": "If <code>srcImage</code> and <code>dstImage</code> are the same, and an element of <code>pRegions</code> contains the <code>srcSubresource</code> and <code>dstSubresource</code> with matching <code>mipLevel</code> and overlapping array layers, then the <code>srcImageLayout</code> and <code>dstImageLayout</code> <strong class=\"purple\">must</strong> be <a href=\"#VkImageLayout\">VK_IMAGE_LAYOUT_GENERAL</a> or <a href=\"#VkImageLayout\">VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR</a>",
           "page": "chapters/copies.html"
         },
         {
@@ -21157,7 +21177,7 @@
         },
         {
           "vuid": "VUID-VkBlitImageInfo2-srcImage-09459",
-          "text": "If <code>srcImage</code> and <code>dstImage</code> are the same, and an elements of <code>pRegions</code> contains the <code>srcSubresource</code> and <code>dstSubresource</code> with matching <code>mipLevel</code> and overlapping array layers, then the <code>srcImageLayout</code> and <code>dstImageLayout</code> <strong class=\"purple\">must</strong> be <a href=\"#VkImageLayout\">VK_IMAGE_LAYOUT_GENERAL</a> or <a href=\"#VkImageLayout\">VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR</a>",
+          "text": "If <code>srcImage</code> and <code>dstImage</code> are the same, and an element of <code>pRegions</code> contains the <code>srcSubresource</code> and <code>dstSubresource</code> with matching <code>mipLevel</code> and overlapping array layers, then the <code>srcImageLayout</code> and <code>dstImageLayout</code> <strong class=\"purple\">must</strong> be <a href=\"#VkImageLayout\">VK_IMAGE_LAYOUT_GENERAL</a> or <a href=\"#VkImageLayout\">VK_IMAGE_LAYOUT_SHARED_PRESENT_KHR</a>",
           "page": "chapters/copies.html"
         },
         {
@@ -22288,12 +22308,12 @@
         },
         {
           "vuid": "VUID-vkCmdDraw-None-08600",
-          "text": "If a <a href=\"#shaders-binding\">a bound shader</a> statically uses a set <em>n</em>, a descriptor set <strong class=\"purple\">must</strong> have been bound to <em>n</em> at the same pipeline bind point, with a <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> that is compatible for set <em>n</em>, with the <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> used to create the current <a href=\"#VkPipeline\">VkPipeline</a> , as described in <a href=\"#descriptorsets-compatibility\">Pipeline Layout Compatibility</a>",
+          "text": "If a <a href=\"#shaders-binding\">a bound shader</a>    statically uses a set <em>n</em>, a descriptor set <strong class=\"purple\">must</strong> have been bound to <em>n</em>    at the same pipeline bind point, with layouts compatible for set <em>n</em>    with the layout(s) used to create the shader, as described in <a href=\"#descriptors-compatibility\">Pipeline Layout Compatibility</a>",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDraw-None-08601",
-          "text": "If a <a href=\"#shaders-binding\">a bound shader</a> statically uses a push constant value, that value <strong class=\"purple\">must</strong> have been set for the same pipeline bind point, with a <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> that is <a href=\"#descriptorsets-compatibility\">compatible for push constants</a> with the <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> used to create the current <a href=\"#VkPipeline\">VkPipeline</a>",
+          "text": "If a <a href=\"#shaders-binding\">a bound shader</a>    statically uses a push constant value, that value <strong class=\"purple\">must</strong> have been set    for the same pipeline bind point, with push constant ranges that are    <a href=\"#descriptors-compatibility\">compatible</a> with the push constant range used to create the shader",
           "page": "chapters/drawing.html"
         },
         {
@@ -22473,7 +22493,7 @@
         },
         {
           "vuid": "VUID-vkCmdDraw-None-08617",
-          "text": "If a graphics pipeline is bound which was created with the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_LINE_WIDTH</a> dynamic state enabled, the <a href=\"#dynamic-state-current-value\">current value</a> of <code>rasterizerDiscardEnable</code> is <a href=\"#VK_FALSE\">VK_FALSE</a>, and the <a href=\"#drawing-rasterization-input-topology\">effective rasterization input topology</a> is in line topology class, then <a href=\"#vkCmdSetLineWidth\">vkCmdSetLineWidth</a> <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this drawing command",
+          "text": "If a graphics pipeline is bound which was created with the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_LINE_WIDTH</a> dynamic state enabled, the <a href=\"#dynamic-state-current-value\">current value</a> of <code>rasterizerDiscardEnable</code> is <a href=\"#VK_FALSE\">VK_FALSE</a>, and the <a href=\"#drawing-rasterization-input-topology\">effective rasterization input topology</a> is in the line topology class, then <a href=\"#vkCmdSetLineWidth\">vkCmdSetLineWidth</a> <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this drawing command",
           "page": "chapters/drawing.html"
         },
         {
@@ -22673,7 +22693,7 @@
         },
         {
           "vuid": "VUID-vkCmdDraw-pStrides-04913",
-          "text": "If the bound graphics pipeline was created with the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_VERTEX_INPUT_BINDING_STRIDE</a> dynamic state enabled, but without the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_VERTEX_INPUT_EXT</a> dynamic state enabled, then <a href=\"#vkCmdBindVertexBuffers2EXT\">vkCmdBindVertexBuffers2</a> <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this draw command, and the <code>pStrides</code> parameter of <a href=\"#vkCmdBindVertexBuffers2EXT\">vkCmdBindVertexBuffers2</a> <strong class=\"purple\">must</strong> not be <code>NULL</code>",
+          "text": "If the bound graphics pipeline was created with the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_VERTEX_INPUT_BINDING_STRIDE</a> dynamic state enabled, but without the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_VERTEX_INPUT_EXT</a> dynamic state enabled, then <a href=\"#vkCmdBindVertexBuffers2EXT\">vkCmdBindVertexBuffers2</a> with a non-<code>NULL</code> <code>pStrides</code> parameter <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this draw command",
           "page": "chapters/drawing.html"
         },
         {
@@ -22857,12 +22877,12 @@
         },
         {
           "vuid": "VUID-vkCmdDrawIndexed-None-08600",
-          "text": "If a <a href=\"#shaders-binding\">a bound shader</a> statically uses a set <em>n</em>, a descriptor set <strong class=\"purple\">must</strong> have been bound to <em>n</em> at the same pipeline bind point, with a <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> that is compatible for set <em>n</em>, with the <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> used to create the current <a href=\"#VkPipeline\">VkPipeline</a> , as described in <a href=\"#descriptorsets-compatibility\">Pipeline Layout Compatibility</a>",
+          "text": "If a <a href=\"#shaders-binding\">a bound shader</a>    statically uses a set <em>n</em>, a descriptor set <strong class=\"purple\">must</strong> have been bound to <em>n</em>    at the same pipeline bind point, with layouts compatible for set <em>n</em>    with the layout(s) used to create the shader, as described in <a href=\"#descriptors-compatibility\">Pipeline Layout Compatibility</a>",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawIndexed-None-08601",
-          "text": "If a <a href=\"#shaders-binding\">a bound shader</a> statically uses a push constant value, that value <strong class=\"purple\">must</strong> have been set for the same pipeline bind point, with a <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> that is <a href=\"#descriptorsets-compatibility\">compatible for push constants</a> with the <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> used to create the current <a href=\"#VkPipeline\">VkPipeline</a>",
+          "text": "If a <a href=\"#shaders-binding\">a bound shader</a>    statically uses a push constant value, that value <strong class=\"purple\">must</strong> have been set    for the same pipeline bind point, with push constant ranges that are    <a href=\"#descriptors-compatibility\">compatible</a> with the push constant range used to create the shader",
           "page": "chapters/drawing.html"
         },
         {
@@ -23042,7 +23062,7 @@
         },
         {
           "vuid": "VUID-vkCmdDrawIndexed-None-08617",
-          "text": "If a graphics pipeline is bound which was created with the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_LINE_WIDTH</a> dynamic state enabled, the <a href=\"#dynamic-state-current-value\">current value</a> of <code>rasterizerDiscardEnable</code> is <a href=\"#VK_FALSE\">VK_FALSE</a>, and the <a href=\"#drawing-rasterization-input-topology\">effective rasterization input topology</a> is in line topology class, then <a href=\"#vkCmdSetLineWidth\">vkCmdSetLineWidth</a> <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this drawing command",
+          "text": "If a graphics pipeline is bound which was created with the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_LINE_WIDTH</a> dynamic state enabled, the <a href=\"#dynamic-state-current-value\">current value</a> of <code>rasterizerDiscardEnable</code> is <a href=\"#VK_FALSE\">VK_FALSE</a>, and the <a href=\"#drawing-rasterization-input-topology\">effective rasterization input topology</a> is in the line topology class, then <a href=\"#vkCmdSetLineWidth\">vkCmdSetLineWidth</a> <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this drawing command",
           "page": "chapters/drawing.html"
         },
         {
@@ -23242,7 +23262,7 @@
         },
         {
           "vuid": "VUID-vkCmdDrawIndexed-pStrides-04913",
-          "text": "If the bound graphics pipeline was created with the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_VERTEX_INPUT_BINDING_STRIDE</a> dynamic state enabled, but without the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_VERTEX_INPUT_EXT</a> dynamic state enabled, then <a href=\"#vkCmdBindVertexBuffers2EXT\">vkCmdBindVertexBuffers2</a> <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this draw command, and the <code>pStrides</code> parameter of <a href=\"#vkCmdBindVertexBuffers2EXT\">vkCmdBindVertexBuffers2</a> <strong class=\"purple\">must</strong> not be <code>NULL</code>",
+          "text": "If the bound graphics pipeline was created with the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_VERTEX_INPUT_BINDING_STRIDE</a> dynamic state enabled, but without the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_VERTEX_INPUT_EXT</a> dynamic state enabled, then <a href=\"#vkCmdBindVertexBuffers2EXT\">vkCmdBindVertexBuffers2</a> with a non-<code>NULL</code> <code>pStrides</code> parameter <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this draw command",
           "page": "chapters/drawing.html"
         },
         {
@@ -23332,7 +23352,7 @@
         },
         {
           "vuid": "VUID-vkCmdDrawIndexed-robustBufferAccess2-08798",
-          "text": "If the <a href=\"#features-robustBufferAccess2\"><code>robustBufferAccess2</code></a> feature is not enabled, <span class=\"eq\">(<code>indexSize</code> × (<code>firstIndex</code> +  <code>indexCount</code>) +  <code>offset</code>)</span> <strong class=\"purple\">must</strong> be less than or equal to the size of the bound index buffer, with <code>indexSize</code> being based on the type specified by <code>indexType</code>, where the index buffer, <code>indexType</code>, and <code>offset</code> are specified via <code>vkCmdBindIndexBuffer</code>",
+          "text": "If the <a href=\"#features-robustBufferAccess2\"><code>robustBufferAccess2</code></a> feature is not enabled, <span class=\"eq\">(<code>indexSize</code> × (<code>firstIndex</code> +  <code>indexCount</code>))</span> <strong class=\"purple\">must</strong> be less than or equal to the size of the <a href=\"#index-buffer-range\">bound index buffer range</a>, with <code>indexSize</code> being based on the type specified by <code>indexType</code>, and the other parameters sourced from this command",
           "page": "chapters/drawing.html"
         },
         {
@@ -23436,12 +23456,12 @@
         },
         {
           "vuid": "VUID-vkCmdDrawIndirect-None-08600",
-          "text": "If a <a href=\"#shaders-binding\">a bound shader</a> statically uses a set <em>n</em>, a descriptor set <strong class=\"purple\">must</strong> have been bound to <em>n</em> at the same pipeline bind point, with a <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> that is compatible for set <em>n</em>, with the <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> used to create the current <a href=\"#VkPipeline\">VkPipeline</a> , as described in <a href=\"#descriptorsets-compatibility\">Pipeline Layout Compatibility</a>",
+          "text": "If a <a href=\"#shaders-binding\">a bound shader</a>    statically uses a set <em>n</em>, a descriptor set <strong class=\"purple\">must</strong> have been bound to <em>n</em>    at the same pipeline bind point, with layouts compatible for set <em>n</em>    with the layout(s) used to create the shader, as described in <a href=\"#descriptors-compatibility\">Pipeline Layout Compatibility</a>",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawIndirect-None-08601",
-          "text": "If a <a href=\"#shaders-binding\">a bound shader</a> statically uses a push constant value, that value <strong class=\"purple\">must</strong> have been set for the same pipeline bind point, with a <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> that is <a href=\"#descriptorsets-compatibility\">compatible for push constants</a> with the <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> used to create the current <a href=\"#VkPipeline\">VkPipeline</a>",
+          "text": "If a <a href=\"#shaders-binding\">a bound shader</a>    statically uses a push constant value, that value <strong class=\"purple\">must</strong> have been set    for the same pipeline bind point, with push constant ranges that are    <a href=\"#descriptors-compatibility\">compatible</a> with the push constant range used to create the shader",
           "page": "chapters/drawing.html"
         },
         {
@@ -23621,7 +23641,7 @@
         },
         {
           "vuid": "VUID-vkCmdDrawIndirect-None-08617",
-          "text": "If a graphics pipeline is bound which was created with the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_LINE_WIDTH</a> dynamic state enabled, the <a href=\"#dynamic-state-current-value\">current value</a> of <code>rasterizerDiscardEnable</code> is <a href=\"#VK_FALSE\">VK_FALSE</a>, and the <a href=\"#drawing-rasterization-input-topology\">effective rasterization input topology</a> is in line topology class, then <a href=\"#vkCmdSetLineWidth\">vkCmdSetLineWidth</a> <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this drawing command",
+          "text": "If a graphics pipeline is bound which was created with the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_LINE_WIDTH</a> dynamic state enabled, the <a href=\"#dynamic-state-current-value\">current value</a> of <code>rasterizerDiscardEnable</code> is <a href=\"#VK_FALSE\">VK_FALSE</a>, and the <a href=\"#drawing-rasterization-input-topology\">effective rasterization input topology</a> is in the line topology class, then <a href=\"#vkCmdSetLineWidth\">vkCmdSetLineWidth</a> <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this drawing command",
           "page": "chapters/drawing.html"
         },
         {
@@ -23811,7 +23831,7 @@
         },
         {
           "vuid": "VUID-vkCmdDrawIndirect-pStrides-04913",
-          "text": "If the bound graphics pipeline was created with the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_VERTEX_INPUT_BINDING_STRIDE</a> dynamic state enabled, but without the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_VERTEX_INPUT_EXT</a> dynamic state enabled, then <a href=\"#vkCmdBindVertexBuffers2EXT\">vkCmdBindVertexBuffers2</a> <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this draw command, and the <code>pStrides</code> parameter of <a href=\"#vkCmdBindVertexBuffers2EXT\">vkCmdBindVertexBuffers2</a> <strong class=\"purple\">must</strong> not be <code>NULL</code>",
+          "text": "If the bound graphics pipeline was created with the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_VERTEX_INPUT_BINDING_STRIDE</a> dynamic state enabled, but without the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_VERTEX_INPUT_EXT</a> dynamic state enabled, then <a href=\"#vkCmdBindVertexBuffers2EXT\">vkCmdBindVertexBuffers2</a> with a non-<code>NULL</code> <code>pStrides</code> parameter <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this draw command",
           "page": "chapters/drawing.html"
         },
         {
@@ -24059,12 +24079,12 @@
         },
         {
           "vuid": "VUID-vkCmdDrawIndirectCount-None-08600",
-          "text": "If a <a href=\"#shaders-binding\">a bound shader</a> statically uses a set <em>n</em>, a descriptor set <strong class=\"purple\">must</strong> have been bound to <em>n</em> at the same pipeline bind point, with a <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> that is compatible for set <em>n</em>, with the <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> used to create the current <a href=\"#VkPipeline\">VkPipeline</a> , as described in <a href=\"#descriptorsets-compatibility\">Pipeline Layout Compatibility</a>",
+          "text": "If a <a href=\"#shaders-binding\">a bound shader</a>    statically uses a set <em>n</em>, a descriptor set <strong class=\"purple\">must</strong> have been bound to <em>n</em>    at the same pipeline bind point, with layouts compatible for set <em>n</em>    with the layout(s) used to create the shader, as described in <a href=\"#descriptors-compatibility\">Pipeline Layout Compatibility</a>",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawIndirectCount-None-08601",
-          "text": "If a <a href=\"#shaders-binding\">a bound shader</a> statically uses a push constant value, that value <strong class=\"purple\">must</strong> have been set for the same pipeline bind point, with a <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> that is <a href=\"#descriptorsets-compatibility\">compatible for push constants</a> with the <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> used to create the current <a href=\"#VkPipeline\">VkPipeline</a>",
+          "text": "If a <a href=\"#shaders-binding\">a bound shader</a>    statically uses a push constant value, that value <strong class=\"purple\">must</strong> have been set    for the same pipeline bind point, with push constant ranges that are    <a href=\"#descriptors-compatibility\">compatible</a> with the push constant range used to create the shader",
           "page": "chapters/drawing.html"
         },
         {
@@ -24244,7 +24264,7 @@
         },
         {
           "vuid": "VUID-vkCmdDrawIndirectCount-None-08617",
-          "text": "If a graphics pipeline is bound which was created with the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_LINE_WIDTH</a> dynamic state enabled, the <a href=\"#dynamic-state-current-value\">current value</a> of <code>rasterizerDiscardEnable</code> is <a href=\"#VK_FALSE\">VK_FALSE</a>, and the <a href=\"#drawing-rasterization-input-topology\">effective rasterization input topology</a> is in line topology class, then <a href=\"#vkCmdSetLineWidth\">vkCmdSetLineWidth</a> <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this drawing command",
+          "text": "If a graphics pipeline is bound which was created with the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_LINE_WIDTH</a> dynamic state enabled, the <a href=\"#dynamic-state-current-value\">current value</a> of <code>rasterizerDiscardEnable</code> is <a href=\"#VK_FALSE\">VK_FALSE</a>, and the <a href=\"#drawing-rasterization-input-topology\">effective rasterization input topology</a> is in the line topology class, then <a href=\"#vkCmdSetLineWidth\">vkCmdSetLineWidth</a> <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this drawing command",
           "page": "chapters/drawing.html"
         },
         {
@@ -24434,7 +24454,7 @@
         },
         {
           "vuid": "VUID-vkCmdDrawIndirectCount-pStrides-04913",
-          "text": "If the bound graphics pipeline was created with the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_VERTEX_INPUT_BINDING_STRIDE</a> dynamic state enabled, but without the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_VERTEX_INPUT_EXT</a> dynamic state enabled, then <a href=\"#vkCmdBindVertexBuffers2EXT\">vkCmdBindVertexBuffers2</a> <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this draw command, and the <code>pStrides</code> parameter of <a href=\"#vkCmdBindVertexBuffers2EXT\">vkCmdBindVertexBuffers2</a> <strong class=\"purple\">must</strong> not be <code>NULL</code>",
+          "text": "If the bound graphics pipeline was created with the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_VERTEX_INPUT_BINDING_STRIDE</a> dynamic state enabled, but without the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_VERTEX_INPUT_EXT</a> dynamic state enabled, then <a href=\"#vkCmdBindVertexBuffers2EXT\">vkCmdBindVertexBuffers2</a> with a non-<code>NULL</code> <code>pStrides</code> parameter <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this draw command",
           "page": "chapters/drawing.html"
         },
         {
@@ -24683,12 +24703,12 @@
         },
         {
           "vuid": "VUID-vkCmdDrawIndexedIndirect-None-08600",
-          "text": "If a <a href=\"#shaders-binding\">a bound shader</a> statically uses a set <em>n</em>, a descriptor set <strong class=\"purple\">must</strong> have been bound to <em>n</em> at the same pipeline bind point, with a <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> that is compatible for set <em>n</em>, with the <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> used to create the current <a href=\"#VkPipeline\">VkPipeline</a> , as described in <a href=\"#descriptorsets-compatibility\">Pipeline Layout Compatibility</a>",
+          "text": "If a <a href=\"#shaders-binding\">a bound shader</a>    statically uses a set <em>n</em>, a descriptor set <strong class=\"purple\">must</strong> have been bound to <em>n</em>    at the same pipeline bind point, with layouts compatible for set <em>n</em>    with the layout(s) used to create the shader, as described in <a href=\"#descriptors-compatibility\">Pipeline Layout Compatibility</a>",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawIndexedIndirect-None-08601",
-          "text": "If a <a href=\"#shaders-binding\">a bound shader</a> statically uses a push constant value, that value <strong class=\"purple\">must</strong> have been set for the same pipeline bind point, with a <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> that is <a href=\"#descriptorsets-compatibility\">compatible for push constants</a> with the <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> used to create the current <a href=\"#VkPipeline\">VkPipeline</a>",
+          "text": "If a <a href=\"#shaders-binding\">a bound shader</a>    statically uses a push constant value, that value <strong class=\"purple\">must</strong> have been set    for the same pipeline bind point, with push constant ranges that are    <a href=\"#descriptors-compatibility\">compatible</a> with the push constant range used to create the shader",
           "page": "chapters/drawing.html"
         },
         {
@@ -24868,7 +24888,7 @@
         },
         {
           "vuid": "VUID-vkCmdDrawIndexedIndirect-None-08617",
-          "text": "If a graphics pipeline is bound which was created with the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_LINE_WIDTH</a> dynamic state enabled, the <a href=\"#dynamic-state-current-value\">current value</a> of <code>rasterizerDiscardEnable</code> is <a href=\"#VK_FALSE\">VK_FALSE</a>, and the <a href=\"#drawing-rasterization-input-topology\">effective rasterization input topology</a> is in line topology class, then <a href=\"#vkCmdSetLineWidth\">vkCmdSetLineWidth</a> <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this drawing command",
+          "text": "If a graphics pipeline is bound which was created with the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_LINE_WIDTH</a> dynamic state enabled, the <a href=\"#dynamic-state-current-value\">current value</a> of <code>rasterizerDiscardEnable</code> is <a href=\"#VK_FALSE\">VK_FALSE</a>, and the <a href=\"#drawing-rasterization-input-topology\">effective rasterization input topology</a> is in the line topology class, then <a href=\"#vkCmdSetLineWidth\">vkCmdSetLineWidth</a> <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this drawing command",
           "page": "chapters/drawing.html"
         },
         {
@@ -25058,7 +25078,7 @@
         },
         {
           "vuid": "VUID-vkCmdDrawIndexedIndirect-pStrides-04913",
-          "text": "If the bound graphics pipeline was created with the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_VERTEX_INPUT_BINDING_STRIDE</a> dynamic state enabled, but without the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_VERTEX_INPUT_EXT</a> dynamic state enabled, then <a href=\"#vkCmdBindVertexBuffers2EXT\">vkCmdBindVertexBuffers2</a> <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this draw command, and the <code>pStrides</code> parameter of <a href=\"#vkCmdBindVertexBuffers2EXT\">vkCmdBindVertexBuffers2</a> <strong class=\"purple\">must</strong> not be <code>NULL</code>",
+          "text": "If the bound graphics pipeline was created with the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_VERTEX_INPUT_BINDING_STRIDE</a> dynamic state enabled, but without the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_VERTEX_INPUT_EXT</a> dynamic state enabled, then <a href=\"#vkCmdBindVertexBuffers2EXT\">vkCmdBindVertexBuffers2</a> with a non-<code>NULL</code> <code>pStrides</code> parameter <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this draw command",
           "page": "chapters/drawing.html"
         },
         {
@@ -25227,7 +25247,7 @@
         },
         {
           "vuid": "VUID-VkDrawIndexedIndirectCommand-robustBufferAccess2-08798",
-          "text": "If the <a href=\"#features-robustBufferAccess2\"><code>robustBufferAccess2</code></a> feature is not enabled, <span class=\"eq\">(<code>indexSize</code> × (<code>firstIndex</code> +  <code>indexCount</code>) +  <code>offset</code>)</span> <strong class=\"purple\">must</strong> be less than or equal to the size of the bound index buffer, with <code>indexSize</code> being based on the type specified by <code>indexType</code>, where the index buffer, <code>indexType</code>, and <code>offset</code> are specified via <code>vkCmdBindIndexBuffer</code>",
+          "text": "If the <a href=\"#features-robustBufferAccess2\"><code>robustBufferAccess2</code></a> feature is not enabled, <span class=\"eq\">(<code>indexSize</code> × (<code>firstIndex</code> +  <code>indexCount</code>))</span> <strong class=\"purple\">must</strong> be less than or equal to the size of the <a href=\"#index-buffer-range\">bound index buffer range</a>, with <code>indexSize</code> being based on the type specified by <code>indexType</code>, and the other parameters sourced from this command",
           "page": "chapters/drawing.html"
         },
         {
@@ -25316,12 +25336,12 @@
         },
         {
           "vuid": "VUID-vkCmdDrawIndexedIndirectCount-None-08600",
-          "text": "If a <a href=\"#shaders-binding\">a bound shader</a> statically uses a set <em>n</em>, a descriptor set <strong class=\"purple\">must</strong> have been bound to <em>n</em> at the same pipeline bind point, with a <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> that is compatible for set <em>n</em>, with the <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> used to create the current <a href=\"#VkPipeline\">VkPipeline</a> , as described in <a href=\"#descriptorsets-compatibility\">Pipeline Layout Compatibility</a>",
+          "text": "If a <a href=\"#shaders-binding\">a bound shader</a>    statically uses a set <em>n</em>, a descriptor set <strong class=\"purple\">must</strong> have been bound to <em>n</em>    at the same pipeline bind point, with layouts compatible for set <em>n</em>    with the layout(s) used to create the shader, as described in <a href=\"#descriptors-compatibility\">Pipeline Layout Compatibility</a>",
           "page": "chapters/drawing.html"
         },
         {
           "vuid": "VUID-vkCmdDrawIndexedIndirectCount-None-08601",
-          "text": "If a <a href=\"#shaders-binding\">a bound shader</a> statically uses a push constant value, that value <strong class=\"purple\">must</strong> have been set for the same pipeline bind point, with a <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> that is <a href=\"#descriptorsets-compatibility\">compatible for push constants</a> with the <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> used to create the current <a href=\"#VkPipeline\">VkPipeline</a>",
+          "text": "If a <a href=\"#shaders-binding\">a bound shader</a>    statically uses a push constant value, that value <strong class=\"purple\">must</strong> have been set    for the same pipeline bind point, with push constant ranges that are    <a href=\"#descriptors-compatibility\">compatible</a> with the push constant range used to create the shader",
           "page": "chapters/drawing.html"
         },
         {
@@ -25501,7 +25521,7 @@
         },
         {
           "vuid": "VUID-vkCmdDrawIndexedIndirectCount-None-08617",
-          "text": "If a graphics pipeline is bound which was created with the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_LINE_WIDTH</a> dynamic state enabled, the <a href=\"#dynamic-state-current-value\">current value</a> of <code>rasterizerDiscardEnable</code> is <a href=\"#VK_FALSE\">VK_FALSE</a>, and the <a href=\"#drawing-rasterization-input-topology\">effective rasterization input topology</a> is in line topology class, then <a href=\"#vkCmdSetLineWidth\">vkCmdSetLineWidth</a> <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this drawing command",
+          "text": "If a graphics pipeline is bound which was created with the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_LINE_WIDTH</a> dynamic state enabled, the <a href=\"#dynamic-state-current-value\">current value</a> of <code>rasterizerDiscardEnable</code> is <a href=\"#VK_FALSE\">VK_FALSE</a>, and the <a href=\"#drawing-rasterization-input-topology\">effective rasterization input topology</a> is in the line topology class, then <a href=\"#vkCmdSetLineWidth\">vkCmdSetLineWidth</a> <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this drawing command",
           "page": "chapters/drawing.html"
         },
         {
@@ -25691,7 +25711,7 @@
         },
         {
           "vuid": "VUID-vkCmdDrawIndexedIndirectCount-pStrides-04913",
-          "text": "If the bound graphics pipeline was created with the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_VERTEX_INPUT_BINDING_STRIDE</a> dynamic state enabled, but without the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_VERTEX_INPUT_EXT</a> dynamic state enabled, then <a href=\"#vkCmdBindVertexBuffers2EXT\">vkCmdBindVertexBuffers2</a> <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this draw command, and the <code>pStrides</code> parameter of <a href=\"#vkCmdBindVertexBuffers2EXT\">vkCmdBindVertexBuffers2</a> <strong class=\"purple\">must</strong> not be <code>NULL</code>",
+          "text": "If the bound graphics pipeline was created with the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_VERTEX_INPUT_BINDING_STRIDE</a> dynamic state enabled, but without the <a href=\"#VkDynamicState\">VK_DYNAMIC_STATE_VERTEX_INPUT_EXT</a> dynamic state enabled, then <a href=\"#vkCmdBindVertexBuffers2EXT\">vkCmdBindVertexBuffers2</a> with a non-<code>NULL</code> <code>pStrides</code> parameter <strong class=\"purple\">must</strong> have been called and not subsequently <a href=\"#dynamic-state-lifetime\">invalidated</a> in the current command buffer prior to this draw command",
           "page": "chapters/drawing.html"
         },
         {
@@ -26110,80 +26130,6 @@
         }
       ]
     },
-    "vkCmdBindVertexBuffers": {
-      "core": [
-        {
-          "vuid": "VUID-vkCmdBindVertexBuffers-firstBinding-00624",
-          "text": "<code>firstBinding</code> <strong class=\"purple\">must</strong> be less than <code>VkPhysicalDeviceLimits</code>::<code>maxVertexInputBindings</code>",
-          "page": "chapters/fxvertex.html"
-        },
-        {
-          "vuid": "VUID-vkCmdBindVertexBuffers-firstBinding-00625",
-          "text": "The sum of <code>firstBinding</code> and <code>bindingCount</code> <strong class=\"purple\">must</strong> be less than or equal to <code>VkPhysicalDeviceLimits</code>::<code>maxVertexInputBindings</code>",
-          "page": "chapters/fxvertex.html"
-        },
-        {
-          "vuid": "VUID-vkCmdBindVertexBuffers-pOffsets-00626",
-          "text": "All elements of <code>pOffsets</code> <strong class=\"purple\">must</strong> be less than the size of the corresponding element in <code>pBuffers</code>",
-          "page": "chapters/fxvertex.html"
-        },
-        {
-          "vuid": "VUID-vkCmdBindVertexBuffers-pBuffers-00627",
-          "text": "All elements of <code>pBuffers</code> <strong class=\"purple\">must</strong> have been created with the <a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_VERTEX_BUFFER_BIT</a> usage flag set",
-          "page": "chapters/fxvertex.html"
-        },
-        {
-          "vuid": "VUID-vkCmdBindVertexBuffers-pBuffers-00628",
-          "text": "Each element of <code>pBuffers</code> that is non-sparse <strong class=\"purple\">must</strong> be bound completely and contiguously to a single <code>VkDeviceMemory</code> object",
-          "page": "chapters/fxvertex.html"
-        },
-        {
-          "vuid": "VUID-vkCmdBindVertexBuffers-pBuffers-04001",
-          "text": "If the <a href=\"#features-nullDescriptor\"><code>nullDescriptor</code></a> feature is not enabled, all elements of <code>pBuffers</code> <strong class=\"purple\">must</strong> not be <a href=\"#VK_NULL_HANDLE\">VK_NULL_HANDLE</a>",
-          "page": "chapters/fxvertex.html"
-        },
-        {
-          "vuid": "VUID-vkCmdBindVertexBuffers-pBuffers-04002",
-          "text": "If an element of <code>pBuffers</code> is <a href=\"#VK_NULL_HANDLE\">VK_NULL_HANDLE</a>, then the corresponding element of <code>pOffsets</code> <strong class=\"purple\">must</strong> be zero",
-          "page": "chapters/fxvertex.html"
-        },
-        {
-          "vuid": "VUID-vkCmdBindVertexBuffers-commandBuffer-parameter",
-          "text": "<code>commandBuffer</code> <strong class=\"purple\">must</strong> be a valid <a href=\"#VkCommandBuffer\">VkCommandBuffer</a> handle",
-          "page": "chapters/fxvertex.html"
-        },
-        {
-          "vuid": "VUID-vkCmdBindVertexBuffers-pBuffers-parameter",
-          "text": "<code>pBuffers</code> <strong class=\"purple\">must</strong> be a valid pointer to an array of <code>bindingCount</code> valid or <a href=\"#VK_NULL_HANDLE\">VK_NULL_HANDLE</a> <a href=\"#VkBuffer\">VkBuffer</a> handles",
-          "page": "chapters/fxvertex.html"
-        },
-        {
-          "vuid": "VUID-vkCmdBindVertexBuffers-pOffsets-parameter",
-          "text": "<code>pOffsets</code> <strong class=\"purple\">must</strong> be a valid pointer to an array of <code>bindingCount</code> <a href=\"#VkDeviceSize\">VkDeviceSize</a> values",
-          "page": "chapters/fxvertex.html"
-        },
-        {
-          "vuid": "VUID-vkCmdBindVertexBuffers-commandBuffer-recording",
-          "text": "<code>commandBuffer</code> <strong class=\"purple\">must</strong> be in the <a href=\"#commandbuffers-lifecycle\">recording state</a>",
-          "page": "chapters/fxvertex.html"
-        },
-        {
-          "vuid": "VUID-vkCmdBindVertexBuffers-commandBuffer-cmdpool",
-          "text": "The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class=\"purple\">must</strong> support <a href=\"#VkQueueFlagBits\">VK_QUEUE_GRAPHICS_BIT</a> operations",
-          "page": "chapters/fxvertex.html"
-        },
-        {
-          "vuid": "VUID-vkCmdBindVertexBuffers-bindingCount-arraylength",
-          "text": "<code>bindingCount</code> <strong class=\"purple\">must</strong> be greater than <code>0</code>",
-          "page": "chapters/fxvertex.html"
-        },
-        {
-          "vuid": "VUID-vkCmdBindVertexBuffers-commonparent",
-          "text": "Both of <code>commandBuffer</code>, and the elements of <code>pBuffers</code> that are valid handles of non-ignored parameters <strong class=\"purple\">must</strong> have been created, allocated, or retrieved from the same <a href=\"#VkDevice\">VkDevice</a>",
-          "page": "chapters/fxvertex.html"
-        }
-      ]
-    },
     "vkCmdBindVertexBuffers2": {
       "core": [
         {
@@ -26283,6 +26229,80 @@
         },
         {
           "vuid": "VUID-vkCmdBindVertexBuffers2-commonparent",
+          "text": "Both of <code>commandBuffer</code>, and the elements of <code>pBuffers</code> that are valid handles of non-ignored parameters <strong class=\"purple\">must</strong> have been created, allocated, or retrieved from the same <a href=\"#VkDevice\">VkDevice</a>",
+          "page": "chapters/fxvertex.html"
+        }
+      ]
+    },
+    "vkCmdBindVertexBuffers": {
+      "core": [
+        {
+          "vuid": "VUID-vkCmdBindVertexBuffers-firstBinding-00624",
+          "text": "<code>firstBinding</code> <strong class=\"purple\">must</strong> be less than <code>VkPhysicalDeviceLimits</code>::<code>maxVertexInputBindings</code>",
+          "page": "chapters/fxvertex.html"
+        },
+        {
+          "vuid": "VUID-vkCmdBindVertexBuffers-firstBinding-00625",
+          "text": "The sum of <code>firstBinding</code> and <code>bindingCount</code> <strong class=\"purple\">must</strong> be less than or equal to <code>VkPhysicalDeviceLimits</code>::<code>maxVertexInputBindings</code>",
+          "page": "chapters/fxvertex.html"
+        },
+        {
+          "vuid": "VUID-vkCmdBindVertexBuffers-pOffsets-00626",
+          "text": "All elements of <code>pOffsets</code> <strong class=\"purple\">must</strong> be less than the size of the corresponding element in <code>pBuffers</code>",
+          "page": "chapters/fxvertex.html"
+        },
+        {
+          "vuid": "VUID-vkCmdBindVertexBuffers-pBuffers-00627",
+          "text": "All elements of <code>pBuffers</code> <strong class=\"purple\">must</strong> have been created with the <a href=\"#VkBufferUsageFlagBits\">VK_BUFFER_USAGE_VERTEX_BUFFER_BIT</a> flag",
+          "page": "chapters/fxvertex.html"
+        },
+        {
+          "vuid": "VUID-vkCmdBindVertexBuffers-pBuffers-00628",
+          "text": "Each element of <code>pBuffers</code> that is non-sparse <strong class=\"purple\">must</strong> be bound completely and contiguously to a single <code>VkDeviceMemory</code> object",
+          "page": "chapters/fxvertex.html"
+        },
+        {
+          "vuid": "VUID-vkCmdBindVertexBuffers-pBuffers-04001",
+          "text": "If the <a href=\"#features-nullDescriptor\"><code>nullDescriptor</code></a> feature is not enabled, all elements of <code>pBuffers</code> <strong class=\"purple\">must</strong> not be <a href=\"#VK_NULL_HANDLE\">VK_NULL_HANDLE</a>",
+          "page": "chapters/fxvertex.html"
+        },
+        {
+          "vuid": "VUID-vkCmdBindVertexBuffers-pBuffers-04002",
+          "text": "If an element of <code>pBuffers</code> is <a href=\"#VK_NULL_HANDLE\">VK_NULL_HANDLE</a>, then the corresponding element of <code>pOffsets</code> <strong class=\"purple\">must</strong> be zero",
+          "page": "chapters/fxvertex.html"
+        },
+        {
+          "vuid": "VUID-vkCmdBindVertexBuffers-commandBuffer-parameter",
+          "text": "<code>commandBuffer</code> <strong class=\"purple\">must</strong> be a valid <a href=\"#VkCommandBuffer\">VkCommandBuffer</a> handle",
+          "page": "chapters/fxvertex.html"
+        },
+        {
+          "vuid": "VUID-vkCmdBindVertexBuffers-pBuffers-parameter",
+          "text": "<code>pBuffers</code> <strong class=\"purple\">must</strong> be a valid pointer to an array of <code>bindingCount</code> valid or <a href=\"#VK_NULL_HANDLE\">VK_NULL_HANDLE</a> <a href=\"#VkBuffer\">VkBuffer</a> handles",
+          "page": "chapters/fxvertex.html"
+        },
+        {
+          "vuid": "VUID-vkCmdBindVertexBuffers-pOffsets-parameter",
+          "text": "<code>pOffsets</code> <strong class=\"purple\">must</strong> be a valid pointer to an array of <code>bindingCount</code> <a href=\"#VkDeviceSize\">VkDeviceSize</a> values",
+          "page": "chapters/fxvertex.html"
+        },
+        {
+          "vuid": "VUID-vkCmdBindVertexBuffers-commandBuffer-recording",
+          "text": "<code>commandBuffer</code> <strong class=\"purple\">must</strong> be in the <a href=\"#commandbuffers-lifecycle\">recording state</a>",
+          "page": "chapters/fxvertex.html"
+        },
+        {
+          "vuid": "VUID-vkCmdBindVertexBuffers-commandBuffer-cmdpool",
+          "text": "The <code>VkCommandPool</code> that <code>commandBuffer</code> was allocated from <strong class=\"purple\">must</strong> support <a href=\"#VkQueueFlagBits\">VK_QUEUE_GRAPHICS_BIT</a> operations",
+          "page": "chapters/fxvertex.html"
+        },
+        {
+          "vuid": "VUID-vkCmdBindVertexBuffers-bindingCount-arraylength",
+          "text": "<code>bindingCount</code> <strong class=\"purple\">must</strong> be greater than <code>0</code>",
+          "page": "chapters/fxvertex.html"
+        },
+        {
+          "vuid": "VUID-vkCmdBindVertexBuffers-commonparent",
           "text": "Both of <code>commandBuffer</code>, and the elements of <code>pBuffers</code> that are valid handles of non-ignored parameters <strong class=\"purple\">must</strong> have been created, allocated, or retrieved from the same <a href=\"#VkDevice\">VkDevice</a>",
           "page": "chapters/fxvertex.html"
         }
@@ -28120,12 +28140,12 @@
         },
         {
           "vuid": "VUID-vkCmdDispatch-None-08600",
-          "text": "If a <a href=\"#shaders-binding\">a bound shader</a> statically uses a set <em>n</em>, a descriptor set <strong class=\"purple\">must</strong> have been bound to <em>n</em> at the same pipeline bind point, with a <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> that is compatible for set <em>n</em>, with the <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> used to create the current <a href=\"#VkPipeline\">VkPipeline</a> , as described in <a href=\"#descriptorsets-compatibility\">Pipeline Layout Compatibility</a>",
+          "text": "If a <a href=\"#shaders-binding\">a bound shader</a>    statically uses a set <em>n</em>, a descriptor set <strong class=\"purple\">must</strong> have been bound to <em>n</em>    at the same pipeline bind point, with layouts compatible for set <em>n</em>    with the layout(s) used to create the shader, as described in <a href=\"#descriptors-compatibility\">Pipeline Layout Compatibility</a>",
           "page": "chapters/dispatch.html"
         },
         {
           "vuid": "VUID-vkCmdDispatch-None-08601",
-          "text": "If a <a href=\"#shaders-binding\">a bound shader</a> statically uses a push constant value, that value <strong class=\"purple\">must</strong> have been set for the same pipeline bind point, with a <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> that is <a href=\"#descriptorsets-compatibility\">compatible for push constants</a> with the <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> used to create the current <a href=\"#VkPipeline\">VkPipeline</a>",
+          "text": "If a <a href=\"#shaders-binding\">a bound shader</a>    statically uses a push constant value, that value <strong class=\"purple\">must</strong> have been set    for the same pipeline bind point, with push constant ranges that are    <a href=\"#descriptors-compatibility\">compatible</a> with the push constant range used to create the shader",
           "page": "chapters/dispatch.html"
         },
         {
@@ -28354,12 +28374,12 @@
         },
         {
           "vuid": "VUID-vkCmdDispatchIndirect-None-08600",
-          "text": "If a <a href=\"#shaders-binding\">a bound shader</a> statically uses a set <em>n</em>, a descriptor set <strong class=\"purple\">must</strong> have been bound to <em>n</em> at the same pipeline bind point, with a <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> that is compatible for set <em>n</em>, with the <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> used to create the current <a href=\"#VkPipeline\">VkPipeline</a> , as described in <a href=\"#descriptorsets-compatibility\">Pipeline Layout Compatibility</a>",
+          "text": "If a <a href=\"#shaders-binding\">a bound shader</a>    statically uses a set <em>n</em>, a descriptor set <strong class=\"purple\">must</strong> have been bound to <em>n</em>    at the same pipeline bind point, with layouts compatible for set <em>n</em>    with the layout(s) used to create the shader, as described in <a href=\"#descriptors-compatibility\">Pipeline Layout Compatibility</a>",
           "page": "chapters/dispatch.html"
         },
         {
           "vuid": "VUID-vkCmdDispatchIndirect-None-08601",
-          "text": "If a <a href=\"#shaders-binding\">a bound shader</a> statically uses a push constant value, that value <strong class=\"purple\">must</strong> have been set for the same pipeline bind point, with a <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> that is <a href=\"#descriptorsets-compatibility\">compatible for push constants</a> with the <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> used to create the current <a href=\"#VkPipeline\">VkPipeline</a>",
+          "text": "If a <a href=\"#shaders-binding\">a bound shader</a>    statically uses a push constant value, that value <strong class=\"purple\">must</strong> have been set    for the same pipeline bind point, with push constant ranges that are    <a href=\"#descriptors-compatibility\">compatible</a> with the push constant range used to create the shader",
           "page": "chapters/dispatch.html"
         },
         {
@@ -28617,12 +28637,12 @@
         },
         {
           "vuid": "VUID-vkCmdDispatchBase-None-08600",
-          "text": "If a <a href=\"#shaders-binding\">a bound shader</a> statically uses a set <em>n</em>, a descriptor set <strong class=\"purple\">must</strong> have been bound to <em>n</em> at the same pipeline bind point, with a <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> that is compatible for set <em>n</em>, with the <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> used to create the current <a href=\"#VkPipeline\">VkPipeline</a> , as described in <a href=\"#descriptorsets-compatibility\">Pipeline Layout Compatibility</a>",
+          "text": "If a <a href=\"#shaders-binding\">a bound shader</a>    statically uses a set <em>n</em>, a descriptor set <strong class=\"purple\">must</strong> have been bound to <em>n</em>    at the same pipeline bind point, with layouts compatible for set <em>n</em>    with the layout(s) used to create the shader, as described in <a href=\"#descriptors-compatibility\">Pipeline Layout Compatibility</a>",
           "page": "chapters/dispatch.html"
         },
         {
           "vuid": "VUID-vkCmdDispatchBase-None-08601",
-          "text": "If a <a href=\"#shaders-binding\">a bound shader</a> statically uses a push constant value, that value <strong class=\"purple\">must</strong> have been set for the same pipeline bind point, with a <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> that is <a href=\"#descriptorsets-compatibility\">compatible for push constants</a> with the <a href=\"#VkPipelineLayout\">VkPipelineLayout</a> used to create the current <a href=\"#VkPipeline\">VkPipeline</a>",
+          "text": "If a <a href=\"#shaders-binding\">a bound shader</a>    statically uses a push constant value, that value <strong class=\"purple\">must</strong> have been set    for the same pipeline bind point, with push constant ranges that are    <a href=\"#descriptors-compatibility\">compatible</a> with the push constant range used to create the shader",
           "page": "chapters/dispatch.html"
         },
         {
@@ -29560,11 +29580,6 @@
     },
     "VkSurfaceCapabilities2EXT": {
       "core": [
-        {
-          "vuid": "VUID-VkSurfaceCapabilities2EXT-supportedSurfaceCounters-01246",
-          "text": "<code>supportedSurfaceCounters</code> <strong class=\"purple\">must</strong> not include <a href=\"#VkSurfaceCounterFlagBitsEXT\">VK_SURFACE_COUNTER_VBLANK_BIT_EXT</a> unless the surface queried is a <a href=\"#wsi-display-surfaces\">display surface</a>",
-          "page": "chapters/VK_KHR_surface/wsi.html"
-        },
         {
           "vuid": "VUID-VkSurfaceCapabilities2EXT-sType-sType",
           "text": "<code>sType</code> <strong class=\"purple\">must</strong> be <a href=\"#VkStructureType\">VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_2_EXT</a>",
@@ -31549,7 +31564,7 @@
         },
         {
           "vuid": "VUID-VkFormatProperties2-pNext-pNext",
-          "text": "Each <code>pNext</code> member of any structure (including this one) in the <code>pNext</code> chain <strong class=\"purple\">must</strong> be either <code>NULL</code> or a pointer to a valid instance of <a href=\"#VkDrmFormatModifierPropertiesList2EXT\">VkDrmFormatModifierPropertiesList2EXT</a> or <a href=\"#VkDrmFormatModifierPropertiesListEXT\">VkDrmFormatModifierPropertiesListEXT</a>",
+          "text": "<code>pNext</code> <strong class=\"purple\">must</strong> be <code>NULL</code> or a pointer to a valid instance of <a href=\"#VkDrmFormatModifierPropertiesListEXT\">VkDrmFormatModifierPropertiesListEXT</a>",
           "page": "chapters/formats.html"
         },
         {
@@ -32670,8 +32685,8 @@
           "page": "appendices/spirvenv.html"
         },
         {
-          "vuid": "VUID-StandaloneSpirv-MemorySemantics-10874",
-          "text": "<code>MemorySemantics</code> with <code>Volatile</code> bit set <strong class=\"purple\">must</strong> not be used with barrier instructions (<code>OpControlBarrier</code> or <code>OpMemoryBarrier</code>)",
+          "vuid": "VUID-StandaloneSpirv-MemorySemantics-13551",
+          "text": "<code>MemorySemantics</code> with <code>Volatile</code> bit set <strong class=\"purple\">must</strong> not be used with barrier instructions (<code>OpControlBarrier</code>, or <code>OpMemoryBarrier</code>)",
           "page": "appendices/spirvenv.html"
         },
         {
@@ -33256,7 +33271,7 @@
         },
         {
           "vuid": "VUID-StandaloneSpirv-UniformConstant-06677",
-          "text": "Any variable in the <code>UniformConstant</code>, <code>StorageBuffer</code>, or <code>Uniform</code> <code>Storage</code> <code>Class</code> <strong class=\"purple\">must</strong> be decorated with <code>DescriptorSet</code>, <code>Binding</code>, or <code>BuiltIn</code> with <code>SamplerHeapEXT</code> or <code>ResourceHeapEXT</code>",
+          "text": "Any variable in the <code>UniformConstant</code>, <code>StorageBuffer</code>, or <code>Uniform</code> <code>Storage</code> <code>Class</code> <strong class=\"purple\">must</strong> be decorated with either <code>DescriptorSet</code> and <code>Binding</code>, or <code>BuiltIn</code> with <code>SamplerHeapEXT</code> or <code>ResourceHeapEXT</code>",
           "page": "appendices/spirvenv.html"
         },
         {
@@ -33380,6 +33395,11 @@
           "page": "appendices/spirvenv.html"
         },
         {
+          "vuid": "VUID-StandaloneSpirv-MaximallyReconvergesKHR-09565",
+          "text": "The <code>MaximallyReconvergesKHR</code> <code>Execution</code> <code>Mode</code> <strong class=\"purple\">must</strong> not be applied to an entry point if an <em>invocation repack instruction</em> is statically used",
+          "page": "appendices/spirvenv.html"
+        },
+        {
           "vuid": "VUID-StandaloneSpirv-TileShadingQCOM-10686",
           "text": "<code>TileShadingQCOM</code> capability <strong class=\"purple\">must</strong> not be enabled in any stage other than compute or fragment",
           "page": "appendices/spirvenv.html"
@@ -33470,13 +33490,48 @@
           "page": "appendices/spirvenv.html"
         },
         {
-          "vuid": "VUID-StandaloneSpirv-Result-11346",
-          "text": "The <code>Result</code> <code>Type</code> operand of <code>OpBufferPointerEXT</code> <strong class=\"purple\">must</strong> have a <code>Type</code> operand that is <a href=\"#interfaces-resources-layout\">explicitly laid out</a>",
+          "vuid": "VUID-StandaloneSpirv-OpTypeUntypedPointerKHR-11417",
+          "text": "The <code>Storage</code> <code>Class</code> of <code>OpTypeUntypedPointerKHR</code> <strong class=\"purple\">must</strong> be <code>Image</code>, <code>UniformConstant</code>,<code>Workgroup</code>, <code>StorageBuffer</code>, <code>Uniform</code>, <code>PushConstant</code>, or <code>PhysicalStorageBuffer</code>",
           "page": "appendices/spirvenv.html"
         },
         {
-          "vuid": "VUID-StandaloneSpirv-OpTypeUntypedPointerKHR-11417",
-          "text": "The <code>Storage</code> <code>Class</code> of <code>OpTypeUntypedPointerKHR</code> <strong class=\"purple\">must</strong> be <code>Image</code>, <code>UniformConstant</code>,<code>Workgroup</code>, <code>StorageBuffer</code>, <code>Uniform</code>, <code>PushConstant</code>, or <code>PhysicalStorageBuffer</code>",
+          "vuid": "VUID-StandaloneSpirv-None-12295",
+          "text": "If the <code>LongVectorEXT</code> capability is not declared, the <code>Component</code> <code>Count</code> of any vector type <strong class=\"purple\">must</strong> be less than or equal to <code>4</code> and greater than <code>1</code>",
+          "page": "appendices/spirvenv.html"
+        },
+        {
+          "vuid": "VUID-StandaloneSpirv-Type-12297",
+          "text": "Any pointer type whose <code>Type</code> parameter is a vector type with more than four components (or an aggregate containing such a type) <strong class=\"purple\">must</strong> have <code>Storage</code> <code>Class</code> of <code>Function</code>, <code>Private</code>, <code>Uniform</code>, <code>Workgroup</code>, <code>StorageBuffer</code>, <code>PhysicalStorageBuffer</code>, <code>PushConstant</code>, or <code>ShaderRecordBufferKHR</code>",
+          "page": "appendices/spirvenv.html"
+        },
+        {
+          "vuid": "VUID-StandaloneSpirv-OpUndef-12464",
+          "text": "Any <code>OpUndef</code> instruction <strong class=\"purple\">must</strong> not have a <code>Result</code> <code>Type</code> of <code>OpTypeImage</code>, <code>OpTypeSampler</code>, <code>OpTypeSampledImage</code>, <code>OpTypeAccelerationStructureKHR</code>, or <code>OpTypeTensorARM</code>",
+          "page": "appendices/spirvenv.html"
+        },
+        {
+          "vuid": "VUID-StandaloneSpirv-OpConvertFToU-12465",
+          "text": "Floating-point objects consumed or produced by <code>OpConvertFToU</code>, <code>OpConvertFToS</code>, <code>OpConvertSToF</code>, or <code>OpConvertUToF</code> <strong class=\"purple\">must</strong> not have a <code>Float6E2M3EXT</code>, <code>Float6E3M2EXT</code>, <code>Float4E2M1EXT</code>, <code>Float8UnsignedE8M0EXT</code>, or <code>MXInt8EXT</code> encoding",
+          "page": "appendices/spirvenv.html"
+        },
+        {
+          "vuid": "VUID-StandaloneSpirv-OpFConvert-12466",
+          "text": "Floating-point objects produced by <code>OpFConvert</code> <strong class=\"purple\">must</strong> not have a <code>Float6E2M3EXT</code>, <code>Float6E3M2EXT</code>, <code>Float4E2M1EXT</code>, <code>Float8UnsignedE8M0EXT</code>, or <code>MXInt8EXT</code> encoding",
+          "page": "appendices/spirvenv.html"
+        },
+        {
+          "vuid": "VUID-StandaloneSpirv-OpFConvert-12467",
+          "text": "If the object consumed by <code>OpFConvert</code> has a <code>Float6E2M3EXT</code>, <code>Float6E3M2EXT</code>, <code>Float4E2M1EXT</code>, <code>Float8UnsignedE8M0EXT</code>, or <code>MXInt8EXT</code> encoding, then the <code>Result</code> <code>Type</code> <strong class=\"purple\">must</strong> have an <a href=\"#ieee-754\">IEEE 754</a>, <code>Float8E4M3EXT</code>, <code>Float8E5M2EXT</code>, or <code>BFloat16KHR</code> encoding",
+          "page": "appendices/spirvenv.html"
+        },
+        {
+          "vuid": "VUID-StandaloneSpirv-Result-12468",
+          "text": "The <code>Result</code> <code>Type</code> operand of <code>OpBitcastExtractEXT</code> <strong class=\"purple\">must</strong> be <code>OpTypeFloat</code> with a <code>Float6E2M3EXT</code>, <code>Float6E3M2EXT</code>, or <code>Float4E2M1EXT</code> encoding",
+          "page": "appendices/spirvenv.html"
+        },
+        {
+          "vuid": "VUID-StandaloneSpirv-Base-12469",
+          "text": "The <code>Base</code> operand of <code>OpBitcastExtractEXT</code> <strong class=\"purple\">must</strong> be a scalar or vector integer type",
           "page": "appendices/spirvenv.html"
         }
       ]
@@ -33971,11 +34026,6 @@
         {
           "vuid": "VUID-RuntimeSpirv-OpArrayLength-11807",
           "text": "<code>OpArrayLength</code> result type <strong class=\"purple\">must</strong> be a 32-bit integer type",
-          "page": "appendices/spirvenv.html"
-        },
-        {
-          "vuid": "VUID-RuntimeSpirv-None-12295",
-          "text": "the <code>Component</code> <code>Count</code> of any vector type <strong class=\"purple\">must</strong> be less than or equal to <code>4</code> and greater than <code>1</code>",
           "page": "appendices/spirvenv.html"
         }
       ]

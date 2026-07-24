@@ -4,7 +4,7 @@
 /*
 ** Copyright 2015-2026 The Khronos Group Inc.
 **
-** SPDX-License-Identifier: Apache-2.0
+** SPDX-License-Identifier: Apache-2.0 OR MIT
 */
 
 /*
@@ -60,7 +60,7 @@ extern "C" {
 #endif
 
 // Version of this file
-#define VK_HEADER_VERSION 21
+#define VK_HEADER_VERSION 22
 
 // Vulkan SC variant number
 #define VKSC_API_VARIANT 1
@@ -434,7 +434,6 @@ typedef enum VkStructureType {
     VK_STRUCTURE_TYPE_IMAGE_DRM_FORMAT_MODIFIER_LIST_CREATE_INFO_EXT = 1000158003,
     VK_STRUCTURE_TYPE_IMAGE_DRM_FORMAT_MODIFIER_EXPLICIT_CREATE_INFO_EXT = 1000158004,
     VK_STRUCTURE_TYPE_IMAGE_DRM_FORMAT_MODIFIER_PROPERTIES_EXT = 1000158005,
-    VK_STRUCTURE_TYPE_DRM_FORMAT_MODIFIER_PROPERTIES_LIST_2_EXT = 1000158006,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_VIEW_IMAGE_FORMAT_INFO_EXT = 1000170000,
     VK_STRUCTURE_TYPE_FILTER_CUBIC_IMAGE_VIEW_IMAGE_FORMAT_PROPERTIES_EXT = 1000170001,
     VK_STRUCTURE_TYPE_IMPORT_MEMORY_HOST_POINTER_INFO_EXT = 1000178000,
@@ -447,7 +446,6 @@ typedef enum VkStructureType {
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_PROPERTIES_KHR = 1000226002,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_FEATURES_KHR = 1000226003,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_KHR = 1000226004,
-    VK_STRUCTURE_TYPE_RENDERING_FRAGMENT_SHADING_RATE_ATTACHMENT_INFO_KHR = 1000044006,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_IMAGE_ATOMIC_INT64_FEATURES_EXT = 1000234000,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_BUDGET_PROPERTIES_EXT = 1000237000,
     VK_STRUCTURE_TYPE_VALIDATION_FEATURES_EXT = 1000247000,
@@ -589,6 +587,7 @@ typedef enum VkVendorId {
     VK_VENDOR_ID_MESA = 0x10005,
     VK_VENDOR_ID_POCL = 0x10006,
     VK_VENDOR_ID_MOBILEYE = 0x10007,
+    VK_VENDOR_ID_APE = 0x10008,
     VK_VENDOR_ID_MAX_ENUM = 0x7FFFFFFF
 } VkVendorId;
 
@@ -1642,7 +1641,15 @@ static constexpr VkCullModeFlagBits VK_CULL_MODE_BACK_BIT {0x00000002U};
 static constexpr VkCullModeFlagBits VK_CULL_MODE_FRONT_AND_BACK {0x00000003U};
 
 typedef VkFlags VkCullModeFlags;
+
+// Flag bits for VkPipelineColorBlendStateCreateFlagBits
+typedef VkFlags VkPipelineColorBlendStateCreateFlagBits;
+
 typedef VkFlags VkPipelineColorBlendStateCreateFlags;
+
+// Flag bits for VkPipelineDepthStencilStateCreateFlagBits
+typedef VkFlags VkPipelineDepthStencilStateCreateFlagBits;
+
 typedef VkFlags VkPipelineDepthStencilStateCreateFlags;
 typedef VkFlags VkPipelineDynamicStateCreateFlags;
 typedef VkFlags VkPipelineInputAssemblyStateCreateFlags;
@@ -2018,9 +2025,9 @@ typedef struct VkDeviceCreateInfo {
     VkDeviceCreateFlags                flags;
     uint32_t                           queueCreateInfoCount;
     VkDeviceQueueCreateInfo const*     pQueueCreateInfos;
-    // enabledLayerCount is legacy and ignored
+    // enabledLayerCount is legacy and not used
     uint32_t                           enabledLayerCount;
-    // ppEnabledLayerNames is legacy and ignored
+    // ppEnabledLayerNames is legacy and not used
     char const* const*                 ppEnabledLayerNames;
     uint32_t                           enabledExtensionCount;
     char const* const*                 ppEnabledExtensionNames;
@@ -4347,6 +4354,8 @@ typedef enum VkDriverId {
     VK_DRIVER_ID_MESA_HONEYKRISP = 26,
     VK_DRIVER_ID_VULKAN_SC_EMULATION_ON_VULKAN = 27,
     VK_DRIVER_ID_MESA_KOSMICKRISP = 28,
+    VK_DRIVER_ID_MESA_GFXSTREAM = 29,
+    VK_DRIVER_ID_APE_SOFT = 30,
     VK_DRIVER_ID_MAX_ENUM = 0x7FFFFFFF
 } VkDriverId;
 
@@ -5293,6 +5302,7 @@ static constexpr VkSurfaceTransformFlagBitsKHR VK_SURFACE_TRANSFORM_HORIZONTAL_M
 static constexpr VkSurfaceTransformFlagBitsKHR VK_SURFACE_TRANSFORM_HORIZONTAL_MIRROR_ROTATE_270_BIT_KHR {0x00000080U};
 static constexpr VkSurfaceTransformFlagBitsKHR VK_SURFACE_TRANSFORM_INHERIT_BIT_KHR {0x00000100U};
 
+typedef VkFlags VkSurfaceTransformFlagsKHR;
 
 // Flag bits for VkCompositeAlphaFlagBitsKHR
 typedef VkFlags VkCompositeAlphaFlagBitsKHR;
@@ -5302,7 +5312,6 @@ static constexpr VkCompositeAlphaFlagBitsKHR VK_COMPOSITE_ALPHA_POST_MULTIPLIED_
 static constexpr VkCompositeAlphaFlagBitsKHR VK_COMPOSITE_ALPHA_INHERIT_BIT_KHR {0x00000008U};
 
 typedef VkFlags VkCompositeAlphaFlagsKHR;
-typedef VkFlags VkSurfaceTransformFlagsKHR;
 typedef struct VkSurfaceCapabilitiesKHR {
     uint32_t                         minImageCount;
     uint32_t                         maxImageCount;
@@ -6386,15 +6395,7 @@ static constexpr VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_CLEAR_BIT {0x80000
 static constexpr VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_INDEX_INPUT_BIT {0x1000000000ULL};
 static constexpr VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_VERTEX_ATTRIBUTE_INPUT_BIT {0x2000000000ULL};
 static constexpr VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_PRE_RASTERIZATION_SHADERS_BIT {0x4000000000ULL};
-static constexpr VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_TRANSFORM_FEEDBACK_BIT_EXT {0x01000000ULL};
-static constexpr VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_CONDITIONAL_RENDERING_BIT_EXT {0x00040000ULL};
-static constexpr VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_COMMAND_PREPROCESS_BIT_EXT {0x00020000ULL};
 static constexpr VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR {0x00400000ULL};
-static constexpr VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_BUILD_BIT_KHR {0x02000000ULL};
-static constexpr VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_RAY_TRACING_SHADER_BIT_KHR {0x00200000ULL};
-static constexpr VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_FRAGMENT_DENSITY_PROCESS_BIT_EXT {0x00800000ULL};
-static constexpr VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_TASK_SHADER_BIT_EXT {0x00080000ULL};
-static constexpr VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_MESH_SHADER_BIT_EXT {0x00100000ULL};
 static constexpr VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_TRANSFER_BIT {VK_PIPELINE_STAGE_2_ALL_TRANSFER_BIT};
 static constexpr VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_NONE_KHR {VK_PIPELINE_STAGE_2_NONE};
 static constexpr VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_TOP_OF_PIPE_BIT_KHR {VK_PIPELINE_STAGE_2_TOP_OF_PIPE_BIT};
@@ -6422,12 +6423,6 @@ static constexpr VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_CLEAR_BIT_KHR {VK_
 static constexpr VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_INDEX_INPUT_BIT_KHR {VK_PIPELINE_STAGE_2_INDEX_INPUT_BIT};
 static constexpr VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_VERTEX_ATTRIBUTE_INPUT_BIT_KHR {VK_PIPELINE_STAGE_2_VERTEX_ATTRIBUTE_INPUT_BIT};
 static constexpr VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_PRE_RASTERIZATION_SHADERS_BIT_KHR {VK_PIPELINE_STAGE_2_PRE_RASTERIZATION_SHADERS_BIT};
-static constexpr VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_COMMAND_PREPROCESS_BIT_NV {VK_PIPELINE_STAGE_2_COMMAND_PREPROCESS_BIT_EXT};
-static constexpr VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_SHADING_RATE_IMAGE_BIT_NV {VK_PIPELINE_STAGE_2_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR};
-static constexpr VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_RAY_TRACING_SHADER_BIT_NV {VK_PIPELINE_STAGE_2_RAY_TRACING_SHADER_BIT_KHR};
-static constexpr VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_BUILD_BIT_NV {VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_BUILD_BIT_KHR};
-static constexpr VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_TASK_SHADER_BIT_NV {VK_PIPELINE_STAGE_2_TASK_SHADER_BIT_EXT};
-static constexpr VkPipelineStageFlagBits2 VK_PIPELINE_STAGE_2_MESH_SHADER_BIT_NV {VK_PIPELINE_STAGE_2_MESH_SHADER_BIT_EXT};
 
 typedef VkPipelineStageFlags2 VkPipelineStageFlags2KHR;
 
@@ -6458,16 +6453,7 @@ static constexpr VkAccessFlagBits2 VK_ACCESS_2_MEMORY_WRITE_BIT {0x00010000ULL};
 static constexpr VkAccessFlagBits2 VK_ACCESS_2_SHADER_SAMPLED_READ_BIT {0x100000000ULL};
 static constexpr VkAccessFlagBits2 VK_ACCESS_2_SHADER_STORAGE_READ_BIT {0x200000000ULL};
 static constexpr VkAccessFlagBits2 VK_ACCESS_2_SHADER_STORAGE_WRITE_BIT {0x400000000ULL};
-static constexpr VkAccessFlagBits2 VK_ACCESS_2_TRANSFORM_FEEDBACK_WRITE_BIT_EXT {0x02000000ULL};
-static constexpr VkAccessFlagBits2 VK_ACCESS_2_TRANSFORM_FEEDBACK_COUNTER_READ_BIT_EXT {0x04000000ULL};
-static constexpr VkAccessFlagBits2 VK_ACCESS_2_TRANSFORM_FEEDBACK_COUNTER_WRITE_BIT_EXT {0x08000000ULL};
-static constexpr VkAccessFlagBits2 VK_ACCESS_2_CONDITIONAL_RENDERING_READ_BIT_EXT {0x00100000ULL};
-static constexpr VkAccessFlagBits2 VK_ACCESS_2_COMMAND_PREPROCESS_READ_BIT_EXT {0x00020000ULL};
-static constexpr VkAccessFlagBits2 VK_ACCESS_2_COMMAND_PREPROCESS_WRITE_BIT_EXT {0x00040000ULL};
 static constexpr VkAccessFlagBits2 VK_ACCESS_2_FRAGMENT_SHADING_RATE_ATTACHMENT_READ_BIT_KHR {0x00800000ULL};
-static constexpr VkAccessFlagBits2 VK_ACCESS_2_ACCELERATION_STRUCTURE_READ_BIT_KHR {0x00200000ULL};
-static constexpr VkAccessFlagBits2 VK_ACCESS_2_ACCELERATION_STRUCTURE_WRITE_BIT_KHR {0x00400000ULL};
-static constexpr VkAccessFlagBits2 VK_ACCESS_2_FRAGMENT_DENSITY_MAP_READ_BIT_EXT {0x01000000ULL};
 static constexpr VkAccessFlagBits2 VK_ACCESS_2_COLOR_ATTACHMENT_READ_NONCOHERENT_BIT_EXT {0x00080000ULL};
 static constexpr VkAccessFlagBits2 VK_ACCESS_2_NONE_KHR {VK_ACCESS_2_NONE};
 static constexpr VkAccessFlagBits2 VK_ACCESS_2_INDIRECT_COMMAND_READ_BIT_KHR {VK_ACCESS_2_INDIRECT_COMMAND_READ_BIT};
@@ -6490,11 +6476,6 @@ static constexpr VkAccessFlagBits2 VK_ACCESS_2_MEMORY_WRITE_BIT_KHR {VK_ACCESS_2
 static constexpr VkAccessFlagBits2 VK_ACCESS_2_SHADER_SAMPLED_READ_BIT_KHR {VK_ACCESS_2_SHADER_SAMPLED_READ_BIT};
 static constexpr VkAccessFlagBits2 VK_ACCESS_2_SHADER_STORAGE_READ_BIT_KHR {VK_ACCESS_2_SHADER_STORAGE_READ_BIT};
 static constexpr VkAccessFlagBits2 VK_ACCESS_2_SHADER_STORAGE_WRITE_BIT_KHR {VK_ACCESS_2_SHADER_STORAGE_WRITE_BIT};
-static constexpr VkAccessFlagBits2 VK_ACCESS_2_COMMAND_PREPROCESS_READ_BIT_NV {VK_ACCESS_2_COMMAND_PREPROCESS_READ_BIT_EXT};
-static constexpr VkAccessFlagBits2 VK_ACCESS_2_COMMAND_PREPROCESS_WRITE_BIT_NV {VK_ACCESS_2_COMMAND_PREPROCESS_WRITE_BIT_EXT};
-static constexpr VkAccessFlagBits2 VK_ACCESS_2_SHADING_RATE_IMAGE_READ_BIT_NV {VK_ACCESS_2_FRAGMENT_SHADING_RATE_ATTACHMENT_READ_BIT_KHR};
-static constexpr VkAccessFlagBits2 VK_ACCESS_2_ACCELERATION_STRUCTURE_READ_BIT_NV {VK_ACCESS_2_ACCELERATION_STRUCTURE_READ_BIT_KHR};
-static constexpr VkAccessFlagBits2 VK_ACCESS_2_ACCELERATION_STRUCTURE_WRITE_BIT_NV {VK_ACCESS_2_ACCELERATION_STRUCTURE_WRITE_BIT_KHR};
 
 typedef VkAccessFlags2 VkAccessFlags2KHR;
 
@@ -7652,38 +7633,6 @@ typedef struct VkPipelineColorBlendAdvancedStateCreateInfoEXT {
 #define VK_EXT_image_drm_format_modifier 1
 #define VK_EXT_IMAGE_DRM_FORMAT_MODIFIER_SPEC_VERSION 2
 #define VK_EXT_IMAGE_DRM_FORMAT_MODIFIER_EXTENSION_NAME "VK_EXT_image_drm_format_modifier"
-typedef VkFlags64 VkFormatFeatureFlags2;
-
-// Flag bits for VkFormatFeatureFlagBits2
-typedef VkFlags64 VkFormatFeatureFlagBits2;
-static constexpr VkFormatFeatureFlagBits2 VK_FORMAT_FEATURE_2_SAMPLED_IMAGE_BIT {0x00000001ULL};
-static constexpr VkFormatFeatureFlagBits2 VK_FORMAT_FEATURE_2_STORAGE_IMAGE_BIT {0x00000002ULL};
-static constexpr VkFormatFeatureFlagBits2 VK_FORMAT_FEATURE_2_STORAGE_IMAGE_ATOMIC_BIT {0x00000004ULL};
-static constexpr VkFormatFeatureFlagBits2 VK_FORMAT_FEATURE_2_UNIFORM_TEXEL_BUFFER_BIT {0x00000008ULL};
-static constexpr VkFormatFeatureFlagBits2 VK_FORMAT_FEATURE_2_STORAGE_TEXEL_BUFFER_BIT {0x00000010ULL};
-static constexpr VkFormatFeatureFlagBits2 VK_FORMAT_FEATURE_2_STORAGE_TEXEL_BUFFER_ATOMIC_BIT {0x00000020ULL};
-static constexpr VkFormatFeatureFlagBits2 VK_FORMAT_FEATURE_2_VERTEX_BUFFER_BIT {0x00000040ULL};
-static constexpr VkFormatFeatureFlagBits2 VK_FORMAT_FEATURE_2_COLOR_ATTACHMENT_BIT {0x00000080ULL};
-static constexpr VkFormatFeatureFlagBits2 VK_FORMAT_FEATURE_2_COLOR_ATTACHMENT_BLEND_BIT {0x00000100ULL};
-static constexpr VkFormatFeatureFlagBits2 VK_FORMAT_FEATURE_2_DEPTH_STENCIL_ATTACHMENT_BIT {0x00000200ULL};
-static constexpr VkFormatFeatureFlagBits2 VK_FORMAT_FEATURE_2_BLIT_SRC_BIT {0x00000400ULL};
-static constexpr VkFormatFeatureFlagBits2 VK_FORMAT_FEATURE_2_BLIT_DST_BIT {0x00000800ULL};
-static constexpr VkFormatFeatureFlagBits2 VK_FORMAT_FEATURE_2_SAMPLED_IMAGE_FILTER_LINEAR_BIT {0x00001000ULL};
-static constexpr VkFormatFeatureFlagBits2 VK_FORMAT_FEATURE_2_TRANSFER_SRC_BIT {0x00004000ULL};
-static constexpr VkFormatFeatureFlagBits2 VK_FORMAT_FEATURE_2_TRANSFER_DST_BIT {0x00008000ULL};
-static constexpr VkFormatFeatureFlagBits2 VK_FORMAT_FEATURE_2_SAMPLED_IMAGE_FILTER_MINMAX_BIT {0x00010000ULL};
-static constexpr VkFormatFeatureFlagBits2 VK_FORMAT_FEATURE_2_MIDPOINT_CHROMA_SAMPLES_BIT {0x00020000ULL};
-static constexpr VkFormatFeatureFlagBits2 VK_FORMAT_FEATURE_2_SAMPLED_IMAGE_YCBCR_CONVERSION_LINEAR_FILTER_BIT {0x00040000ULL};
-static constexpr VkFormatFeatureFlagBits2 VK_FORMAT_FEATURE_2_SAMPLED_IMAGE_YCBCR_CONVERSION_SEPARATE_RECONSTRUCTION_FILTER_BIT {0x00080000ULL};
-static constexpr VkFormatFeatureFlagBits2 VK_FORMAT_FEATURE_2_SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT_BIT {0x00100000ULL};
-static constexpr VkFormatFeatureFlagBits2 VK_FORMAT_FEATURE_2_SAMPLED_IMAGE_YCBCR_CONVERSION_CHROMA_RECONSTRUCTION_EXPLICIT_FORCEABLE_BIT {0x00200000ULL};
-static constexpr VkFormatFeatureFlagBits2 VK_FORMAT_FEATURE_2_DISJOINT_BIT {0x00400000ULL};
-static constexpr VkFormatFeatureFlagBits2 VK_FORMAT_FEATURE_2_COSITED_CHROMA_SAMPLES_BIT {0x00800000ULL};
-static constexpr VkFormatFeatureFlagBits2 VK_FORMAT_FEATURE_2_STORAGE_READ_WITHOUT_FORMAT_BIT {0x80000000ULL};
-static constexpr VkFormatFeatureFlagBits2 VK_FORMAT_FEATURE_2_STORAGE_WRITE_WITHOUT_FORMAT_BIT {0x100000000ULL};
-static constexpr VkFormatFeatureFlagBits2 VK_FORMAT_FEATURE_2_SAMPLED_IMAGE_DEPTH_COMPARISON_BIT {0x200000000ULL};
-static constexpr VkFormatFeatureFlagBits2 VK_FORMAT_FEATURE_2_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR {0x40000000ULL};
-
 typedef struct VkDrmFormatModifierPropertiesEXT {
     uint64_t                drmFormatModifier;
     uint32_t                drmFormatModifierPlaneCount;
@@ -7726,19 +7675,6 @@ typedef struct VkImageDrmFormatModifierPropertiesEXT {
     void*              pNext;
     uint64_t           drmFormatModifier;
 } VkImageDrmFormatModifierPropertiesEXT;
-
-typedef struct VkDrmFormatModifierProperties2EXT {
-    uint64_t                 drmFormatModifier;
-    uint32_t                 drmFormatModifierPlaneCount;
-    VkFormatFeatureFlags2    drmFormatModifierTilingFeatures;
-} VkDrmFormatModifierProperties2EXT;
-
-typedef struct VkDrmFormatModifierPropertiesList2EXT {
-    VkStructureType                       sType;
-    void*                                 pNext;
-    uint32_t                              drmFormatModifierCount;
-    VkDrmFormatModifierProperties2EXT*    pDrmFormatModifierProperties;
-} VkDrmFormatModifierPropertiesList2EXT;
 
 typedef VkResult (VKAPI_PTR *PFN_vkGetImageDrmFormatModifierPropertiesEXT)(VkDevice device, VkImage image, VkImageDrmFormatModifierPropertiesEXT* pProperties);
 
