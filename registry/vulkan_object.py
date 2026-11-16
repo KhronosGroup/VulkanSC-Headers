@@ -171,6 +171,11 @@ class Param:
     # ex) VkTransformMatrixKHR:matrix is ['3', '4']
     fixedSizeArray: list[str]
 
+    objectType: (str | None) # if not None then this is a uint64_t parameter containing a raw object
+                             # handle value and this is the name of the parameter specifying the
+                             # object type value (a VkObjectType or VkDebugReportObjectTypeEXT enum
+                             # constant discriminating the object type of the handle)
+
     optional: bool
     # Note: "optionalPointer" is a misleading name, this should have probably been "optionalPointedValue"
     optionalPointer: bool # if type contains a pointer, is the pointer value optional
@@ -256,9 +261,25 @@ class ExtendedFlag:
     struct: str # ex) VkImageUsageFlags2CreateInfoKHR
 
 @dataclass
+class StructCapabilityAlias:
+    """An alias that points to a member inside another feature structure."""
+    struct: str   # ex) VkPhysicalDeviceShaderSubgroupRotateFeatures
+    member: str   # ex) shaderSubgroupRotate
+
+@dataclass
+class ExtensionCapabilityAlias:
+    """An alias indicating the feature is enabled using the extension."""
+    name: str  # ex) VK_KHR_sampler_mirror_clamp_to_edge
+
+CapabilityAlias = StructCapabilityAlias | ExtensionCapabilityAlias
+
+@dataclass
 class Member:
     """<member>"""
     name: str # ex) sType, pNext, flags, size, usage
+
+     # ex) {VkPhysicalDeviceShaderSubgroupRotateFeatures, shaderSubgroupRotate}
+    capabilityAlias: (CapabilityAlias | None)
 
     # the "base type" - will not preserve the 'const' or pointer info
     # ex) void, uint32_t, VkFormat, VkBuffer, etc
@@ -280,6 +301,11 @@ class Member:
     # ex) memoryTypes is ['VK_MAX_MEMORY_TYPES']
     # ex) VkTransformMatrixKHR:matrix is ['3', '4']
     fixedSizeArray: list[str]
+
+    objectType: (str | None) # if not None then this is a uint64_t parameter containing a raw object
+                             # handle value and this is the name of the member specifying the
+                             # object type value (a VkObjectType or VkDebugReportObjectTypeEXT enum
+                             # constant discriminating the object type of the handle)
 
     extendedFlag: (ExtendedFlag | None)
 
@@ -517,6 +543,52 @@ class Format:
     spirvImageFormat: (str | None)
 
 @dataclass
+class EnableState:
+    """What is needed to enable the an element (the <enable> tag in the XML)"""
+    # There are 4 options for what will be non-None
+    # 1. version
+    # 2. extension
+    # 3. struct + feature + requires
+    # 4. property + member + values + (optional)requires
+    version: (str | None)
+    extension: (str | None)
+    struct: (str | None)
+    feature: (str | None)
+    requires: (str | None)
+    property: (str | None)
+    member: (str | None)
+    value: (str | None)
+
+@dataclass
+class DynamicStateCommand:
+    # ex) vkCmdSetDepthBias
+    name: str
+    # ex) VK_DYNAMIC_STATE_DEPTH_BIAS
+    pipelineEnum: (str | None)
+    # ex) VK_DYNAMIC_STATE_VIEWPORT is not used in Shader Objects
+    pipelineOnly: bool
+
+@dataclass
+class DynamicState:
+    # ex) depthBias
+    name: str
+    commands: list[DynamicStateCommand]
+    # ex) VK_SHADER_STAGE_FRAGMENT_BIT
+    shaderStage: str
+    # A list of one of the 4 pipeline sub states:
+    # ['Vertex Input', 'Pre-Rasterization Shader, 'Fragment Output', 'Fragment Shader']
+    # Will be empty if not used for graphics (ex VK_DYNAMIC_STATE_RAY_TRACING_PIPELINE_STACK_SIZE_KHR)
+    pipelineSubStates: list[str]
+    # If the dynamic state is ignored when rasterizerDiscardEnable is VK_FALSE
+    requiresRasterization: bool
+    # The name of another DynamicState that is required for this dynamic state to be active (ex. depthBiasEnable)
+    stateRequired: (str | None)
+    # Unique string to identify some complex state required for this dynamic state to be active
+    specialRequired: (str | None)
+    # list of extensions/features for this dynamic state to be active
+    enable: list[EnableState]
+
+@dataclass
 class SyncSupport:
     """<syncsupport>"""
     # Note - We normally use empty list instead of None, these are exceptions
@@ -562,25 +634,13 @@ class SyncPipeline:
     stages: list[SyncPipelineStage]
 
 @dataclass
-class SpirvEnables:
-    """What is needed to enable the SPIR-V element"""
-    version: (str | None)
-    extension: (str | None)
-    struct: (str | None)
-    feature: (str | None)
-    requires: (str | None)
-    property: (str | None)
-    member: (str | None)
-    value: (str | None)
-
-@dataclass
 class Spirv:
     """<spirvextension> and <spirvcapability>"""
     name: str
     # Only one will be True, the other is False
     extension: bool
     capability: bool
-    enable: list[SpirvEnables]
+    enable: list[EnableState]
 
 @dataclass
 class VideoRequiredCapabilities:
@@ -670,6 +730,8 @@ class VulkanObject():
     constants: dict[str, Constant]   = field(default_factory=dict, init=False)
     formats:   dict[str, Format]     = field(default_factory=dict, init=False)
     funcPointers: dict[str, FuncPointer] = field(default_factory=dict, init=False)
+
+    dynamicStates: dict[str, DynamicState] = field(default_factory=dict, init=False)
 
     syncStage:    list[SyncStage]    = field(default_factory=list, init=False)
     syncAccess:   list[SyncAccess]   = field(default_factory=list, init=False)

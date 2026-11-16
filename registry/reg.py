@@ -206,10 +206,11 @@ def mergeInternalFeatures(tree, apiName):
         depends = feature.get('depends', '')
         if not depends:
             return set()
-        # Parse the depends expression - for simplicity, extract feature names
-        # Dependencies can be like "VK_VERSION_1_0" or "VK_VERSION_1_0+VK_KHR_feature"
+        # Feature depends must use '+' (AND). ',' means OR in the dependency
+        # syntax and is not currently supported at the feature level.
+        if ',' in depends:
+            raise ValueError(f'Feature {feature.get("name")} has OR (",") in depends="{depends}"; use "+" for AND')
         deps = set()
-        # Split on + and , to get individual dependencies
         for dep in depends.replace('+', ',').split(','):
             dep = dep.strip()
             if dep:
@@ -271,6 +272,7 @@ def mergeInternalFeatures(tree, apiName):
             tree.remove(internal_feature)
 
 
+
 def stripNonmatchingAPIs(tree, apiName, actuallyDelete = True):
     """Remove tree Elements with 'api' attributes matching apiName.
 
@@ -292,7 +294,7 @@ def stripNonmatchingAPIs(tree, apiName, actuallyDelete = True):
             if apiNameMatch(apiName, api):
                 # Add child to the queue
                 stack.append(child)
-            elif not apiNameMatch(apiName, api):
+            else:
                 # Child does not match requested api. Remove it.
                 if actuallyDelete:
                     parent.remove(child)
@@ -491,6 +493,14 @@ class FormatInfo(BaseInfo):
         # Need to save the condition here when it is known
         self.condition = condition
 
+class DynamicStateInfo(BaseInfo):
+    """Registry information about an API <dynamicstate>."""
+
+    def __init__(self, elem, condition):
+        BaseInfo.__init__(self, elem)
+        # Need to save the condition here when it is known
+        self.condition = condition
+
 class SyncStageInfo(BaseInfo):
     """Registry information about <syncstage>."""
 
@@ -581,6 +591,9 @@ class Registry:
         self.formatsdict = {}
         "dictionary of FeatureInfo objects for `<format>` elements keyed by VkFormat name"
 
+        self.dynamicstatedict = {}
+        "dictionary of DynamicStateInfo objects for `<dynamicstate>` elements keyed by VkDynamicState name"
+
         self.syncstagedict = {}
         "dictionary of Sync*Info objects for `<syncstage>` elements keyed by VkPipelineStageFlagBits2 name"
 
@@ -635,9 +648,9 @@ class Registry:
 
         Intended for internal use only.
 
-        - elem - `<type>`/`<enums>`/`<enum>`/`<command>`/`<feature>`/`<extension>`/`<spirvextension>`/`<spirvcapability>`/`<format>`/`<syncstage>`/`<syncaccess>`/`<syncpipeline>` Element
+        - elem - `<type>`/`<enums>`/`<enum>`/`<command>`/`<feature>`/`<extension>`/`<spirvextension>`/`<spirvcapability>`/`<format>`/`<dynamicstate>`/`<syncstage>`/`<syncaccess>`/`<syncpipeline>` Element
         - info - corresponding {Type|Group|Enum|Cmd|Feature|Spirv|Format|SyncStage|SyncAccess|SyncPipeline}Info object
-        - infoName - 'type' / 'group' / 'enum' / 'command' / 'feature' / 'extension' / 'spirvextension' / 'spirvcapability' / 'format' / 'syncstage' / 'syncaccess' / 'syncpipeline'
+        - infoName - 'type' / 'group' / 'enum' / 'command' / 'feature' / 'extension' / 'spirvextension' / 'spirvcapability' / 'format' / 'dynamicstate' / 'syncstage' / 'syncaccess' / 'syncpipeline'
         - dictionary - self.{type|group|enum|cmd|api|ext|format|spirvext|spirvcap|sync}dict
 
         The dictionary key is the element 'name' attribute."""
@@ -671,6 +684,19 @@ class Registry:
             return dictionary[fname]
 
         return None
+
+    def isElementRequired(self, name, dictionary, default=False):
+        """Return whether a type / enum / command is required for the API
+        being generated.
+
+        - name - name of type / enum / command
+        - dictionary - self.{type|enum|cmd}dict
+        - default - value to return if `name` is not in the dictionary"""
+
+        info = self.lookupElementInfo(name, dictionary)
+        if info is None:
+            return default
+        return info.required
 
     def breakOnName(self, regexp):
         """Specify a feature name regexp to break on when generating features."""
@@ -724,16 +750,13 @@ class Registry:
         self.enumvaluedict = {}
 
         # Get vendor tags
-        vendors = []
-        for tag in self.reg.findall('tags/tag'):
-            vendors.append(tag.get('name'))
+        vendors = [tag.get('name') for tag in self.reg.findall('tags/tag')]
 
         # Function to check which (if any) vendor suffix is present on
         # an API name
         def getApiVendorTag(name):
             for vendor in vendors:
-                n = len(vendor)
-                if name[-n:] == vendor:
+                if name.endswith(vendor):
                     return vendor
             return None
 
@@ -1011,26 +1034,26 @@ class Registry:
             self.addElementInfo(spirv, spirvInfo, 'spirvcapability', self.spirvcapdict)
 
         for format in self.reg.findall('formats/format'):
-            condition = None
             format_name = format.get('name')
-            if format_name in format_condition:
-                condition = format_condition[format_name]
+            condition = format_condition.get(format_name)
             formatInfo = FormatInfo(format, condition)
             self.addElementInfo(format, formatInfo, 'format', self.formatsdict)
 
-        for stage in self.reg.findall('sync/syncstage'):
+        for element in self.reg.findall('dynamicstates/dynamicstate'):
+            # TODO add conditions (currently emits all)
             condition = None
+            elementInfo = DynamicStateInfo(element, condition)
+            self.addElementInfo(element, elementInfo, 'dynamicstate', self.dynamicstatedict)
+
+        for stage in self.reg.findall('sync/syncstage'):
             stage_flag = stage.get('name')
-            if stage_flag in sync_pipeline_stage_condition:
-                condition = sync_pipeline_stage_condition[stage_flag]
+            condition = sync_pipeline_stage_condition.get(stage_flag)
             syncInfo = SyncStageInfo(stage, condition)
             self.addElementInfo(stage, syncInfo, 'syncstage', self.syncstagedict)
 
         for access in self.reg.findall('sync/syncaccess'):
-            condition = None
             access_flag = access.get('name')
-            if access_flag in sync_access_condition:
-                condition = sync_access_condition[access_flag]
+            condition = sync_access_condition.get(access_flag)
             syncInfo = SyncAccessInfo(access, condition)
             self.addElementInfo(access, syncInfo, 'syncaccess', self.syncaccessdict)
 
@@ -1081,6 +1104,9 @@ class Registry:
         for key in self.formatsdict:
             write('    VkFormat', key, '->',
                   etree.tostring(self.formatsdict[key].elem)[0:maxlen], file=filehandle)
+        for key in self.dynamicstatedict:
+            write('    VkDynamicState', key, '->',
+                  etree.tostring(self.dynamicstatedict[key].elem)[0:maxlen], file=filehandle)
 
     def markTypeRequired(self, typename, required):
         """Require (along with its dependencies) or remove (but not its dependencies) a type.
@@ -1318,6 +1344,38 @@ class Registry:
 
         return False
 
+    def isDependencyNameSupported(self, name):
+        """Return True if a version or extension name used in a depends
+        expression is part of the API being generated.
+
+        - name - name of a version or extension"""
+
+        # Treat genFeatures and removedExtensionNames as supported (extensions
+        # moved to platform/beta headers still count so their enum values stay
+        # in the core header).
+        # For VulkanSC, do not treat VK_VERSION_1_3 and VK_VERSION_1_4 as
+        # supported: Vulkan SC 1.0 does not include those versions
+        # so require blocks that depend on them must be excluded for vulkansc.
+        # TODO - remove explicit check once !7794 (or equivalent) is merged
+        if getattr(self.genOpts, 'apiname', None) == 'vulkansc' and name in (
+                'VK_VERSION_1_3', 'VK_VERSION_1_4'):
+            return False
+        return (name in self.genFeatures or
+                name in getattr(self, 'removedExtensionNames', set()))
+
+    def isDependencyNameInAPI(self, name):
+        """Return True if a name used in a depends expression is part of the
+        API being generated, for use when deciding whether to mention it.
+        Unlike isDependencyNameSupported this also accepts the
+        `struct::feature` names which can appear in an expression, which are
+        part of the API if the struct is.
+
+        - name - name of a version, extension or `struct::feature`"""
+
+        if '::' in name:
+            return self.isElementRequired(name.split('::')[0], self.typedict, default=True)
+        return self.isDependencyNameSupported(name)
+
     def requireDependsSatisfied(self, require):
         """Return True if the require element has no depends attribute, or if the
         depends boolean expression evaluates to true.
@@ -1327,20 +1385,7 @@ class Registry:
         if not depends or not depends.strip():
             return True
         try:
-            # Treat genFeatures and removedExtensionNames as satisfied (extensions
-            # moved to platform/beta headers still count so their enum values stay
-            # in the core header).
-            # For VulkanSC, do not treat VK_VERSION_1_3 and VK_VERSION_1_4 as
-            # satisfying depends: Vulkan SC 1.0 does not include those versions
-            # so require blocks that depend on them must be excluded for vulkansc.
-            # TODO - remove explicit check once !7794 (or equivalent) is merged
-            def is_supported(name):
-                if getattr(self.genOpts, 'apiname', None) == 'vulkansc' and name in (
-                        'VK_VERSION_1_3', 'VK_VERSION_1_4'):
-                    return False
-                return (name in self.genFeatures or
-                        name in getattr(self, 'removedExtensionNames', set()))
-            return evaluateDependency(depends, is_supported)
+            return evaluateDependency(depends, self.isDependencyNameSupported)
         except ParseException as e:
             self.gen.logMsg('warn', 'requireDependsSatisfied: parse error', str(e), 'in depends="', depends, '"')
             return False
@@ -1567,7 +1612,7 @@ class Registry:
                     if v.get('struct'):
                         self.typedict[v.get('struct')].removedValidity.append(copy.deepcopy(v))
 
-    def generateFeature(self, fname, ftype, dictionary, explicit=False):
+    def generateFeature(self, fname, ftype, dictionary, explicit=False, allow_depends = None, protect = None):
         """Generate a single type / enum group / enum / command,
         and all its dependencies as needed.
 
@@ -1576,7 +1621,16 @@ class Registry:
         - dictionary - of *Info objects - self.{type|enum|cmd}dict
         - explicit - True if this is explicitly required by the top-level
           XML <require> tag, False if it is a dependency of an explicit
-          requirement."""
+          requirement
+        - allow_depends - if not None, do not generate a dependency which
+          is not named in this list
+        - protect - if not None, this a dependency expression which should
+          protect this interface definition in generated headers
+          """
+
+        if self.genOpts.respectAllowDepends and allow_depends is not None and fname not in allow_depends:
+            self.gen.logMsg('diag', f'generateFeature: NOT generating {fname}, which is not in allowed dependencies')
+            return
 
         self.gen.logMsg('diag', 'generateFeature: generating', ftype, fname)
 
@@ -1620,12 +1674,12 @@ class Registry:
 
             # Generate type dependencies in 'alias' and 'requires' attributes
             if alias:
-                self.generateFeature(alias, 'type', self.typedict)
+                self.generateFeature(alias, 'type', self.typedict, explicit=False, allow_depends=allow_depends)
             requires = f.elem.get('requires')
             if requires:
                 self.gen.logMsg('diag', 'Generating required dependent type',
                                 requires)
-                self.generateFeature(requires, 'type', self.typedict)
+                self.generateFeature(requires, 'type', self.typedict, explicit=False, allow_depends=allow_depends)
 
             # Generate types used in defining this type (e.g. in nested
             # <type> tags)
@@ -1634,14 +1688,14 @@ class Registry:
             for subtype in f.elem.findall('.//type'):
                 self.gen.logMsg('diag', 'Generating required dependent <type>',
                                 subtype.text)
-                self.generateFeature(subtype.text, 'type', self.typedict)
+                self.generateFeature(subtype.text, 'type', self.typedict, explicit=False, allow_depends=allow_depends)
 
             # Generate enums used in defining this type, for example in
             #   <member><name>member</name>[<enum>MEMBER_SIZE</enum>]</member>
             for subtype in f.elem.findall('.//enum'):
                 self.gen.logMsg('diag', 'Generating required dependent <enum>',
                                 subtype.text)
-                self.generateFeature(subtype.text, 'enum', self.enumdict)
+                self.generateFeature(subtype.text, 'enum', self.enumdict, explicit=False, allow_depends=allow_depends)
 
             # If the type is an enum group, look up the corresponding
             # group in the group dictionary and generate that instead.
@@ -1737,18 +1791,18 @@ class Registry:
         elif ftype == 'command':
             # Generate command dependencies in 'alias' attribute
             if alias:
-                self.generateFeature(alias, 'command', self.cmddict)
+                self.generateFeature(alias, 'command', self.cmddict, explicit=False, allow_depends=allow_depends)
 
             genProc = self.gen.genCmd
             for type_elem in f.elem.findall('.//type'):
                 depname = type_elem.text
                 self.gen.logMsg('diag', 'Generating required parameter type',
                                 depname)
-                self.generateFeature(depname, 'type', self.typedict)
+                self.generateFeature(depname, 'type', self.typedict, explicit=False, allow_depends=allow_depends)
         elif ftype == 'enum':
             # Generate enum dependencies in 'alias' attribute
             if alias:
-                self.generateFeature(alias, 'enum', self.enumdict)
+                self.generateFeature(alias, 'enum', self.enumdict, explicit=False, allow_depends=allow_depends)
             genProc = self.gen.genEnum
 
         # Actually generate the type only if emitting declarations
@@ -1756,7 +1810,7 @@ class Registry:
             self.gen.logMsg('diag', 'Emitting', ftype, 'decl for', fname)
             if genProc is None:
                 raise RuntimeError("genProc is None when we should be emitting")
-            genProc(f, fname, alias)
+            genProc(f, fname, alias, protect)
         else:
             self.gen.logMsg('diag', 'Skipping', ftype, fname,
                             '(should not be emitted)')
@@ -1764,26 +1818,40 @@ class Registry:
         if followupFeature:
             self.gen.logMsg('diag', 'Generating required bitvalues <enum>',
                             followupFeature)
-            self.generateFeature(followupFeature, "type", self.typedict)
+            self.generateFeature(followupFeature, "type", self.typedict, explicit=False, allow_depends=allow_depends)
 
     def generateRequiredInterface(self, interface):
         """Generate all interfaces required by an API version or extension.
 
         - interface - Element for `<version>` or `<extension>`"""
 
+        # Summarize all features inside <require> tags to allow limiting
+        # dependency tracking to features that are only in this interface.
+        interface_names = set()
+        for features in interface.findall('require'):
+            for t in features.findall('type'):
+                interface_names.add(t.get('name'))
+            for e in features.findall('enum'):
+                interface_names.add(e.get('name'))
+            for c in features.findall('command'):
+                interface_names.add(c.get('name'))
+
         # Loop over all features inside all <require> tags.
         for features in interface.findall('require'):
             for t in features.findall('type'):
-                self.generateFeature(t.get('name'), 'type', self.typedict, explicit=True)
+                protect = t.get('protect')
+                self.generateFeature(t.get('name'), 'type', self.typedict, explicit=True, allow_depends = interface_names, protect = protect)
             for e in features.findall('enum'):
                 # If this is an enum extending an enumerated type, do not
                 # generate it - this has already been done in reg.parseTree,
                 # by copying this element into the enumerated type.
                 enumextends = e.get('extends')
                 if not enumextends:
-                    self.generateFeature(e.get('name'), 'enum', self.enumdict, explicit=True)
+                    protect = e.get('protect')
+                    self.generateFeature(e.get('name'), 'enum', self.enumdict, explicit=True, allow_depends = interface_names, protect = protect)
             for c in features.findall('command'):
-                self.generateFeature(c.get('name'), 'command', self.cmddict, explicit=True)
+                protect = c.get('protect')
+                self.generateFeature(c.get('name'), 'command', self.cmddict, explicit=True, allow_depends = interface_names, protect = protect)
 
     def generateSpirv(self, spirv, dictionary):
         if spirv is None:
@@ -1822,7 +1890,13 @@ class Registry:
                 # Update the attribute after stripping stuff.
                 # Could sort apis before joining, but it is not a clear win
                 if stripped:
-                    eleminfo.elem.set(attribute, ','.join(apis))
+                    if apis:
+                        eleminfo.elem.set(attribute, ','.join(apis))
+                    else:
+                        # Nothing supported remains (e.g. structextends only
+                        # naming structs absent from this API); drop the
+                        # attribute rather than leaving an empty one.
+                        del eleminfo.elem.attrib[attribute]
 
     def stripUnsupportedAPIsFromList(self, dictionary, supportedDictionary):
         """Strip unsupported APIs from attributes of APIs.
@@ -1860,6 +1934,10 @@ class Registry:
         if format.emit:
             genProc = self.gen.genFormat
             genProc(format, name, alias)
+
+    def generateDynamicState(self, element):
+        genProc = self.gen.genDynamicState
+        genProc(element)
 
     def generateSyncStage(self, sync):
         genProc = self.gen.genSyncStage
@@ -1917,6 +1995,7 @@ class Registry:
         regEmitExtensions = re.compile(self.genOpts.emitExtensions)
         regEmitSpirv = re.compile(self.genOpts.emitSpirv)
         regEmitFormats = re.compile(self.genOpts.emitFormats)
+        regEmitDynamicState = re.compile(self.genOpts.emitDynamicState)
 
         # Get all matching API feature names & add to list of FeatureInfo
         # Note we used to select on feature version attributes, not names.
@@ -2041,6 +2120,12 @@ class Registry:
             si.emit = (regEmitFormats.match(key) is not None)
             formats.append(si)
 
+        dynamicstates = []
+        for key in self.dynamicstatedict:
+            si = self.dynamicstatedict[key]
+            si.emit = (regEmitDynamicState.match(key) is not None)
+            dynamicstates.append(si)
+
         # Order the features list, if a sort procedure is defined
         orderedFeatures = list(self.genFeatures.keys())
         if self.genOpts.sortProcedure:
@@ -2109,6 +2194,8 @@ class Registry:
             self.generateSpirv(s, self.spirvcapdict)
         for s in formats:
             self.generateFormat(s, self.formatsdict)
+        for s in dynamicstates:
+            self.generateDynamicState(s)
         for s in self.syncstagedict:
             self.generateSyncStage(self.syncstagedict[s])
         for s in self.syncaccessdict:

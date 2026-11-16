@@ -323,8 +323,8 @@ The current public version of video.xml is maintained in the default branch
             <member><type>StdVideoEncodeH264ReferenceListsInfoFlags</type>   <name>flags</name></member>
             <member><type>uint8_t</type>                                     <name>num_ref_idx_l0_active_minus1</name></member>
             <member><type>uint8_t</type>                                     <name>num_ref_idx_l1_active_minus1</name></member>
-            <member><type>uint8_t</type>                                     <name>RefPicList0</name>[STD_VIDEO_H264_MAX_NUM_LIST_REF]<comment>slotIndex as used in VkVideoReferenceSlotInfoKHR structures or STD_VIDEO_H264_NO_REFERENCE_PICTURE</comment></member>
-            <member><type>uint8_t</type>                                     <name>RefPicList1</name>[STD_VIDEO_H264_MAX_NUM_LIST_REF]<comment>slotIndex as used in VkVideoReferenceSlotInfoKHR structures or STD_VIDEO_H264_NO_REFERENCE_PICTURE</comment></member>
+            <member><type>uint8_t</type>                                     <name>RefPicList0</name>[<enum>STD_VIDEO_H264_MAX_NUM_LIST_REF</enum>]<comment>slotIndex as used in VkVideoReferenceSlotInfoKHR structures or STD_VIDEO_H264_NO_REFERENCE_PICTURE</comment></member>
+            <member><type>uint8_t</type>                                     <name>RefPicList1</name>[<enum>STD_VIDEO_H264_MAX_NUM_LIST_REF</enum>]<comment>slotIndex as used in VkVideoReferenceSlotInfoKHR structures or STD_VIDEO_H264_NO_REFERENCE_PICTURE</comment></member>
             <member><type>uint8_t</type>                                     <name>refList0ModOpCount</name></member>
             <member><type>uint8_t</type>                                     <name>refList1ModOpCount</name></member>
             <member><type>uint8_t</type>                                     <name>refPicMarkingOpCount</name></member>
@@ -805,10 +805,10 @@ The current public version of video.xml is maintained in the default branch
             <member><type>StdVideoEncodeH265ReferenceListsInfoFlags</type> <name>flags</name></member>
             <member><type>uint8_t</type>                              <name>num_ref_idx_l0_active_minus1</name></member>
             <member><type>uint8_t</type>                              <name>num_ref_idx_l1_active_minus1</name></member>
-            <member><type>uint8_t</type>                              <name>RefPicList0</name>[STD_VIDEO_H265_MAX_NUM_LIST_REF]<comment>slotIndex as used in VkVideoReferenceSlotInfoKHR structures or STD_VIDEO_H265_NO_REFERENCE_PICTURE</comment></member>
-            <member><type>uint8_t</type>                              <name>RefPicList1</name>[STD_VIDEO_H265_MAX_NUM_LIST_REF]<comment>slotIndex as used in VkVideoReferenceSlotInfoKHR structures or STD_VIDEO_H265_NO_REFERENCE_PICTURE</comment></member>
-            <member><type>uint8_t</type>                              <name>list_entry_l0</name>[STD_VIDEO_H265_MAX_NUM_LIST_REF]</member>
-            <member><type>uint8_t</type>                              <name>list_entry_l1</name>[STD_VIDEO_H265_MAX_NUM_LIST_REF]</member>
+            <member><type>uint8_t</type>                              <name>RefPicList0</name>[<enum>STD_VIDEO_H265_MAX_NUM_LIST_REF</enum>]<comment>slotIndex as used in VkVideoReferenceSlotInfoKHR structures or STD_VIDEO_H265_NO_REFERENCE_PICTURE</comment></member>
+            <member><type>uint8_t</type>                              <name>RefPicList1</name>[<enum>STD_VIDEO_H265_MAX_NUM_LIST_REF</enum>]<comment>slotIndex as used in VkVideoReferenceSlotInfoKHR structures or STD_VIDEO_H265_NO_REFERENCE_PICTURE</comment></member>
+            <member><type>uint8_t</type>                              <name>list_entry_l0</name>[<enum>STD_VIDEO_H265_MAX_NUM_LIST_REF</enum>]</member>
+            <member><type>uint8_t</type>                              <name>list_entry_l1</name>[<enum>STD_VIDEO_H265_MAX_NUM_LIST_REF</enum>]</member>
         </type>
         <type category="struct" name="StdVideoEncodeH265PictureInfoFlags">
             <member><type>uint32_t</type>  <name>is_reference</name> : 1<comment>A reference picture, as defined in clause 3.132</comment></member>
@@ -1325,6 +1325,8 @@ The current public version of video.xml is maintained in the default branch
         <enum name="STD_VIDEO_H264_PROFILE_IDC_BASELINE"                    value="66" comment="Only constrained baseline is supported"/>
         <enum name="STD_VIDEO_H264_PROFILE_IDC_MAIN"                        value="77"/>
         <enum name="STD_VIDEO_H264_PROFILE_IDC_HIGH"                        value="100"/>
+        <enum name="STD_VIDEO_H264_PROFILE_IDC_HIGH_10"                     value="110" comment="Annex A.2.5 High 10 profile (profile_idc 100 or 110)"/>
+        <enum name="STD_VIDEO_H264_PROFILE_IDC_HIGH_422"                    value="122" comment="Annex A.2.6 High 4:2:2 profile (profile_idc 100, 110, or 122)"/>
         <enum name="STD_VIDEO_H264_PROFILE_IDC_HIGH_444_PREDICTIVE"         value="244"/>
         <enum name="STD_VIDEO_H264_PROFILE_IDC_INVALID"                     value="0x7FFFFFFF"/>
     </enums>
